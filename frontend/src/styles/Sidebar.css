@@ -1,0 +1,30 @@
+/* src/chatpage/Sidebar.css */
+.sidebar {
+    width: 250px;
+    background-color: #f8c471;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .sidebar h2 {
+    color: white;
+  }
+  
+  .contact-list {
+    margin-top: 20px;
+  }
+  
+  .contact {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .contact h4 {
+    margin: 0;
+  }
+  
+  .contact p {
+    margin: 5px 0 0;
+    color: #555;
+  }
+  
