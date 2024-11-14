@@ -1,0 +1,21 @@
+.message {
+    padding: 10px;
+    margin: 5px;
+    max-width: 60%;
+    border-radius: 10px;
+  }
+  
+  /* Styles for messages sent by the user */
+  .message.self {
+    background-color: #dcf8c6; /* Light green for user messages */
+    align-self: flex-end;
+    text-align: right;
+  }
+  
+  /* Styles for messages from others */
+  .message.other {
+    background-color: #f1f0f0; /* Light gray for other messages */
+    align-self: flex-start;
+    text-align: left;
+  }
+  
