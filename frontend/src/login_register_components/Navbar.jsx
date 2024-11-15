@@ -36,7 +36,7 @@ const Navbar = () => {
                 </HStack>
 
                 <HStack spacing={2} alignItems={"center"}>
-                    <Button as={Link} to={'/register'} variant="solid" bg={'blue.800'}>
+                    <Button as={Link} to={'/register'} variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}}>
                         <FiUserPlus style={{color: "white"}}/><Text color={'white'} fontWeight={'bold'}>{"Register"}</Text>
                     </Button>
                     <NavButton to={"/login"} label={"Login"} bg={'gray.200'} col={'blue.800'}/>
