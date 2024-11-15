@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <Box maxW={"1140px"} px={4} py={5} bg={"white"}>
+        <Box px={4} py={5} bg={"white"}>
             <Flex
                 h={16}
                 alignItems={"center"}
