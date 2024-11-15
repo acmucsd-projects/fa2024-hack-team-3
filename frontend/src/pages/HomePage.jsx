@@ -1,11 +1,12 @@
 import React from 'react'
-import { Box, Button, Flex, SimpleGrid, Stack, Text, Avatar } from '@chakra-ui/react'
+import { Box, Button, Flex, SimpleGrid, Stack, Text, Avatar, Link } from '@chakra-ui/react'
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';
 import PostsSection from '../home_components/PostsSection';
 import CoursesSection from '../home_components/CoursesSection';
 import OnlineBuddies from '../home_components/OnlineBuddies';
 import MakePostButton from '../home_components/MakePostButton';
+import { Link as RouterLink } from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -57,6 +58,7 @@ const HomePage = () => {
           <PostsSection posts={posts} />
         </Box>
       </SimpleGrid>
+      <RouterLink to={"/register"}>register page</RouterLink>
     </Box>
   )
 }
