@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Flex, IconButton, Text } from '@chakra-ui/react'
 import accountIcon from '../assets/account-icon.svg';
 import messageIcon from '../assets/message-icon.svg';
 
