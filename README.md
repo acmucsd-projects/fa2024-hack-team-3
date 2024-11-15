@@ -39,7 +39,7 @@ git status (to check your staged files/folders)
 git push
 ```
 
-# Updated Running - frontend website
+# Running Frontend Website
 ```
 cd frontend
 npm i
