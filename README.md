@@ -30,6 +30,15 @@ DB_URL=mongodb://mongodburl.example.com:portnumber
 8. Happy hacking!
 hi!!!!!!!!
 
+# Pushing to the ACM Repository:
+```
+git checkout branch-name (switch to branch) / git checkout -b branch-name (if branch non-existent)
+git add . (adds all the files/folders)
+git commit -m "message"
+git status (to check your staged files/folders)
+git push
+```
+
 # Updated Running - frontend website
 ```
 cd frontend
