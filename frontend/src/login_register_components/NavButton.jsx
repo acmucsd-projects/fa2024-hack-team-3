@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@chakra-ui/react';
+import { Button, Text } from '@chakra-ui/react';
 
-const NavButton = ({ label, to}) => {
+const NavButton = ({ label, to, bg, col}) => {
     return (
-        <Button as={Link} to={to} variant="outline" colorScheme='teal'>
-            {label}
+        <Button as={Link} to={to} variant="solid" bg={bg}>
+            <Text color={col} fontWeight={'bold'}>{label}</Text>
         </Button>
     );
 }

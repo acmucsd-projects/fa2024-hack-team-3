@@ -1,12 +1,12 @@
 
-import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Image, Text, Button } from "@chakra-ui/react";
 import NavButton from "./NavButton";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <Box px={4} py={5} bg={"white"}>
+        <Box px={4} py={3} bg={"white"}>
             <Flex
                 h={16}
                 alignItems={"center"}
@@ -35,8 +35,8 @@ const Navbar = () => {
                 </HStack>
 
                 <HStack spacing={2} alignItems={"center"}>
-                    <NavButton to={"/register"} label={"Register"} />
-                    <NavButton to={"/login"} label={"Login"} />
+                    <NavButton to={"/register"} label={"Register"} bg={'blue.800'} col={'white'}/>
+                    <NavButton to={"/login"} label={"Login"} bg={'gray.200'} col={'blue.800'}/>
                 </HStack>
             </Flex>
         </Box>
