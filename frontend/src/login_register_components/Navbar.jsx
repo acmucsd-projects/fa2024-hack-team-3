@@ -3,6 +3,7 @@ import { Box, Flex, HStack, Image, Text, Button } from "@chakra-ui/react";
 import NavButton from "./NavButton";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { FiUserPlus } from "react-icons/fi";
 
 const Navbar = () => {
     return (
@@ -35,7 +36,9 @@ const Navbar = () => {
                 </HStack>
 
                 <HStack spacing={2} alignItems={"center"}>
-                    <NavButton to={"/register"} label={"Register"} bg={'blue.800'} col={'white'}/>
+                    <Button as={Link} to={'/register'} variant="solid" bg={'blue.800'}>
+                        <FiUserPlus style={{color: "white"}}/><Text color={'white'} fontWeight={'bold'}>{"Register"}</Text>
+                    </Button>
                     <NavButton to={"/login"} label={"Login"} bg={'gray.200'} col={'blue.800'}/>
                 </HStack>
             </Flex>
