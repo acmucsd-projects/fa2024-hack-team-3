@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background-color: #00416a; /* Example background color */
+    background-color: var(--text-color); /* Example background color */
     color: #ffffff !important;
   }
   
@@ -33,7 +33,7 @@
   }
   
   .posts-section {
-    background-color: #faefda;
+    background-color: var(--quaternary-color);
     flex: 3;
   }
   
@@ -45,14 +45,14 @@
   }
   
   .post {
-    background-color: #fedc97;
+    background-color: var(--secondary-color);
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
   }
   
   .tag {
-    background-color: #ffeb3b;
+    background-color: var(--tertiary-color);
     padding: 0.25rem;
     border-radius: 3px;
     margin-right: 0.5rem;
@@ -60,7 +60,7 @@
   
   .add-courses-btn,
   .make-post-btn {
-    background-color: #033d6d;
+    background-color: var(--text-color);
     color: white;
     padding: 0.5rem;
     border: none;

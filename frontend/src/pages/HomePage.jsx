@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Box, Button, Flex, SimpleGrid, Stack, Text, Avatar } from '@chakra-ui/react'
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';
 import PostsSection from '../home_components/PostsSection';
@@ -15,26 +15,74 @@ const HomePage = () => {
       tags: ["Test Review", "In Person"],
       user: "Mandy Liu CO2028",
     },
+    {
+      title: "Lorem Ipsum",
+      description: "Looking for a study buddy...",
+      tags: ["Test Review", "In Person"],
+      user: "Mandy Liu CO2028",
+    },
+    {
+      title: "Midterm Review at Geisel",
+      description: "Looking for a study buddy...",
+      tags: ["Test Review", "In Person"],
+      user: "Mandy Liu CO2028",
+    }
     // Add more posts
   ];
 
   const courses = ["CSE 11", "COGS 9", "HIUS 112"];
   const buddies = [
-    { profilePicture: "/path/to/profile1.png" },
-    { profilePicture: "/path/to/profile2.png" },
+    { profilePicture: "/assets/aacount-icon.svg" },
+    { profilePicture: "/assets/aacount-icon.svg" },
   ];
 
   return (
-    <div className='home-page'>
+    <Box p={4} maxW="1200px" mx="auto">
       <Header />
-      <div className='content'>
-        <PostsSection posts={posts} />
-        <CoursesSection courses={courses} />
-        <OnlineBuddies buddies={buddies} />
-        <MakePostButton onClick={() => alert("Create a new post")} />
-      </div>
-    </div>
+
+      {/* Responsive two-column layout */}
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={4}>
+      
+      {/* Sidebar: Courses, Online Buddies, Make Post Button */}
+        <Stack spacing={4}>
+          <CoursesSection courses={courses} />
+          <OnlineBuddies buddies={buddies} />
+          <Button colorScheme="blue" onClick={() => alert("Create a new post")}>
+            Make a Post
+          </Button>
+        </Stack>
+
+        {/* Main Content: Posts Section */}
+        <Box gridColumn={{ md: 'span 2' }}>
+          <PostsSection posts={posts} />
+        </Box>
+        
+
+      </SimpleGrid>
+    </Box>
   )
 }
 
+
 export default HomePage
+
+
+      // {/* Responsive two-column layout */}
+      // <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={4}>
+        
+        
+      //   {/* Sidebar: Courses, Online Buddies, Make Post Button */}
+      //   <Stack spacing={4}>
+      //     <CoursesSection courses={courses} />
+      //     <OnlineBuddies buddies={buddies} />
+      //     <Button colorScheme="blue" onClick={() => alert("Create a new post")}>
+      //       Make a Post
+      //     </Button>
+      //   </Stack>
+
+      //   {/* Posts Section */}
+      //   <Box>
+      //     <PostsSection posts={posts} />
+      //   </Box>
+        
+      // </SimpleGrid>
