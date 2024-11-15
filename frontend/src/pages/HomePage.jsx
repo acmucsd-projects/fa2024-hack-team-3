@@ -56,8 +56,6 @@ const HomePage = () => {
         <Box gridColumn={{ md: 'span 2' }}>
           <PostsSection posts={posts} />
         </Box>
-        
-
       </SimpleGrid>
     </Box>
   )
