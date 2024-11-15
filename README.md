@@ -29,3 +29,10 @@ DB_URL=mongodb://mongodburl.example.com:portnumber
     Change it to any port you like!
 8. Happy hacking!
 hi!!!!!!!!
+
+# Updated Running
+```
+cd frontend
+npm i
+npm run dev
+```
