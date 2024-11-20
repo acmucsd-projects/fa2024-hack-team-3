@@ -1,23 +1,82 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../login_register_components/Navbar';
-import NavButton from '../login_register_components/NavButton';
-import { Box, Container, Stack } from '@chakra-ui/react';
+import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Button} from '@chakra-ui/react';
+import { Field } from "../components/ui/field"
+import logo from '../assets/logo.svg';
+import InputField from '../login_register_components/InputField';
 // import ImageSection from '../login_register_components/ImageSection';
 
 const RegisterPage = () => {
     return (
         <Box>
             <Navbar />
-            <Box display={'flex'} justifyContent={'center'} alignItems={'center'} minHeight="calc(100vh - 60px)" bg="gray.100">
-                <Stack direction={{base: 'column', md: 'row'}} maxW="5xl" borderRadius="lg" overflow="hidden" bg="white">
-                    <>HELLO</>
-                    <>HI</>
-                    <>YES</>
-                </Stack>
-            </Box>
+            <Flex
+                h="90vh"
+                maxH="90vh"
+                align="center"
+                justify="center"
+                bg="gray.100"
+                direction={{ base: "row"}}
+            >
+                {/* Form Section */}
+                <Container
+                    flex={{ base: 2}}
+                    p={8}
+                    borderRadius="lg"
+                    mx="4"
+                >
+                    <VStack spacing={4} align="flex-start" px={{base: 4, lg: "10vh"}}>
+                            <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
+                                Study With Us!
+                            </Heading>
+                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
+                                Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
+                            </Text>
+                            <InputField label={"Username"} color={"gray.800"} required/>
+                            <InputField label={"Email"} color={"gray.800"} required/> 
+                            <InputField label={"Password"} color={"gray.800"} required/>
+                            <InputField label={"Confirm Password"} color={"gray.800"} required/>
+                            <Box width="100%" textAlign="center" mt="1em">
+                                <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
+                                    <Text fontWeight={"bold"}>
+                                        REGISTER
+                                    </Text>
+                                </Button>
+                            </Box>
+                            
+                    </VStack>
+                </Container>
+                <Box 
+                    display={{ base: "none", md: "flex" }}
+                    flex={{base: 0, md: 3 }} // Image section takes more space on large screens
+                    alignItems="center"
+                    justifyContent="center"
+                    bg="gray.100" // Optional for visual clarity
+                >
+                    <Image
+                        src={logo}
+                        alt="Study Illustration"
+                        // maxW="90%"
+                        objectFit={"contain"}
+                        h="90vh"
+                        p={4}
+                        zIndex={1}
+                    />
+                </Box>
+
+
+            </Flex>
         </Box>
     )
 }
 
 export default RegisterPage
+
+
+{/* <Box display={'flex'} justifyContent={'center'} alignItems={'center'} minHeight="calc(100vh - 60px)" bg="gray.100">
+                <Stack direction={{base: 'column', md: 'row'}} maxW="5xl" borderRadius="lg" overflow="hidden" bg="white">
+                    <>HELLO</>
+                    <>HI</>
+                    <>YES</>
+                </Stack>
+            </Box> */}

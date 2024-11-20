@@ -7,8 +7,9 @@ import { FiUserPlus } from "react-icons/fi";
 
 const Navbar = () => {
     return (
-        <Box px={4} py={3} bg={"white"}>
+        <Box px={4} py={3} bg={"white"} zIndex={2}>
             <Flex
+                maxH={"9vh"} 
                 h={16}
                 alignItems={"center"}
                 justifyContent={"space-between"}
