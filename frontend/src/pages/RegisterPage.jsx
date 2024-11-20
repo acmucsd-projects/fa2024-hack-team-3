@@ -16,7 +16,7 @@ const RegisterPage = () => {
                 align="center"
                 justify="center"
                 bg="gray.100"
-                direction={{ base: "row"}}
+                direction={{ base: "col", lg: "row" }}
             >
                 {/* Form Section */}
                 <Container
@@ -25,7 +25,7 @@ const RegisterPage = () => {
                     borderRadius="lg"
                     mx="4"
                 >
-                    <VStack spacing={4} align="flex-start" px={{base: 4, lg: "10vh"}}>
+                    <VStack spacing={4} align="flex-start" px={{base: 4,lg: 10}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
                                 Study With Us!
                             </Heading>
@@ -43,6 +43,7 @@ const RegisterPage = () => {
                                     </Text>
                                 </Button>
                             </Box>
+                            <Text textAlign={"center"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
                             
                     </VStack>
                 </Container>

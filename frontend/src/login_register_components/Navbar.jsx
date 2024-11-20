@@ -13,7 +13,7 @@ const Navbar = () => {
                 h={16}
                 alignItems={"center"}
                 justifyContent={"space-between"}
-                flexDirection={{ base: "column", sm: "row" }}
+                flexDirection={{ base: "row", sm: "row" }}
             >
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Logo Container */}
@@ -26,6 +26,7 @@ const Navbar = () => {
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
                             color="black" // Ensure the text is visible
+                            display={{ base: "none", sm: "flex"}}
                         >
                             Study<LinkText color={"black.500"}>
                                     <Text as='span' fontWeight="bold">
