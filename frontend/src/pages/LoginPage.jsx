@@ -42,7 +42,7 @@ const LoginPage = () => {
                                 </Button>
                             </Box>
                             <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
-                            <Text textAlign={"center"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
+                            <Text textAlign={"left"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
                     </VStack>
                 </Container>
                 <Box 

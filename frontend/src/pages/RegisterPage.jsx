@@ -25,25 +25,25 @@ const RegisterPage = () => {
                     borderRadius="lg"
                     mx="4"
                 >
-                    <VStack spacing={4} align="flex-start" px={{base: 4,lg: 10}}>
+                    <VStack spacing={4} align="flex-start" px={{base: 4,lg: 10}} ml={{lg: "20"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
                                 Study With Us!
                             </Heading>
-                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
+                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "70%"}}>
                                 Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
                             </Text>
-                            <InputField label={"Username"} color={"gray.800"} required/>
-                            <InputField label={"Email"} color={"gray.800"} required/> 
-                            <InputField label={"Password"} color={"gray.800"} required/>
-                            <InputField label={"Confirm Password"} color={"gray.800"} required/>
-                            <Box width="100%" textAlign="center" mt="1em">
+                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
+                            <InputField label={"Email"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/> 
+                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
+                            <InputField label={"Confirm Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
+                            <Box width={{base: "100%", lg: "50%"}} textAlign="center" mt="1em" >
                                 <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
                                     <Text fontWeight={"bold"}>
                                         REGISTER
                                     </Text>
                                 </Button>
                             </Box>
-                            <Text textAlign={"center"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
+                            <Text textAlign={"left"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
                             
                     </VStack>
                 </Container>
