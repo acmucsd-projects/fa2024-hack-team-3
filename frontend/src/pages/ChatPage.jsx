@@ -6,7 +6,9 @@ import ChatWindow from '../chat_components/ChatWindow';
 
 const ChatPage = () => {
   return (
+    
     <>
+      
       <div className='chat-page'>
         <Sidebar />
         <ChatWindow />
