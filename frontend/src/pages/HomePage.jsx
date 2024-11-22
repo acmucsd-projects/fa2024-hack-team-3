@@ -14,19 +14,19 @@ const HomePage = () => {
       title: "Midterm Review at Geisel",
       description: "Looking for a study buddy...",
       tags: ["Test Review", "In Person"],
-      user: "Mandy Liu CO2028",
+      user: "FirstName LastName",
     },
     {
       title: "Lorem Ipsum",
       description: "Looking for a study buddy...",
       tags: ["Test Review", "In Person"],
-      user: "Mandy Liu CO2028",
+      user: "FirstName LastName",
     },
     {
       title: "Midterm Review at Geisel",
       description: "Looking for a study buddy...",
       tags: ["Test Review", "In Person"],
-      user: "Mandy Liu CO2028",
+      user: "FirstName LastName",
     }
     // Add more posts
   ];
