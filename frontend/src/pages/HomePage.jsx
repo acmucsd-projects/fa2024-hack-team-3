@@ -23,6 +23,12 @@ const HomePage = () => {
       user: "FirstName LastName",
     },
     {
+      title: "Lorem Ipsum",
+      description: "Looking for a study buddy...",
+      tags: ["Test Review", "In Person"],
+      user: "Mandy Liu CO2028",
+    },
+    {
       title: "Midterm Review at Geisel",
       description: "Looking for a study buddy...",
       tags: ["Test Review", "In Person"],
