@@ -3,15 +3,17 @@ import { Box, Flex, HStack, Image, Text, Button } from "@chakra-ui/react";
 import NavButton from "./NavButton";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
+import { FiUserPlus } from "react-icons/fi";
 
 const Navbar = () => {
     return (
-        <Box px={4} py={3} bg={"white"}>
+        <Box px={4} py={3} bg={"white"} zIndex={2}>
             <Flex
+                maxH={"9vh"} 
                 h={16}
                 alignItems={"center"}
                 justifyContent={"space-between"}
-                flexDirection={{ base: "column", sm: "row" }}
+                flexDirection={{ base: "row", sm: "row" }}
             >
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Logo Container */}
@@ -24,6 +26,7 @@ const Navbar = () => {
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
                             color="black" // Ensure the text is visible
+                            display={{ base: "none", sm: "flex"}}
                         >
                             Study<LinkText color={"black.500"}>
                                     <Text as='span' fontWeight="bold">
@@ -35,7 +38,9 @@ const Navbar = () => {
                 </HStack>
 
                 <HStack spacing={2} alignItems={"center"}>
-                    <NavButton to={"/register"} label={"Register"} bg={'blue.800'} col={'white'}/>
+                    <Button as={Link} to={'/register'} variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}}>
+                        <FiUserPlus style={{color: "white"}}/><Text color={'white'} fontWeight={'bold'}>{"Register"}</Text>
+                    </Button>
                     <NavButton to={"/login"} label={"Login"} bg={'gray.200'} col={'blue.800'}/>
                 </HStack>
             </Flex>
