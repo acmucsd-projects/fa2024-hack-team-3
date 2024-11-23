@@ -1,13 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const route = require('./routes/route');
-require('dotenv').config();
+const userRoutes = require('./routes/userRoutes');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 
 const app = express();
 
+app.use(express.json());
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        app.use(route);
+        app.use('/users', userRoutes);
     })
     .catch(err => {
         console.log(err);
