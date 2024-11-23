@@ -7,6 +7,7 @@ import ChatWindow from '../chat_components/ChatWindow';
 
 const ChatPage = () => {
   return (
+    
     <>
     <header />
       <div className='chat-page'>
