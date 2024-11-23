@@ -33,10 +33,10 @@ hi!!!!!!!!
 # Pushing to the ACM Repository:
 ```
 git checkout branch-name (switch to branch) / git checkout -b branch-name (if branch non-existent)
+git pull (to get the latest files from main)
 git add . (adds all the files/folders)
 git status (to check your staged files/folders)
 git commit -m "message"
-git pull
 git push
 ```
 
