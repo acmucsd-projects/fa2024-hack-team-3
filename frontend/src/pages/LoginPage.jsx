@@ -4,7 +4,7 @@ import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Butto
 import { Field } from "../components/ui/field"
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 // import ImageSection from '../login_register_components/ImageSection';
 import { jwtDecode } from 'jwt-decode';
 
@@ -15,6 +15,7 @@ const LoginPage = () => {
     // });
 
     return (
+        <GoogleOAuthProvider clientId="907516461833-671rhjggt01ab5hq8vo7ah18qlv5f8vc.apps.googleusercontent.com">
         <Box>
             <Navbar />
             <Flex
@@ -31,17 +32,18 @@ const LoginPage = () => {
                     p={8}
                     borderRadius="lg"
                     mx="4"
+                    maxH={"90vh"}
                 >
-                    <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "20"}}>
+                    <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
                                 We've Missed You!
                             </Heading>
                             <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
                                 Many study buddies are waiting to study with you!
                             </Text>
-                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <Box width={{base: "100%", lg: "50%"}} textAlign="center" mt="1em">
+                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+                            <Box width={{base: "100%", lg: "80%"}} textAlign="center" mt="1em">
                                 <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
                                     <Text fontWeight={"bold"}>
                                         LOGIN
@@ -50,6 +52,7 @@ const LoginPage = () => {
                             </Box>
                             <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
                             <Text textAlign={"left"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
+                            
                             <GoogleLogin 
                                 onSuccess={(credentialResponse) => {
                                     const decoded = jwtDecode(credentialResponse.credential);
@@ -85,6 +88,7 @@ const LoginPage = () => {
 
             </Flex>
         </Box>
+        </GoogleOAuthProvider>
     )
 }
 
