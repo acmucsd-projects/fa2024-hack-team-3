@@ -20,6 +20,7 @@ app.use(bodyParser.json()); // Parse incoming JSON data
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
+        console.log('Connected to MongoDB :D');
         app.use('/api/users', userRoutes);
     })
     .catch(err => {
