@@ -11,7 +11,7 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        app.use('/users', userRoutes);
+        app.use('/api/users', userRoutes);
     })
     .catch(err => {
         console.log(err);
