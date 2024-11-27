@@ -9,6 +9,9 @@ import {GoogleLogin} from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 
 const RegisterPage = () => {
+
+    // const [isLargerThan1024] = useMediaQuery("(min-width: 1024px)");
+
     return (
         <Box>
             <Navbar />
@@ -26,19 +29,20 @@ const RegisterPage = () => {
                     p={8}
                     borderRadius="lg"
                     mx="4"
+                    maxH={"90vh"}
                 >
-                    <VStack spacing={4} align="flex-start" px={{base: 4,lg: 10}} ml={{lg: "20"}}>
+                    <VStack spacing={4} align="flex-start" px={{base: 4, lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
                                 Study With Us!
                             </Heading>
-                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "70%"}}>
+                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "80%"}}>
                                 Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
                             </Text>
-                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <InputField label={"Email"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/> 
-                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <InputField label={"Confirm Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <Box width={{base: "100%", lg: "50%"}} textAlign="center" mt="1em" >
+                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+                            <InputField label={"Email"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/> 
+                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+                            <InputField label={"Confirm Password"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+                            <Box width={{base: "100%", lg: "80%"}} textAlign="center" mt="1em" >
                                 <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
                                     <Text fontWeight={"bold"}>
                                         REGISTER
