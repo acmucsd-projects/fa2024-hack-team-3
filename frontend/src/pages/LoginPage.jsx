@@ -18,8 +18,8 @@ const LoginPage = () => {
         <Box>
             <Navbar />
             <Flex
-                h="90vh"
-                maxH="90vh"
+                h="90%"
+                maxH="90%"
                 align="center"
                 justify="center"
                 bg="gray.100"
@@ -31,7 +31,7 @@ const LoginPage = () => {
                     p={8}
                     borderRadius="lg"
                     mx="4"
-                    maxH={"90vh"}
+                    maxH={"90%"}
                 >
                     <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
