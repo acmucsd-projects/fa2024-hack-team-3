@@ -15,7 +15,6 @@ const LoginPage = () => {
     // });
 
     return (
-        <GoogleOAuthProvider clientId="907516461833-671rhjggt01ab5hq8vo7ah18qlv5f8vc.apps.googleusercontent.com">
         <Box>
             <Navbar />
             <Flex
@@ -88,7 +87,6 @@ const LoginPage = () => {
 
             </Flex>
         </Box>
-        </GoogleOAuthProvider>
     )
 }
 
