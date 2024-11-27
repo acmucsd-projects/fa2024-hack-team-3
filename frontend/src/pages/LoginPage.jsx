@@ -4,14 +4,15 @@ import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Butto
 import { Field } from "../components/ui/field"
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
-import { useGoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 // import ImageSection from '../login_register_components/ImageSection';
+import { jwtDecode } from 'jwt-decode';
 
 const LoginPage = () => {
 
-    const login = useGoogleLogin({
-        onSuccess: tokenResponse => console.log(tokenResponse),
-    });
+    // const login = useGoogleLogin({
+    //     onSuccess: tokenResponse => console.log(tokenResponse),
+    // });
 
     return (
         <Box>
@@ -49,17 +50,18 @@ const LoginPage = () => {
                             </Box>
                             <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
                             <Text textAlign={"left"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
-                            {/* <GoogleLogin 
+                            <GoogleLogin 
                                 onSuccess={(credentialResponse) => {
-                                    console.log(credentialResponse);
+                                    const decoded = jwtDecode(credentialResponse.credential);
+                                    console.log(decoded);
                                 }}
                                 onError={() => {
                                     console.log("Login Failed");
                                 }}
 
-                            /> */}
+                            />
 
-                            <Button onClick={() => login()}> Sign in with Google</Button>
+                            {/* <Button onClick={() => login()}> Sign in with Google</Button> */}
                     </VStack>
                 </Container>
                 <Box 
