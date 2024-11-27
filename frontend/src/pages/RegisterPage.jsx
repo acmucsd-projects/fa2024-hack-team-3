@@ -5,6 +5,7 @@ import { Field } from "../components/ui/field"
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
 // import ImageSection from '../login_register_components/ImageSection';
+import {GoogleLogin} from '@react-oauth/google';
 
 const RegisterPage = () => {
     return (
@@ -44,7 +45,14 @@ const RegisterPage = () => {
                                 </Button>
                             </Box>
                             <Text textAlign={"left"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
-                            
+                            <GoogleLogin 
+                                onSuccess={(credentialResponse) => {
+                                    console.log(credentialResponse);
+                                }}
+                                onError={() => {
+                                    console.log("Login Failed");
+                                }}
+                            />
                     </VStack>
                 </Container>
                 <Box 
