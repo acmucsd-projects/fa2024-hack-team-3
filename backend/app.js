@@ -13,6 +13,9 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 
+// set strict query mode for Mongoose
+mongoose.set('strictQuery', true);
+
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json()); // Parse incoming JSON data
