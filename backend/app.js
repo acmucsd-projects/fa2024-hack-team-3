@@ -1,44 +1,39 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const connectDB = require('./db');
-require('dotenv').config();
-connectDB();
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require("dotenv");
+const cors = require("cors");
+const path = require('path');
+// Routes
+//const authRoutes = require('./routes/authRoutes'); // Import your auth routes
+const userRoutes = require('./routes/userRoutes');
+const PostRoutes = require('./routes/postRoutes');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-var app = express();
+const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log('Connected to MongoDB :D');
+        app.use('/users', userRoutes);
+        app.use('/api/posts', PostRoutes)
+    })
+    .catch(err => {
+        console.log('Failed to connect to MongoDB :(',err.message);
+    });
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// Register API routes
+//app.use('/api/auth', authRoutes); // Link the Google login handler
+app.use('/api/posts', PostRoutes); // For posts
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
