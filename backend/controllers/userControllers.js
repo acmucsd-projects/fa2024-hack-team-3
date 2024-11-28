@@ -3,13 +3,13 @@ const User = require('../models/userModel');
 const createUser = async (req, res) => {
     console.log("Incoming Request Body:", req.body);
 
-    const { username, emailAddress, courses, anonymous} = req.body;
+    const { username, emailAddress, password} = req.body;
 
-    if (!username || !emailAddress) {
+    if (!username || !emailAddress || !password) {
         return res.status(400).json({ error: 'Please provide all fields' });
     }
     try {
-        const user = await User.create({username, emailAddress, courses, anonymous});
+        const user = await User.create({username, emailAddress, password});
         console.log("Created User: ", user);
         res.status(201).json(user);
     } catch (err) {
