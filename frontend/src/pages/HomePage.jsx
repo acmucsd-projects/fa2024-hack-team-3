@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { Box, Button, Input, SimpleGrid, Stack, Textarea, FormControl, FormLabel } from '@chakra-ui/react'
+import { Box, Button, Input, SimpleGrid, Stack } from '@chakra-ui/react'
 import axios from 'axios';
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';

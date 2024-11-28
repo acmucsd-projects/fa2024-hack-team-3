@@ -25,12 +25,14 @@ mongoose.connect(process.env.MONGO_URI)
         app.use('/api/posts', PostRoutes)
     })
     .catch(err => {
-        console.log('Failed to connect to MongoDB :(',err.message);
+        console.log('Failed to connect to MongoDB :(', err.message);
+        console.error('MongoDB Connection Error:', err);
+        process.exit(1);
     });
 
 // Register API routes
 //app.use('/api/auth', authRoutes); // Link the Google login handler
-app.use('/api/posts', PostRoutes); // For posts
+// app.use('/api/posts', PostRoutes); // For posts
 
 
 
