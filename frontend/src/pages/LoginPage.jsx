@@ -6,7 +6,7 @@ import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
 // import ImageSection from '../login_register_components/ImageSection';
 
-const RegisterPage = () => {
+const LoginPage = () => {
     return (
         <Box>
             <Navbar />
@@ -25,26 +25,24 @@ const RegisterPage = () => {
                     borderRadius="lg"
                     mx="4"
                 >
-                    <VStack spacing={4} align="flex-start" px={{base: 4,lg: 10}} ml={{lg: "20"}}>
+                    <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "20"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
-                                Study With Us!
+                                We've Missed You!
                             </Heading>
-                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "70%"}}>
-                                Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
+                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
+                                Many study buddies are waiting to study with you!
                             </Text>
                             <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <InputField label={"Email"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/> 
                             <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <InputField label={"Confirm Password"} color={"gray.800"} required width={{base: "100%", lg: "50%"}}/>
-                            <Box width={{base: "100%", lg: "50%"}} textAlign="center" mt="1em" >
+                            <Box width={{base: "100%", lg: "50%"}} textAlign="center" mt="1em">
                                 <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
                                     <Text fontWeight={"bold"}>
-                                        REGISTER
+                                        LOGIN
                                     </Text>
                                 </Button>
                             </Box>
-                            <Text textAlign={"left"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
-                            
+                            <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
+                            <Text textAlign={"left"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
                     </VStack>
                 </Container>
                 <Box 
@@ -71,7 +69,7 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage
+export default LoginPage
 
 
 {/* <Box display={'flex'} justifyContent={'center'} alignItems={'center'} minHeight="calc(100vh - 60px)" bg="gray.100">

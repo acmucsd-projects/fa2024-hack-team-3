@@ -7,12 +7,13 @@ import { FiUserPlus } from "react-icons/fi";
 
 const Navbar = () => {
     return (
-        <Box px={4} py={3} bg={"white"}>
+        <Box px={4} py={3} bg={"white"} zIndex={2}>
             <Flex
+                maxH={"9vh"} 
                 h={16}
                 alignItems={"center"}
                 justifyContent={"space-between"}
-                flexDirection={{ base: "column", sm: "row" }}
+                flexDirection={{ base: "row", sm: "row" }}
             >
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Logo Container */}
@@ -25,6 +26,7 @@ const Navbar = () => {
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
                             color="black" // Ensure the text is visible
+                            display={{ base: "none", sm: "flex"}}
                         >
                             Study<LinkText color={"black.500"}>
                                     <Text as='span' fontWeight="bold">
