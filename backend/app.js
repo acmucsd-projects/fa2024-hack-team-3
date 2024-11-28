@@ -12,7 +12,10 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests only from this origin (your frontend)
+}));
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
