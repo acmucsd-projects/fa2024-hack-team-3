@@ -1,28 +1,9 @@
 const express = require('express');
-const Post = require('../models/userPost');
+const { createPost } = require('../controllers/postController');  // Import the controller
 const router = express.Router();
 
 // Create a new post
-router.post('/', async (req, res) => {
-    try {
-        const { title, description, tags, userId } = req.body;
-
-        // Create a new post instance
-        const newPost = new Post({
-            title,
-            description,
-            tags,
-            userId
-        });
-
-        // Save the post to the database
-        const savedPost = await newPost.save();
-
-        res.status(201).json(savedPost);  // Respond with the created post
-    } catch (err) {
-        res.status(500).json({ message: 'Failed to create post', error: err.message });
-    }
-});
+router.post('/', createPost); // Use the controller function directly
 
 // Get all posts
 router.get('/', async (req, res) => {
