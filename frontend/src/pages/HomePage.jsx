@@ -41,9 +41,8 @@ const HomePage = () => {
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
-          <Button colorScheme="blue" onClick={() => navigateToCreatePostPage()}>
-            Make a Post
-          </Button>
+          {/* Pass setPosts to MakePostButton*/}
+          <MakePostButton setPosts={setPosts} />
         </Stack>
 
         {/* Main Content: Posts Section */}

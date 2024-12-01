@@ -1,53 +1,69 @@
-import React , {useState} from "react";
-import { Button, Input, Textarea } from '@chakra-ui/react';
-import axios from "axios";
+import React, { useState } from 'react';
+import { Box, Button, Input, Textarea } from '@chakra-ui/react';
+import axios from 'axios';
 
-const MakePostButton = () => {
+const MakePostButton = ({ setPosts }) => {
+  const [showCreatePost, setShowCreatePost] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [tags, setTags] = useState('');
-  const [userId, setUserId] = useState(''); 
-  
-  const handleCreatePost = () => {
-    const newPost = {
-      title,
-      description,
-      tags: tags.split(',').map(tag => tag.trim()), //splits tags by commas
-      userId, //possible needs removal
-    };
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState('');
 
-    axios.post('http://localhost:5000/api/posts', newPost)
-      .then(response => {
-        alert('Post created successfully!');
-      })
-      .catch(error => {
-        console.error("There was an error creating the post:", error);
+  const handleCreatePost = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/posts', {
+        title,
+        description,
+        tags,
       });
+
+      // Update the posts in HomePage
+      setPosts((prevPosts) => [response.data, ...prevPosts]);
+
+      // Clear the form and hide the creation area
+      setTitle('');
+      setDescription('');
+      setTags([]);
+      setTagInput('');
+      setShowCreatePost(false);
+    } catch (error) {
+      console.error("Error creating post:", error);
+    }
   };
+
+  const removeTag = (tagToRemove) => {
+    setTags(tags.filter((tag) => tag !== tagToRemove));
+  };
+
   return (
-    <div>
-      <Input
-        placeholder="Post Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        mb={4}
-      />  
-      <Textarea 
-        placeholder="Post Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        mb={4}
-      />
-      <Input
-        placeholder="Tags (comma separated)"
-        value={tags}
-        onChange={(e) => setTags(e.target.value)}
-        mb={4}
-      />
-      <Button colorScheme="blue" onClick={handleCreatePost}>
-        Create Post
+    <Box>
+      {/* Toggle Button */}
+      <Button colorScheme="blue" onClick={() => setShowCreatePost(!showCreatePost)}>
+        {showCreatePost ? 'Cancel' : '📃 New Post'}
       </Button>
-    </div>
+
+      {/* Post Creation Form */}
+      {showCreatePost && (
+        <Box p={4} mt={4} border="1px solid" borderColor="gray.300" borderRadius="md" bg="gray.50">
+          <Input
+            placeholder="Topic Title*"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            mb={4}
+          />
+          <Textarea
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            mb={4}
+          />
+
+          <Button colorScheme="teal" onClick={handleCreatePost}>
+            Post Your Question or Note!
+          </Button>
+        </Box>
+      )}
+    </Box>
   );
 };
 
