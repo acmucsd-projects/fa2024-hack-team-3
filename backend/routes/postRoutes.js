@@ -1,6 +1,8 @@
 const express = require('express');
 const { createPost } = require('../controllers/postController');  // Import the controller
 const router = express.Router();
+const Post = require('../models/userPost'); // Path to your Post model
+
 
 // Create a new post
 router.post('/', createPost); // Use the controller function directly
@@ -15,18 +17,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a single post by ID
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
-        if (!post) {
-            return res.status(404).json({ message: 'Post not found' });
-        }
-        res.status(200).json(post);
-    } catch (err) {
-        res.status(500).json({ message: 'Failed to fetch post', error: err.message });
+        const posts = await Post.find(); // Use the imported Post model
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to fetch posts', error: error.message });
     }
 });
+
 
 // Update a post
 router.put('/:id', async (req, res) => {

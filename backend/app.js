@@ -7,6 +7,8 @@ const path = require('path');
 //const authRoutes = require('./routes/authRoutes'); // Import your auth routes
 const userRoutes = require('./routes/userRoutes');
 const PostRoutes = require('./routes/postRoutes');
+const Post = require('./models/userPost'); // Ensure this path is correct
+
 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
