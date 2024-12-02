@@ -26,7 +26,7 @@ app.use(express.json());
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB :D');
-        app.use('/users', userRoutes);
+        app.use('/api/users', userRoutes);
         app.use('/api/posts', PostRoutes)
     })
     .catch(err => {
