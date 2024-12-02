@@ -1,4 +1,4 @@
-# 💻 MERN stack template
+# 📖 Study Buddy Application
 
 Template for building projects with the MERN (MongoDB, Express, React, Node.js) stack.
 This template was generated using `create-next-app` and `express-generator` for the
