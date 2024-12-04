@@ -66,6 +66,7 @@ const RegisterPage = () => {
                 status: "success",
                 duration: 3000,
                 isClosable: true,
+                type: "success"
             });
 
             // Clear form data
@@ -86,6 +87,8 @@ const RegisterPage = () => {
                 status: "error",
                 duration: 3000,
                 isClosable: true,
+                type: "error",
+                overlap: true
             });
         }
     };
