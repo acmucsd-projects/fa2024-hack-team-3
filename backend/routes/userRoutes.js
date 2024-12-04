@@ -1,5 +1,5 @@
 const express = require('express');
-const { createUser, loginUser } = require('../controllers/userControllers');
+const { createUser, loginUser, checkUsername, checkEmail } = require('../controllers/userControllers');
 
 const router = express.Router();
 
@@ -9,6 +9,10 @@ router.post('/', (req, res, next) => {
 }, createUser);
 
 router.post('/login', loginUser);
+
+router.post('/check-username', checkUsername);
+
+router.post('/check-email', checkEmail);
 
 // router.post('/', async (req, res) => {
 //     try {

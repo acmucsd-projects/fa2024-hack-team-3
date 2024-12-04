@@ -22,13 +22,70 @@ const RegisterPage = () => {
         confirmPassword: ""
     });
 
+    const [validationErrors, setValidationErrors] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+    });
+
     const navigate = useNavigate();
 
+    // Validation Rules
+    const validateField = async (name, value) => {
+        switch (name) {
+            case "username":
+                if (!/^[a-zA-Z0-9]{3,15}$/.test(value)) {
+                    return "Username must be 3-15 characters long, letters and numbers only";
+                }
+                try {
+                    const response = await axios.post("http://localhost:5000/api/users/check-username", { username: value });
+                    if (response.data.exists) {
+                        return "Username is already taken";
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+                return "";
+            case "email":
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    return "Please enter a valid email address";
+                }
+                try {
+                    const response = await axios.post("http://localhost:5000/api/users/check-email", { emailAddress: value });
+                    if (response.data.exists) {
+                        return "Email is already taken";
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+                return "";
+            case "password":
+                if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value)) {
+                    return "Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a number, and a special character.";
+                }
+                return "";
+            case "confirmPassword":
+                if (value !== formData.password) {
+                    return "Passwords do not match";
+                }
+                return "";
+            default:
+                return "";
+        }
+    };
+
     // Handle input changes
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value } = e.target;
+
+        // Update form data
         setFormData({ ...formData, [name]: value}); // Update the form data
-    }
+        
+        // Validate field and update validation errors
+        const errorMessage = await validateField(name, value);
+        setValidationErrors({ ...validationErrors, [name]: errorMessage });
+    };
 
     // Handle form submission
     const handleSubmit = async () => {
@@ -40,16 +97,29 @@ const RegisterPage = () => {
             password,
         })
 
-        if (password !== confirmPassword) {
-            toaster.create({
-                title: "Passwords do not match",
-                description: "Please make sure your passwords match.",
-                duration: 3000,
-                status: "error",
-                isClosable: true
-            });
+        const errors = {
+            username: await validateField("username", username),
+            email: await validateField("email", email),
+            password: await validateField("password", password),
+            confirmPassword: await validateField("confirmPassword", confirmPassword)
+        }
+
+        setValidationErrors(errors);
+
+        if (Object.values(errors).some(err => err !== "")) {
             return;
         }
+
+        // if (password !== confirmPassword) {
+        //     toaster.create({
+        //         title: "Passwords do not match",
+        //         description: "Please make sure your passwords match.",
+        //         duration: 3000,
+        //         status: "error",
+        //         isClosable: true
+        //     });
+        //     return;
+        // }
 
         try {
             // Make API call to register user
@@ -120,6 +190,8 @@ const RegisterPage = () => {
                             <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "80%"}}>
                                 Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
                             </Text>
+
+                            {/* Username Field */}
                             <InputField 
                                 label={"Username"}
                                 name={"username"}
@@ -129,6 +201,11 @@ const RegisterPage = () => {
                                 required
                                 width={{base: "100%", lg: "80%"}}
                             />
+                            {validationErrors.username && (
+                                <Text color="red.500" fontSize="sm">{validationErrors.username}</Text>
+                            )}
+
+                            {/* Email Field */}
                             <InputField 
                                 label={"Email"} 
                                 name={"email"}
@@ -138,6 +215,11 @@ const RegisterPage = () => {
                                 required 
                                 width={{base: "100%", lg: "80%"}}
                             /> 
+                            {validationErrors.email && (
+                                <Text color="red.500" fontSize="sm">{validationErrors.email}</Text>
+                            )}
+
+                            {/* Password Field */}
                             <InputField 
                                 label={"Password"} 
                                 name={"password"}
@@ -148,6 +230,11 @@ const RegisterPage = () => {
                                 required 
                                 width={{base: "100%", lg: "80%"}}
                             />
+                            {validationErrors.password && (
+                                <Text color="red.500" fontSize="sm">{validationErrors.password}</Text>
+                            )}
+
+                            {/* Confirm Password Field */}
                             <InputField 
                                 label={"Confirm Password"} 
                                 name={"confirmPassword"}
@@ -156,7 +243,12 @@ const RegisterPage = () => {
                                 onChange={handleChange}
                                 color={"gray.800"} 
                                 required 
-                                width={{base: "100%", lg: "80%"}}/>
+                                width={{base: "100%", lg: "80%"}}
+                            />
+                            {validationErrors.confirmPassword && (
+                                <Text color="red.500" fontSize="sm">{validationErrors.confirmPassword}</Text>
+                            )}
+
                             <Box width={{base: "100%", lg: "80%"}} textAlign="center" mt="1em" >
                                 <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%"
                                     onClick={handleSubmit}

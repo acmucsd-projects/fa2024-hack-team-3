@@ -115,6 +115,7 @@ const LoginPage = () => {
                             <InputField 
                                 label={"Password"} 
                                 name={"password"}
+                                type={"password"}
                                 value={formData.password}
                                 color={"gray.800"} 
                                 required 

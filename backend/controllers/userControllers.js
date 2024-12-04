@@ -56,7 +56,21 @@ const loginUser = async (req, res) => {
     }
 };
 
+const checkUsername = async (req, res) => {
+    const { username } = req.body;
+    const user = await User.findOne({ username });
+    res.status(200).json({ exists: !!user });
+};
+
+const checkEmail = async (req, res) => {
+    const { emailAddress } = req.body;
+    const user = await User.findOne( {emailAddress});
+    res.status(200).json({ exists: !!user });
+};
+
 module.exports = {
     createUser,
     loginUser,
+    checkUsername,
+    checkEmail,
 }
