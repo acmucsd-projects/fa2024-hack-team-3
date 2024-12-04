@@ -77,7 +77,7 @@ const RegisterPage = () => {
                 confirmPassword: ""
             });
 
-            setTimeout(() => {navigate("/login")}, 3000);
+            setTimeout(() => {navigate("/login")}, 2000);
         } catch (err) {
             // Show error toast
             const errorMessage = err.response?.data?.message || "An error occurred. Please try again.";
