@@ -10,7 +10,7 @@ import {
 } from "../components/ui/select"
 import axios from 'axios';
 
-const MakePostButton = ({ setPosts }) => {
+const MakePostButton = ({ setPosts, courses }) => {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -20,12 +20,8 @@ const MakePostButton = ({ setPosts }) => {
 
   const [selectedOption, setSelectedOption] = useState("") // Track selected option
   const options = createListCollection({
-    items: [
-      { label: "Option 1", value: "option1" },
-      { label: "Option 2", value: "option2" },
-      { label: "Option 3", value: "option3" },
-    ],
-  })
+    items: courses.map(course => ({ label: course, value: course })), // Line 18
+  });
 
   const handleCreatePost = async () => {
     try {
@@ -48,10 +44,6 @@ const MakePostButton = ({ setPosts }) => {
       console.error("Error creating post:", error);
     }
   };
-
-  // const removeTag = (tagToRemove) => {
-  //   setTags(tags.filter((tag) => tag !== tagToRemove));
-  // };
 
   return (
     <Box>
@@ -76,16 +68,17 @@ const MakePostButton = ({ setPosts }) => {
             mb={4}
           />
 
-          {/* Advanced Select */}
+          {/*Select */}
           <SelectRoot
             collection={options}
             value={selectedOption}
             onValueChange={(value) => setSelectedOption(value)}
             size="sm"
             width="100%"
+            mb={4}
           >
             <SelectTrigger>
-              <SelectValueText placeholder="Select an option" />
+              <SelectValueText placeholder="Related course" />
             </SelectTrigger>
             <SelectContent>
               {options.items.map((item) => (
@@ -97,7 +90,11 @@ const MakePostButton = ({ setPosts }) => {
           </SelectRoot>
 
 
-          <Button colorScheme="teal" onClick={handleCreatePost}>
+          <Button 
+          colorScheme="teal" 
+          gap ="100"
+
+          onClick={handleCreatePost}>
             Post Your Question or Note!
           </Button>
         </Box>

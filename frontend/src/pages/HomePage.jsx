@@ -42,7 +42,7 @@ const HomePage = () => {
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
           {/* Pass setPosts to MakePostButton*/}
-          <MakePostButton setPosts={setPosts} />
+          <MakePostButton setPosts={setPosts} courses={courses}/>
         </Stack>
 
         {/* Main Content: Posts Section */}
