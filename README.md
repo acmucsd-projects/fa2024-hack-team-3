@@ -42,7 +42,16 @@ git push
 
 # Running Frontend Website
 ```
-cd frontend
+cd backend
+npm i
+npm start
+
+cd ../frontend
 npm i
 npm run dev
+```
+
+NOTE: Make sure you have a MONGO_URI variable in an .env file set to
+```
+MONGO_URI=mongodb+srv://<db_username>:<db_password>@studybuddy.nor8x.mongodb.net/posts?retryWrites=true&w=majority&appName=Studybuddy
 ```
