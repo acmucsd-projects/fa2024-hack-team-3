@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from '../login_register_components/Navbar';
-import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Button} from '@chakra-ui/react';
-import { Field } from "../components/ui/field"
+import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Button} from '@chakra-ui/react';
 import { Toaster, toaster } from '../components/ui/toaster';
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
-// import ImageSection from '../login_register_components/ImageSection';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -47,6 +45,7 @@ const LoginPage = () => {
                 password,
             });
 
+            localStorage.setItem("authToken", response.data.token); // Save token to localStorage
             // If login is successful
             toaster.create({
                 title: "Login Successful!",

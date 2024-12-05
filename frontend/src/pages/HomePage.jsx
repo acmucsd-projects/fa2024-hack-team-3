@@ -8,6 +8,7 @@ import CoursesSection from '../home_components/CoursesSection';
 import OnlineBuddies from '../home_components/OnlineBuddies';
 import MakePostButton from '../home_components/MakePostButton';
 import { Link as RouterLink } from 'react-router-dom';
+import Logout from '../home_components/Logout';
 
 const HomePage = () => {
   // State to store the posts
@@ -51,6 +52,7 @@ const HomePage = () => {
         </Box>
       </SimpleGrid>
       <RouterLink to={"/register"}>Create Your Study Buddy Account</RouterLink>
+      <Logout/>
     </Box>
   )
 }
