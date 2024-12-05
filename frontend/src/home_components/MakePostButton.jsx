@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea } from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection} from '@chakra-ui/react';
+import {
+  SelectContent,
+  SelectItem,
+  SelectLabel,
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText,
+} from "../components/ui/select"
 import axios from 'axios';
 
 const MakePostButton = ({ setPosts }) => {
@@ -8,6 +16,16 @@ const MakePostButton = ({ setPosts }) => {
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
+
+
+  const [selectedOption, setSelectedOption] = useState("") // Track selected option
+  const options = createListCollection({
+    items: [
+      { label: "Option 1", value: "option1" },
+      { label: "Option 2", value: "option2" },
+      { label: "Option 3", value: "option3" },
+    ],
+  })
 
   const handleCreatePost = async () => {
     try {
@@ -31,9 +49,9 @@ const MakePostButton = ({ setPosts }) => {
     }
   };
 
-  const removeTag = (tagToRemove) => {
-    setTags(tags.filter((tag) => tag !== tagToRemove));
-  };
+  // const removeTag = (tagToRemove) => {
+  //   setTags(tags.filter((tag) => tag !== tagToRemove));
+  // };
 
   return (
     <Box>
@@ -57,6 +75,27 @@ const MakePostButton = ({ setPosts }) => {
             onChange={(e) => setDescription(e.target.value)}
             mb={4}
           />
+
+          {/* Advanced Select */}
+          <SelectRoot
+            collection={options}
+            value={selectedOption}
+            onValueChange={(value) => setSelectedOption(value)}
+            size="sm"
+            width="100%"
+          >
+            <SelectTrigger>
+              <SelectValueText placeholder="Select an option" />
+            </SelectTrigger>
+            <SelectContent>
+              {options.items.map((item) => (
+                <SelectItem item={item} key={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </SelectRoot>
+
 
           <Button colorScheme="teal" onClick={handleCreatePost}>
             Post Your Question or Note!
