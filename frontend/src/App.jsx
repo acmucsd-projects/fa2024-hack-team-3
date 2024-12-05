@@ -26,9 +26,10 @@ function App() {
         <Routes>
           <Route path='/' 
             element={
-              <ProtectedRoute>
+              // REMOVE THIS WHEN REST OF WEBSITE IS READY
+              // <ProtectedRoute>
                 <HomePage />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route path='/chat' element={<ChatPage />}/>
