@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../login_register_components/Navbar';
-import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Button} from '@chakra-ui/react';
-import { Field } from "../components/ui/field"
+import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Button} from '@chakra-ui/react';
+import { Toaster, toaster } from '../components/ui/toaster';
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
-// import ImageSection from '../login_register_components/ImageSection';
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginPage = () => {
 
@@ -14,8 +15,64 @@ const LoginPage = () => {
     //     onSuccess: tokenResponse => console.log(tokenResponse),
     // });
 
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    });
+
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+    // Handle input changes
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({...formData, [name]: value});
+    };
+
+    // Handle login
+    const handleLogin = async () => {
+        const { username, password } = formData;
+
+        if (!username || !password) {
+            setError("Please provide both username and password");
+            return;
+        }
+
+        try {
+            // Send login request to backend
+            const response = await axios.post("http://localhost:5000/api/users/login", {
+                username,
+                password,
+            });
+
+            localStorage.setItem("authToken", response.data.token); // Save token to localStorage
+            // If login is successful
+            toaster.create({
+                title: "Login Successful!",
+                description: `Welcome back, ${username}!`,
+                duration: 3000,
+                status: "success",
+                isClosable: true,
+                type: "success"
+            });
+
+            // Clear form data
+            setFormData({
+                username: "",
+                password: "",
+            });
+
+            setTimeout(() => {navigate("/")}, 2000);
+        } catch (err) {
+            console.error("Login Error: ", err);
+            setError(err.response?.data?.error || "An error occurred. Please try again.");
+        }
+    }
+
     return (
+        
         <Box>
+            <Toaster />
             <Navbar />
             <Flex
                 h="90%"
@@ -40,10 +97,47 @@ const LoginPage = () => {
                             <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
                                 Many study buddies are waiting to study with you!
                             </Text>
-                            <InputField label={"Username"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
-                            <InputField label={"Password"} color={"gray.800"} required width={{base: "100%", lg: "80%"}}/>
+
+                            {/* Username Field */}
+                            <InputField 
+                                label={"Username"} 
+                                name={"username"}
+                                value={formData.username}
+                                color={"gray.800"} 
+                                onChange={handleChange}
+                                required 
+                                width={{base: "100%", lg: "80%"}}
+                                
+                            />
+
+                            {/* Password Field */}
+                            <InputField 
+                                label={"Password"} 
+                                name={"password"}
+                                type={"password"}
+                                value={formData.password}
+                                color={"gray.800"} 
+                                required 
+                                width={{base: "100%", lg: "80%"}}
+                                onChange={handleChange}
+                            />
+
+                            {/* Error Message */}
+                            { error && (
+                                <Text color={"red.500"} textAlign={"left"} fontSize={"md"} fontWeight={"medium"}>
+                                    {error}
+                                </Text>
+                            )}
+
+                            {/* Login Button */}
                             <Box width={{base: "100%", lg: "80%"}} textAlign="center" mt="1em">
-                                <Button variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}} width="100%">
+                                <Button 
+                                    variant="solid" 
+                                    bg={'blue.800'} 
+                                    _hover={{bg: "blue.700"}} 
+                                    width="100%"
+                                    onClick={handleLogin}
+                                >
                                     <Text fontWeight={"bold"}>
                                         LOGIN
                                     </Text>
@@ -92,11 +186,3 @@ const LoginPage = () => {
 
 export default LoginPage
 
-
-{/* <Box display={'flex'} justifyContent={'center'} alignItems={'center'} minHeight="calc(100vh - 60px)" bg="gray.100">
-                <Stack direction={{base: 'column', md: 'row'}} maxW="5xl" borderRadius="lg" overflow="hidden" bg="white">
-                    <>HELLO</>
-                    <>HI</>
-                    <>YES</>
-                </Stack>
-            </Box> */}
