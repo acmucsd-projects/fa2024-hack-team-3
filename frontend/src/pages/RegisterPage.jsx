@@ -1,9 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { useState } from 'react';
 import Navbar from '../login_register_components/Navbar';
-import { Box, Container, Flex, Stack, Image, VStack, Heading, Text, Input, Button} from '@chakra-ui/react';
+import { Box, Container, Flex, Image, VStack, Heading, Text, Button} from '@chakra-ui/react';
 import { Toaster, toaster } from '../components/ui/toaster';
-import { Field } from "../components/ui/field"
 import logo from '../assets/logo.svg';
 import InputField from '../login_register_components/InputField';
 // import ImageSection from '../login_register_components/ImageSection';

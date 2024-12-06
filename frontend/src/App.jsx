@@ -27,9 +27,9 @@ function App() {
           <Route path='/' 
             element={
               // REMOVE THIS WHEN REST OF WEBSITE IS READY
-              // <ProtectedRoute>
+              <ProtectedRoute>
                 <HomePage />
-              // </ProtectedRoute>
+              </ProtectedRoute>
             }
           />
           <Route path='/chat' element={<ChatPage />}/>
