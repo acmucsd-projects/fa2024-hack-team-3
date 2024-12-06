@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+// const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
@@ -20,7 +20,7 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 // Checks for unique username and email
-userSchema.plugin(uniqueValidator, {message: 'Error: {PATH} is already taken'});
+// userSchema.plugin(uniqueValidator, {message: 'Error: {PATH} is already taken'});
 
 // Hash the password before saving
 userSchema.pre('save', async function(next) {
