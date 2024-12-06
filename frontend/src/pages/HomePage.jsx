@@ -43,7 +43,7 @@ const HomePage = () => {
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
           {/* Pass setPosts to MakePostButton*/}
-          <MakePostButton setPosts={setPosts} />
+          <MakePostButton setPosts={setPosts} courses={courses}/>
         </Stack>
 
         {/* Main Content: Posts Section */}
@@ -61,22 +61,3 @@ const HomePage = () => {
 export default HomePage
 
 
-      // {/* Responsive two-column layout */}
-      // <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={4}>
-        
-        
-      //   {/* Sidebar: Courses, Online Buddies, Make Post Button */}
-      //   <Stack spacing={4}>
-      //     <CoursesSection courses={courses} />
-      //     <OnlineBuddies buddies={buddies} />
-      //     <Button colorScheme="blue" onClick={() => alert("Create a new post")}>
-      //       Make a Post
-      //     </Button>
-      //   </Stack>
-
-      //   {/* Posts Section */}
-      //   <Box>
-      //     <PostsSection posts={posts} />
-      //   </Box>
-        
-      // </SimpleGrid>

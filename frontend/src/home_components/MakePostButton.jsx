@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea } from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection} from '@chakra-ui/react';
+import {
+  SelectContent,
+  SelectItem,
+  SelectLabel,
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText,
+} from "../components/ui/select"
 import axios from 'axios';
 
-const MakePostButton = ({ setPosts }) => {
+const MakePostButton = ({ setPosts, courses }) => {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
+
+
+  const [selectedOption, setSelectedOption] = useState("") // Track selected option
+  const options = createListCollection({
+    items: courses.map(course => ({ label: course, value: course })), // Line 18
+  });
 
   const handleCreatePost = async () => {
     try {
@@ -29,10 +43,6 @@ const MakePostButton = ({ setPosts }) => {
     } catch (error) {
       console.error("Error creating post:", error);
     }
-  };
-
-  const removeTag = (tagToRemove) => {
-    setTags(tags.filter((tag) => tag !== tagToRemove));
   };
 
   return (
@@ -58,7 +68,33 @@ const MakePostButton = ({ setPosts }) => {
             mb={4}
           />
 
-          <Button colorScheme="teal" onClick={handleCreatePost}>
+          {/*Select */}
+          <SelectRoot
+            collection={options}
+            value={selectedOption}
+            onValueChange={(value) => setSelectedOption(value)}
+            size="sm"
+            width="100%"
+            mb={4}
+          >
+            <SelectTrigger>
+              <SelectValueText placeholder="Related course" />
+            </SelectTrigger>
+            <SelectContent>
+              {options.items.map((item) => (
+                <SelectItem item={item} key={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </SelectRoot>
+
+
+          <Button 
+          colorScheme="teal" 
+          gap ="100"
+
+          onClick={handleCreatePost}>
             Post Your Question or Note!
           </Button>
         </Box>
