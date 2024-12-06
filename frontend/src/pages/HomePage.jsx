@@ -1,5 +1,6 @@
-import React from 'react'
-import { Box, Button, Flex, SimpleGrid, Stack, Text, Avatar, Link } from '@chakra-ui/react'
+import React, { useState, useEffect} from 'react'
+import { Box, Button, Input, SimpleGrid, Stack } from '@chakra-ui/react'
+import axios from 'axios';
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';
 import PostsSection from '../home_components/PostsSection';
@@ -7,35 +8,22 @@ import CoursesSection from '../home_components/CoursesSection';
 import OnlineBuddies from '../home_components/OnlineBuddies';
 import MakePostButton from '../home_components/MakePostButton';
 import { Link as RouterLink } from 'react-router-dom';
+import Logout from '../home_components/Logout';
 
 const HomePage = () => {
+  // State to store the posts
+  const [posts, setPosts] = useState([]);
 
-  const posts = [{
-      title: "Midterm Review at Geisel",
-      description: "Looking for a study buddy...",
-      tags: ["Test Review", "In Person"],
-      user: "FirstName LastName",
-    },
-    {
-      title: "Lorem Ipsum",
-      description: "Looking for a study buddy...",
-      tags: ["Test Review", "In Person"],
-      user: "FirstName LastName",
-    },
-    {
-      title: "Lorem Ipsum",
-      description: "Looking for a study buddy...",
-      tags: ["Test Review", "In Person"],
-      user: "Mandy Liu CO2028",
-    },
-    {
-      title: "Midterm Review at Geisel",
-      description: "Looking for a study buddy...",
-      tags: ["Test Review", "In Person"],
-      user: "FirstName LastName",
-    }
-    // Add more posts
-  ];
+  // Fetch posts from the backend when the component mounts
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/posts')
+    .then(response => {
+      setPosts(response.data); // set posts in state
+    })
+    .catch(error => {
+      console.error("There was an error fetching the posts:", error);
+    });
+  }, []); //empty dependency array to run only once on mount
 
   const courses = ["CSE 11", "COGS 9", "HIUS 112"];
   const buddies = [
@@ -54,9 +42,8 @@ const HomePage = () => {
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
-          <Button colorScheme="blue" onClick={() => alert("Create a new post")}>
-            Make a Post
-          </Button>
+          {/* Pass setPosts to MakePostButton*/}
+          <MakePostButton setPosts={setPosts} courses={courses}/>
         </Stack>
 
         {/* Main Content: Posts Section */}
@@ -64,31 +51,11 @@ const HomePage = () => {
           <PostsSection posts={posts} />
         </Box>
       </SimpleGrid>
-      <RouterLink to={"/register"}>register page</RouterLink>
+      <RouterLink to={"/register"}>Create Your Study Buddy Account</RouterLink>
+      <Logout/>
     </Box>
   )
 }
 
 
 export default HomePage
-
-
-      // {/* Responsive two-column layout */}
-      // <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mt={4}>
-        
-        
-      //   {/* Sidebar: Courses, Online Buddies, Make Post Button */}
-      //   <Stack spacing={4}>
-      //     <CoursesSection courses={courses} />
-      //     <OnlineBuddies buddies={buddies} />
-      //     <Button colorScheme="blue" onClick={() => alert("Create a new post")}>
-      //       Make a Post
-      //     </Button>
-      //   </Stack>
-
-      //   {/* Posts Section */}
-      //   <Box>
-      //     <PostsSection posts={posts} />
-      //   </Box>
-        
-      // </SimpleGrid>
