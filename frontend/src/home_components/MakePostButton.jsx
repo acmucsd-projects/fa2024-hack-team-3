@@ -11,11 +11,14 @@ import {
 import axios from 'axios';
 
 const MakePostButton = ({ setPosts, courses }) => {
+
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
+
+  const userId = localStorage.getItem("authUserId");
 
 
   const [selectedOption, setSelectedOption] = useState("") // Track selected option
@@ -29,6 +32,7 @@ const MakePostButton = ({ setPosts, courses }) => {
         title,
         description,
         tags,
+        userId,
       });
 
       // Update the posts in HomePage

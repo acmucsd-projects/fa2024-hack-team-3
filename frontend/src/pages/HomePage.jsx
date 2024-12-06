@@ -25,6 +25,9 @@ const HomePage = () => {
     });
   }, []); //empty dependency array to run only once on mount
 
+  const user = {
+    id: "67526bf2c9693bc165de70b9"
+  }
   const courses = ["CSE 11", "COGS 9", "HIUS 112"];
   const buddies = [
     { profilePicture: "/assets/aacount-icon.svg" },
@@ -32,7 +35,7 @@ const HomePage = () => {
   ];
 
   return (
-    <Box p={4} maxW="1200px" mx="auto">
+    <Box p={4} minW="100vh" mx="auto">
       <Header />
 
       {/* Responsive two-column layout */}
@@ -40,7 +43,7 @@ const HomePage = () => {
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
         <Stack spacing={4}>
-          <CoursesSection courses={courses} />
+          <CoursesSection userId={user.id} />
           <OnlineBuddies buddies={buddies} />
           {/* Pass setPosts to MakePostButton*/}
           <MakePostButton setPosts={setPosts} courses={courses}/>
@@ -59,3 +62,5 @@ const HomePage = () => {
 
 
 export default HomePage
+
+

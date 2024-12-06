@@ -46,6 +46,7 @@ const LoginPage = () => {
             });
 
             localStorage.setItem("authToken", response.data.token); // Save token to localStorage
+            localStorage.setItem("authUserId", response.data.userId); // Save use   rId to localStorage
             // If login is successful
             toaster.create({
                 title: "Login Successful!",
