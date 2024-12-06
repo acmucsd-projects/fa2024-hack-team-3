@@ -32,7 +32,7 @@ const HomePage = () => {
   ];
 
   return (
-    <Box p={4} maxW="1200px" mx="auto">
+    <Box p={4} minW="100vh" mx="auto">
       <Header />
 
       {/* Responsive two-column layout */}
