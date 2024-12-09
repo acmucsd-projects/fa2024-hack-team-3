@@ -10,7 +10,7 @@ router.post('/', createPost); // Use the controller function directly
 // Get all posts
 router.get('/', async (req, res) => {
     try {
-        const posts = await Post.find();  // Retrieve all posts
+        const posts = await Post.find().sort({ createdAt: -1 });  // Retrieve all posts
         res.status(200).json(posts);      // Respond with the list of posts
     } catch (err) {
         res.status(500).json({ message: 'Failed to fetch posts', error: err.message });

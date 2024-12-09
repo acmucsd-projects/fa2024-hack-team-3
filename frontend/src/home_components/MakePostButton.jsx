@@ -36,7 +36,9 @@ const MakePostButton = ({ setPosts, courses }) => {
       });
 
       // Update the posts in HomePage
-      setPosts((prevPosts) => [response.data, ...prevPosts]);
+      setPosts((prevPosts) => {
+        return [response.data, ...prevPosts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort by date, most recent first
+      });
 
       // Clear the form and hide the creation area
       setTitle('');
@@ -53,14 +55,14 @@ const MakePostButton = ({ setPosts, courses }) => {
     <Box>
       {/* Toggle Button */}
       <Button colorScheme="blue" onClick={() => setShowCreatePost(!showCreatePost)}>
-        {showCreatePost ? 'Cancel' : '📃 New Post'}
+        {showCreatePost ? 'Cancel' : '📃New Post'}
       </Button>
 
       {/* Post Creation Form */}
       {showCreatePost && (
         <Box p={4} mt={4} border="1px solid" borderColor="gray.300" borderRadius="md" bg="gray.50">
           <Input
-            placeholder="Topic Title*"
+            placeholder="Topic Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             mb={4}
