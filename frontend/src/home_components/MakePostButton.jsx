@@ -29,6 +29,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   const handleCreatePost = async () => {
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
+        
         title,
         description,
         tags,

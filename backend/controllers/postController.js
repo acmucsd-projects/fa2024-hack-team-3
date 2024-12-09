@@ -1,5 +1,6 @@
 const Post = require('../models/userPost');  // Import the Post model
 const mongoose = require('mongoose');
+const User = require('../models/userModel');
 
 // Create a new post
 const createPost = async (req, res) => {
@@ -27,8 +28,15 @@ const createPost = async (req, res) => {
       return res.status(400).json({ message: 'Invalid userId' });
     }
 
+    const user = await User.findById(userId);
+    if (!user) {
+      console.log("NO USER");
+      return res.status(404).json({ message: 'User not found' });
+    }
+
     // Create a new post instance
     const newPost = new Post({
+      username: user.username,
       title,
       description,
       tags: tags.length ? tags : [],
