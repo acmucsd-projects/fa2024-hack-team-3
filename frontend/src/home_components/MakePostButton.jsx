@@ -17,19 +17,31 @@ const MakePostButton = ({ setPosts, courses }) => {
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState('');
+  const [selectedOption, setSelectedOption] = useState("") // Track selected option
 
   const userId = localStorage.getItem("authUserId");
 
+  const predefinedTags = [
+    "Group Study", "One-on-One", "Online", "In-Person",
+    "Study Over Coffee", "Study in Library", "Study at Home",  "Morning Study",
+    "Afternoon Study", "Evening Study", "Late Night Study", "Weekend Study",
+    "Exam Prep", "Homework Help", "Research Paper Writing", "Project Collaboration",
+    "Study for Quizzes", "Assignment Help", "Discussion & Debates", "Quiet Space",
+    "Music-Friendly", "Coffee Shop", "Library", "Outdoors", "Co-Working Space", "At-Home Study"
+  ];
 
-  const [selectedOption, setSelectedOption] = useState("") // Track selected option
   const options = createListCollection({
     items: courses.map(course => ({ label: course, value: course })), // Line 18
   });
 
   const handleCreatePost = async () => {
+    // if (!description || !userId) {
+    //   // Handle validation errors as needed
+    //   console.error("Description and userId are required.");
+    //   return;
+    // }
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
-        
         title,
         description,
         tags,
@@ -37,9 +49,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       });
 
       // Update the posts in HomePage
-      setPosts((prevPosts) => {
-        return [response.data, ...prevPosts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort by date, most recent first
-      });
+      setPosts((prevPosts) => [response.data, ...prevPosts]);
 
       // Clear the form and hide the creation area
       setTitle('');
@@ -52,22 +62,32 @@ const MakePostButton = ({ setPosts, courses }) => {
     }
   };
 
+
   return (
     <Box>
       {/* Toggle Button */}
-      <Button colorScheme="blue" onClick={() => setShowCreatePost(!showCreatePost)}>
+      <Button 
+      colorScheme="blue" 
+      variant="solid"
+      _hover={{
+      bg: 'blue.600', // Darker shade for better contrast
+      color: 'white', // Ensure text remains white
+    }}
+    onClick={() => setShowCreatePost(!showCreatePost)}>
         {showCreatePost ? 'Cancel' : '📃New Post'}
       </Button>
 
       {/* Post Creation Form */}
       {showCreatePost && (
         <Box p={4} mt={4} border="1px solid" borderColor="gray.300" borderRadius="md" bg="gray.50">
+          {/* Title Input */}
           <Input
             placeholder="Topic Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             mb={4}
           />
+          {/* Description Textarea */}
           <Textarea
             placeholder="Description"
             value={description}
@@ -98,9 +118,12 @@ const MakePostButton = ({ setPosts, courses }) => {
 
 
           <Button 
-          colorScheme="teal" 
-          gap ="100"
-
+          colorScheme="blue" 
+          gap ="100"variant="solid"
+          _hover={{
+          bg: 'blue.600', // Darker shade for better contrast
+          color: 'white', // Ensure text remains white
+          }}
           onClick={handleCreatePost}>
             Post Your Question or Note!
           </Button>
