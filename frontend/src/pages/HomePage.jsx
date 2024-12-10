@@ -9,15 +9,21 @@ import OnlineBuddies from '../home_components/OnlineBuddies';
 import MakePostButton from '../home_components/MakePostButton';
 import { Link as RouterLink } from 'react-router-dom';
 import Logout from '../home_components/Logout';
+import { ColorModeProvider } from "../components/ui/color-mode" //dark mode
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+import { ColorModeButton } from "../components/ui/color-mode"
+import system  from '../theme'
+
 
 const HomePage = () => {
   // State to store the posts
   const [posts, setPosts] = useState([]);
-
+  
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
     axios.get('http://localhost:5000/api/posts')
     .then(response => {
+      console.log(response.data)
       setPosts(response.data); // set posts in state
     })
     .catch(error => {
@@ -32,6 +38,9 @@ const HomePage = () => {
   ];
 
   return (
+    <ChakraProvider value={system}>
+      <ColorModeProvider>
+      
     <Box p={4} minW="100vh" mx="auto">
       <Header />
 
@@ -42,6 +51,7 @@ const HomePage = () => {
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
+          <ColorModeButton />
           {/* Pass setPosts to MakePostButton*/}
           <MakePostButton setPosts={setPosts} courses={courses}/>
         </Stack>
@@ -54,6 +64,8 @@ const HomePage = () => {
       <RouterLink to={"/register"}>Create Your Study Buddy Account</RouterLink>
       <Logout/>
     </Box>
+    </ColorModeProvider>
+    </ChakraProvider>
   )
 }
 

@@ -40,6 +40,7 @@ const MakePostButton = ({ setPosts, courses }) => {
     //   console.error("Description and userId are required.");
     //   return;
     // }
+    console.log(tags);
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
         title,

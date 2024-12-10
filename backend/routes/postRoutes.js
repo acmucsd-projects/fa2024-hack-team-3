@@ -2,6 +2,7 @@ const express = require('express');
 const { createPost } = require('../controllers/postController');  // Import the controller
 const router = express.Router();
 const Post = require('../models/userPost'); // Path to your Post model
+const authenticate = require('../middleware/authenticate');
 
 
 // Create a new post
@@ -41,12 +42,17 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a post
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticate, async (req, res) => {
     try {
-        const deletedPost = await Post.findByIdAndDelete(req.params.id);
-        if (!deletedPost) {
+        const post = await Post.findById(req.params.id);
+        if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
+        // Check if the authenticated user owns the post
+        if (post.userId.toString() !== req.user.id) {
+            return res.status(403).json({ message: 'You do not have permission to delete this post' });
+        }
+        await Post.findByIdAndDelete(req.params.id);
         res.status(200).json({ message: 'Post deleted successfully' });
     } catch (err) {
         res.status(500).json({ message: 'Failed to delete post', error: err.message });

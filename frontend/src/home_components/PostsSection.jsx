@@ -1,18 +1,19 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Post from './Post';
 import { Box, Heading, Text, Stack, Button, Flex } from '@chakra-ui/react';
 
-const PostsSection = ({ posts }) => {
+const PostsSection = ({ posts, setPosts }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
 
-  // Calculate the total pages
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-
+  const handleDeletePost = (postId) => {
+    setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
+};
+  // Calculate pagination values
+  const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate the total pages
   // Calculate the start and end indices for slicing
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
-
   // Slice the posts for the current page
   const currentPosts = posts.slice(startIndex, endIndex);
 
@@ -30,15 +31,15 @@ const PostsSection = ({ posts }) => {
   };
 
   return (
-    <Box className="posts-section" p={4}>
-      <Heading as="h2" size="lg" mb={4}>Homepage Posts</Heading>
+    <Box className="posts-section" p={4} bg="bg.muted" >
+      <Heading as="h2" size="lg" mb={4}>Explore Posts</Heading>
       <Text mb={4}>{posts.length} total results for (placeholder until courses implemented) </Text>
 
       {/* Stack component to arrange posts vertically */}
       <Stack spacing={6}>
-        {currentPosts.slice().map((post, index) => (
-          <Post key={index} post={post} />
-        ))}
+          {currentPosts.map((post) => (
+              <Post key={post._id} post={post} onDelete={handleDeletePost} />
+          ))}
       </Stack>
 
       {/* Pagination Controls */}
