@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, createListCollection} from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection, HStack, Select} from '@chakra-ui/react';
+import { Tag } from "../components/ui/tag"
+import { GoChevronDown } from "react-icons/go";
 import {
   SelectContent,
   SelectItem,
@@ -33,7 +35,27 @@ const MakePostButton = ({ setPosts, courses }) => {
   const options = createListCollection({
     items: courses.map(course => ({ label: course, value: course })), // Line 18
   });
+  // Handle adding custom tags
+  const handleTagInputKeyDown = (e) => {
+    if (e.key === 'Enter' && tagInput.trim() !== '') {
+      e.preventDefault();
+      addTag(tagInput.trim());
+      setTagInput('');
+    }
+  };
 
+  // Add a tag to the list if it doesn't already exist
+  const addTag = (newTag) => {
+    if (!tags.includes(newTag)) {
+      setTags((prevTags) => [...prevTags, newTag]);
+    }
+  };
+
+  // Remove a tag
+  const removeTag = (tagToRemove) => {
+    setTags((prevTags) => prevTags.filter((tag) => tag !== tagToRemove));
+  };
+  
   const handleCreatePost = async () => {
     // if (!description || !userId) {
     //   // Handle validation errors as needed
@@ -87,6 +109,8 @@ const MakePostButton = ({ setPosts, courses }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             mb={4}
+            bg="bg.textbg"
+            
           />
           {/* Description Textarea */}
           <Textarea
@@ -94,8 +118,20 @@ const MakePostButton = ({ setPosts, courses }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             mb={4}
+            bg="bg.textbg"
           />
 
+          {/* Tag Input */}
+          <Input
+            placeholder="Add a custom tag and press Enter"
+            value={tagInput}
+            onChange={(e) => setTagInput(e.target.value)}
+            onKeyDown={handleTagInputKeyDown}
+            mb={4}
+            bg="bg.textbg"
+          />
+
+          
           {/*Select */}
           <SelectRoot
             collection={options}

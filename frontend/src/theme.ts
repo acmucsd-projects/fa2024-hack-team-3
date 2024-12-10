@@ -17,6 +17,9 @@ const config = defineConfig({
             subtle: {
               value: { _light: "{#FFFFFF}", _dark: "#1a1a1a" }, // Custom dark subtle background
             },
+            textbg: {
+                value: { _light: "{#FFFFFF}", _dark: "#FFFFFF" }, // Custom dark subtle background
+              },
             muted: {
               value: { _light: "{colors.gray.100}", _dark: "#262626" }, // Custom dark muted background
             },

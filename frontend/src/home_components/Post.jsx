@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text, Badge, HStack, VStack, Spacer, Button } from '@chakra-ui/react';
+
 import axios from 'axios';
 
 const Post = ({ post, onDelete }) => {
@@ -32,12 +33,16 @@ const Post = ({ post, onDelete }) => {
                 </VStack>
                 <Spacer />
                 {post.userId === authUserId && ( // Show delete button only if the user owns the post
-                    <Button size="sm" colorScheme="red" onClick={handleDelete}>
-                        Delete
+                    <Button size="sm" colorScheme="red" onClick={handleDelete} 
+                    _hover={{
+                        bg: 'red.600', // Darker shade for better contrast
+                        color: 'white', // Ensure text remains white
+                      }}>
+                        Delete Post
                     </Button>
                 )}
             </HStack>
-            <Text fontSize="lg" fontWeight="bold" colorScheme="blue" mb={2}>{post.title}</Text>
+            <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.subtle" mb={2}>{post.title}</Text>
             <Text mb={4}>{post.description}</Text>
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (

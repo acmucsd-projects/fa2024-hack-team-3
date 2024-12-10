@@ -7,8 +7,6 @@ import { Provider } from './components/ui/provider'
 import { Box } from '@chakra-ui/react'
 import { ColorModeProvider } from "./components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
-import { ColorModeButton } from "./components/ui/color-mode"
-// import { system } from "@chakra-ui/react/preset";
 import system  from './theme'
 function App() {
 

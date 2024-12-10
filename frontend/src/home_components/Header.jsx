@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <h1>Study Buddy Finder - Home</h1>
+            <h1>StudyLink - Home</h1>
             <div className='header-icons'>
                 {/* Account icon, no need for NavLink if it's not linking to another page*/}
                 <img src={ accountIcon } alt='Account Icon' className='icon'/>
