@@ -19,7 +19,6 @@ const Post = ({ post, onDelete }) => {
     };
     return (
         <Box 
-            
             borderRadius="lg" 
             p={4} 
             boxShadow="sm" 
@@ -38,7 +37,7 @@ const Post = ({ post, onDelete }) => {
                     </Button>
                 )}
             </HStack>
-            <Text fontSize="lg" fontWeight="bold" mb={2}>{post.title}</Text>
+            <Text fontSize="lg" fontWeight="bold" colorScheme="blue" mb={2}>{post.title}</Text>
             <Text mb={4}>{post.description}</Text>
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (

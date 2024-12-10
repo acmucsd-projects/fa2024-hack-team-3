@@ -71,7 +71,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       colorScheme="blue" 
       variant="solid"
       _hover={{
-      bg: 'blue.600', // Darker shade for better contrast
+      bg: 'blue.500', // Darker shade for better contrast
       color: 'white', // Ensure text remains white
     }}
     onClick={() => setShowCreatePost(!showCreatePost)}>
@@ -80,7 +80,7 @@ const MakePostButton = ({ setPosts, courses }) => {
 
       {/* Post Creation Form */}
       {showCreatePost && (
-        <Box p={4} mt={4} border="1px solid" borderColor="gray.300" borderRadius="md" bg="gray.50">
+        <Box p={4} mt={4} border="1px solid" borderColor="gray.600" borderRadius="md" bg="bg.muted">
           {/* Title Input */}
           <Input
             placeholder="Topic Title"

@@ -51,7 +51,11 @@ const HomePage = () => {
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
-          <ColorModeButton />
+          <ColorModeButton 
+            _hover={{
+            bg: 'blue.700', // Darker shade for better contrast
+            color: 'white', // Ensure text remains white
+          }}/>
           {/* Pass setPosts to MakePostButton*/}
           <MakePostButton setPosts={setPosts} courses={courses}/>
         </Stack>
