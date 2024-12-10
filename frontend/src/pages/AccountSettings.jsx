@@ -1,18 +1,31 @@
 //account settings page
 import React from "react";
-import { Flex} from "@chakra-ui/react";
+import { Flex, Text, Button} from "@chakra-ui/react";
 import Sidebar from "../account_settings_components/Sidebar";
 import AccountHeader from "../account_settings_components/AccountHeader";
-//import AccountForm from "../account_settings_components/AccountForm";
-//import CoursesSection from "../account_settings_components/CoursesSection";
-//import LogoutButton from "../account_settings_components/LogoutButton";
+import PasswordForm from "../account_settings_components/PasswordForm";
+import CoursesSection from "../account_settings_components/CoursesSection";
+import Header from "../home_components/Header";
 
 const AccountSettings = () => {
   return (
-    <Flex direction="row" h="100vh" p={4} bg="gray.50">
-        <Sidebar />
-        <AccountHeader />
-    </Flex>
+    <>
+      <Header />
+      <Flex direction="row" h="90vh" p={4} bg="gray.50">
+          <Sidebar />
+          <Flex direction="column" px="50vh" alignItems="center">
+            <AccountHeader px="5vh"/>
+            <Text fontSize="lg" fontWeight="bold" marginTop="5">
+                Account Information
+            </Text>
+            <Flex direction="row">
+              <PasswordForm />
+              <CoursesSection />
+            </Flex>
+            <Button px="10vh">Save</Button>
+          </Flex>
+      </Flex>
+    </>
   );
 };
 

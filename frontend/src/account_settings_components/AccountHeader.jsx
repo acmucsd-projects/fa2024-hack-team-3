@@ -7,7 +7,7 @@ const AccountHeader = () => {
     <Flex
       direction="row"
       justify="center" // Centers horizontally
-      h="100vh" // Full screen height
+      h="10vh" // Full screen height
     >
         <Avatar size="2xl" mb={4} />
         <VStack align="center" ml={6}> {/* Adds spacing between Avatar and the inputs */}

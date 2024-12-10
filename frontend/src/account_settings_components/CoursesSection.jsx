@@ -1,5 +1,6 @@
 import React from "react";
-import { VStack, FormControl, Input, Flex, Text, IconButton } from "@chakra-ui/react";
+import { VStack, Container, Input, Flex, Text, IconButton } from "@chakra-ui/react";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CoursesSection = () => {
   return (
@@ -7,19 +8,27 @@ const CoursesSection = () => {
       <Text fontSize="lg" fontWeight="bold">
         Courses
       </Text>
-      <FormControl>
+      <Container>
         <Input placeholder="Add Course" />
-      </FormControl>
+      </Container>
       <VStack align="start" spacing={2}>
         {["Class 1", "Class 2", "Class 3", "Class 4"].map((course, index) => (
           <Flex key={index} justify="space-between" w="100%">
-            <Text>{course}</Text>
+            <Text px="5vh">{course}</Text>
             <IconButton
-              icon={<span>&times;</span>}
-              variant="ghost"
-              size="sm"
+              // icon={<span>&times;</span>}
+              variant="solid"
+              size="xs"
               aria-label="Remove course"
-            />
+              w="5px"
+              rounded="full"
+              _hover={{
+                bg: 'blue.900',
+                color: 'white'
+              }}
+            >
+              <AiOutlineClose />
+            </IconButton>
           </Flex>
         ))}
       </VStack>
