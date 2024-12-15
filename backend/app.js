@@ -8,6 +8,7 @@ const path = require('path');
 const userRoutes = require('./routes/userRoutes');
 const PostRoutes = require('./routes/postRoutes');
 const Post = require('./models/userPost'); // Ensure this path is correct
+const commentRoutes = require('./routes/commentRoutes');
 
 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
@@ -27,7 +28,8 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB :D');
         app.use('/api/users', userRoutes);
-        app.use('/api/posts', PostRoutes)
+        app.use('/api/posts', PostRoutes);
+        app.use('/api/posts', commentRoutes);
     })
     .catch(err => {
         console.log('Failed to connect to MongoDB :(', err.message);

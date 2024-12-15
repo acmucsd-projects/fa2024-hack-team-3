@@ -33,7 +33,7 @@ const PostsSection = ({ posts, setPosts }) => {
   return (
     <Box className="posts-section" p={4} bg="bg.muted" >
       <Heading as="h2" size="lg" mb={4}>Explore Posts</Heading>
-      <Text mb={4}>{posts.length} total results for (placeholder until courses implemented) </Text>
+      <Text mb={4} >{posts.length} total results for (placeholder until courses implemented) </Text>
 
       {/* Stack component to arrange posts vertically */}
       <Stack spacing={6}>
@@ -44,12 +44,12 @@ const PostsSection = ({ posts, setPosts }) => {
 
       {/* Pagination Controls */}
       <Flex justifyContent="space-between" mt={4}>
-        <Button onClick={handleBack} disabled={currentPage === 1} variant="solid"
+        <Button onClick={handleBack} disabled={currentPage === 1} bg='bg.button' variant="solid"
         _hover={{bg: 'blue.600', color: 'white'}}>
           Back
         </Button>
         <Text alignSelf="center">Page {currentPage} of {totalPages}</Text>
-        <Button onClick={handleNext} disabled={currentPage === totalPages} variant="solid"
+        <Button onClick={handleNext} disabled={currentPage === totalPages} bg='bg.button' variant="solid" 
         _hover={{bg: 'blue.600', color: 'white'}}>
           Next
         </Button>

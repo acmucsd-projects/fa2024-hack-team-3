@@ -7,7 +7,15 @@ const PostSchema = new mongoose.Schema(
         description: { type: String, required: true, trim: true },
         tags: { type: [String], default: ["insert course"]}, 
         userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },  // Associate with use
+        comments: [
+            {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'Comment',
+            }
+          ],
+          
     }, 
+    
     { timestamps: true }
 );
 

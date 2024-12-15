@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, Textarea, createListCollection, HStack, Select} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
-import { GoChevronDown } from "react-icons/go";
 import {
   SelectContent,
   SelectItem,
@@ -18,7 +17,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
-  const [tagInput, setTagInput] = useState('');
+  const [tagInput, setTagInput] = useState("");
   const [selectedOption, setSelectedOption] = useState("") // Track selected option
 
   const userId = localStorage.getItem("authUserId");
@@ -30,7 +29,7 @@ const MakePostButton = ({ setPosts, courses }) => {
     "Exam Prep", "Homework Help", "Research Paper Writing", "Project Collaboration",
     "Study for Quizzes", "Assignment Help", "Discussion & Debates", "Quiet Space",
     "Music-Friendly", "Coffee Shop", "Library", "Outdoors", "Co-Working Space", "At-Home Study"
-  ];
+  ].map(String);
 
   const options = createListCollection({
     items: courses.map(course => ({ label: course, value: course })), // Line 18
@@ -57,12 +56,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   };
   
   const handleCreatePost = async () => {
-    // if (!description || !userId) {
-    //   // Handle validation errors as needed
-    //   console.error("Description and userId are required.");
-    //   return;
-    // }
-    console.log(tags);
+    // console.log(tags);
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
         title,
@@ -85,7 +79,7 @@ const MakePostButton = ({ setPosts, courses }) => {
     }
   };
 
-
+  //console.log("Predefined Tags:", predefinedTags);
   return (
     <Box>
       {/* Toggle Button */}
@@ -96,43 +90,105 @@ const MakePostButton = ({ setPosts, courses }) => {
       bg: 'blue.500', // Darker shade for better contrast
       color: 'white', // Ensure text remains white
     }}
-    onClick={() => setShowCreatePost(!showCreatePost)}>
+    onClick={() => setShowCreatePost(!showCreatePost)}
+    >
         {showCreatePost ? 'Cancel' : '📃New Post'}
-      </Button>
+    </Button>
 
-      {/* Post Creation Form */}
-      {showCreatePost && (
-        <Box p={4} mt={4} border="1px solid" borderColor="gray.600" borderRadius="md" bg="bg.muted">
-          {/* Title Input */}
-          <Input
-            placeholder="Topic Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            mb={4}
-            bg="bg.textbg"
-            
-          />
-          {/* Description Textarea */}
-          <Textarea
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            mb={4}
-            bg="bg.textbg"
-          />
+    {/* Post Creation Form */}
+    {showCreatePost && (
+      <Box 
+        p={4} 
+        mt={4} 
+        border="1px solid" 
+        borderColor="gray.600" 
+        borderRadius="md" 
+        bg="bg.muted"
+      >
+        {/* Title Input */}
+        <Input
+          placeholder="Topic Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          mb={4}
+          bg="bg.textbg" // bg.textbg comes from theme.ts
+        />
+        {/* Description Textarea */}
+        <Textarea
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          mb={4}
+          bg="bg.textbg"
+        />
 
-          {/* Tag Input */}
-          <Input
-            placeholder="Add a custom tag and press Enter"
-            value={tagInput}
-            onChange={(e) => setTagInput(e.target.value)}
-            onKeyDown={handleTagInputKeyDown}
-            mb={4}
-            bg="bg.textbg"
-          />
+        {/* Tag Input */}
+        <Input
+          placeholder="Add a custom tag and press Enter"
+          value={tagInput}
+          onChange={(e) => setTagInput(e.target.value)}
+          onKeyDown={handleTagInputKeyDown}
+          mb={4}
+          bg="bg.textbg"
+        />
 
-          
-          {/*Select */}
+        {/* Display Selected Tags */}
+        <HStack spacing={2} wrap="wrap" mb={4}>
+          {tags.map((tag) => (
+            <Tag
+              key={tag}
+              bg="blue.100"
+              color="blue.800"
+              borderRadius="full"
+              px={3}
+              py={1}
+              fontSize="sm"
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              maxWidth="200px" // Optional: Limit tag width to prevent overflow
+              overflow="hidden"
+              whiteSpace="nowrap"
+              textOverflow="ellipsis"
+            >
+              <Box
+                as="span"
+                flex="1"
+                textAlign="center"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {tag}
+              </Box>
+              {/* Custom Close Button */}
+              <Box
+                as="button"
+                onClick={() => removeTag(tag)}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                bg="transparent"
+                border="none"
+                cursor="pointer"
+                color="blue.800"
+                _hover={{ color: "red.500" }}
+                _focus={{ outline: "none" }}
+                fontSize="12px" /* Adjust size */
+                lineHeight="1"
+                height="16px"
+                width="16px"
+                ml={2} /* Margin to separate text and button */
+                borderRadius="full"
+              >
+                ×
+              </Box>
+            </Tag>
+          ))}
+        </HStack>
+
+
+
+          {/* Classes Select */}
           <SelectRoot
             collection={options}
             value={selectedOption}
@@ -153,19 +209,21 @@ const MakePostButton = ({ setPosts, courses }) => {
             </SelectContent>
           </SelectRoot>
 
-
-          <Button 
-          colorScheme="blue" 
-          gap ="100"variant="solid"
-          _hover={{
-          bg: 'blue.600', // Darker shade for better contrast
-          color: 'white', // Ensure text remains white
-          }}
-          onClick={handleCreatePost}>
-            Post Your Question or Note!
-          </Button>
-        </Box>
-      )}
+          {/* Submit Button */}
+            <Button 
+              colorScheme="blue" 
+              gap ="100"
+              variant="solid"
+              _hover={{
+              bg: 'blue.600', // Darker shade for better contrast
+              color: 'white', // Ensure text remains white
+            }}
+              onClick={handleCreatePost}
+            >
+              Post Your Question or Note!
+            </Button>
+          </Box>
+        )}
     </Box>
   );
 };

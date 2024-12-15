@@ -36,17 +36,17 @@ const Post = ({ post, onDelete }) => {
                     <Button size="sm" colorScheme="red" onClick={handleDelete} 
                     _hover={{
                         bg: 'red.600', // Darker shade for better contrast
-                        color: 'white', // Ensure text remains white
+                        color: '#F5F0E6', // Ensure text remains white
                       }}>
                         Delete Post
                     </Button>
                 )}
             </HStack>
             <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.subtle" mb={2}>{post.title}</Text>
-            <Text mb={4}>{post.description}</Text>
+            <Text mb={4} color="#00629B">{post.description}</Text>
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (
-                    <Badge key={index} colorScheme="blue">{tag}</Badge>
+                    <Badge key={index} colorScheme="blue" bg="bg.muted">{tag}</Badge>
                 ))}
             </HStack>
         </Box>
