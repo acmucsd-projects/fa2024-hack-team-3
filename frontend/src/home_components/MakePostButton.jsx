@@ -186,8 +186,6 @@ const MakePostButton = ({ setPosts, courses }) => {
           ))}
         </HStack>
 
-
-
           {/* Classes Select */}
           <SelectRoot
             collection={options}

@@ -5,8 +5,8 @@ const Post = require('../models/userPost'); // Optional, for verifying post exis
 exports.getCommentsByPostId = async (req, res) => {
   try {
     const comments = await Comment.find({ postId: req.params.postId })
-      .populate('userId', 'username') // Populate user details if needed
-      .sort({ createdAt: 1 }); // Sort comments by creation time (oldest first)
+      .populate('userId', 'username') // Ensure 'username' exists in User schema
+      .sort({ createdAt: 1 });
 
     res.status(200).json(comments);
   } catch (error) {
@@ -14,27 +14,41 @@ exports.getCommentsByPostId = async (req, res) => {
   }
 };
 
+
 // Add a new comment to a post
 exports.addCommentToPost = async (req, res) => {
   const { postId } = req.params;
-  const { userId, text } = req.body;
+  const { text } = req.body;
+  const userId = req.user?.id;
 
-  if (!text || !userId) {
-    return res.status(400).json({ message: 'Text and userId are required' });
+  if (!userId) {
+    return res.status(401).json({ message: "User not authenticated" });
+  }
+
+  if (!postId) {
+    return res.status(400).json({ message: "Post ID is required" });
+  }
+
+
+  if (!text) {
+    console.warn("Invalid comment payload:", req.body);
+    return res.status(400).json({ message: "Text is required" });
   }
 
   try {
-    // Optionally check if the post exists
     const post = await Post.findById(postId);
     if (!post) {
-      return res.status(404).json({ message: 'Post not found' });
+      return res.status(404).json({ message: "Post not found" });
     }
 
     const newComment = new Comment({ postId, userId, text });
     await newComment.save();
 
-    res.status(201).json(newComment);
+    const populatedComment = await newComment.populate("userId", "username");
+    res.status(201).json(populatedComment);
+    console.log("New comment created:", populatedComment);
   } catch (error) {
-    res.status(500).json({ message: 'Failed to add comment', error: error.message });
+    res.status(500).json({ message: "Failed to add comment", error: error.message });
   }
 };
+

@@ -23,7 +23,7 @@ const HomePage = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/api/posts')
     .then(response => {
-      console.log(response.data)
+      // console.log(response.data)
       setPosts(response.data); // set posts in state
     })
     .catch(error => {

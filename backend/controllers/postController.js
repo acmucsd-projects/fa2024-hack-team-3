@@ -9,12 +9,12 @@ const createPost = async (req, res) => {
 
     if (!description) {
       console.log("NO DESCRIPTION");
-      return res.status(400).json({ message: 'Description and userId are required' });
+      return res.status(400).json({ message: 'Description is required' });
     }
 
     if (!userId) {
       console.log("NO USERID");
-      return res.status(400).json({ message: 'Description and userId are required' });
+      return res.status(400).json({ message: 'userId is required' });
     }
 
     // if (!description || !userId) {

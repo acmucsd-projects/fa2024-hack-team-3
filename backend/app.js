@@ -6,7 +6,7 @@ const path = require('path');
 // Routes
 //const authRoutes = require('./routes/authRoutes'); // Import your auth routes
 const userRoutes = require('./routes/userRoutes');
-const PostRoutes = require('./routes/postRoutes');
+const postRoutes = require('./routes/postRoutes');
 const Post = require('./models/userPost'); // Ensure this path is correct
 const commentRoutes = require('./routes/commentRoutes');
 
@@ -28,7 +28,7 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB :D');
         app.use('/api/users', userRoutes);
-        app.use('/api/posts', PostRoutes);
+        app.use('/api/posts', postRoutes);
         app.use('/api/posts', commentRoutes);
     })
     .catch(err => {
