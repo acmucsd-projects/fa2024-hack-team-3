@@ -2,25 +2,47 @@ const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const createUser = async (req, res) => {
-    console.log("Incoming Request Body:", req.body);
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({}).sort({ createdAt: -1 });
 
-    const { username, emailAddress, password, courses, anonymous} = req.body;
+        return res.status(200).json(users);
+    } catch (err) {
+        return res.status(400).json({ error: err.message });
+    }
+}
+
+const getUser = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findById({ _id: id });
+
+        return res.status(200).json(user);
+    } catch (err) {
+        return res.status(400).json({ error: err.message });
+    }
+}
+
+const createUser = async (req, res) => {
+    const { username, emailAddress, password, courses, anonymous } = req.body;
 
     if (!username || !emailAddress || !password) {
         return res.status(400).json({ error: 'Please provide all fields' });
     }
+
     try {
         const user = await User.create({username, emailAddress, courses, password, anonymous});
-        console.log("Created User: ", user);
-        res.status(201).json(user);
+
+        return res.status(201).json(user);
     } catch (err) {
         if (err.code === 11000) {
             const duplicateField = Object.keys(err.keyValue);
+
             return res.status(400).json({ error: `${duplicateField} is already taken` });
         }
-        console.log("Error: ", err);
-        res.status(500).json({ error: err.message });
+
+        return res.status(400).json({ error: err.message });
     }
 }
 
@@ -60,23 +82,51 @@ const loginUser = async (req, res) => {
         console.log("Error during login: ", err);
         res.status(500).json({ error: 'Internal server error' });
     }
-};
+}
 
 const checkUsername = async (req, res) => {
     const { username } = req.body;
     const user = await User.findOne({ username });
     res.status(200).json({ exists: !!user });
-};
+}
 
 const checkEmail = async (req, res) => {
     const { emailAddress } = req.body;
     const user = await User.findOne( {emailAddress});
     res.status(200).json({ exists: !!user });
-};
+}
+
+const deleteUser = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findOneAndDelete({ _id: id });
+
+        return res.status(200).json(user);
+    } catch (err) {
+        return res.status(400).json({ error: err.message });
+    }
+}
+
+const updateUser = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.findOneAndUpdate({ _id: id }, { ...req.body });
+        
+        return res.status(200).json(user);
+    } catch (err) {
+        return res.status(400).json({ error: err.message });
+    }
+}
 
 module.exports = {
+    getAllUsers,
+    getUser,
     createUser,
     loginUser,
     checkUsername,
     checkEmail,
+    deleteUser,
+    updateUser   
 }
