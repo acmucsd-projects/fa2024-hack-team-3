@@ -69,12 +69,14 @@ const loginUser = async (req, res) => {
         }
 
         // Respond with success (in a real-world app, also generate a token)
-        const token = jwt.sign({ id: user._id }, process.env.MONGO_URI, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, username: user.username, profilePicture: user.profilePicture }, process.env.MONGO_URI, { expiresIn: '1h' });
 
         res.status(200).json({
             message: 'Login successful',
             userId: user._id,
-            token
+            username: user.username,
+            profilePicture: user.profilePicture,
+            token,
         });
     } catch (err) {
         console.log("Error during login: ", err);
