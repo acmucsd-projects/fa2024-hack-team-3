@@ -258,7 +258,10 @@ const MakePostButton = ({ setPosts, courses }) => {
             </Button>
           </DialogTrigger>
 
-          <DialogContent>
+          <DialogContent
+            overflow="visible"
+            position="relative"
+          >
             <DialogHeader>
               <DialogTitle>Create a New Post</DialogTitle>
             </DialogHeader>
@@ -378,13 +381,21 @@ const MakePostButton = ({ setPosts, courses }) => {
                   value={selectedOption}
                   onValueChange={(value) => setSelectedOption(value)}
                   size="sm"
-                  width="100%"
+                  width="30%"
                   mb={4}
+    
                 >
-                  <SelectTrigger>
-                    <SelectValueText placeholder="Related course" />
+                  <SelectTrigger
+                    _hover={{
+                      bg: "blue.600", // Change background color on hover
+                      color: "white", // Change text color on hover
+                    }}
+                    width="100%"
+                    borderRadius="md" // Optional: Add rounded corners
+                  >
+                    <SelectValueText placeholder="Related course"/>
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent zIndex="popover">
                     {options.items.map((item) => (
                       <SelectItem item={item} key={item.value}>
                         {item.label}
@@ -404,6 +415,10 @@ const MakePostButton = ({ setPosts, courses }) => {
                 <Button 
                   variant="outline" 
                   bg={"gray.400"}
+                  width={"20vh"}
+                  _hover={{
+                    bg: 'gray.500', // Darker shade for better contrast
+                  }}
                 >
                   Cancel
                 </Button>
@@ -417,6 +432,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   color: 'white', // Ensure text remains white
                 }}
                 onClick={handleCreatePost}
+                width={"20vh"}
               >
                 Save
               </Button>
