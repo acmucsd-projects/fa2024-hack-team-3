@@ -87,7 +87,8 @@ const MakePostButton = ({ setPosts, courses }) => {
       <Button 
       colorScheme="blue" 
       variant="solid"
-      width="20vh"
+      // width="20vh"
+      width={"10vw"}
       _hover={{
       bg: 'blue.500', // Darker shade for better contrast
       color: 'white', // Ensure text remains white

@@ -3,17 +3,17 @@
 // import { Flex, IconButton, Text } from '@chakra-ui/react'
 // import accountIcon from '../assets/account-icon.svg';
 // import messageIcon from '../assets/message-icon.svg';
-import React from 'react';
-import { Box, Flex, HStack, Image, Menu, Text } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { Box, Flex, HStack, Image, Text } from '@chakra-ui/react';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger, MenuSeparator, MenuItemGroup} from "../components/ui/menu";
 import logo from '../assets/logo.svg';
 import { Link } from 'react-router-dom';
-// import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { Link as RouterLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import MakePostButton from './MakePostButton';
 import { Avatar } from '../components/ui/avatar';
-
+import { jwtDecode } from 'jwt-decode';
 
 
 
@@ -40,7 +40,23 @@ const Header = ({ setPosts, courses }) => {
     // );
     const navigate = useNavigate();
 
-    // const [posts, setPosts] = useState([]);
+    const [userInfo, setUserInfo] = useState({
+        username: "User",
+        profilePicture: "/assets/account-icon.svg",
+    });
+
+    useEffect(() => {
+        const token = localStorage.getItem("authToken");
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            setUserInfo({
+                username: decodedToken.username,
+                profilePicture: decodedToken.profilePicture || "/assets/account-icon.svg",
+            });
+        } else {
+            navigate("/login");
+        }
+    }, [navigate]);
 
     const handleLogout = () => {
         localStorage.removeItem("authToken"); // Clear token
@@ -59,6 +75,7 @@ const Header = ({ setPosts, courses }) => {
             px={"0"}
             paddingTop={"0"}
             paddingBottom={3}
+            maxW={"100vw"}
         >
             <Flex 
                 maxH={"9vh"} 
@@ -91,7 +108,7 @@ const Header = ({ setPosts, courses }) => {
                 </Text> */}
 
                 {/* Right: Buttons, Notification Icon, Profile */}
-                <HStack spacing={5} alignItems={"center"}>
+                <HStack alignItems={"center"}>
                     {/* New Post Button */}
                     {/* <Button>
                         <IoIosAddCircleOutline /><Text color={'white'} fontWeight={'bold'}>{"New Post"}</Text>
@@ -105,7 +122,7 @@ const Header = ({ setPosts, courses }) => {
                         <IoIosAddCircleOutline size={20} /><Text fontWeight="bold">New Post</Text>
                     </Button> */}
 
-                    <MakePostButton setPosts={setPosts} courses={courses} />
+                    <MakePostButton setPosts={setPosts} courses={courses}/>
                     
                     {/* Notification Icon */}
                     {/* <Box position={"relative"}>
@@ -128,9 +145,16 @@ const Header = ({ setPosts, courses }) => {
                             {/* <Button size="sm" variant="outline" width={"15vh"} _hover={{ bg: "blue.700" }}>
                             <Text fontWeight={"bold"}>Profile</Text><FaChevronDown />
                             </Button> */}
-                            <Box cursor="pointer">
-                                <Avatar size="sm" name="User" src="/assets/account-icon.svg" />
-                            </Box>
+                            <HStack cursor="pointer">
+                                <Avatar 
+                                    size="sm" 
+                                    name={userInfo.username}
+                                    src={userInfo.profilePicture}
+                                />
+                                <Box>
+                                    <FaChevronDown size={12}/>
+                                </Box>
+                            </HStack>
                         </MenuTrigger>
                         <MenuContent>
                             <MenuItemGroup>
@@ -164,12 +188,3 @@ const Header = ({ setPosts, courses }) => {
 };
 
 export default Header;
-
-// ultility component for link styling within logo text
-function LinkText({ children, color}) {
-    return (
-        <Text as="span" color={color}>
-            {children}
-        </Text>
-    );
-}
