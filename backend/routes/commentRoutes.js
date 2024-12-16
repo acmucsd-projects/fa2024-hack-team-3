@@ -1,7 +1,7 @@
 // commentRoutes.js
 const express = require('express');
 const router = express.Router();
-const { getCommentsByPostId, addCommentToPost } = require('../controllers/commentControllers');
+const { getCommentsByPostId, addCommentToPost } = require('../controllers/commentController');
 const authenticate = require('../middleware/authenticate'); // Import the authenticate middleware
 
 // Fetch all comments for a post
