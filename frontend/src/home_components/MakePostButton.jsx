@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, createListCollection, HStack, Select} from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
 import { IoIosAddCircleOutline } from "react-icons/io";
 import {
@@ -10,16 +10,27 @@ import {
   SelectTrigger,
   SelectValueText,
 } from "../components/ui/select"
+import {
+  DialogActionTrigger,
+  DialogBody,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog"
 import axios from 'axios';
 
 const MakePostButton = ({ setPosts, courses }) => {
 
-  const [showCreatePost, setShowCreatePost] = useState(false);
+  // const [showCreatePost, setShowCreatePost] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
-  const [selectedOption, setSelectedOption] = useState("") // Track selected option
+  const [selectedOption, setSelectedOption] = useState(""); // Track selected course
 
   const userId = localStorage.getItem("authUserId");
 
@@ -64,6 +75,7 @@ const MakePostButton = ({ setPosts, courses }) => {
         description,
         tags,
         userId,
+        course: selectedOption,
       });
 
       // Update the posts in HomePage
@@ -74,7 +86,8 @@ const MakePostButton = ({ setPosts, courses }) => {
       setDescription('');
       setTags([]);
       setTagInput('');
-      setShowCreatePost(false);
+      // setShowCreatePost(false);
+      setSelectedOption('');
     } catch (error) {
       console.error("Error creating post:", error);
     }
@@ -82,154 +95,361 @@ const MakePostButton = ({ setPosts, courses }) => {
 
   //console.log("Predefined Tags:", predefinedTags);
   return (
-    <Box>
-      {/* Toggle Button */}
-      <Button 
-      colorScheme="blue" 
-      variant="solid"
-      // width="20vh"
-      width={"10vw"}
-      _hover={{
-      bg: 'blue.500', // Darker shade for better contrast
-      color: 'white', // Ensure text remains white
-    }}
-    onClick={() => setShowCreatePost(!showCreatePost)}
->
-  {!showCreatePost && (
-    <IoIosAddCircleOutline size={20} />
-  )}
-  {showCreatePost ? 'Cancel' : 'New Post'}
-    </Button>
+//     <Box>
+//       {/* Toggle Button */}
+//       <Button 
+//       colorScheme="blue" 
+//       variant="solid"
+//       // width="20vh"
+//       width={"10vw"}
+//       _hover={{
+//       bg: 'blue.500', // Darker shade for better contrast
+//       color: 'white', // Ensure text remains white
+//     }}
+//     onClick={() => setShowCreatePost(!showCreatePost)}
+// >
+//   {!showCreatePost && (
+//     <IoIosAddCircleOutline size={20} />
+//   )}
+//   {showCreatePost ? 'Cancel' : 'New Post'}
+//     </Button>
 
-    {/* Post Creation Form */}
-    {showCreatePost && (
-      <Box 
-        p={4} 
-        mt={4} 
-        border="1px solid" 
-        borderColor="gray.600" 
-        borderRadius="md" 
-        bg="bg.muted"
-      >
-        {/* Title Input */}
-        <Input
-          placeholder="Topic Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          mb={4}
-          bg="bg.textbg" // bg.textbg comes from theme.ts
-        />
-        {/* Description Textarea */}
-        <Textarea
-          placeholder="Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          mb={4}
-          bg="bg.textbg"
-        />
+//     {/* Post Creation Form */}
+//     {showCreatePost && (
+//       <Box 
+//         p={4} 
+//         mt={4} 
+//         border="1px solid" 
+//         borderColor="gray.600" 
+//         borderRadius="md" 
+//         bg="bg.muted"
+//       >
+//         {/* Title Input */}
+//         <Input
+//           placeholder="Topic Title"
+//           value={title}
+//           onChange={(e) => setTitle(e.target.value)}
+//           mb={4}
+//           bg="bg.textbg" // bg.textbg comes from theme.ts
+//         />
+//         {/* Description Textarea */}
+//         <Textarea
+//           placeholder="Description"
+//           value={description}
+//           onChange={(e) => setDescription(e.target.value)}
+//           mb={4}
+//           bg="bg.textbg"
+//         />
 
-        {/* Tag Input */}
-        <Input
-          placeholder="Add a custom tag and press Enter"
-          value={tagInput}
-          onChange={(e) => setTagInput(e.target.value)}
-          onKeyDown={handleTagInputKeyDown}
-          mb={4}
-          bg="bg.textbg"
-        />
+//         {/* Tag Input */}
+//         <Input
+//           placeholder="Add a custom tag and press Enter"
+//           value={tagInput}
+//           onChange={(e) => setTagInput(e.target.value)}
+//           onKeyDown={handleTagInputKeyDown}
+//           mb={4}
+//           bg="bg.textbg"
+//         />
 
-        {/* Display Selected Tags */}
-        <HStack spacing={2} wrap="wrap" mb={4}>
-          {tags.map((tag) => (
-            <Tag
-              key={tag}
-              bg="blue.100"
-              color="blue.800"
-              borderRadius="full"
-              px={3}
-              py={1}
-              fontSize="sm"
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              maxWidth="200px" // Optional: Limit tag width to prevent overflow
-              overflow="hidden"
-              whiteSpace="nowrap"
-              textOverflow="ellipsis"
-            >
-              <Box
-                as="span"
-                flex="1"
-                textAlign="center"
-                overflow="hidden"
-                textOverflow="ellipsis"
-              >
-                {tag}
-              </Box>
-              {/* Custom Close Button */}
-              <Box
-                as="button"
-                onClick={() => removeTag(tag)}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                bg="transparent"
-                border="none"
-                cursor="pointer"
-                color="blue.800"
-                _hover={{ color: "red.500" }}
-                _focus={{ outline: "none" }}
-                fontSize="12px" /* Adjust size */
-                lineHeight="1"
-                height="16px"
-                width="16px"
-                ml={2} /* Margin to separate text and button */
-                borderRadius="full"
-              >
-                ×
-              </Box>
-            </Tag>
-          ))}
-        </HStack>
+//         {/* Display Selected Tags */}
+//         <HStack spacing={2} wrap="wrap" mb={4}>
+//           {tags.map((tag) => (
+//             <Tag
+//               key={tag}
+//               bg="blue.100"
+//               color="blue.800"
+//               borderRadius="full"
+//               px={3}
+//               py={1}
+//               fontSize="sm"
+//               display="flex"
+//               alignItems="center"
+//               justifyContent="space-between"
+//               maxWidth="200px" // Optional: Limit tag width to prevent overflow
+//               overflow="hidden"
+//               whiteSpace="nowrap"
+//               textOverflow="ellipsis"
+//             >
+//               <Box
+//                 as="span"
+//                 flex="1"
+//                 textAlign="center"
+//                 overflow="hidden"
+//                 textOverflow="ellipsis"
+//               >
+//                 {tag}
+//               </Box>
+//               {/* Custom Close Button */}
+//               <Box
+//                 as="button"
+//                 onClick={() => removeTag(tag)}
+//                 display="flex"
+//                 alignItems="center"
+//                 justifyContent="center"
+//                 bg="transparent"
+//                 border="none"
+//                 cursor="pointer"
+//                 color="blue.800"
+//                 _hover={{ color: "red.500" }}
+//                 _focus={{ outline: "none" }}
+//                 fontSize="12px" /* Adjust size */
+//                 lineHeight="1"
+//                 height="16px"
+//                 width="16px"
+//                 ml={2} /* Margin to separate text and button */
+//                 borderRadius="full"
+//               >
+//                 ×
+//               </Box>
+//             </Tag>
+//           ))}
+//         </HStack>
 
-          {/* Classes Select */}
-          <SelectRoot
-            collection={options}
-            value={selectedOption}
-            onValueChange={(value) => setSelectedOption(value)}
-            size="sm"
-            width="100%"
-            mb={4}
-          >
-            <SelectTrigger>
-              <SelectValueText placeholder="Related course" />
-            </SelectTrigger>
-            <SelectContent>
-              {options.items.map((item) => (
-                <SelectItem item={item} key={item.value}>
-                  {item.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </SelectRoot>
+          // {/* Classes Select */}
+          // <SelectRoot
+          //   collection={options}
+          //   value={selectedOption}
+          //   onValueChange={(value) => setSelectedOption(value)}
+          //   size="sm"
+          //   width="100%"
+          //   mb={4}
+          // >
+          //   <SelectTrigger>
+          //     <SelectValueText placeholder="Related course" />
+          //   </SelectTrigger>
+          //   <SelectContent>
+          //     {options.items.map((item) => (
+          //       <SelectItem item={item} key={item.value}>
+          //         {item.label}
+          //       </SelectItem>
+          //     ))}
+          //   </SelectContent>
+          // </SelectRoot>
 
-          {/* Submit Button */}
+//           {/* Submit Button */}
+//             <Button 
+//               colorScheme="blue" 
+//               gap ="100"
+//               variant="solid"
+//               _hover={{
+//               bg: 'blue.600', // Darker shade for better contrast
+//               color: 'white', // Ensure text remains white
+//             }}
+//               onClick={handleCreatePost}
+//             >
+//               Post Your Question or Note!
+//             </Button>
+//           </Box>
+//         )}
+//     </Box>
+
+        <DialogRoot key={"lg"} size={"lg"} placement={"center"}>
+          <DialogTrigger asChild>
             <Button 
-              colorScheme="blue" 
-              gap ="100"
-              variant="solid"
+              variant="outline"
+              width={"10vw"}
               _hover={{
-              bg: 'blue.600', // Darker shade for better contrast
-              color: 'white', // Ensure text remains white
-            }}
-              onClick={handleCreatePost}
+                bg: 'blue.500', // Darker shade for better contrast
+                color: 'white', // Ensure text remains white
+              }}
+              onClick={() => console.log(courses)}
             >
-              Post Your Question or Note!
+              <IoIosAddCircleOutline size={20} /> New Post
             </Button>
-          </Box>
-        )}
-    </Box>
+          </DialogTrigger>
+
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Create a New Post</DialogTitle>
+            </DialogHeader>
+
+            <DialogBody>
+                {/* Title Input */}
+                {/* <Input
+                  placeholder="Topic Title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  mb={4}
+                  bg="bg.textbg" // bg.textbg comes from theme.ts
+                  width={"40%"}
+                  size={"lg"}
+                /> */}
+                <Field.Root>
+                  <Box pos="relative" w="full">
+                    <Input 
+                      className="peer" 
+                      placeholder="Topic Title"
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                      mb={4}
+                      bg="bg.textbg" // bg.textbg comes from theme.ts
+                      width={"40%"}
+                    />
+                    <Field.Label css={floatingStyles}>Topic Title</Field.Label>
+                  </Box>
+                </Field.Root>
+                <Field.Root>
+                <Box pos="relative" w="full">
+                    <Textarea
+                      className='peer'
+                      autoresize
+                      placeholder="Description"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      mb={4}
+                      bg="bg.textbg"
+                    />
+                    <Field.Label css={floatingStyles}>Description</Field.Label>
+                  </Box>
+                </Field.Root>
+
+                {/* Tag Input */}
+                <Input
+                  placeholder="Add a custom tag and press Enter"
+                  value={tagInput}
+                  onChange={(e) => setTagInput(e.target.value)}
+                  onKeyDown={handleTagInputKeyDown}
+                  mb={4}
+                  bg="bg.textbg"
+                />
+
+                {/* Display Selected Tags */}
+                <HStack spacing={2} wrap="wrap" mb={4}>
+                  {tags.map((tag) => (
+                    <Box
+                      key={tag}
+                      bg="blue.100"
+                      color="blue.800"
+                      borderRadius="full"
+                      px={3}
+                      py={1}
+                      fontSize="sm"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="space-between"
+                      maxWidth="200px"
+                      overflow="hidden"
+                      whiteSpace="nowrap"
+                      textOverflow="ellipsis"
+                    >
+                      {/* Tag Text */}
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="center"
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                      >
+                        {tag}
+                      </Box>
+
+                      {/* Close Button */}
+                      <Box
+                        as="button"
+                        onClick={() => removeTag(tag)} // Call the removeTag function
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        bg="transparent"
+                        border="none"
+                        cursor="pointer"
+                        color="blue.800"
+                        _hover={{ color: "red.500" }}
+                        _focus={{ outline: "none" }}
+                        fontSize="12px" /* Adjust size */
+                        lineHeight="1"
+                        height="16px"
+                        width="16px"
+                        paddingRight={0}
+                        paddingLeft={2}
+                        
+                        borderRadius="full"
+                      >
+                        &times; 
+                      </Box>
+                    </Box>
+                  ))}
+                </HStack>
+
+                {/* Classes Select */}
+                <Box overflow={"visible"}>
+                <SelectRoot
+                  collection={options}
+                  value={selectedOption}
+                  onValueChange={(value) => setSelectedOption(value)}
+                  size="sm"
+                  width="100%"
+                  mb={4}
+                >
+                  <SelectTrigger>
+                    <SelectValueText placeholder="Related course" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {options.items.map((item) => (
+                      <SelectItem item={item} key={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                  
+
+                </SelectRoot>
+                </Box>
+
+
+        </DialogBody>
+
+            <DialogFooter>
+              <DialogActionTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  bg={"gray.400"}
+                >
+                  Cancel
+                </Button>
+              </DialogActionTrigger>
+              <Button
+                colorScheme="blue"
+                gap ="100"
+                variant="solid"
+                _hover={{
+                  bg: 'blue.600', // Darker shade for better contrast
+                  color: 'white', // Ensure text remains white
+                }}
+                onClick={handleCreatePost}
+              >
+                Save
+              </Button>
+            </DialogFooter>
+            <DialogCloseTrigger
+              width="8"
+            />
+          </DialogContent>
+        </DialogRoot>
   );
 };
+
+const floatingStyles = defineStyle({
+  pos: "absolute",
+  bg: "bg",
+  px: "0.5",
+  top: "-3",
+  insetStart: "2",
+  fontWeight: "bold",
+  pointerEvents: "none",
+  transition: "position",
+  _peerPlaceholderShown: {
+    color: "fg.muted",
+    top: "2.5",
+    insetStart: "3",
+    backgroundColor: "bg",
+  },
+  _peerFocusVisible: {
+    color: "fg",
+    top: "-3",
+    insetStart: "2",
+    backgroundColor: "bg",
+  },
+});
 
 export default MakePostButton;
