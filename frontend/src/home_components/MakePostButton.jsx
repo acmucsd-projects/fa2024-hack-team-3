@@ -31,6 +31,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
   const [selectedOption, setSelectedOption] = useState(""); // Track selected course
+  const [isOpen, setIsOpen] = useState(false); // state to control dialog visibility
 
   const userId = localStorage.getItem("authUserId");
 
@@ -88,6 +89,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       setTagInput('');
       // setShowCreatePost(false);
       setSelectedOption('');
+      setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
     }
@@ -95,155 +97,7 @@ const MakePostButton = ({ setPosts, courses }) => {
 
   //console.log("Predefined Tags:", predefinedTags);
   return (
-//     <Box>
-//       {/* Toggle Button */}
-//       <Button 
-//       colorScheme="blue" 
-//       variant="solid"
-//       // width="20vh"
-//       width={"10vw"}
-//       _hover={{
-//       bg: 'blue.500', // Darker shade for better contrast
-//       color: 'white', // Ensure text remains white
-//     }}
-//     onClick={() => setShowCreatePost(!showCreatePost)}
-// >
-//   {!showCreatePost && (
-//     <IoIosAddCircleOutline size={20} />
-//   )}
-//   {showCreatePost ? 'Cancel' : 'New Post'}
-//     </Button>
-
-//     {/* Post Creation Form */}
-//     {showCreatePost && (
-//       <Box 
-//         p={4} 
-//         mt={4} 
-//         border="1px solid" 
-//         borderColor="gray.600" 
-//         borderRadius="md" 
-//         bg="bg.muted"
-//       >
-//         {/* Title Input */}
-//         <Input
-//           placeholder="Topic Title"
-//           value={title}
-//           onChange={(e) => setTitle(e.target.value)}
-//           mb={4}
-//           bg="bg.textbg" // bg.textbg comes from theme.ts
-//         />
-//         {/* Description Textarea */}
-//         <Textarea
-//           placeholder="Description"
-//           value={description}
-//           onChange={(e) => setDescription(e.target.value)}
-//           mb={4}
-//           bg="bg.textbg"
-//         />
-
-//         {/* Tag Input */}
-//         <Input
-//           placeholder="Add a custom tag and press Enter"
-//           value={tagInput}
-//           onChange={(e) => setTagInput(e.target.value)}
-//           onKeyDown={handleTagInputKeyDown}
-//           mb={4}
-//           bg="bg.textbg"
-//         />
-
-//         {/* Display Selected Tags */}
-//         <HStack spacing={2} wrap="wrap" mb={4}>
-//           {tags.map((tag) => (
-//             <Tag
-//               key={tag}
-//               bg="blue.100"
-//               color="blue.800"
-//               borderRadius="full"
-//               px={3}
-//               py={1}
-//               fontSize="sm"
-//               display="flex"
-//               alignItems="center"
-//               justifyContent="space-between"
-//               maxWidth="200px" // Optional: Limit tag width to prevent overflow
-//               overflow="hidden"
-//               whiteSpace="nowrap"
-//               textOverflow="ellipsis"
-//             >
-//               <Box
-//                 as="span"
-//                 flex="1"
-//                 textAlign="center"
-//                 overflow="hidden"
-//                 textOverflow="ellipsis"
-//               >
-//                 {tag}
-//               </Box>
-//               {/* Custom Close Button */}
-//               <Box
-//                 as="button"
-//                 onClick={() => removeTag(tag)}
-//                 display="flex"
-//                 alignItems="center"
-//                 justifyContent="center"
-//                 bg="transparent"
-//                 border="none"
-//                 cursor="pointer"
-//                 color="blue.800"
-//                 _hover={{ color: "red.500" }}
-//                 _focus={{ outline: "none" }}
-//                 fontSize="12px" /* Adjust size */
-//                 lineHeight="1"
-//                 height="16px"
-//                 width="16px"
-//                 ml={2} /* Margin to separate text and button */
-//                 borderRadius="full"
-//               >
-//                 ×
-//               </Box>
-//             </Tag>
-//           ))}
-//         </HStack>
-
-          // {/* Classes Select */}
-          // <SelectRoot
-          //   collection={options}
-          //   value={selectedOption}
-          //   onValueChange={(value) => setSelectedOption(value)}
-          //   size="sm"
-          //   width="100%"
-          //   mb={4}
-          // >
-          //   <SelectTrigger>
-          //     <SelectValueText placeholder="Related course" />
-          //   </SelectTrigger>
-          //   <SelectContent>
-          //     {options.items.map((item) => (
-          //       <SelectItem item={item} key={item.value}>
-          //         {item.label}
-          //       </SelectItem>
-          //     ))}
-          //   </SelectContent>
-          // </SelectRoot>
-
-//           {/* Submit Button */}
-//             <Button 
-//               colorScheme="blue" 
-//               gap ="100"
-//               variant="solid"
-//               _hover={{
-//               bg: 'blue.600', // Darker shade for better contrast
-//               color: 'white', // Ensure text remains white
-//             }}
-//               onClick={handleCreatePost}
-//             >
-//               Post Your Question or Note!
-//             </Button>
-//           </Box>
-//         )}
-//     </Box>
-
-        <DialogRoot key={"lg"} size={"lg"} placement={"center"}>
+        <DialogRoot key={"lg"} size={"lg"} placement={"center"} open={isOpen} openOpenChange={setIsOpen}>
           <DialogTrigger asChild>
             <Button 
               variant="outline"
@@ -252,7 +106,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                 bg: 'blue.500', // Darker shade for better contrast
                 color: 'white', // Ensure text remains white
               }}
-              onClick={() => console.log(courses)}
+              onClick={() => setIsOpen(true)}
             >
               <IoIosAddCircleOutline size={20} /> New Post
             </Button>
@@ -375,7 +229,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                 </HStack>
 
                 {/* Classes Select */}
-                <Box overflow={"visible"}>
+                {/* <Box overflow={"visible"}>
                 <SelectRoot
                   collection={options}
                   value={selectedOption}
@@ -405,7 +259,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   
 
                 </SelectRoot>
-                </Box>
+                </Box> */}
 
 
         </DialogBody>
@@ -419,6 +273,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   _hover={{
                     bg: 'gray.500', // Darker shade for better contrast
                   }}
+                  onClick={() => setIsOpen(false)}
                 >
                   Cancel
                 </Button>
@@ -437,9 +292,9 @@ const MakePostButton = ({ setPosts, courses }) => {
                 Save
               </Button>
             </DialogFooter>
-            <DialogCloseTrigger
+            {/* <DialogCloseTrigger
               width="8"
-            />
+            /> */}
           </DialogContent>
         </DialogRoot>
   );
