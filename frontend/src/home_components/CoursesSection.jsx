@@ -11,7 +11,7 @@ const CoursesSection = () => {
           {course} <input type="checkbox" />
         </div>
       ))}
-      <button className="add-courses-btn">Add Courses</button>
+      <button className="add-courses-btn" style={{width: "20vh"}}>Add Courses</button>
     </div>
   );
 };

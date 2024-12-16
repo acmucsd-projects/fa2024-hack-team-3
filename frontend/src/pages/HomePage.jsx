@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { Box, Button, Input, SimpleGrid, Stack } from '@chakra-ui/react'
+import { Box, Button, Input, SimpleGrid, Stack, GridItem} from '@chakra-ui/react'
 import axios from 'axios';
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';
@@ -42,31 +42,37 @@ const HomePage = () => {
       <ColorModeProvider>
       
     <Box p={4} minW="100vh" mx="auto">
-      <Header />
+      <Header 
+        setPosts={setPosts}
+        courses={courses}
+      />
 
       {/* Responsive two-column layout */}
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={4}>
+      <SimpleGrid columns={{ base: 1, md: 12 }} spacing={6} mt={4}>
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
+        <GridItem colSpan={{ base: 1 , md: 3}}>
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
           <ColorModeButton 
+            width="20vh"
             _hover={{
-            bg: 'blue.700', // Darker shade for better contrast
+            bg: 'blue.500', // Darker shade for better contrast
             color: 'white', // Ensure text remains white
           }}/>
           {/* Pass setPosts to MakePostButton*/}
-          <MakePostButton setPosts={setPosts} courses={courses}/>
+          {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
         </Stack>
+        </GridItem>
 
         {/* Main Content: Posts Section */}
-        <Box gridColumn={{ md: 'span 2' }}>
-          <PostsSection posts={posts} />
-        </Box>
+        <GridItem colSpan={{ md: 7 }}>
+          <Box>
+            <PostsSection posts={posts} />
+          </Box>
+        </GridItem>
       </SimpleGrid>
-      <RouterLink to={"/register"}>Create Your Study Buddy Account</RouterLink>
-      <Logout/>
     </Box>
     </ColorModeProvider>
     </ChakraProvider>

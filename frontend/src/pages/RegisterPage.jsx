@@ -10,6 +10,7 @@ import {GoogleLogin} from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
 
@@ -184,10 +185,11 @@ const RegisterPage = () => {
                 >
                     <VStack spacing={4} align="flex-start" px={{base: 4, lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
-                                Study With Us!
+                                Join StudyLink Today!
                             </Heading>
                             <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"} maxW={{lg: "80%"}}>
-                                Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us!
+                                {/* Stuck on an assignment? Or need someone to motivate you to keep studying? Come study with us! */}
+                                Create your account and start connecting with study buddies!
                             </Text>
 
                             {/* Username Field */}
@@ -257,8 +259,8 @@ const RegisterPage = () => {
                                     </Text>
                                 </Button>
                             </Box>
-                            <Text textAlign={"left"} color={'gray.500'} pt={4}>Already have an account? <a href='login'><u>LOGIN</u></a></Text>
-                            <GoogleLogin 
+                            <Text textAlign={"left"} color={'gray.500'} pt={4}>Already have an account? <Text as={Link} to={'/login'} textDecoration="underline">Login</Text></Text>
+                            {/* <GoogleLogin 
                                 onSuccess={(credentialResponse) => {
                                     const decoded = jwtDecode(credentialResponse.credential);
                                     console.log(decoded);
@@ -267,7 +269,7 @@ const RegisterPage = () => {
                                     console.log("Login Failed");
                                 }}
 
-                            />
+                            /> */}
                     </VStack>
                 </Container>
                 <Box 
