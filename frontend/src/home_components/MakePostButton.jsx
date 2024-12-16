@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, Textarea, createListCollection, HStack, Select} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
+import { IoIosAddCircleOutline } from "react-icons/io";
 import {
   SelectContent,
   SelectItem,
@@ -86,13 +87,17 @@ const MakePostButton = ({ setPosts, courses }) => {
       <Button 
       colorScheme="blue" 
       variant="solid"
+      width="20vh"
       _hover={{
       bg: 'blue.500', // Darker shade for better contrast
       color: 'white', // Ensure text remains white
     }}
     onClick={() => setShowCreatePost(!showCreatePost)}
-    >
-        {showCreatePost ? 'Cancel' : '📃New Post'}
+>
+  {!showCreatePost && (
+    <IoIosAddCircleOutline size={20} />
+  )}
+  {showCreatePost ? 'Cancel' : 'New Post'}
     </Button>
 
     {/* Post Creation Form */}

@@ -42,7 +42,10 @@ const HomePage = () => {
       <ColorModeProvider>
       
     <Box p={4} minW="100vh" mx="auto">
-      <Header />
+      <Header 
+        setPosts={setPosts}
+        courses={courses}
+      />
 
       {/* Responsive two-column layout */}
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} mt={4}>
@@ -65,8 +68,6 @@ const HomePage = () => {
           <PostsSection posts={posts} />
         </Box>
       </SimpleGrid>
-      <RouterLink to={"/register"}>Create Your Study Buddy Account</RouterLink>
-      <Logout/>
     </Box>
     </ColorModeProvider>
     </ChakraProvider>
