@@ -41,11 +41,15 @@ git push
 ```
 
 # Running Frontend Website
+In one terminal:
 ```
 cd backend
 npm i
 npm start
+```
 
+In another terminal:
+```
 cd ../frontend
 npm i
 npm run dev
