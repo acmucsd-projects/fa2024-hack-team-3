@@ -6,6 +6,9 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import { Provider } from './components/ui/provider'
 import { Box } from '@chakra-ui/react'
+import { ColorModeProvider } from "./components/ui/color-mode" //dark mode
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+import system  from './theme'
 function App() {
 
   const isLoggedIn = () => {
@@ -22,7 +25,9 @@ function App() {
   };
 
   return (
-    <Box minH={"100vh"} bg={"gray.100"}>
+    <ChakraProvider value={system}>
+      <ColorModeProvider>
+    <Box minH={"100vh"} bg={"bg.subtle" }>
       <Provider>
         <Routes>
           <Route path='/' 
@@ -39,7 +44,9 @@ function App() {
           <Route path='/settings' element={<AccountSettings />}/>
         </Routes>
       </Provider>
-    </Box>
+    </Box> 
+    </ColorModeProvider>
+    </ChakraProvider>
   )
 }
 

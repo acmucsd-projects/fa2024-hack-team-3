@@ -10,12 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ark-ui/react": "^4.5.0",
+    "@bundled-es-modules/deepmerge": "^4.3.1",
     "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.2.3",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@react-oauth/google": "^0.12.1",
     "axios": "^1.7.8",
+    "date-fns": "^4.1.0",
+    "deepmerge": "^4.3.1",
     "framer-motion": "^11.13.1",
     "jwt-decode": "^4.0.0",
     "next-themes": "^0.4.3",

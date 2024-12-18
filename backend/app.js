@@ -1,33 +1,31 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require('path');
-// Routes
-//const authRoutes = require('./routes/authRoutes'); // Import your auth routes
-const userRoutes = require('./routes/userRoutes');
-const PostRoutes = require('./routes/postRoutes');
-const Post = require('./models/userPost'); // Ensure this path is correct
-
-
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+// Routes
+// const authRoutes = require('./routes/authRoutes'); // Import your auth routes
+const userRoutes = require('./routes/userRoutes');
+const postRoutes = require('./routes/postRoutes');
+const commentRoutes = require('./routes/commentRoutes');
 
 const app = express();
 
-// set strict query mode for Mongoose
-mongoose.set('strictQuery', true);
+app.use(express.json());
 
 app.use(cors({
     origin: 'http://localhost:5173', // Allow requests only from this origin (your frontend)
 }));
 
-app.use(express.json());
+// set strict query mode for Mongoose
+mongoose.set('strictQuery', true);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB :D');
         app.use('/api/users', userRoutes);
-        app.use('/api/posts', PostRoutes)
+        app.use('/api/posts', postRoutes);
+        app.use('/api/posts', commentRoutes);
     })
     .catch(err => {
         console.log('Failed to connect to MongoDB :(', err.message);
@@ -36,14 +34,7 @@ mongoose.connect(process.env.MONGO_URI)
     });
 
 // Register API routes
-//app.use('/api/auth', authRoutes); // Link the Google login handler
+// app.use('/api/auth', authRoutes); // Link the Google login handler
 // app.use('/api/posts', PostRoutes); // For posts
-
-
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
 
 module.exports = app;

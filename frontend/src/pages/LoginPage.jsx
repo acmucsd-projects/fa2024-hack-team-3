@@ -8,6 +8,7 @@ import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
 
@@ -93,10 +94,10 @@ const LoginPage = () => {
                 >
                     <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
-                                We've Missed You!
+                                Login to StudyLink
                             </Heading>
                             <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
-                                Many study buddies are waiting to study with you!
+                                Your Connection to Smarter Collaboration
                             </Text>
 
                             {/* Username Field */}
@@ -145,9 +146,11 @@ const LoginPage = () => {
                                 </Button>
                             </Box>
                             <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
-                            <Text textAlign={"left"} color={'gray.500'}>Need an Account? <a href='register'><u>SIGN UP</u></a></Text>
+                            <Text textAlign={"left"} color={'gray.500'}>Need an Account? <Text as={Link} to={'/register'} textDecoration="underline">Register</Text>
+
+                            </Text>
                             
-                            <GoogleLogin 
+                            {/* <GoogleLogin 
                                 onSuccess={(credentialResponse) => {
                                     const decoded = jwtDecode(credentialResponse.credential);
                                     console.log(decoded);
@@ -156,7 +159,7 @@ const LoginPage = () => {
                                     console.log("Login Failed");
                                 }}
 
-                            />
+                            /> */}
 
                             {/* <Button onClick={() => login()}> Sign in with Google</Button> */}
                     </VStack>
