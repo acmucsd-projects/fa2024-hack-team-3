@@ -55,8 +55,11 @@ npm i
 npm run dev
 ```
 
-NOTE: Make sure you have a MONGO_URI and PORT variable in an .env file set to
+NOTE: Make sure you have the following in an .env file:
 ```
 MONGO_URI=mongodb+srv://<db_username>:<db_password>@studybuddy.nor8x.mongodb.net/posts?retryWrites=true&w=majority&appName=Studybuddy
 PORT=<port_number>
+CLOUDINARY_CLOUD_NAME=<cloud_name>
+CLOUDINARY_API_KEY=<api_key>
+CLOUDINARY_API_SECRET=<api_secret>
 ```
