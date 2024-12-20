@@ -11,7 +11,6 @@ import { Link as RouterLink } from 'react-router-dom';
 import Logout from '../home_components/Logout';
 import { ColorModeProvider } from "../components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
-import { ColorModeButton } from "../components/ui/color-mode"
 import system  from '../theme'
 
 
@@ -55,12 +54,6 @@ const HomePage = () => {
         <Stack spacing={4}>
           <CoursesSection courses={courses} />
           <OnlineBuddies buddies={buddies} />
-          <ColorModeButton 
-            width="20vh"
-            _hover={{
-            bg: 'blue.500', // Darker shade for better contrast
-            color: 'white', // Ensure text remains white
-          }}/>
           {/* Pass setPosts to MakePostButton*/}
           {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
         </Stack>

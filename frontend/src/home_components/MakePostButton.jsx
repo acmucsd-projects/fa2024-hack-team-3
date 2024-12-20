@@ -102,6 +102,7 @@ const MakePostButton = ({ setPosts, courses }) => {
             <Button 
               variant="outline"
               width={"10vw"}
+              minW={"100px"}
               _hover={{
                 bg: 'blue.500', // Darker shade for better contrast
                 color: 'white', // Ensure text remains white

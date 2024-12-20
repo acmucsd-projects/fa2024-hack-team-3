@@ -4,20 +4,22 @@
 // import accountIcon from '../assets/account-icon.svg';
 // import messageIcon from '../assets/message-icon.svg';
 import { useEffect, useState } from 'react';
-import { Box, Flex, HStack, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Image, Text, Icon } from '@chakra-ui/react';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger, MenuSeparator, MenuItemGroup} from "../components/ui/menu";
 import logo from '../assets/logo.svg';
 import { Link } from 'react-router-dom';
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaMoon, FaSun } from "react-icons/fa";
 import { Link as RouterLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import MakePostButton from './MakePostButton';
 import { Avatar } from '../components/ui/avatar';
 import { jwtDecode } from 'jwt-decode';
+import { Switch } from '../components/ui/switch';
+import { ColorModeButton } from '../components/ui/color-mode';
 
 
 
-const Header = ({ setPosts, courses }) => {
+const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
     // Define custom styles for active and inactive links
     // const navLinkStyle = ({ isActive }) => ({
     //     fontWeight: isActive ? "bold" : "normal",
@@ -102,25 +104,8 @@ const Header = ({ setPosts, courses }) => {
                     </Box>
                 </HStack>
 
-                {/* Center: Explore */}
-                {/* <Text fontSize={"lg"} fontWeight={"bold"} color={"gray.500"}>
-                    Explore
-                </Text> */}
-
                 {/* Right: Buttons, Notification Icon, Profile */}
                 <HStack alignItems={"center"}>
-                    {/* New Post Button */}
-                    {/* <Button>
-                        <IoIosAddCircleOutline /><Text color={'white'} fontWeight={'bold'}>{"New Post"}</Text>
-                    </Button> */}
-
-                    {/* <Button 
-                        // colorScheme="blue"
-                        // bg="blue.800"
-                        _hover={{ bg: "blue.700" }}
-                    >
-                        <IoIosAddCircleOutline size={20} /><Text fontWeight="bold">New Post</Text>
-                    </Button> */}
 
                     <MakePostButton setPosts={setPosts} courses={courses}/>
                     
@@ -142,9 +127,6 @@ const Header = ({ setPosts, courses }) => {
                     {/* Profile Dropdown */}
                     <MenuRoot >
                         <MenuTrigger asChild>
-                            {/* <Button size="sm" variant="outline" width={"15vh"} _hover={{ bg: "blue.700" }}>
-                            <Text fontWeight={"bold"}>Profile</Text><FaChevronDown />
-                            </Button> */}
                             <HStack cursor="pointer">
                                 <Avatar 
                                     size="sm" 
@@ -157,7 +139,15 @@ const Header = ({ setPosts, courses }) => {
                             </HStack>
                         </MenuTrigger>
                         <MenuContent>
+
+                            
                             <MenuItemGroup>
+                                {/* Dark/Light Mode Switch */}
+                                <Box marginLeft={1} paddingBottom={1}>
+                                    <ColorModeButton />
+                                </Box>
+
+                                {/* Account Settings */}
                                 <MenuItem asChild value="settings" cursor="pointer">
                                     <RouterLink
                                         to={"/settings"}
@@ -168,6 +158,8 @@ const Header = ({ setPosts, courses }) => {
                             </MenuItemGroup>
                             <MenuSeparator />
                             <MenuItemGroup>
+
+                                {/* Logout Button */}
                                 <MenuItem 
                                     value="logout"
                                     onClick={handleLogout}
