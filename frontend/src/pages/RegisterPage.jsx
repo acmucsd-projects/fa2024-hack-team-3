@@ -181,7 +181,7 @@ const RegisterPage = () => {
                     p={8}
                     borderRadius="lg"
                     mx="4"
-                    maxH={"90%"}
+                    h={{base: "100vh", md: "90%"}}
                 >
                     <VStack spacing={4} align="flex-start" px={{base: 4, lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
