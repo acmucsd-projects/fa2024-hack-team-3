@@ -164,11 +164,23 @@ const uploadProfilePicture = async (req, res) => {
     }
 
     try {
-        // Upload to Cloudinary
-        const result = await cloudinary.uploader.upload(req.file.path, {
-            folder: 'profile_pictures',
-        });
+        // Upload file buffer to Cloudinary
+        const result = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader.upload_stream(
+                { folder: 'profile_pictures' },
+                (error, result) => {
+                    if (error) {
+                        console.error('Cloudinary Upload Error:', error);
+                        reject(new Error('Failed to upload image'));
+                    } else {
+                        resolve(result);
+                    }
+                }
+            );
+            stream.end(req.file.buffer);
+        })
 
+        //Update user in the database
         const user = await User.findOneAndUpdate(
             { _id: id },
             { profilePicture: result.secure_url },
