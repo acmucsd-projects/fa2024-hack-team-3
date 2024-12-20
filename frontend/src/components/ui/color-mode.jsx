@@ -14,10 +14,10 @@ export function ColorModeProvider(props) {
   return (
     <ThemeProvider 
       attribute='class' 
-      disableTransitionOnChange 
-      defaultTheme="system"
-      enableSystem
-      storageKey="theme"
+      // disableTransitionOnChange 
+      // defaultTheme="system"
+      // enableSystem
+      // storageKey="theme"
       {...props} />
   )
 }
