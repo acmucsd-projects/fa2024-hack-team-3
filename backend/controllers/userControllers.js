@@ -1,6 +1,8 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
 
 const getAllUsers = async (req, res) => {
     try {
@@ -112,13 +114,88 @@ const updateUser = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const user = await User.findOneAndUpdate({ _id: id }, { ...req.body });
+        const user = await User.findOneAndUpdate(
+            { _id: id }, 
+            { ...req.body }, 
+            { new: true}); // Returns the updated user
         
-        return res.status(200).json(user);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Generate a new token with updated information
+        const token = jwt.sign(
+            {
+                id: user._id,
+                username: user.username,
+                profilePicture: user.profilePicture,
+            },
+            process.env.MONGO_URI,
+            { expiresIn: '1h' }
+        );
+
+        // Respond with updated user and new token
+        return res.status(200).json({
+            message: "User updated successfully",
+            user,
+            token,
+        });
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
 }
+
+// Configure Cloudinary
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Multer Storage
+const storage = multer.diskStorage({});
+const upload = multer({ storage });
+
+const uploadProfilePicture = async (req, res) => {
+    const { id } = req.params;
+
+    if (!req.file) {
+        return res.status(400).json({ error: 'Please provide an image' });
+    }
+
+    try {
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: 'profile_pictures',
+        });
+
+        const user = await User.findOneAndUpdate(
+            { _id: id },
+            { profilePicture: result.secure_url },
+            { new: true }
+        );
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Generate a new token with updated profile picture
+        const token = jwt.sign(
+            {
+                id: user._id,
+                username: user.username,
+                profilePicture: user.profilePicture,
+            },
+            process.env.MONGO_URI,
+            { expiresIn: '1h' }
+        );
+            
+        res.status(200).json({ user, token });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to upload image' });
+    }
+};
 
 module.exports = {
     getAllUsers,
@@ -128,5 +205,6 @@ module.exports = {
     checkUsername,
     checkEmail,
     deleteUser,
-    updateUser   
+    updateUser,
+    uploadProfilePicture,
 }

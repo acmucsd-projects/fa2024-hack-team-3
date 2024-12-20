@@ -77,7 +77,7 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
             px={"0"}
             paddingTop={"0"}
             paddingBottom={3}
-            maxW={"100vw"}
+            maxW={{base: "97vw", lg: "100vw"}}
         >
             <Flex 
                 maxH={"9vh"} 

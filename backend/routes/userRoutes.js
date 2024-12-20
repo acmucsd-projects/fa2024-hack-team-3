@@ -1,5 +1,7 @@
 const express = require('express');
-const { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser } = require('../controllers/userControllers');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+const { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser, uploadProfilePicture } = require('../controllers/userControllers');
 
 const router = express.Router();
 
@@ -18,4 +20,5 @@ router.delete('/:id', deleteUser);
 
 router.patch('/:id', updateUser);
 
+router.post("/:id/upload", upload.single("file"), uploadProfilePicture);
 module.exports = router;
