@@ -256,6 +256,57 @@ const changePassword = async (req, res) => {
     }
 };
 
+const getLoggedInUser = async (req, res) => {
+    try {
+        // Use the authenticated user's ID from `req.user`
+        const userId = req.user.id;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        res.status(200).json({
+            id: user._id,
+            username: user.username,
+            emailAddress: user.emailAddress,
+            courses: user.courses,
+            profilePicture: user.profilePicture,
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to fetch user" });
+    }
+};
+
+const updateCourses = async (req, res) => {
+    const { courses, remove } = req.body; // Expect an array of course
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        if (remove) {
+            // Remove courses matching names in the array
+            user.courses = user.courses.filter(
+                (existingCourse) => !courses.some((course) => course.name === existingCourse.name)
+            );
+        } else {
+            // Add unique courses from the array
+            courses.forEach((course) => {
+                if (!user.courses.some((existingCourse) => existingCourse.name === course.name)) {
+                    user.courses.push({ name: course.name });
+                }
+            });
+        }
+
+        await user.save();
+        res.status(200).json({ courses: user.courses });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to update courses' });
+    }
+};
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -267,4 +318,6 @@ module.exports = {
     updateUser,
     uploadProfilePicture,
     changePassword,
+    getLoggedInUser,
+    updateCourses,
 }

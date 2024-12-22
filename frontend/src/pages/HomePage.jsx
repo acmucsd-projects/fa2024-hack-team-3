@@ -12,6 +12,7 @@ import Logout from '../home_components/Logout';
 import { ColorModeProvider } from "../components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
 import system  from '../theme'
+import Sidebar from '../account_settings_components/Sidebar';
 
 
 const HomePage = () => {
@@ -50,14 +51,16 @@ const HomePage = () => {
       <SimpleGrid columns={{ base: 1, md: 12 }} spacing={6} mt={4}>
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
-        <GridItem colSpan={{ base: 1 , md: 3}}>
+        <GridItem colSpan={{ base: 1 , md: 2}}>
         <Stack spacing={4}>
-          <CoursesSection courses={courses} />
-          <OnlineBuddies buddies={buddies} />
+          <Sidebar />
+          {/* <CoursesSection courses={courses} />
+          <OnlineBuddies buddies={buddies} /> */}
           {/* Pass setPosts to MakePostButton*/}
           {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
         </Stack>
         </GridItem>
+        <GridItem colSpan={{ base: 1 }}></GridItem>
 
         {/* Main Content: Posts Section */}
         <GridItem colSpan={{ md: 7 }}>
