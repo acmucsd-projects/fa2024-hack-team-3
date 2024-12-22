@@ -70,7 +70,7 @@ const PasswordForm = () => {
         <Text fontSize="lg" fontWeight="bold">
           Change Password
         </Text>
-        <Input
+        <PasswordInput
           placeholder="Current Password" 
           value={currentPassword}
           onChange={(e) => setCurrentPassword(e.target.value)}
@@ -78,7 +78,7 @@ const PasswordForm = () => {
         />
       </Container>
       <Container>
-        <Input 
+        <PasswordInput 
           placeholder="New Password" 
           type="password" 
           value={newPassword}
@@ -87,8 +87,8 @@ const PasswordForm = () => {
         />
       </Container>
       <Container>
-        <Input 
-          placeholder="Retype New Password" 
+        <PasswordInput 
+          placeholder="Confirm Password" 
           type="password" 
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
