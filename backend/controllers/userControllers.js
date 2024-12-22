@@ -209,6 +209,104 @@ const uploadProfilePicture = async (req, res) => {
     }
 };
 
+const changePassword = async (req, res) => {
+    const { currentPassword, newPassword, confirmPassword} = req.body;
+    const userId = req.user.id;
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+        return res.status(400).json({ error: "Please provide all fields." });
+    }
+
+    if (newPassword !== confirmPassword) {
+        return res.status(400).json({ error: "Passwords do not match." });
+    }
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        // Check if the current password is correct
+        const isPasswordValid = await bcrypt.compare(currentPassword, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: "Current password is incorrect." });
+        }
+
+
+        // Update the password
+        user.password = newPassword;
+        await user.save();
+
+        // Optionally create a new token
+        const token = jwt.sign(
+            {
+                id: user._id,
+                username: user.username,
+                profilePicture: user.profilePicture,
+            },
+            process.env.MONGO_URI,
+            { expiresIn: '1h' }
+        );
+
+        return res.status(200).json({ message: "Password updated successfully" });
+    } catch (err) {
+        console.error(err);
+        return res.status(400).json({ error: "Failed to update password."});
+    }
+};
+
+const getLoggedInUser = async (req, res) => {
+    try {
+        // Use the authenticated user's ID from `req.user`
+        const userId = req.user.id;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        res.status(200).json({
+            id: user._id,
+            username: user.username,
+            emailAddress: user.emailAddress,
+            courses: user.courses,
+            profilePicture: user.profilePicture,
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to fetch user" });
+    }
+};
+
+const updateCourses = async (req, res) => {
+    const { courses, remove } = req.body; // Expect an array of course
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        if (remove) {
+            // Remove courses matching names in the array
+            user.courses = user.courses.filter(
+                (existingCourse) => !courses.some((course) => course.name === existingCourse.name)
+            );
+        } else {
+            // Add unique courses from the array
+            courses.forEach((course) => {
+                if (!user.courses.some((existingCourse) => existingCourse.name === course.name)) {
+                    user.courses.push({ name: course.name });
+                }
+            });
+        }
+
+        await user.save();
+        res.status(200).json({ courses: user.courses });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to update courses' });
+    }
+};
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -219,4 +317,7 @@ module.exports = {
     deleteUser,
     updateUser,
     uploadProfilePicture,
+    changePassword,
+    getLoggedInUser,
+    updateCourses,
 }

@@ -22,14 +22,15 @@ const AccountSettings = () => {
         courses={courses}
       />
       <SimpleGrid columns={{ base: 1, md: 12 }} spacing={6} mt={4}>
-        <GridItem colSpan={{ base: 1 , md: 3}}>
+        <GridItem colSpan={{ base: 1 , md: 2}}>
           <Sidebar />
         </GridItem>
+        <GridItem colSpan={{ base: 1 }}></GridItem>
 
         <GridItem colSpan={{ md: 7}}>
-          <Box>
+          <Box bg="bg.muted" rounded={"md"} paddingY={"3vh"}>
             <Flex direction="column" alignItems="center">
-            <AccountHeader px="5vh"/>
+            <AccountHeader />
             <Text fontSize="lg" fontWeight="bold" marginTop="5">
                 Account Information
             </Text>
@@ -37,7 +38,6 @@ const AccountSettings = () => {
               <PasswordForm />
               <CoursesSection />
             </Flex>
-            <Button px="10vh">Save</Button>
           </Flex>
           </Box>
         </GridItem>
