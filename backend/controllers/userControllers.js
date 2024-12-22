@@ -209,6 +209,53 @@ const uploadProfilePicture = async (req, res) => {
     }
 };
 
+const changePassword = async (req, res) => {
+    const { currentPassword, newPassword, confirmPassword} = req.body;
+    const userId = req.user.id;
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+        return res.status(400).json({ error: "Please provide all fields." });
+    }
+
+    if (newPassword !== confirmPassword) {
+        return res.status(400).json({ error: "Passwords do not match." });
+    }
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        // Check if the current password is correct
+        const isPasswordValid = await bcrypt.compare(currentPassword, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: "Current password is incorrect." });
+        }
+
+
+        // Update the password
+        user.password = newPassword;
+        await user.save();
+
+        // Optionally create a new token
+        const token = jwt.sign(
+            {
+                id: user._id,
+                username: user.username,
+                profilePicture: user.profilePicture,
+            },
+            process.env.MONGO_URI,
+            { expiresIn: '1h' }
+        );
+
+        return res.status(200).json({ message: "Password updated successfully" });
+    } catch (err) {
+        console.error(err);
+        return res.status(400).json({ error: "Failed to update password."});
+    }
+};
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -219,4 +266,5 @@ module.exports = {
     deleteUser,
     updateUser,
     uploadProfilePicture,
+    changePassword,
 }

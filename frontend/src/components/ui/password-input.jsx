@@ -33,49 +33,40 @@ export const PasswordInput = React.forwardRef(
     const inputRef = React.useRef(null)
 
     return (
-      <InputGroup
-        width='full'
-        endElement={
-          <VisibilityTrigger
-            disabled={rest.disabled}
-            onPointerDown={(e) => {
-              if (rest.disabled) return
-              if (e.button !== 0) return
-              e.preventDefault()
-              setVisible(!visible)
-            }}
-          >
-            {visible ? visibilityIcon.off : visibilityIcon.on}
-          </VisibilityTrigger>
-        }
-        {...rootProps}
+      <Box position="relative" width="100%">
+      <Input
+        {...rest}
+        ref={inputRef}
+        type={visible ? 'text' : 'password'}
+        pr="3rem" // Add padding to the right to prevent overlap
+      />
+      <Box
+        position="absolute"
+        top="50%"
+        right="0.5rem"
+        transform="translateY(-50%)"
       >
-        <Input
-          {...rest}
-          ref={mergeRefs(ref, inputRef)}
-          type={visible ? 'text' : 'password'}
-        />
-      </InputGroup>
+        <VisibilityTrigger
+          onClick={() => setVisible(!visible)}
+          aria-label="Toggle password visibility"
+        >
+          {visible ? visibilityIcon.off : visibilityIcon.on}
+        </VisibilityTrigger>
+      </Box>
+    </Box>
     )
   },
 )
 
-const VisibilityTrigger = React.forwardRef(
-  function VisibilityTrigger(props, ref) {
-    return (
-      <IconButton
-        tabIndex={-1}
-        ref={ref}
-        me='-2'
-        aspectRatio='square'
-        size='sm'
-        variant='ghost'
-        height='calc(100% - {spacing.2})'
-        aria-label='Toggle password visibility'
-        {...props}
-      />
-    )
-  },
+const VisibilityTrigger = (props) => (
+  <Box
+    as="button"
+    background="transparent"
+    border="none"
+    cursor="pointer"
+    w={"2.5"}
+    {...props}
+  />
 )
 
 export const PasswordStrengthMeter = React.forwardRef(
