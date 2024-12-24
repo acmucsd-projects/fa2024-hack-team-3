@@ -2,12 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require("cors");
 const path = require('path');
+// const io  = require('../bin/www'); 
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
+
 // Routes
 // const authRoutes = require('./routes/authRoutes'); // Import your auth routes
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const commentRoutes = require('./routes/commentRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 
 const app = express();
 
@@ -22,10 +26,11 @@ mongoose.set('strictQuery', true);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log('Connected to MongoDB :D');
+        console.log('Connected to MongoDB :D' );
         app.use('/api/users', userRoutes);
         app.use('/api/posts', postRoutes);
         app.use('/api/posts', commentRoutes);
+        app.use('/api/chatpage', chatRoutes);
     })
     .catch(err => {
         console.log('Failed to connect to MongoDB :(', err.message);

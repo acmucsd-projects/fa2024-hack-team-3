@@ -10,7 +10,6 @@ import { ColorModeProvider } from "./components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
 import system  from './theme'
 function App() {
-
   const isLoggedIn = () => {
     // Check if user is logged in by checking for a token
     const token = localStorage.getItem("authToken");

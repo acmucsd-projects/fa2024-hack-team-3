@@ -1,6 +1,7 @@
 const Comment = require('../models/commentModel');
 const Post = require('../models/postModel'); // Optional, for verifying post existence
 
+
 // Fetch all comments for a post
 exports.getCommentsByPostId = async (req, res) => {
     try {

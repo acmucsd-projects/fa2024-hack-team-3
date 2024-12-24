@@ -70,7 +70,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
-        // Respond with success (in a real-world app, also generate a token)
+        // Respond with success (in a real-world app, also generate a token), replaced _id with id!
         const token = jwt.sign({ id: user._id, username: user.username, profilePicture: user.profilePicture }, process.env.MONGO_URI, { expiresIn: '1h' });
 
         res.status(200).json({

@@ -11,3 +11,4 @@ router.get('/:postId/comments', getCommentsByPostId);
 router.post('/:postId/comments', authenticate, addCommentToPost);
 
 module.exports = router;
+
