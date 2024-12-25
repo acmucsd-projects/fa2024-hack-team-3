@@ -20,20 +20,20 @@ app.set('port', port);
  */
 const server = http.createServer(app);
 
-const io = socketIo(server, {
-  cors: {
-    origin: 'http://localhost:5173', // Allow your frontend origin
-    methods: ['GET', 'POST'],
-  },
-});
+// const io = socketIo(server, {
+//   cors: {
+//     origin: 'http://localhost:5173', // Allow your frontend origin
+//     methods: ['GET', 'POST'],
+//   },
+// });
 
-io.on('connection', (socket) => {
-  console.log('A user connected:', socket.id);
+// io.on('connection', (socket) => {
+//   console.log('A user connected:', socket.id);
 
-  socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log('User disconnected:', socket.id);
+//   });
+// });
 
 /**
  * Listen on provided port, on all network interfaces.
