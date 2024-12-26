@@ -4,7 +4,9 @@ const User = require('../models/userModel');
 
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await Post.find({}).sort({ createdAt: -1 });
+        const posts = await Post.find({})
+            .sort({ createdAt: -1 })
+            .populate('userId', 'username profilePicture');
 
         return res.status(200).json(posts);
     } catch (err) {
@@ -61,6 +63,7 @@ const createPost = async (req, res) => {
             description,
             tags: tags.length ? tags : [],
             userId: new mongoose.Types.ObjectId(userId),
+            profilePicture: user.profilePicture,
         });
 
         res.status(201).json(post);

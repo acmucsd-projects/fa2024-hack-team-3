@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Text, Badge, HStack, VStack, Spacer, Button, Input, Stack } from '@chakra-ui/react';
 import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
+import { Avatar, AvatarGroup } from "../components/ui/avatar"
 
 const Post = ({ post, onDelete }) => {
     const [comments, setComments] = useState([]); // State for comments
@@ -88,14 +89,17 @@ const Post = ({ post, onDelete }) => {
         >
             <HStack mb={4} alignItems="center">
                 <VStack align="start" spacing={0}>
-                    <Text fontWeight="bold">{post.user}</Text>
+                    <HStack>
+                    <Avatar size="sm" src={post.profilePicture} name={post.username} />
+                        <Text fontWeight="bold">{post.username}</Text>
+                    </HStack>
                     {/* Display the relative time using the existing timestamp */}
                     <Text fontSize="sm" color="fg.subtle">
                         {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true})}
                     </Text>
                 </VStack>
                 <Spacer />
-                {post.userId.toString() === authUserId && ( // Show delete button only if the user owns the post
+                {post.userId?._id === authUserId && ( // Show delete button only if the user owns the post
                     <Button 
                         size="sm" 
                         colorScheme="red" 

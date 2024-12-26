@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { VStack, Container, Input, Flex, Text, IconButton, Button } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
+import coursesOptions from "../data/courses.json";
+import Select from "react-select";
 
 const CoursesSection = () => {
 
-  const [courses, setCourses] = useState([]); // Stores the courses from the backend
-  const [newCourse, setNewCourse] = useState(""); // Stores the new course to be added 
+  // const [courses, setCourses] = useState([]); // Stores the courses from the backend
+  // const [newCourse, setNewCourse] = useState(""); // Stores the new course to be added 
+  const [selectedCourses, setSelectedCourses] = useState([]); // Stores the selected courses
+  const [originalCourses, setOriginalCourses] = useState([]); // Stores the original courses
   const [error, setError] = useState(""); // Stores error messages
   const [success, setSuccess] = useState(""); // Stores success messages
 
@@ -20,7 +24,14 @@ const CoursesSection = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        setCourses(response.data.courses); // Update courses with the response
+        
+        // Preload the selected courses using the logged-in user's data
+        const preloadedCourses = response.data.courses.map((course) => ({
+          value: course.name,
+          label: course.name,
+        }));
+        setSelectedCourses(preloadedCourses); // Update courses with the response
+        setOriginalCourses(preloadedCourses); // Keep copy of original courses
       } catch (err) {
         console.error("Failed to fetch courses:", err);
         setError("Failed to fetch courses.");
@@ -30,98 +41,90 @@ const CoursesSection = () => {
     fetchCourses();
   }, []);
 
-  // Handle adding a new course
-  const handleAddCourse = async () => {
-    setError("");
-    setSuccess("");
-
-    if (!newCourse.trim()) {
-      setError("Please provide a course name.");
-      return;
-    }
-
-    try {
-      const token = localStorage.getItem("authToken");
-      const response = await axios.patch(
-        "http://localhost:5000/api/users/me/courses",
-        { courses: [{ name: newCourse}], remove: false },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-
-      setCourses(response.data.courses); // Update courses with the response
-      setNewCourse(""); // Clear the input field
-      setSuccess("Course added successfully!");
-    } catch (err) {
-      console.error("Failed to add course:", err);
-      setError("Failed to add course.");
-    }
+  // Handle changes to the Select component
+  const handleCourseChange = (selectedOptions) => {
+    setSelectedCourses(selectedOptions.map((option) => ({ value: option.value }))); // Update selected courses
   };
 
-  // Handle removing a course
-  const handleRemoveCourse = async (courseName) => {
+  // Save changes (update the user's courses in the backend)
+  const handleSaveChanges = async () => {
     setError("");
     setSuccess("");
 
     try {
       const token = localStorage.getItem("authToken");
-      const response = await axios.patch(
-        "http://localhost:5000/api/users/me/courses",
-        { courses: [{ name: courseName }], remove: true },
-        { headers: { Authorization: `Bearer ${token}` } }
+
+      // Prepare courses to add and remove
+      const selectedCourseNames = selectedCourses.map((course) => course.value);
+      const originalCourseNames = originalCourses.map((course) => course.value);
+      
+      // Determine courses to remove and add
+      const coursesToAdd = selectedCourseNames.filter(
+        (course) => !originalCourseNames.includes(course)
+      );
+      const coursesToRemove = originalCourseNames.filter(
+        (course) => !selectedCourseNames.includes(course)
       );
 
-      setCourses(response.data.courses); // Update courses with the response
-      setSuccess("Course removed successfully!");
+      // Handle additions
+      if (coursesToAdd.length > 0) {
+        await axios.patch(
+          "http://localhost:5000/api/users/me/courses",
+          { courses: coursesToAdd.map((name) => ({ name })), remove: false },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      }
+
+      // Handle removals
+      if (coursesToRemove.length > 0) {
+        await axios.patch(
+          "http://localhost:5000/api/users/me/courses",
+          { courses: coursesToRemove.map((name) => ({ name })), remove: true },
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
+      }
+
+      setOriginalCourses(selectedCourses); // Update original courses
+      setSuccess("Courses updated successfully!");
     } catch (err) {
-      console.error("Failed to remove course:", err);
-      setError("Failed to remove course.");
+      console.error("Failed to update courses:", err);
+      setError("Failed to update courses.");
     }
   };
-
 
   return (
     <VStack spacing={4} align="start" flex="1">
       <Text fontSize="lg" fontWeight="bold">
         Courses
       </Text>
+  
+      {/* Select Component for Managing Courses */}
       <Container>
-        <Input 
-          placeholder="Course to Add" 
-          value={newCourse}
-          onChange={(e) => setNewCourse(e.target.value)}
+        <Select
+          options={coursesOptions}
+          value={selectedCourses.map((course) => ({
+            value: course.value,
+            label: course.value, // Rebuild the label for display
+          }))}
+          onChange={handleCourseChange}
+          isMulti
+          closeMenuOnSelect={false}
+          placeholder="Select courses..."
+          styles={{
+            container: (base) => ({ ...base, width: "100%" }),
+            menu: (base) => ({ ...base, maxHeight: "200px", overflowY: "auto" }),
+          }}
         />
-        <Button 
-          mt={2} 
-          onClick={handleAddCourse}
-          _hover={{ bg: "blue.600"}}
+        <Button
+          mt={4}
+          onClick={handleSaveChanges}
+          _hover={{ bg: "blue.600" }}
         >
-          Add Course
+          Save Changes
         </Button>
       </Container>
-
-      {error && <Text color="red.500" px={"5vh"}>{error}</Text>}
-      {success && <Text color="green.500" px={"5vh"}>{success}</Text>}
-      
-      <VStack align="start" spacing={2}>
-        {courses.map((course) => (
-          <Flex key={course._id} justify="space-between" w="100%">
-            <Text px="5vh">{course.name}</Text>
-            <IconButton
-              onClick={() => handleRemoveCourse(course.name)}
-              variant="solid"
-              size="xs"
-              aria-label="Remove course"
-              rounded="full"
-              _hover={{
-                bg: "red.500",
-                color: "white",
-              }}
-            >
-              <AiOutlineClose />
-            </IconButton>
-          </Flex>
-        ))}
-      </VStack>
+      { error && <Text color="red.500">{error}</Text>}
+      { success && <Text color="green.500">{success}</Text>}
     </VStack>
   );
 };

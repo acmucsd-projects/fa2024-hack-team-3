@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema(
     {
         username: { type: String, required: true, default: "Anonymous" },
+        profilePicture: { type: String, required: false, default: '' },
         title: { type: String, required: false, trim: true },
         description: { type: String, required: true, trim: true },
         tags: { type: [String], default: ["insert course"] }, 

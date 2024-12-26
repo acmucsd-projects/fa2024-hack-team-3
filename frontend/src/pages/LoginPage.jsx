@@ -71,6 +71,14 @@ const LoginPage = () => {
         }
     }
 
+    // Handle Enter key press
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevent form submission behavior
+            handleLogin();
+        }
+    };
+
     return (
         
         <Box>
@@ -94,6 +102,7 @@ const LoginPage = () => {
                     h={{base: "100vh", md: "90%"}}
 
                 >
+                <form onKeyDown={handleKeyPress}>
                     <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "0"}}>
                             <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
                                 Login to StudyLink
@@ -165,6 +174,7 @@ const LoginPage = () => {
 
                             {/* <Button onClick={() => login()}> Sign in with Google</Button> */}
                     </VStack>
+                    </form>
                 </Container>
                 <Box 
                     display={{ base: "none", md: "flex" }}
