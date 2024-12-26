@@ -15,7 +15,7 @@ select_tag = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.
 select = Select(select_tag)
 options = select.options
 
-for i in range(len(options) - 180):
+for i in range(len(options)):
     select.select_by_index(i)
 
 search_button = driver.find_element(By.ID, 'socFacSubmit')
