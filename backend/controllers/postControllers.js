@@ -6,7 +6,7 @@ const getAllPosts = async (req, res) => {
     try {
         const posts = await Post.find({})
             .sort({ createdAt: -1 })
-            .populate('userId', 'username profilePicture');
+            .populate('userId', '_id username profilePicture');
 
         return res.status(200).json(posts);
     } catch (err) {
@@ -62,11 +62,13 @@ const createPost = async (req, res) => {
             title,
             description,
             tags: tags.length ? tags : [],
-            userId: new mongoose.Types.ObjectId(userId),
+            userId: user._id,
             profilePicture: user.profilePicture,
         });
 
-        res.status(201).json(post);
+        const populatedPost = await post.populate('userId', '_id username profilePicture');
+
+        res.status(201).json(populatedPost);
     } catch (err) {
         console.error(err);
         res.status(400).json({ message: "Error creating post" });

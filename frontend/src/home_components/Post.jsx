@@ -9,7 +9,7 @@ const Post = ({ post, onDelete }) => {
     const [newComment, setNewComment] = useState(''); // State for new comment input
     const [loadingComments, setLoadingComments] = useState(false); // Loading state
 
-    const authUserId = localStorage.getItem('authUserId'); 
+    const authUserId = localStorage.getItem('authUserId')?.toString(); 
     // console.log('Retrieved userId:', authUserId);
     
 
@@ -90,7 +90,7 @@ const Post = ({ post, onDelete }) => {
             <HStack mb={4} alignItems="center">
                 <VStack align="start" spacing={0}>
                     <HStack>
-                    <Avatar size="sm" src={post.profilePicture} name={post.username} />
+                    <Avatar size="sm" src={post.userId?.profilePicture || post.profilePicture} name={post.userId?.username || post.username} />
                         <Text fontWeight="bold">{post.username}</Text>
                     </HStack>
                     {/* Display the relative time using the existing timestamp */}
@@ -99,7 +99,7 @@ const Post = ({ post, onDelete }) => {
                     </Text>
                 </VStack>
                 <Spacer />
-                {post.userId?._id === authUserId && ( // Show delete button only if the user owns the post
+                {post.userId && post.userId._id?.toString() === authUserId && ( // Show delete button only if the user owns the post
                     <Button 
                         size="sm" 
                         colorScheme="red" 
