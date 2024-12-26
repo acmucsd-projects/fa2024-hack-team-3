@@ -6,6 +6,7 @@ import { Box, Container, Flex, Image, VStack, Heading, Text, Button} from '@chak
 import { Toaster, toaster } from '../components/ui/toaster';
 import Navbar from '../login_register_components/Navbar';
 import InputField from '../login_register_components/InputField';
+import courses from '../data/courses.json'
 import logo from '../assets/logo.svg';
 
 const RegisterPage = () => {
@@ -179,13 +180,6 @@ const RegisterPage = () => {
             });
         }
     }
-
-    const courses = [
-        { value: 'CSE 11', label: 'CSE 11 - Introduction to Computer Science' },
-        { value: 'MATH 20C', label: 'MATH 20C - Calc III' },
-        { value: 'ECON 1', label: 'ECON 1 - Principles of Microeconomics' },
-        { value: 'CSe 12', label: 'CSE 12 - Data Structures' },
-    ];
 
     return (
         <Box>
