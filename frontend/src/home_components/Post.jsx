@@ -131,6 +131,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                     <MenuTrigger asChild>
                             <Box _hover={{ cursor: "pointer" }}><BsThreeDotsVertical /></Box>
                     </MenuTrigger>
+                    {post.userId && post.userId._id?.toString() === authUserId && (
                     <MenuContent>
                         <MenuItem
                             onClick={onEdit}
@@ -140,6 +141,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                         >
                             Edit
                         </MenuItem>
+        
                         <DialogRoot open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
                             <DialogTrigger asChild>
                                 <MenuItem
@@ -181,7 +183,9 @@ const Post = ({ post, onDelete, onEdit }) => {
                                 </DialogFooter>
                             </DialogContent>
                         </DialogRoot>
+                        
                     </MenuContent>
+                    )}
                 </MenuRoot>
 
 
