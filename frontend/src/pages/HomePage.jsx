@@ -65,7 +65,7 @@ const HomePage = () => {
         {/* Main Content: Posts Section */}
         <GridItem colSpan={{ md: 7 }}>
           <Box>
-            <PostsSection posts={posts} />
+            <PostsSection posts={posts} setPosts={setPosts}/>
           </Box>
         </GridItem>
       </SimpleGrid>

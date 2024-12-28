@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Post = require('../models/postModel');
 const User = require('../models/userModel');
+const Comment = require('../models/commentModel');
 
 const getAllPosts = async (req, res) => {
     try {
@@ -83,6 +84,9 @@ const deletePost = async (req, res) => {
         if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
+
+        // Delete all comments associated with the post
+        await Comment.deleteMany({ postId: id });
         
         // Check if the authenticated user owns the post
         if (post.userId.toString() !== req.user.id) {

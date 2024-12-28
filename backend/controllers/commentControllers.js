@@ -3,10 +3,10 @@ const Post = require('../models/postModel'); // Optional, for verifying post exi
 
 
 // Fetch all comments for a post
-exports.getCommentsByPostId = async (req, res) => {
+const getCommentsByPostId = async (req, res) => {
     try {
         const comments = await Comment.find({ postId: req.params.postId })
-            .populate('userId', 'username') // Ensure 'username' exists in User schema
+            .populate('userId', 'username profilePicture createdAt') // Ensure 'username' exists in User schema
             .sort({ createdAt: 1 });
 
         res.status(200).json(comments);
@@ -16,7 +16,7 @@ exports.getCommentsByPostId = async (req, res) => {
 }
 
 // Add a new comment to a post
-exports.addCommentToPost = async (req, res) => {
+const addCommentToPost = async (req, res) => {
     const { postId } = req.params;
     const { text } = req.body;
     const userId = req.user?.id;
@@ -43,10 +43,12 @@ exports.addCommentToPost = async (req, res) => {
         const newComment = new Comment({ postId, userId, text });
         await newComment.save();
 
-        const populatedComment = await newComment.populate("userId", "username");
+        const populatedComment = await newComment.populate("userId", "username profilePicture createdAt");
         res.status(201).json(populatedComment);
         console.log("New comment created:", populatedComment);
     } catch (error) {
         res.status(500).json({ message: "Failed to add comment", error: error.message });
     }
 }
+
+module.exports = { getCommentsByPostId, addCommentToPost };
