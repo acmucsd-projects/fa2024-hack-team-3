@@ -262,7 +262,6 @@ const Post = ({ post, onDelete, onEdit }) => {
 
 
                             <DialogFooter>
-                                <DialogActionTrigger asChild>
                                     <Button 
                                         onClick={() => setIsEditDialogOpen(false)} 
                                         variant="outline"
@@ -274,7 +273,6 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     >
                                         Cancel
                                     </Button>
-                                </DialogActionTrigger>
                                 <Button 
                                     colorScheme="blue"
                                     gap ="100"
