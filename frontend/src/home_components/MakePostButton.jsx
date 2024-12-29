@@ -140,7 +140,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       mb={4}
-                      bg="bg.textbg" // bg.textbg comes from theme.ts
+                      bg="bg.DEFAULT" // bg.textbg comes from theme.ts
                       width={"40%"}
                     />
                     <Field.Label css={floatingStyles}>Topic Title</Field.Label>
@@ -155,7 +155,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       mb={4}
-                      bg="bg.textbg"
+                      bg="bg.DEFAULT"
                     />
                     <Field.Label css={floatingStyles}>Description</Field.Label>
                   </Box>
@@ -168,7 +168,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={handleTagInputKeyDown}
                   mb={4}
-                  bg="bg.textbg"
+                  bg="bg.DEFAULT"
                 />
 
                 {/* Display Selected Tags */}

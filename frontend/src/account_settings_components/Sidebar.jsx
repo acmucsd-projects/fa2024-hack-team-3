@@ -4,7 +4,7 @@ import { Avatar, AvatarGroup } from "../components/ui/avatar"
 
 const Sidebar = () => {
   return (
-    <Box bg="bg.muted" boxShadow="sm" p={4} borderRadius="md" h={{md: "90vh"}}>
+    <Box bg="bg.subtle" boxShadow="sm" p={4} borderRadius="md" h={{md: "90vh"}}>
       <Stack spacing={4}>
         <Text fontSize="lg" fontWeight="bold"> Menu</Text>
         <Text cursor="pointer">Posts</Text>

@@ -58,7 +58,7 @@ const PostsSection = ({ posts, setPosts }) => {
   };
 
   return (
-    <Box className="posts-section" p={4} bg="bg.muted" rounded={"md"} >
+    <Box className="posts-section" p={4} bg="bg.subtle" rounded={"md"} >
       <Heading as="h2" size="lg" mb={4}>Explore Posts</Heading>
       <Text mb={4} >{posts.length} total results for (placeholder until courses implemented) </Text>
 

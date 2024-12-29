@@ -159,7 +159,7 @@ const Post = ({ post, onDelete, onEdit }) => {
             borderRadius="lg" 
             p={4} 
             boxShadow={"sm"} 
-            bg={"bg.subtle"} 
+            bg={"bg.muted"} 
             _hover={{ boxShadow: "md" }}
         >
             
@@ -217,7 +217,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                             value={editTitle}
                                             onChange={(e) => setEditTitle(e.target.value)}
                                             mb={4}
-                                            bg="bg.textbg" // bg.textbg comes from theme.ts
+                                            bg="bg.DEFAULT" // bg.textbg comes from theme.ts
                                             width={"40%"}
                                         />
                                         <Field.Label css={floatingStyles}>Edit Title</Field.Label>
@@ -231,7 +231,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                         value={editDescription}
                                         onChange={(e) => setEditDescription(e.target.value)}
                                         mb={4}
-                                        bg="bg.textbg"
+                                        bg="bg.DEFAULT"
                                     />
                                     <Field.Label css={floatingStyles}>Edit Description</Field.Label>
                                 </Field.Root>
@@ -243,7 +243,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     onChange={(e) => setTagInput(e.target.value)}
                                     onKeyDown={(e) => e.key === 'Enter' && handleAddTag()}
                                     mb={4}
-                                    bg="bg.textbg"
+                                    bg="bg.DEFAULT"
                                 />
 
                                 <HStack spacing={2} wrap="wrap">
@@ -340,11 +340,11 @@ const Post = ({ post, onDelete, onEdit }) => {
                     )}
                 </MenuRoot>
             </HStack>
-            <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.subtle" mb={2}>{post.title}</Text>
+            <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.muted" mb={2}>{post.title}</Text>
             <Text mb={4} color="#00629B">{post.description}</Text>
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (
-                    <Badge key={index} colorScheme="blue" bg="bg.muted">{tag}</Badge>
+                    <Badge key={index} colorScheme="blue" bg="bg.subtle">{tag}</Badge>
                 ))}
             </HStack>
 
@@ -366,7 +366,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     key={comment._id} 
                                     p={2} 
                                     borderRadius="md" 
-                                    bg="bg.subtle" 
+                                    bg="bg.muted" 
                                     boxShadow="sm"
                                 >
                                     <HStack paddingBottom={3}>

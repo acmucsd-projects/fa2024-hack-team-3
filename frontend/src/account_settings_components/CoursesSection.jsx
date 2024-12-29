@@ -113,6 +113,11 @@ const CoursesSection = () => {
           styles={{
             container: (base) => ({ ...base, width: "100%" }),
             menu: (base) => ({ ...base, maxHeight: "200px", overflowY: "auto" }),
+            control: (provided, state) => ({
+              ...provided,
+              backgroundColor: "bg.DEFAULT",
+              borderColor: state.isFocused ? "blue.600" : "gray.200",
+            })
           }}
         />
         <Button

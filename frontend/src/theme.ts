@@ -19,13 +19,13 @@ const config = defineConfig({
               value: { _light: "{colors.white}", _dark: "#141414" }, // Custom dark background
             },
             subtle: {
-              value: { _light: "{#FFFFFF}", _dark: "#1a1a1a" }, // Custom dark subtle background
+              value: { _light: "{colors.gray.100}", _dark: "#1a1a1a" }, // Custom dark subtle background _light:#FFFFFF
             },
             textbg: {
                 value: { _light: "{#FFFFFF}", _dark: "#F5F0E6" }, // Custom dark subtle background
               },
             muted: {
-              value: { _light: "{colors.gray.100}", _dark: "#262626" }, // Custom dark muted background
+              value: { _light: "{#FFFFFF}", _dark: "#262626" }, // Custom dark muted background
             },
             red: {
               value: {_light: "{colors.red.0}", _dark: "#00000"},
