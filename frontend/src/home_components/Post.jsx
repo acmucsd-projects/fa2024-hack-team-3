@@ -34,7 +34,6 @@ const Post = ({ post, onDelete, onEdit }) => {
     const [editDescription, setEditDescription] = useState(post.description); // State for edited description
     const [editTags, setEditTags] = useState(post.tags || []); // State for edited tags
     const [tagInput, setTagInput] = useState(''); // State for tag input
-    const [menuOpen, setMenuOpen] = useState(false); // Track menu open state
     // const [isHighlighted, setIsHighlighted] = useState(false);
 
     // useEffect(() => {
@@ -172,7 +171,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 </Text> */}
                 <HStack>
                     <Avatar size="sm" src={post.userId?.profilePicture || post.profilePicture} name={post.userId?.username || post.username} />
-                    <Text fontWeight="bold">{post.userId?.username || "Unknown User"}</Text>
+                    <Text fontWeight="bold">{post.username || "Unknown User"}</Text>
                 </HStack>
                 <Text fontSize="sm" color="fg.subtle">
                     {new Date(post.createdAt).toLocaleString() || "Unknown Date"}

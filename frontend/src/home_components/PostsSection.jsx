@@ -12,9 +12,11 @@ const PostsSection = ({ posts, setPosts }) => {
 
   const handleEditPost = (updatedPost) => {
     setPosts((prevPosts) =>
-        prevPosts.map((post) =>
-            post._id === updatedPost._id ? updatedPost : post
-        )
+      prevPosts.map((post) =>
+          post._id.toString() === updatedPost._id.toString()
+              ? { ...post, ...updatedPost } // Merge updated fields
+              : post
+      )
     );
   };
 
@@ -48,7 +50,7 @@ const PostsSection = ({ posts, setPosts }) => {
       <Stack spacing={6}>
           {currentPosts.map((post) => (
               <Post 
-                key={post._id} 
+                key={post._id}
                 post={post} 
                 onDelete={handleDeletePost} 
                 onEdit={handleEditPost}
