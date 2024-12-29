@@ -8,7 +8,16 @@ const PostsSection = ({ posts, setPosts }) => {
 
   const handleDeletePost = (postId) => {
     setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
-};
+  };
+
+  const handleEditPost = (updatedPost) => {
+    setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+            post._id === updatedPost._id ? updatedPost : post
+        )
+    );
+  };
+
   // Calculate pagination values
   const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate the total pages
   // Calculate the start and end indices for slicing
@@ -38,7 +47,12 @@ const PostsSection = ({ posts, setPosts }) => {
       {/* Stack component to arrange posts vertically */}
       <Stack spacing={6}>
           {currentPosts.map((post) => (
-              <Post key={post._id} post={post} onDelete={handleDeletePost} />
+              <Post 
+                key={post._id} 
+                post={post} 
+                onDelete={handleDeletePost} 
+                onEdit={handleEditPost}
+              />
           ))}
       </Stack>
 
