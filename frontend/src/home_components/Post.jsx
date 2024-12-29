@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Text, Badge, HStack, VStack, Spacer, Button, Input, Stack, Field, defineStyle, Textarea } from '@chakra-ui/react';
 import axios from 'axios';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow, format, isToday, isYesterday } from 'date-fns';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import {
     MenuContent,
@@ -154,6 +154,18 @@ const Post = ({ post, onDelete, onEdit }) => {
         }
       }, [post._id]);
 
+    const formatPostDate = (date) => {
+        const postDate = new Date(date);
+
+        if (isToday(postDate)) {
+            return `Today at ${format(postDate, 'hh:mm a')}`;
+        } else if (isYesterday(postDate)) {
+            return `Yesterday at ${format(postDate, 'hh:mm a')}`;
+        } else {
+            return format(postDate, 'MM/dd/yyyy, hh:mm a');
+        }
+    };
+
     return (
         <Box 
             borderRadius="lg" 
@@ -175,7 +187,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                     <Text fontWeight="bold">{post.username || "Unknown User"}</Text>
                 </HStack>
                 <Text fontSize="sm" color="fg.subtle">
-                    {new Date(post.createdAt).toLocaleString() || "Unknown Date"}
+                    {formatPostDate(post.createdAt)}
                 </Text>
             </VStack>
             <Spacer />
@@ -188,7 +200,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 </MenuTrigger>
                 {post.userId && post.userId._id?.toString() === authUserId && (
                 <MenuContent> 
-                    <MenuItem onClick={() => setIsEditDialogOpen(true)} _hover={{ cursor: "pointer" }}>
+                    <MenuItem onClick={() => setIsEditDialogOpen(true)} _hover={{ cursor: "pointer", bg: "bg.subtle"}}>
                         Edit
                     </MenuItem>
 
@@ -359,7 +371,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                         comments.map((comment) => {
                             const displayUser = comment.userId?.username || 'Unknown User';
                             const userProfilePicture = comment.userId?.profilePicture || '';
-                            const relativeTime = formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true });
+                            const formattedDate = formatPostDate(comment.createdAt);
 
                             return (
                                 <Box 
@@ -372,7 +384,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     <HStack paddingBottom={3}>
                                         <Avatar size="xs" src={userProfilePicture} name={displayUser} />
                                         <Text fontSize="sm" fontWeight="bold" paddingRight={1}>{displayUser}</Text>
-                                        <Text fontSize="sm" color="fg.subtle">{relativeTime}</Text>
+                                        <Text fontSize="sm" color="fg.subtle">{formattedDate}</Text>
                                     </HStack>
                                         <Text fontSize="sm">{comment.text || 'No content available'}</Text>
                                 </Box>

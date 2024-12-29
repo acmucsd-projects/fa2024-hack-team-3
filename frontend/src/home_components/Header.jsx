@@ -148,7 +148,7 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
                                 </Box>
 
                                 {/* Account Settings */}
-                                <MenuItem asChild value="settings" cursor="pointer">
+                                <MenuItem asChild value="settings" cursor="pointer" _hover={{ bg: "bg.subtle"}}>
                                     <RouterLink
                                         to={"/settings"}
                                     >
@@ -161,6 +161,7 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
 
                                 {/* Logout Button */}
                                 <MenuItem 
+                                    _hover={{ bg: "bg.subtle"}}
                                     value="logout"
                                     onClick={handleLogout}
                                     cursor="pointer"
