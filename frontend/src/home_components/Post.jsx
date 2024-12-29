@@ -128,6 +128,7 @@ const Post = ({ post, onDelete, onEdit }) => {
 
             const response = await axios.get(`http://localhost:5000/api/posts/${post._id}`);
             // Update the UI with the updated post
+            console.log('Updated post:', response.data);
             onEdit(response.data);
             setIsEditDialogOpen(false); // Close the dialog
         } catch (error) {

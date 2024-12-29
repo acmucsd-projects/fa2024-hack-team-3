@@ -11,13 +11,29 @@ const PostsSection = ({ posts, setPosts }) => {
   };
 
   const handleEditPost = (updatedPost) => {
+    // setPosts((prevPosts) =>
+    //   prevPosts.map((post) =>
+    //       post._id.toString() === updatedPost._id.toString()
+    //           ? { ...post, ...updatedPost } // Merge updated fields
+    //           : post
+    //   )
+    // );
     setPosts((prevPosts) =>
-      prevPosts.map((post) =>
-          post._id.toString() === updatedPost._id.toString()
-              ? { ...post, ...updatedPost } // Merge updated fields
-              : post
-      )
-    );
+      prevPosts.map((post) => {
+          // Check if the updated post's userId is a string
+          if (post._id === updatedPost._id) {
+              if (typeof updatedPost.userId === 'string') {
+                  updatedPost.userId = {
+                      _id: updatedPost.userId,
+                      username: post.userId?.username || 'Unknown User',
+                      profilePicture: post.userId?.profilePicture || '',
+                  };
+              }
+              return updatedPost;
+          }
+          return post;
+      })
+  );
   };
 
   // Calculate pagination values
