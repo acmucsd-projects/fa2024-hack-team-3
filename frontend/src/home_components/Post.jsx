@@ -21,7 +21,6 @@ import {
     DialogCloseTrigger,
   } from "../components/ui/dialog";
 import { Avatar, AvatarGroup } from "../components/ui/avatar"
-import { set } from 'mongoose';
 
 const Post = ({ post, onDelete, onEdit }) => {
 
