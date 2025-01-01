@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Post from './Post';
-import { Box, Heading, Text, Stack, Button, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Stack, Button, Flex, HStack} from '@chakra-ui/react';
+import { Skeleton, SkeletonCircle, SkeletonText } from '../components/ui/skeleton';
 
 const PostsSection = ({ posts, setPosts }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
   const postsPerPage = 10;
+
+  useEffect(() => {
+    // Simulate a delay for fetching posts
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false when posts are fetched
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [posts]);
 
   const handleDeletePost = (postId) => {
     setPosts((prevPosts) => prevPosts.filter((post) => post._id !== postId));
@@ -12,30 +23,31 @@ const PostsSection = ({ posts, setPosts }) => {
 
   const handleEditPost = (updatedPost) => {
     // setPosts((prevPosts) =>
-    //   prevPosts.map((post) =>
-    //       post._id.toString() === updatedPost._id.toString()
-    //           ? { ...post, ...updatedPost } // Merge updated fields
-    //           : post
-    //   )
-    // );
+    //   prevPosts.map((post) => {
+    //       // Check if the updated post's userId is a string
+    //       if (post._id === updatedPost._id) {
+    //           if (typeof updatedPost.userId === 'string') {
+    //               updatedPost.userId = {
+    //                   _id: updatedPost.userId,
+    //                   username: post.userId?.username || 'Unknown User',
+    //                   profilePicture: post.userId?.profilePicture || '',
+    //               };
+    //           }
+    //           return updatedPost;
+    //       }
+    //       return post;
+    //   })
+    // ); 
     setPosts((prevPosts) =>
       prevPosts.map((post) => {
-          // Check if the updated post's userId is a string
           if (post._id === updatedPost._id) {
-              if (typeof updatedPost.userId === 'string') {
-                  updatedPost.userId = {
-                      _id: updatedPost.userId,
-                      username: post.userId?.username || 'Unknown User',
-                      profilePicture: post.userId?.profilePicture || '',
-                  };
-              }
-              return updatedPost;
+              return { ...post, ...updatedPost }; // Merge updated fields, including isEdited
           }
           return post;
       })
   );
   };
-
+  // Pagination logic
   // Calculate pagination values
   const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate the total pages
   // Calculate the start and end indices for slicing
@@ -62,17 +74,35 @@ const PostsSection = ({ posts, setPosts }) => {
       <Heading as="h2" size="lg" mb={4}>Explore Posts</Heading>
       <Text mb={4} >{posts.length} total results for (placeholder until courses implemented) </Text>
 
+      {/* Render skeletons while loading */}
       {/* Stack component to arrange posts vertically */}
-      <Stack spacing={6}>
-          {currentPosts.map((post) => (
-              <Post 
-                key={post._id}
-                post={post} 
-                onDelete={handleDeletePost} 
-                onEdit={handleEditPost}
-              />
-          ))}
+      {loading ? (
+        <Stack spacing={6}>
+        {Array.from({ length: postsPerPage }).map((_, index) => (
+          <Stack key={index} spacing={4} w="full" p={4} bg="bg.subtle" rounded="md" shadow="sm">
+            <HStack>
+              <SkeletonCircle size="10" />
+              <SkeletonText noOfLines={1} w="30%" />
+            </HStack>
+            <Skeleton height="16px" w="40%" />
+            <Skeleton height="150px" w="full" />
+          </Stack>
+        ))}
       </Stack>
+      ) : (
+        
+      <Stack spacing={6}>
+      {currentPosts.map((post) => (
+          <Post 
+            key={post._id}
+            post={post} 
+            onDelete={handleDeletePost} 
+            onEdit={handleEditPost}
+          />
+      ))}
+  </Stack>
+      )}
+      
 
       {/* Pagination Controls */}
       <Flex justifyContent="space-between" mt={4}>

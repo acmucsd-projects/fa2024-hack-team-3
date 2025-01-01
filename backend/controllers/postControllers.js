@@ -103,8 +103,13 @@ const updatePost = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const post = await Post.findOneAndUpdate({ _id: id }, { ...req.body });
+        const updatedData = { ...req.body, isEdited: true }; // Set isEdited to true
+        const post = await Post.findOneAndUpdate({ _id: id }, updatedData, { new: true });
         
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
         return res.status(200).json(post);
     } catch (err) {
         return res.status(400).json({ error: err.message });

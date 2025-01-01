@@ -9,7 +9,8 @@ const PostSchema = new mongoose.Schema(
         tags: { type: [String], default: ["insert course"] }, 
         userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
         createdAt: { type: Date, default: Date.now },
-        comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+        comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
+        isEdited: { type: Boolean, default: false },
     },
     { timestamps: true }
 );

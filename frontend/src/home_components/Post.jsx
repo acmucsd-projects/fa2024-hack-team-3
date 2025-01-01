@@ -25,10 +25,16 @@ import { Avatar, AvatarGroup } from "../components/ui/avatar"
 const Post = ({ post, onDelete, onEdit }) => {
 
     const [comments, setComments] = useState([]); // State for comments
+    const [visibleComments, setVisibleComments] = useState([]); // State for visible comments
     const [newComment, setNewComment] = useState(''); // State for new comment input
     const [loadingComments, setLoadingComments] = useState(false); // Loading state
-    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false); // State for delete dialog
+    const [showAll, setShowAll] = useState(false); // State for showing all comments
+    const [pseudoLoading, setPseudoLoading] = useState(false); // State for pseudo-loading
+    const [editingCommentId, setEditingCommentId] = useState(null);
+    const [editingCommentText, setEditingCommentText] = useState('');
+    const [deleteConfirmId, setDeleteConfirmId] = useState(null);
 
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false); // State for delete dialog
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false); // State for edit dialog
     const [editTitle, setEditTitle] = useState(post.title); // State for edited title
     const [editDescription, setEditDescription] = useState(post.description); // State for edited description
@@ -54,11 +60,22 @@ const Post = ({ post, onDelete, onEdit }) => {
             setLoadingComments(true);
             const response = await axios.get(`http://localhost:5000/api/posts/${post._id}/comments`);
             setComments(response.data);
+            setVisibleComments(response.data.slice(0, 3)); // Show only the first 3 comments initially
         } catch (error) {
             console.error('Failed to fetch comments:', error);
         } finally {
             setLoadingComments(false);
         }
+    };
+
+    // Show all comments with pseudo-loading
+    const handleShowAllComments = () => {
+        setPseudoLoading(true); // Show pseudo-loading
+        setTimeout(() => {
+            setVisibleComments(comments); // Show all comments
+            setShowAll(true);
+            setPseudoLoading(false); // Stop pseudo-loading
+        }, 1000);
     };
 
     // Add a new comment
@@ -154,16 +171,68 @@ const Post = ({ post, onDelete, onEdit }) => {
         }
       }, [post._id]);
 
-    const formatPostDate = (date) => {
+    const formatPostDate = (date, isEdited) => {
         const postDate = new Date(date);
 
+        let formattedDate = "";
         if (isToday(postDate)) {
-            return `Today at ${format(postDate, 'hh:mm a')}`;
+            formattedDate =  `Today at ${format(postDate, 'hh:mm a')}`;
         } else if (isYesterday(postDate)) {
-            return `Yesterday at ${format(postDate, 'hh:mm a')}`;
+            formattedDate = `Yesterday at ${format(postDate, 'hh:mm a')}`;
         } else {
-            return format(postDate, 'MM/dd/yyyy, hh:mm a');
+            formattedDate =  format(postDate, 'MM/dd/yyyy, hh:mm a');
         }
+
+        return isEdited  ? `${formattedDate} (edited)` : formattedDate;
+
+    };
+
+    const handleEditComment = async (id, updatedText) => {
+        console.log("Attempting to save comment:", id, updatedText);
+      
+        if (!updatedText.trim()) {
+          alert("Comment cannot be empty!");
+          return;
+        }
+      
+        try {
+          const response = await axios.patch(
+            `http://localhost:5000/api/posts/comments/${id}`,
+            { text: updatedText },
+            { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
+          );
+          console.log("Comment updated successfully:", response.data);
+      
+          // Update state
+          setComments((prev) =>
+            prev.map((c) => (c._id === id ? response.data : c))
+          );
+          setEditingCommentId(null);
+          setEditingCommentText("");
+        } catch (error) {
+          console.error("Failed to edit comment:", error.message);
+          alert("Failed to save the comment. Please try again.");
+        }
+      };
+      
+
+      const handleDeleteComment = async (id) => {
+        try {
+            await axios.delete(`http://localhost:5000/api/posts/comments/${id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
+            });
+            setComments((prev) => prev.filter((c) => c._id !== id));
+            setDeleteConfirmId(null); // Reset the delete confirmation state
+        } catch (error) {
+            console.error('Failed to delete comment:', error.message);
+        }
+    };
+
+    // Cancel editing
+    const handleCancelEditComment = () => {
+        setEditingCommentId(null);
+        setEditingCommentText('');
+        console.log("Edit canceled, resetting state.");
     };
 
     return (
@@ -187,7 +256,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                     <Text fontWeight="bold">{post.username || "Unknown User"}</Text>
                 </HStack>
                 <Text fontSize="sm" color="fg.subtle">
-                    {formatPostDate(post.createdAt)}
+                    {formatPostDate(post.createdAt, post.isEdited)}
                 </Text>
             </VStack>
             <Spacer />
@@ -368,10 +437,12 @@ const Post = ({ post, onDelete, onEdit }) => {
                     {loadingComments ? (
                         <Text>Loading comments...</Text>
                     ) : (
-                        comments.map((comment) => {
+                        visibleComments.map((comment) => {
+                            const isCommentOwner = comment.userId?._id === authUserId;
+                            const isPostOwner = post.userId?._id === authUserId;
                             const displayUser = comment.userId?.username || 'Unknown User';
                             const userProfilePicture = comment.userId?.profilePicture || '';
-                            const formattedDate = formatPostDate(comment.createdAt);
+                            const formattedDate = formatPostDate(comment.createdAt, comment.isEdited);
 
                             return (
                                 <Box 
@@ -380,20 +451,155 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     borderRadius="md" 
                                     bg="bg.muted" 
                                     boxShadow="sm"
+                                    position="relative"
                                 >
-                                    <HStack paddingBottom={3}>
-                                        <Avatar size="xs" src={userProfilePicture} name={displayUser} />
-                                        <Text fontSize="sm" fontWeight="bold" paddingRight={1}>{displayUser}</Text>
-                                        <Text fontSize="sm" color="fg.subtle">{formattedDate}</Text>
+                                    <HStack paddingBottom={3} justify={"space-between"} align={"flex-start"}>
+                                        <HStack>
+                                            <Avatar size="xs" src={userProfilePicture} name={displayUser} />
+                                            <Text fontSize="sm" fontWeight="bold" paddingRight={1}>{displayUser}</Text>
+                                            <Text fontSize="sm" color="fg.subtle">{formattedDate}</Text>
+                                        </HStack>
+                                        
+                                        {/* Menu Dropdown */}
+                                        {(isCommentOwner || isPostOwner) && (
+                                            <MenuRoot>
+                                                <MenuTrigger asChild>
+                                                    <Box _hover={{ cursor: editingCommentId || deleteConfirmId ? 'not-allowed' : 'pointer' }}>
+                                                        <BsThreeDotsVertical />
+                                                    </Box>
+                                                </MenuTrigger>
+                                                <MenuContent>
+                                                    {isCommentOwner && (
+                                                        <MenuItem
+                                                            onClick={() => {
+                                                                if (!deleteConfirmId) {
+                                                                    setEditingCommentId(comment._id);
+                                                                    setEditingCommentText(comment.text);
+                                                                }
+                                                            }}
+                                                            _hover={{ 
+                                                                cursor: deleteConfirmId ? 'not-allowed' : 'pointer',
+                                                                opacity: deleteConfirmId ? 0.5 : 1,
+                                                            }}
+                                                            _disabled={!!deleteConfirmId}
+                                                        >
+                                                            Edit
+                                                        </MenuItem>
+                                                    )}
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            if (!editingCommentId) { // Prevent delete when edit is active
+                                                                setDeleteConfirmId(comment._id);
+                                                            }
+                                                        }}
+                                                        _hover={{
+                                                            cursor: editingCommentId ? 'not-allowed' : 'pointer',
+                                                            opacity: editingCommentId ? 0.5 : 1,
+                                                        }}
+                                                        color="red.500"
+                                                        disabled={!!editingCommentId}
+                                                    >
+                                                        Delete
+                                                    </MenuItem>
+                                                </MenuContent>
+                                            </MenuRoot>
+                                        )}
+                                        
                                     </HStack>
-                                        <Text fontSize="sm">{comment.text || 'No content available'}</Text>
+                                    
+                                    {editingCommentId === comment._id ? (
+                                        <>
+                                        <Textarea
+                                            value={editingCommentText}
+                                            onChange={(e) => setEditingCommentText(e.target.value)}
+                                            autoFocus
+                                            mb={2}
+                                        />
+                                        <HStack>
+                                            <Button
+                                                size="sm"
+                                                colorScheme="blue"
+                                                onClick={() => handleEditComment(comment._id, editingCommentText)}
+                                            >
+                                            Save
+                                            </Button>
+                                            <Button size="sm" variant="outline" onClick={handleCancelEditComment}>
+                                            Cancel
+                                            </Button>
+                                        </HStack>
+                                        </>
+                                    ) : (
+                                        <Text>{comment.text}</Text>
+                                    )}
+
+                                    {/* Show confirmation buttons if deleteConfirmId matches the comment */}
+                                        {deleteConfirmId === comment._id && (
+                                            <HStack mt={2}>
+                                                <Button
+                                                    size="sm"
+                                                    colorScheme="red"
+                                                    onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
+                                                >
+                                                    Confirm Delete
+                                                </Button>
+                                                <Button
+                                                    size="sm"
+                                                    variant="outline"
+                                                    onClick={() => setDeleteConfirmId(null)} // Cancel delete
+                                                >
+                                                    Cancel
+                                                </Button>
+                                            </HStack>
+                                        )}
+                                        {/* <Text fontSize="sm">{comment.text || 'No content available'}</Text> */}
                                 </Box>
                             );
                         })
                     )}
                 </Stack>
+                
+                {/* Show All Comments */}
+                {/* {!showAll && comments.length > 3 && (
+                    <Text
+                        size="sm"
+                        color={"blue.600"}
+                        mt={3}
+                        _hover={{ cursor: "pointer" }}
+                        onClick={handleShowAllComments}
+                        isLoading={pseudoLoading} // Show pseudo-loading spinner
+                        loadingText="Loading..."
+                    >
+                        Show All Comments
+                    </Text>
+                )} */}
+
+                {!showAll && comments.length > 3 && (
+                    <Box
+                        textAlign="center" // Center the text horizontally within the box
+                        mt={3}
+                    >
+                        {pseudoLoading ? (
+                            <Text
+                                size="sm"
+                                color="gray.500"
+                            >
+                                Loading...
+                            </Text>
+                        ) : (
+                            <Text
+                                size="sm"
+                                color="blue.600"
+                                _hover={{ cursor: "pointer", textDecoration: "underline" }}
+                                onClick={handleShowAllComments}
+                            >
+                                Show All Comments
+                            </Text>
+                        )}
+                    </Box>
+                )}
 
 
+                {/* Add Comment */}
                 <HStack mt={4}>
                     <Input
                         placeholder="Add a comment..."
@@ -445,152 +651,3 @@ const floatingStyles = defineStyle({
   });
 
 export default Post; 
-
-
-
-{/* <HStack mb={4} alignItems="center">
-                <VStack align="start" spacing={0}>
-                    <HStack>
-                        <Avatar size="sm" src={post.userId?.profilePicture || post.profilePicture} name={post.userId?.username || post.username} />
-                        <Text fontWeight="bold">{post.userId?.username || "Unknown User"}</Text>
-                    </HStack>
-                    <Text fontSize="sm" color="fg.subtle">
-                        {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true})}
-                    </Text>
-                </VStack>
-                <Spacer />
-
-                <MenuRoot>
-                    <MenuTrigger asChild>
-                            <Box _hover={{ cursor: "pointer" }}><BsThreeDotsVertical /></Box>
-                    </MenuTrigger>
-                    {post.userId && post.userId._id?.toString() === authUserId && (
-                    <MenuContent>
-                        <MenuItem
-                            onClick={onEdit}
-                            _hover={{ cursor: "pointer" }}
-                            value="edit-post"
-                            disabled={!(post.userId && post.userId._id?.toString() === authUserId)}
-                        >
-                            Edit
-                        </MenuItem>
-        
-                        <DialogRoot open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-                            <DialogTrigger asChild>
-                                <MenuItem
-                                    color={"fg.error"}
-                                    _hover={{ cursor: "pointer", bg: "bg.error", color: "fg.error" }}
-                                    value="delete-post"
-                                    disabled={!(post.userId && post.userId._id?.toString() === authUserId)}
-                                >
-                                    Delete
-                                </MenuItem>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Confirm Deletion</DialogTitle>
-                                </DialogHeader>
-                                <DialogBody>
-                                    <Text>
-                                        Are you sure you want to delete this post? This action cannot be undone.
-                                    </Text>
-                                </DialogBody>
-                                <DialogFooter>
-                                    <Button
-                                        variant="outline"
-                                        onClick={() => setIsDeleteDialogOpen(false)} // Close the dialog
-                                    >
-                                        Cancel
-                                    </Button>
-                                    <Button
-                                        bg={"red.500"}
-                                        color="white"
-                                        _hover={{ bg: "red.600" }}
-                                        onClick={() => {
-                                            handleDelete();
-                                            setIsDeleteDialogOpen(false); // Close the dialog after deletion
-                                        }}
-                                    >
-                                        Delete
-                                    </Button>
-                                </DialogFooter>
-                            </DialogContent>
-                        </DialogRoot>
-                        
-                    </MenuContent>
-                    )}
-                </MenuRoot>
-            </HStack> */}
-
-
-            {/* Edit Dialog */}
-            {/* <DialogRoot open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Edit Post</DialogTitle>
-                    </DialogHeader>
-                    <DialogBody>
-                        <Input
-                            placeholder="Edit Title"
-                            value={editTitle}
-                            onChange={(e) => setEditTitle(e.target.value)}
-                            mb={4}
-                        />
-                        <Input
-                            placeholder="Edit Description"
-                            value={editDescription}
-                            onChange={(e) => setEditDescription(e.target.value)}
-                            mb={4}
-                        />
-                        <Input
-                            placeholder="Add a Tag"
-                            value={tagInput}
-                            onChange={(e) => setTagInput(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleAddTag()}
-                            mb={4}
-                        />
-                        <HStack spacing={2}>
-                            {editTags.map((tag) => (
-                                <Badge
-                                    key={tag}
-                                    colorScheme="blue"
-                                    onClick={() => handleRemoveTag(tag)}
-                                    _hover={{ bg: "red.200", cursor: "pointer" }}
-                                >
-                                    {tag} x
-                                </Badge>
-                            ))}
-                        </HStack>
-                    </DialogBody>
-                    <DialogFooter>
-                        <Button onClick={() => setIsEditDialogOpen(false)} variant="outline">
-                            Cancel
-                        </Button>
-                        <Button onClick={handleSaveEdit} colorScheme="blue">
-                            Save
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </DialogRoot> */}
-
-            {/* Delete Dialog */}
-            {/* <DialogRoot open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>Confirm Deletion</DialogTitle>
-                    </DialogHeader>
-                    <DialogBody>
-                        <Text>
-                            Are you sure you want to delete this post? This action cannot be undone.
-                        </Text>
-                    </DialogBody>
-                    <DialogFooter>
-                        <Button onClick={() => setIsDeleteDialogOpen(false)} variant="outline">
-                            Cancel
-                        </Button>
-                        <Button onClick={handleDelete} colorScheme="red">
-                            Delete
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </DialogRoot> */}
