@@ -21,6 +21,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog"
+import {
+  NativeSelectField,
+  NativeSelectRoot,
+} from "../components/ui/native-select"
 import axios from 'axios';
 
 const MakePostButton = ({ setPosts, courses }) => {
@@ -30,7 +34,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
-  const [selectedOption, setSelectedOption] = useState(""); // Track selected course
+  const [selectedCourse, setSelectedCourse] = useState('');
   const [isOpen, setIsOpen] = useState(false); // state to control dialog visibility
 
   const userId = localStorage.getItem("authUserId");
@@ -76,7 +80,7 @@ const MakePostButton = ({ setPosts, courses }) => {
         description,
         tags,
         userId,
-        course: selectedOption,
+        course: selectedCourse || null,
       });
 
       // Update the posts in HomePage
@@ -88,7 +92,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       setTags([]);
       setTagInput('');
       // setShowCreatePost(false);
-      setSelectedOption('');
+      setSelectedCourse('');
       setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
@@ -163,12 +167,13 @@ const MakePostButton = ({ setPosts, courses }) => {
 
                 {/* Tag Input */}
                 <Input
-                  placeholder="Add a custom tag and press Enter"
+                  placeholder="Add custom tags (Enter)"
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={handleTagInputKeyDown}
                   mb={4}
                   bg="bg.DEFAULT"
+                  w={"30%"}
                 />
 
                 {/* Display Selected Tags */}
@@ -229,22 +234,47 @@ const MakePostButton = ({ setPosts, courses }) => {
                   ))}
                 </HStack>
 
+                {/* Course Selection */}
+                {/* <NativeSelectRoot variant="outline" size="md" colorPalette="blue" mb={4}>
+                  <NativeSelectField
+                    value={selectedCourse}
+                    onChange={(e) => setSelectedCourse(e.target.value)}
+                  >
+                    <option value="">None</option>
+                    {courses.map((course, index) => (
+                      <option key={index} value={course}>
+                        {course}
+                      </option>
+                    ))}
+                  </NativeSelectField>
+                </NativeSelectRoot> */}
+
                 {/* Classes Select */}
-                {/* <Box overflow={"visible"}>
+                <Box overflow={"visible"}>
                 <SelectRoot
                   collection={options}
-                  value={selectedOption}
-                  onValueChange={(value) => setSelectedOption(value)}
+                  value={selectedCourse}
+                  onValueChange={(value) => setSelectedCourse(value)}
                   size="sm"
                   width="30%"
                   mb={4}
     
                 >
                   <SelectTrigger
+                    // _hover={{
+                    //   bg: "blue.600", // Change background color on hover
+                    //   color: "white", // Change text color on hover
+                    // }}
                     _hover={{
-                      bg: "blue.600", // Change background color on hover
-                      color: "white", // Change text color on hover
+                      bg: "gray.100", // Change background color on hover
+                      color: "black", // Change text color on hover
                     }}
+                    _focus={{
+                      boxShadow: "0 0 0 2px gray.300", // Change focus outline color
+                    }}
+                    bg="white" // Default background color
+                    color="black" // Default text color
+                    border="1px solid gray.300" // Border color
                     width="100%"
                     borderRadius="md" // Optional: Add rounded corners
                   >
@@ -260,7 +290,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   
 
                 </SelectRoot>
-                </Box> */}
+                </Box>
 
 
         </DialogBody>

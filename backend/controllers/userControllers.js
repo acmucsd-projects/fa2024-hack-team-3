@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
+const Post = require('../models/postModel');
+const Comment = require('../models/commentModel');
 
 const getAllUsers = async (req, res) => {
     try {
@@ -307,6 +309,48 @@ const updateCourses = async (req, res) => {
     }
 };
 
+const getUserProfile = async (req, res) => {
+    try {
+        const userId = req.user.id;
+
+        // Fetch user details
+        const user = await User.findById(userId).select('username emailAddress courses profilePicture');
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Fetch user's posts
+        const posts = await Post.find({ userId }).sort({ createdAt: -1 });
+
+        // Fetch user's comments
+        const comments = await Comment.find({ userId })
+            .populate('postId', 'title')
+            .sort({ createdAt: -1 });
+        
+        res.status(200).json({
+            user,
+            posts,
+            comments
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to fetch user" });
+    }
+}
+
+const getUserCourses = async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+      res.status(200).json(user.courses);
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to fetch courses' });
+    }
+  };
+  
+
 module.exports = {
     getAllUsers,
     getUser,
@@ -320,4 +364,6 @@ module.exports = {
     changePassword,
     getLoggedInUser,
     updateCourses,
+    getUserProfile,
+    getUserCourses,
 }

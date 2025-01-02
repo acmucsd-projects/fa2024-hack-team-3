@@ -437,198 +437,188 @@ const Post = ({ post, onDelete, onEdit }) => {
 
 
             {/* Comment Section */}
-            <Box mt={4}>
-                <Text fontWeight="bold" mb={2}>Comments</Text>
+        <Box mt={4}>
+            <Text fontWeight="bold" mb={2}>Comments</Text>
+            {loadingComments ? (
+                <Text>Loading comments...</Text>
+            ) : comments.length === 0 ? (
+                <Box textAlign="justify" mt={3}>
+                    <Text fontSize="sm" color="gray.500">
+                        Be the first to comment!
+                    </Text>
+                </Box>
+            ) : (
                 <Stack spacing={3}>
-                    {loadingComments ? (
-                        <Text>Loading comments...</Text>
-                    ) : (
-                        visibleComments.map((comment) => {
-                            const isCommentOwner = comment.userId?._id === authUserId;
-                            const isPostOwner = post.userId?._id === authUserId;
-                            const displayUser = comment.userId?.username || 'Unknown User';
-                            const userProfilePicture = comment.userId?.profilePicture || '';
-                            const formattedDate = formatPostDate(comment.createdAt, comment.isEdited);
+                    {visibleComments.map((comment) => {
+                        const isCommentOwner = comment.userId?._id === authUserId;
+                        const isPostOwner = post.userId?._id === authUserId;
+                        const displayUser = comment.userId?.username || 'Unknown User';
+                        const userProfilePicture = comment.userId?.profilePicture || '';
+                        const formattedDate = formatPostDate(comment.createdAt, comment.isEdited);
 
-                            return (
-                                <Box 
-                                    key={comment._id} 
-                                    p={2} 
-                                    borderRadius="md" 
-                                    bg="bg.muted" 
-                                    boxShadow="sm"
-                                    position="relative"
-                                >
-                                    <HStack paddingBottom={3} justify={"space-between"} align={"flex-start"}>
-                                        <HStack>
-                                            <Avatar size="xs" src={userProfilePicture} name={displayUser} />
-                                            <Text fontSize="sm" fontWeight="bold" paddingRight={1}>{displayUser}</Text>
-                                            <Text fontSize="sm" color="fg.subtle">{formattedDate}</Text>
-                                        </HStack>
-                                        
-                                        {/* Menu Dropdown */}
-                                        {(isCommentOwner || isPostOwner) && (
-                                            <MenuRoot>
-                                                <MenuTrigger asChild>
-                                                    <Box _hover={{ cursor: editingCommentId || deleteConfirmId ? 'not-allowed' : 'pointer' }}>
-                                                        <BsThreeDotsVertical />
-                                                    </Box>
-                                                </MenuTrigger>
-                                                <MenuContent>
-                                                    {isCommentOwner && (
-                                                        <MenuItem
-                                                            onClick={() => {
-                                                                if (!deleteConfirmId) {
-                                                                    setEditingCommentId(comment._id);
-                                                                    setEditingCommentText(comment.text);
-                                                                }
-                                                            }}
-                                                            _hover={{ 
-                                                                cursor: deleteConfirmId ? 'not-allowed' : 'pointer',
-                                                                opacity: deleteConfirmId ? 0.5 : 1,
-                                                            }}
-                                                            _disabled={!!deleteConfirmId}
-                                                        >
-                                                            Edit
-                                                        </MenuItem>
-                                                    )}
-                                                    <MenuItem
-                                                        onClick={() => {
-                                                            if (!editingCommentId) { // Prevent delete when edit is active
-                                                                setDeleteConfirmId(comment._id);
-                                                            }
-                                                        }}
-                                                        _hover={{
-                                                            cursor: editingCommentId ? 'not-allowed' : 'pointer',
-                                                            opacity: editingCommentId ? 0.5 : 1,
-                                                        }}
-                                                        color="red.500"
-                                                        disabled={!!editingCommentId}
-                                                    >
-                                                        Delete
-                                                    </MenuItem>
-                                                </MenuContent>
-                                            </MenuRoot>
-                                        )}
-                                        
+                        return (
+                            <Box 
+                                key={comment._id} 
+                                p={2} 
+                                borderRadius="md" 
+                                bg="bg.muted" 
+                                boxShadow="sm"
+                                position="relative"
+                            >
+                                <HStack paddingBottom={3} justify={"space-between"} align={"flex-start"}>
+                                    <HStack>
+                                        <Avatar size="xs" src={userProfilePicture} name={displayUser} />
+                                        <Text fontSize="sm" fontWeight="bold" paddingRight={1}>{displayUser}</Text>
+                                        <Text fontSize="sm" color="fg.subtle">{formattedDate}</Text>
                                     </HStack>
                                     
-                                    {editingCommentId === comment._id ? (
-                                        <>
-                                        <Textarea
-                                            value={editingCommentText}
-                                            onChange={(e) => setEditingCommentText(e.target.value)}
-                                            autoFocus
-                                            mb={2}
-                                        />
-                                        <HStack>
+                                    {/* Menu Dropdown */}
+                                    {(isCommentOwner || isPostOwner) && (
+                                        <MenuRoot>
+                                            <MenuTrigger asChild>
+                                                <Box _hover={{ cursor: editingCommentId || deleteConfirmId ? 'not-allowed' : 'pointer' }}>
+                                                    <BsThreeDotsVertical />
+                                                </Box>
+                                            </MenuTrigger>
+                                            <MenuContent>
+                                                {isCommentOwner && (
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            if (!deleteConfirmId) {
+                                                                setEditingCommentId(comment._id);
+                                                                setEditingCommentText(comment.text);
+                                                            }
+                                                        }}
+                                                        _hover={{ 
+                                                            cursor: deleteConfirmId ? 'not-allowed' : 'pointer',
+                                                            opacity: deleteConfirmId ? 0.5 : 1,
+                                                        }}
+                                                        _disabled={!!deleteConfirmId}
+                                                    >
+                                                        Edit
+                                                    </MenuItem>
+                                                )}
+                                                <MenuItem
+                                                    onClick={() => {
+                                                        if (!editingCommentId) { // Prevent delete when edit is active
+                                                            setDeleteConfirmId(comment._id);
+                                                        }
+                                                    }}
+                                                    _hover={{
+                                                        cursor: editingCommentId ? 'not-allowed' : 'pointer',
+                                                        opacity: editingCommentId ? 0.5 : 1,
+                                                    }}
+                                                    color="red.500"
+                                                    disabled={!!editingCommentId}
+                                                >
+                                                    Delete
+                                                </MenuItem>
+                                            </MenuContent>
+                                        </MenuRoot>
+                                    )}
+                                    
+                                </HStack>
+                                
+                                {editingCommentId === comment._id ? (
+                                    <>
+                                    <Textarea
+                                        value={editingCommentText}
+                                        onChange={(e) => setEditingCommentText(e.target.value)}
+                                        autoFocus
+                                        mb={2}
+                                    />
+                                    <HStack>
+                                        <Button
+                                            size="sm"
+                                            colorScheme="blue"
+                                            onClick={() => handleEditComment(comment._id, editingCommentText)}
+                                        >
+                                        Save
+                                        </Button>
+                                        <Button size="sm" variant="outline" onClick={handleCancelEditComment}>
+                                        Cancel
+                                        </Button>
+                                    </HStack>
+                                    </>
+                                ) : (
+                                    <Text>{comment.text}</Text>
+                                )}
+
+                                {/* Show confirmation buttons if deleteConfirmId matches the comment */}
+                                    {deleteConfirmId === comment._id && (
+                                        <HStack mt={2}>
                                             <Button
                                                 size="sm"
-                                                colorScheme="blue"
-                                                onClick={() => handleEditComment(comment._id, editingCommentText)}
+                                                colorScheme="red"
+                                                onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
                                             >
-                                            Save
+                                                Confirm Delete
                                             </Button>
-                                            <Button size="sm" variant="outline" onClick={handleCancelEditComment}>
-                                            Cancel
+                                            <Button
+                                                size="sm"
+                                                variant="outline"
+                                                onClick={() => setDeleteConfirmId(null)} // Cancel delete
+                                            >
+                                                Cancel
                                             </Button>
                                         </HStack>
-                                        </>
-                                    ) : (
-                                        <Text>{comment.text}</Text>
                                     )}
-
-                                    {/* Show confirmation buttons if deleteConfirmId matches the comment */}
-                                        {deleteConfirmId === comment._id && (
-                                            <HStack mt={2}>
-                                                <Button
-                                                    size="sm"
-                                                    colorScheme="red"
-                                                    onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
-                                                >
-                                                    Confirm Delete
-                                                </Button>
-                                                <Button
-                                                    size="sm"
-                                                    variant="outline"
-                                                    onClick={() => setDeleteConfirmId(null)} // Cancel delete
-                                                >
-                                                    Cancel
-                                                </Button>
-                                            </HStack>
-                                        )}
-                                        {/* <Text fontSize="sm">{comment.text || 'No content available'}</Text> */}
-                                </Box>
-                            );
-                        })
-                    )}
+                            </Box>
+                        );
+                    })}
                 </Stack>
-                
-                {/* Show All Comments */}
-                {/* {!showAll && comments.length > 3 && (
-                    <Text
-                        size="sm"
-                        color={"blue.600"}
-                        mt={3}
-                        _hover={{ cursor: "pointer" }}
-                        onClick={handleShowAllComments}
-                        isLoading={pseudoLoading} // Show pseudo-loading spinner
-                        loadingText="Loading..."
-                    >
-                        Show All Comments
-                    </Text>
-                )} */}
+            )}
 
-                {!showAll && comments.length > 3 && (
-                    <Box
-                        textAlign="center" // Center the text horizontally within the box
-                        mt={3}
-                    >
-                        {pseudoLoading ? (
-                            <Text
-                                size="sm"
-                                color="gray.500"
-                            >
-                                Loading...
-                            </Text>
-                        ) : (
-                            <Text
-                                size="sm"
-                                color="blue.600"
-                                _hover={{ cursor: "pointer", textDecoration: "underline" }}
-                                onClick={handleShowAllComments}
-                            >
-                                Show All Comments
-                            </Text>
-                        )}
-                    </Box>
-                )}
+            {/* Show All Comments */}
+            {!showAll && comments.length > 3 && (
+                <Box
+                    textAlign="center" // Center the text horizontally within the box
+                    mt={3}
+                >
+                    {pseudoLoading ? (
+                        <Text
+                            size="sm"
+                            color="gray.500"
+                        >
+                            Loading...
+                        </Text>
+                    ) : (
+                        <Text
+                            size="sm"
+                            color="blue.600"
+                            _hover={{ cursor: "pointer", textDecoration: "underline" }}
+                            onClick={handleShowAllComments}
+                        >
+                            Show All Comments
+                        </Text>
+                    )}
+                </Box>
+            )}
 
-
-                {/* Add Comment */}
-                <HStack mt={4}>
-                    <Input
-                        placeholder="Add a comment..."
-                        value={newComment}
-                        onChange={(e) => setNewComment(e.target.value)}
-                        size="sm"
-                        bg="bg.textbg"
-                    />
-                    <Button 
-                    size="sm" 
-                    colorScheme="blue" 
-                    onClick={handleAddComment}
-                    isLoading={loadingComments} // Show spinner while loading
-                    disabled={!newComment.trim()}
-                    _hover={{
-                        bg: 'blue.600', // Darker shade for better contrast
-                        color: 'white', // Ensure text remains white
-                      }}
-                    >
-                        Comment
-                    </Button>
-                </HStack>
-            </Box>
+            {/* Add Comment */}
+            <HStack mt={4}>
+                <Input
+                    placeholder="Add a comment..."
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    size="sm"
+                    bg="bg.textbg"
+                />
+                <Button 
+                size="sm" 
+                colorScheme="blue" 
+                onClick={handleAddComment}
+                isLoading={loadingComments} // Show spinner while loading
+                disabled={!newComment.trim()}
+                _hover={{
+                    bg: 'blue.600', // Darker shade for better contrast
+                    color: 'white', // Ensure text remains white
+                }}
+                >
+                    Comment
+                </Button>
+            </HStack>
+        </Box>
         </Box>
     );
 }
