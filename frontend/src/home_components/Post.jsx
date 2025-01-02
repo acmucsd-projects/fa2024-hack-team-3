@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Text, Badge, HStack, VStack, Spacer, Button, Input, Stack, Field, defineStyle, Textarea } from '@chakra-ui/react';
 import axios from 'axios';
-import { formatDistanceToNow, format, isToday, isYesterday } from 'date-fns';
+import { formatDistanceToNow, format, isToday, isYesterday, set } from 'date-fns';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import {
     MenuContent,
@@ -105,6 +105,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 }
             );
             setComments((prev) => [...prev, response.data]); // Add new comment to the state
+            setVisibleComments((prev) => [...prev, response.data].slice(0, showAll ? undefined : 3)); // Add new comment to the visible comments
             setNewComment(''); // Clear input
         } catch (error) {
             console.error('Failed to add comment:', error.response?.data || error.message);
@@ -170,6 +171,10 @@ const Post = ({ post, onDelete, onEdit }) => {
           fetchComments();
         }
       }, [post._id]);
+    
+      useEffect(() => {
+        setVisibleComments(comments.slice(0, showAll ? undefined : 3));
+      }, [comments, showAll]);
 
     const formatPostDate = (date, isEdited) => {
         const postDate = new Date(date);
@@ -222,6 +227,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
             });
             setComments((prev) => prev.filter((c) => c._id !== id));
+            setVisibleComments((prev) => prev.filter((c) => c._id !== id).slice(0, showAll ? undefined : 3));
             setDeleteConfirmId(null); // Reset the delete confirmation state
         } catch (error) {
             console.error('Failed to delete comment:', error.message);
