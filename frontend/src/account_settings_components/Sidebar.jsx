@@ -7,8 +7,31 @@ import axios from "axios";
 
 const Sidebar = () => {
   const [posts, setPosts] = useState([]); // State for posts
-  const courses = ["CSE 11", "COGS 9", "HIUS 112"]; // Example courses
+  const [courses, setCourses] = useState([]); // State for courses
   const location = useLocation(); // Get the current route path
+
+  // Fetch courses from the backend when the component mounts
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get("http://localhost:5000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        // Preload the selected courses using the logged-in user's data
+        const preloadedCourses = response.data.courses.map((course) => course.name);
+        setCourses(preloadedCourses); // Update courses with the response
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+        setError("Failed to fetch courses.");
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   // Fetch posts from the backend when the component mounts
   useEffect(() => {

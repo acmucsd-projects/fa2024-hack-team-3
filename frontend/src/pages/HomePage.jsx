@@ -18,6 +18,7 @@ import Sidebar from '../account_settings_components/Sidebar';
 const HomePage = () => {
   // State to store the posts
   const [posts, setPosts] = useState([]);
+  const [courses, setCourses] = useState([]);
   
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
@@ -31,7 +32,29 @@ const HomePage = () => {
     });
   }, []); //empty dependency array to run only once on mount
 
-  const courses = ["CSE 11", "COGS 9", "HIUS 112"];
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get("http://localhost:5000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        // Preload the selected courses using the logged-in user's data
+        const preloadedCourses = response.data.courses.map((course) => course.name);
+        setCourses(preloadedCourses); // Update courses with the response
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+        setError("Failed to fetch courses.");
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // const courses = ["CSE 11", "COGS 9", "HIUS 112"];
   const buddies = [
     { profilePicture: "/assets/aacount-icon.svg" },
     { profilePicture: "/assets/aacount-icon.svg" },

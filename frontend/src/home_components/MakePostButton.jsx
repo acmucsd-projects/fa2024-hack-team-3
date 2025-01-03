@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select} from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select, Text} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
 import { IoIosAddCircleOutline } from "react-icons/io";
 import {
@@ -49,7 +49,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   ].map(String);
 
   const options = createListCollection({
-    items: courses.map(course => ({ label: course, value: course })), // Ensure value is a string
+    items: [{ label: "None", value: "None" }, ...courses.map((course) => ({ label: course, value: course }))], // Add "None" as the first option
   });
   
   // Handle adding custom tags
@@ -74,12 +74,14 @@ const MakePostButton = ({ setPosts, courses }) => {
   };
   
   const handleCreatePost = async () => {
+    const courseToSend = selectedCourse.value[0] === "None" ? null : selectedCourse.value[0];
+
     console.log({
       title,
       description,
       tags,
       userId,
-      course: selectedCourse.value[0], // Confirm this is correct
+      course: courseToSend, // Confirm this is correct
     });
   
     try {
@@ -88,7 +90,7 @@ const MakePostButton = ({ setPosts, courses }) => {
         description,
         tags,
         userId,
-        course: selectedCourse.value[0] || null,
+        course: courseToSend || null,
       });
   
       setPosts((prevPosts) => [response.data, ...prevPosts]);
@@ -97,7 +99,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       setDescription('');
       setTags([]);
       setTagInput('');
-      setSelectedCourse('');
+      setSelectedCourse('None');
       setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
@@ -174,6 +176,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                 </Field.Root>
 
                 {/* Tag Input */}
+                <HStack>
                 <Input
                   placeholder="Add custom tags (Enter)"
                   value={tagInput}
@@ -183,6 +186,9 @@ const MakePostButton = ({ setPosts, courses }) => {
                   bg="bg.DEFAULT"
                   w={"30%"}
                 />
+                <Text mb={4} color="gray.400">(Optional)</Text>
+                </HStack>
+                
 
                 {/* Display Selected Tags */}
                 <HStack spacing={2} wrap="wrap" mb={4}>
@@ -242,20 +248,6 @@ const MakePostButton = ({ setPosts, courses }) => {
                   ))}
                 </HStack>
 
-                {/* Course Selection */}
-                {/* <NativeSelectRoot variant="outline" size="md" colorPalette="blue" mb={4}>
-                  <NativeSelectField
-                    value={selectedCourse}
-                    onChange={(e) => setSelectedCourse(e.target.value)}
-                  >
-                    <option value="">None</option>
-                    {courses.map((course, index) => (
-                      <option key={index} value={course}>
-                        {course}
-                      </option>
-                    ))}
-                  </NativeSelectField>
-                </NativeSelectRoot> */}
 
                 {/* Classes Select */}
                 <Box overflow={"visible"}>
@@ -271,28 +263,24 @@ const MakePostButton = ({ setPosts, courses }) => {
                     mb={4}
                 >
                   <SelectTrigger
-                    // _hover={{
-                    //   bg: "blue.600", // Change background color on hover
-                    //   color: "white", // Change text color on hover
-                    // }}
-                    _hover={{
-                      bg: "gray.100", // Change background color on hover
-                      color: "black", // Change text color on hover
-                    }}
-                    _focus={{
-                      boxShadow: "0 0 0 2px gray.300", // Change focus outline color
-                    }}
-                    bg="white" // Default background color
                     color="black" // Default text color
-                    border="1px solid gray.300" // Border color
                     width="100%"
                     borderRadius="md" // Optional: Add rounded corners
                   >
-                    <SelectValueText placeholder="Related course"/>
+                    <SelectValueText 
+                      placeholder="Related course"
+                      color="bg.text"
+                    />
                   </SelectTrigger>
                   <SelectContent zIndex="popover">
                     {options.items.map((item) => (
-                      <SelectItem item={item} key={item.value}>
+                      <SelectItem 
+                        item={item} 
+                        key={item.value}
+                        _hover={{
+                          bg: "bg.subtle"
+                        }}
+                      >
                         {item.label}
                       </SelectItem>
                     ))}
@@ -309,11 +297,8 @@ const MakePostButton = ({ setPosts, courses }) => {
               <DialogActionTrigger asChild>
                 <Button 
                   variant="outline" 
-                  bg={"gray.400"}
+                  colorPalette={"gray"}
                   width={"20vh"}
-                  _hover={{
-                    bg: 'gray.500', // Darker shade for better contrast
-                  }}
                   onClick={() => setIsOpen(false)}
                 >
                   Cancel
@@ -327,8 +312,10 @@ const MakePostButton = ({ setPosts, courses }) => {
                   bg: 'blue.600', // Darker shade for better contrast
                   color: 'white', // Ensure text remains white
                 }}
+                bg={"bg.buttons"}
                 onClick={handleCreatePost}
                 width={"20vh"}
+                color={"white"}
               >
                 Save
               </Button>

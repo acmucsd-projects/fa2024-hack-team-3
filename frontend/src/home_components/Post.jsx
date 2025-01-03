@@ -564,7 +564,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                         <HStack mt={2}>
                                             <Button
                                                 size="sm"
-                                                colorScheme="red"
+                                                colorPalette="red"
                                                 onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
                                             >
                                                 Confirm Delete
@@ -618,7 +618,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                     onChange={(e) => setNewComment(e.target.value)}
                     size="sm"
                     bg="bg.textbg"
-                    color="white"
+                    color="bg.text"
                     _placeholder={{ color: "fg.muted" }}
                     colorPalette="gray"
                 />
