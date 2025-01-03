@@ -100,6 +100,8 @@ const PasswordForm = () => {
         <Button 
           onClick={handleSubmit}
           _hover={{ bg: "blue.600" }}
+          color={"white"}
+          background={"bg.buttons"}
         >
           Save
         </Button>

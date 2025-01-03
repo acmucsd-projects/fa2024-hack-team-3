@@ -71,7 +71,7 @@ const PostsSection = ({ posts, setPosts }) => {
 
   return (
     <Box className="posts-section" p={4} bg="bg.subtle" rounded={"md"} >
-      <Heading as="h2" size="lg" mb={4}>Explore Posts</Heading>
+      <Heading size="lg" mb={4}>POSTS</Heading>
       <Text mb={4} >{posts.length} total results for (placeholder until courses implemented) </Text>
 
       {/* Render skeletons while loading */}
@@ -107,12 +107,18 @@ const PostsSection = ({ posts, setPosts }) => {
       {/* Pagination Controls */}
       <Flex justifyContent="space-between" mt={4}>
         <Button onClick={handleBack} disabled={currentPage === 1} bg='bg.button' variant="solid"
-        _hover={{bg: 'blue.600', color: 'white'}}>
+          _hover={{bg: 'blue.600', color: 'white'}}
+          background={"bg.buttons"}
+          color={"white"}
+        >
           Back
         </Button>
         <Text alignSelf="center">Page {currentPage} of {totalPages}</Text>
         <Button onClick={handleNext} disabled={currentPage === totalPages} bg='bg.button' variant="solid" 
-        _hover={{bg: 'blue.600', color: 'white'}}>
+        _hover={{bg: 'blue.600', color: 'white'}}
+        background={"bg.buttons"}
+        color={"white"}
+        >
           Next
         </Button>
       </Flex>

@@ -159,6 +159,8 @@ const AccountHeader = () => {
               w={"1px"}
               _hover={{bg: "blue.600"}}
               onClick={handleSave}
+              background={"bg.buttons"}
+              color={"white"}
             >
                 <FaRegSave/>
             </Button>

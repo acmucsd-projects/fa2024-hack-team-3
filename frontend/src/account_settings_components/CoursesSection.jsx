@@ -124,6 +124,8 @@ const CoursesSection = () => {
           mt={4}
           onClick={handleSaveChanges}
           _hover={{ bg: "blue.600" }}
+          background={"bg.buttons"}
+          color={"white"}
         >
           Save Changes
         </Button>

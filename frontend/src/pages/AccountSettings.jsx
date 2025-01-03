@@ -14,8 +14,8 @@ const AccountSettings = () => {
   const [posts, setPosts] = useState([]);
   const courses = ["CSE 11", "COGS 9", "HIUS 112"];
   return (
-    // <ChakraProvider value={system}>
-    //   <ColorModeProvider>
+    <ChakraProvider value={system}>
+    <ColorModeProvider>
     <Box p={4} minW="100vh" mx="auto">
       <Header 
         setPosts={setPosts}
@@ -28,7 +28,7 @@ const AccountSettings = () => {
         <GridItem colSpan={{ base: 1 }}></GridItem>
 
         <GridItem colSpan={{ md: 7}}>
-          <Box bg="bg.muted" rounded={"md"} paddingY={"3vh"}>
+          <Box bg="bg.subtle" rounded={"md"} paddingY={"3vh"}>
             <Flex direction="column" alignItems="center">
             <AccountHeader />
             <Text fontSize="lg" fontWeight="bold" marginTop="5">
@@ -55,8 +55,8 @@ const AccountSettings = () => {
           </Flex> */}
       </SimpleGrid>
     </Box>
-    // </ColorModeProvider>
-    // </ChakraProvider>
+    </ColorModeProvider>
+    </ChakraProvider>
   );
 };
 

@@ -485,7 +485,9 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     {(isCommentOwner || isPostOwner) && (
                                         <MenuRoot>
                                             <MenuTrigger asChild>
-                                                <Box _hover={{ cursor: editingCommentId || deleteConfirmId ? 'not-allowed' : 'pointer' }}>
+                                                <Box 
+                                                    _hover={{ cursor: editingCommentId || deleteConfirmId ? 'not-allowed' : 'pointer' }}
+                                                    >
                                                     <BsThreeDotsVertical />
                                                 </Box>
                                             </MenuTrigger>
@@ -501,12 +503,14 @@ const Post = ({ post, onDelete, onEdit }) => {
                                                         _hover={{ 
                                                             cursor: deleteConfirmId ? 'not-allowed' : 'pointer',
                                                             opacity: deleteConfirmId ? 0.5 : 1,
+                                                            bg: "bg.subtle"
                                                         }}
                                                         _disabled={!!deleteConfirmId}
                                                     >
                                                         Edit
                                                     </MenuItem>
                                                 )}
+                                                
                                                 <MenuItem
                                                     onClick={() => {
                                                         if (!editingCommentId) { // Prevent delete when edit is active
@@ -516,6 +520,8 @@ const Post = ({ post, onDelete, onEdit }) => {
                                                     _hover={{
                                                         cursor: editingCommentId ? 'not-allowed' : 'pointer',
                                                         opacity: editingCommentId ? 0.5 : 1,
+                                                        bg: "bg.error", 
+                                                        color: "fg.error"
                                                     }}
                                                     color="red.500"
                                                     disabled={!!editingCommentId}
@@ -612,6 +618,9 @@ const Post = ({ post, onDelete, onEdit }) => {
                     onChange={(e) => setNewComment(e.target.value)}
                     size="sm"
                     bg="bg.textbg"
+                    color="white"
+                    _placeholder={{ color: "fg.muted" }}
+                    colorPalette="gray"
                 />
                 <Button 
                 size="sm" 
@@ -623,6 +632,8 @@ const Post = ({ post, onDelete, onEdit }) => {
                     bg: 'blue.600', // Darker shade for better contrast
                     color: 'white', // Ensure text remains white
                 }}
+                background={"bg.buttons"}
+                color={"white"}
                 >
                     Comment
                 </Button>

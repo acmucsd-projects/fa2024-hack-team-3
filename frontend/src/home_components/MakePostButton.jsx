@@ -118,6 +118,8 @@ const MakePostButton = ({ setPosts, courses }) => {
                 color: 'white', // Ensure text remains white
               }}
               onClick={() => setIsOpen(true)}
+              background={"bg.buttons"}
+              color={"white"}
             >
               <IoIosAddCircleOutline size={20} /> New Post
             </Button>

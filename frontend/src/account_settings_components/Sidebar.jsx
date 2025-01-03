@@ -24,7 +24,7 @@ const Sidebar = () => {
 
   const getHighlightStyle = (path) => ({
     backgroundColor: location.pathname === path ? "#d9e2e8" : "transparent",
-    color: location.pathname === path ? "#033f63" : "black",
+    color: location.pathname === path ? "#033f63" : "bg.text",
     fontWeight: location.pathname === path ? "bold" : "normal",
     borderRadius: "md",
     padding: "10px 16px", // Inner padding for the links
