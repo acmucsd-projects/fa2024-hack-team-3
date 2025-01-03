@@ -427,7 +427,16 @@ const Post = ({ post, onDelete, onEdit }) => {
                     )}
                 </MenuRoot>
             </HStack>
+            <HStack>
+            {post.course && (
+                <Badge bg="bg.tags" mb={2} size="md">
+                    {post.course}
+                </Badge>
+            )}
             <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.muted" mb={2}>{post.title}</Text>
+            </HStack>
+            
+            
             <Text mb={4} color="#00629B">{post.description}</Text>
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (

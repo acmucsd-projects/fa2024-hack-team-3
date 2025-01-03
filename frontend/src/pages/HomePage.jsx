@@ -52,13 +52,7 @@ const HomePage = () => {
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
         <GridItem colSpan={{ base: 1 , md: 2}}>
-        <Stack spacing={4}>
           <Sidebar />
-          {/* <CoursesSection courses={courses} />
-          <OnlineBuddies buddies={buddies} /> */}
-          {/* Pass setPosts to MakePostButton*/}
-          {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
-        </Stack>
         </GridItem>
         <GridItem colSpan={{ base: 1 }}></GridItem>
 

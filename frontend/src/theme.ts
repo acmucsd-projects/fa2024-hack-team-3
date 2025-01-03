@@ -35,7 +35,11 @@ const config = defineConfig({
             },
             buttons: {
               value: { _light: "#182B49", _dark: "{blue.600}" },
+            },
+            tags: {
+              value: { _light: "#d9e2e8", _dark: "{colors.blue.700}" },
             }
+
           },
         },
     }

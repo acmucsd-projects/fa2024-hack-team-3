@@ -28,7 +28,7 @@ const getPost = async (req, res) => {
 }
 
 const createPost = async (req, res) => {
-    const { title, description, tags, userId } = req.body;
+    const { title, description, tags, userId, course} = req.body;
 
     if (!description) {
         console.log("NO DESCRIPTION");
@@ -65,6 +65,7 @@ const createPost = async (req, res) => {
             tags: tags.length ? tags : [],
             userId: user._id,
             profilePicture: user.profilePicture,
+            course,
         });
 
         const populatedPost = await post.populate('userId', '_id username profilePicture');

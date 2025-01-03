@@ -49,8 +49,9 @@ const MakePostButton = ({ setPosts, courses }) => {
   ].map(String);
 
   const options = createListCollection({
-    items: courses.map(course => ({ label: course, value: course })), // Line 18
+    items: courses.map(course => ({ label: course, value: course })), // Ensure value is a string
   });
+  
   // Handle adding custom tags
   const handleTagInputKeyDown = (e) => {
     if (e.key === 'Enter' && tagInput.trim() !== '') {
@@ -73,31 +74,36 @@ const MakePostButton = ({ setPosts, courses }) => {
   };
   
   const handleCreatePost = async () => {
-    // console.log(tags);
+    console.log({
+      title,
+      description,
+      tags,
+      userId,
+      course: selectedCourse.value[0], // Confirm this is correct
+    });
+  
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
         title,
         description,
         tags,
         userId,
-        course: selectedCourse || null,
+        course: selectedCourse.value[0] || null,
       });
-
-      // Update the posts in HomePage
+  
       setPosts((prevPosts) => [response.data, ...prevPosts]);
-
-      // Clear the form and hide the creation area
+  
       setTitle('');
       setDescription('');
       setTags([]);
       setTagInput('');
-      // setShowCreatePost(false);
       setSelectedCourse('');
       setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
     }
   };
+  
 
   //console.log("Predefined Tags:", predefinedTags);
   return (
@@ -252,13 +258,15 @@ const MakePostButton = ({ setPosts, courses }) => {
                 {/* Classes Select */}
                 <Box overflow={"visible"}>
                 <SelectRoot
-                  collection={options}
-                  value={selectedCourse}
-                  onValueChange={(value) => setSelectedCourse(value)}
-                  size="sm"
-                  width="30%"
-                  mb={4}
-    
+                    collection={options}
+                    value={selectedCourse}
+                    onValueChange={(value) => {
+                      console.log("Selected course:", value); // Debugging
+                      setSelectedCourse(value); // Set the course directly
+                    }}
+                    size="sm"
+                    width="30%"
+                    mb={4}
                 >
                   <SelectTrigger
                     // _hover={{
