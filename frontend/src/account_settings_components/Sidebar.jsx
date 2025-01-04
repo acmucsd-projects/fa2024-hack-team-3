@@ -68,20 +68,16 @@ const Sidebar = () => {
       borderRadius="md"
       position="sticky"
       top={4}
-      h="calc(100vh - 32px)" // Makes the sidebar height match the viewport
-      p={0} // Adds padding inside the sidebar
+      // h="calc(100vh - 32px)" // Makes the sidebar height match the viewport
+      paddingBottom={2} // Adds padding inside the sidebar
     >
       <VStack align="stretch" spacing={4} w="100%">
         {/* Menu Section */}
         <Box>
-          <Text fontSize="lg" fontWeight="bold" mb={2} px={2} paddingTop={3}>
+          {/* <Text fontSize="lg" fontWeight="bold" mb={2} px={4} paddingTop={3}>
             Menu
-          </Text>
-          <VStack align="stretch" spacing={1}>
-            {/* Add Post Button */}
-            <Box px={2}>
-              <MakePostButton setPosts={setPosts} courses={courses} />
-            </Box>
+          </Text> */}
+          <VStack align="stretch" spacing={1} paddingTop={4}>
             <Box as="div" style={getHighlightStyle("/")}>
               <Link to="/">
               <HStack w={"100%"}><HiMiniListBullet size={20}/>Posts</HStack></Link>
@@ -94,7 +90,7 @@ const Sidebar = () => {
 
         {/* Personal Navigator */}
         <Box>
-          <Text fontSize="lg" fontWeight="bold" mb={2} px={2}>
+          <Text fontSize="lg" fontWeight="bold" mb={2} px={4}>
             Personal Navigator
           </Text>
           <VStack align="stretch" spacing={1}>
@@ -109,8 +105,14 @@ const Sidebar = () => {
           </VStack>
         </Box>
 
+        <Box ml={-1} mb={2}>
+              <Flex justify={"center"}>
+                <MakePostButton setPosts={setPosts} courses={courses} />
+              </Flex>
+            </Box>
+
         {/* Online Buddies Section */}
-        <Box>
+        {/* <Box>
           <Text fontSize="lg" fontWeight="bold" mb={2} px={2}>
             Online Buddies
           </Text>
@@ -122,7 +124,7 @@ const Sidebar = () => {
               </Flex>
             ))}
           </VStack>
-        </Box>
+        </Box> */}
       </VStack>
     </Box>
   );
