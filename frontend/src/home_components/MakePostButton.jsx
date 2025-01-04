@@ -51,6 +51,21 @@ const MakePostButton = ({ setPosts, courses }) => {
   const options = createListCollection({
     items: [{ label: "None", value: "None" }, ...courses.map((course) => ({ label: course, value: course }))], // Add "None" as the first option
   });
+
+  // Reset form inputs
+  const resetForm = () => {
+    setTitle('');
+    setDescription('');
+    setTags([]);
+    setTagInput('');
+    setSelectedCourse('');
+  };
+
+  // Handle dialog close
+  const handleClose = () => {
+    resetForm();
+    setIsOpen(false);
+  }
   
   // Handle adding custom tags
   const handleTagInputKeyDown = (e) => {
@@ -95,11 +110,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   
       setPosts((prevPosts) => [response.data, ...prevPosts]);
   
-      setTitle('');
-      setDescription('');
-      setTags([]);
-      setTagInput('');
-      setSelectedCourse('None');
+      resetForm();
       setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
@@ -182,11 +193,11 @@ const MakePostButton = ({ setPosts, courses }) => {
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={handleTagInputKeyDown}
-                  mb={4}
+                  // mb={4}
                   bg="bg.DEFAULT"
                   w={"30%"}
                 />
-                <Text mb={4} color="gray.400">(Optional)</Text>
+                <Text  color="gray.400">(Optional)</Text>
                 </HStack>
                 
 
@@ -208,6 +219,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                       overflow="hidden"
                       whiteSpace="nowrap"
                       textOverflow="ellipsis"
+                      marginTop={3}
                     >
                       {/* Tag Text */}
                       <Box
@@ -260,7 +272,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                     }}
                     size="sm"
                     width="30%"
-                    mb={4}
+                    // mb={4}
                 >
                   <SelectTrigger
                     color="black" // Default text color
@@ -299,7 +311,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   variant="outline" 
                   colorPalette={"gray"}
                   width={"20vh"}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                 >
                   Cancel
                 </Button>

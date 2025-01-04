@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, VStack, Flex } from "@chakra-ui/react";
+import { Box, Text, VStack, Flex, HStack } from "@chakra-ui/react";
 import { Avatar } from "../components/ui/avatar";
 import { Link, useLocation } from "react-router-dom";
+import { HiMiniListBullet } from "react-icons/hi2";
+import { FaFilter } from "react-icons/fa";
+import { RiQuestionAnswerLine } from "react-icons/ri";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 import MakePostButton from "../home_components/MakePostButton";
 import axios from "axios";
 
@@ -79,10 +83,11 @@ const Sidebar = () => {
               <MakePostButton setPosts={setPosts} courses={courses} />
             </Box>
             <Box as="div" style={getHighlightStyle("/")}>
-              <Link to="/">Posts</Link>
+              <Link to="/">
+              <HStack w={"100%"}><HiMiniListBullet size={20}/>Posts</HStack></Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/filter")}>
-              <Link to="/filter">Filter</Link>
+              <HStack><FaFilter size={17} color="#093a80"/>Filter</HStack>
             </Box>
           </VStack>
         </Box>
@@ -94,10 +99,12 @@ const Sidebar = () => {
           </Text>
           <VStack align="stretch" spacing={1}>
             <Box as="div" style={getHighlightStyle("/your-posts")}>
-              <Link to="/your-posts">Your Posts</Link>
+              <Link to="/your-posts">
+              <HStack ml={-0.5}><HiOutlinePencilAlt size={22} color="#093a80"/>Your Posts</HStack>
+              </Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/your-chats")}>
-              <Link to="/your-chats">Your Chats</Link>
+              <HStack><RiQuestionAnswerLine size={20} color="#093a80"/>Your Chats</HStack>
             </Box>
           </VStack>
         </Box>

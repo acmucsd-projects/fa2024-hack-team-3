@@ -40,6 +40,7 @@ const Post = ({ post, onDelete, onEdit }) => {
     const [editDescription, setEditDescription] = useState(post.description); // State for edited description
     const [editTags, setEditTags] = useState(post.tags || []); // State for edited tags
     const [tagInput, setTagInput] = useState(''); // State for tag input
+    const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // State for expanded description
     // const [isHighlighted, setIsHighlighted] = useState(false);
 
     // useEffect(() => {
@@ -51,7 +52,92 @@ const Post = ({ post, onDelete, onEdit }) => {
     // }, [post.isHighlighted]);
     
     const authUserId = localStorage.getItem('authUserId')?.toString(); 
-    // console.log('Retrieved userId:', authUserId);
+
+    const MAX_DESCRIPTION_LENGTH = 200; // Maximum characters to show in the description
+    const MAX_COMMENT_LENGTH = 200; // Maximum characters to show in the comment
+    // Function to toggle description visibility
+    const toggleDescription = () => {
+        setIsDescriptionExpanded((prev) => !prev);
+    };
+
+    // Function to render the description based on its state
+    const renderDescription = () => {
+        if (!post.description) return null;
+
+        if (isDescriptionExpanded || post.description.length <= MAX_DESCRIPTION_LENGTH) {
+        return (
+            <Text mb={4} color="#00629B">
+            {post.description}
+            {post.description.length > MAX_DESCRIPTION_LENGTH && (
+                <Text
+                as="span"
+                color="blue.600"
+                _hover={{ cursor: 'pointer', textDecoration: 'underline' }}
+                onClick={toggleDescription}
+                ml={1}
+                >
+                Show Less
+                </Text>
+            )}
+            </Text>
+        );
+        }
+
+        return (
+        <Text mb={4} color="#00629B">
+            {post.description.slice(0, MAX_DESCRIPTION_LENGTH)}...
+            <Text
+            as="span"
+            color="blue.600"
+            _hover={{ cursor: 'pointer', textDecoration: 'underline' }}
+            onClick={toggleDescription}
+            ml={1}
+            >
+            
+            Show More
+            </Text>
+        </Text>
+        );
+    }
+
+    // Function to toggle visibility of long comments
+    const toggleCommentVisibility = (index) => {
+        setComments((prevComments) =>
+            prevComments.map((comment, i) =>
+                i === index
+                    ? { ...comment, isExpanded: !comment.isExpanded }
+                    : comment
+            )
+        );
+    };
+
+    // Function to render a comment with "Show More/Show Less" functionality
+    const renderComment = (comment, index) => {
+        const isExpanded = comment.isExpanded || comment.text.length <= MAX_COMMENT_LENGTH;
+
+        return (
+            <Box key={comment._id} p={2} borderRadius="md" bg="bg.muted" boxShadow="sm">
+                <HStack>
+                    <Avatar size="xs" src={comment.userProfilePicture || ""} name={comment.username || "Unknown"} />
+                    <Text fontWeight="bold">{comment.username || "Unknown"}</Text>
+                </HStack>
+                <Text>
+                    {isExpanded ? comment.text : `${comment.text.slice(0, MAX_COMMENT_LENGTH)}...`}
+                    {comment.text.length > MAX_COMMENT_LENGTH && (
+                        <Text
+                            as="span"
+                            color="blue.600"
+                            _hover={{ cursor: "pointer", textDecoration: "underline" }}
+                            onClick={() => toggleCommentVisibility(index)}
+                            ml={1}
+                        >
+                            {isExpanded ? "Show Less" : "Show More"}
+                        </Text>
+                    )}
+                </Text>
+            </Box>
+        );
+    };
     
 
     // Fetch comments for the post
@@ -59,7 +145,11 @@ const Post = ({ post, onDelete, onEdit }) => {
         try {
             setLoadingComments(true);
             const response = await axios.get(`http://localhost:5000/api/posts/${post._id}/comments`);
-            setComments(response.data);
+            const commentsWithState = response.data.map((comment) => ({
+                ...comment,
+                isExpanded: false, // Initially collapsed
+            }));
+            setComments(commentsWithState);
             setVisibleComments(response.data.slice(0, 3)); // Show only the first 3 comments initially
         } catch (error) {
             console.error('Failed to fetch comments:', error);
@@ -353,21 +443,18 @@ const Post = ({ post, onDelete, onEdit }) => {
                                         onClick={() => setIsEditDialogOpen(false)} 
                                         variant="outline"
                                         width={"20vh"}
-                                        bg={"gray.400"}
-                                        _hover={{
-                                            bg: 'gray.500', // Darker shade for better contrast
-                                        }}
+                                        
                                     >
                                         Cancel
                                     </Button>
                                 <Button 
-                                    colorScheme="blue"
                                     gap ="100"
                                     variant="solid"
                                     _hover={{
                                       bg: 'blue.600', // Darker shade for better contrast
                                       color: 'white', // Ensure text remains white
                                     }}
+                                    bg={"bg.buttons"}
                                     width={"20vh"}
                                     onClick={() => {
                                         handleSaveEdit();
@@ -436,8 +523,8 @@ const Post = ({ post, onDelete, onEdit }) => {
             <Text fontSize="lg" fontWeight="bold" colorScheme="blue" bg="bg.muted" mb={2}>{post.title}</Text>
             </HStack>
             
-            
-            <Text mb={4} color="#00629B">{post.description}</Text>
+            {renderDescription()}
+            {/* <Text mb={4} color="#00629B">{post.description}</Text> */}
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (
                     <Badge key={index} colorScheme="blue" bg="bg.subtle">{tag}</Badge>

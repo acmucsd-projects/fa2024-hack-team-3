@@ -156,7 +156,7 @@ const LoginPage = () => {
                                     </Text>
                                 </Button>
                             </Box>
-                            <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text>
+                            {/* <Text textAlign={"left"} color={"gray.500"} pb="4"><a href='#'>Forgot Password?</a></Text> */}
                             <Text textAlign={"left"} color={'gray.500'}>Need an Account? <Text as={Link} to={'/register'} textDecoration="underline">Register</Text>
 
                             </Text>

@@ -1,6 +1,6 @@
 //account settings page
 import React, {useState} from "react";
-import { Flex, Text, Button, Box, SimpleGrid, GridItem} from "@chakra-ui/react";
+import { Flex, Text, Button, Box, SimpleGrid, GridItem, Heading} from "@chakra-ui/react";
 import Sidebar from "../account_settings_components/Sidebar";
 import AccountHeader from "../account_settings_components/AccountHeader";
 import PasswordForm from "../account_settings_components/PasswordForm";
@@ -28,7 +28,8 @@ const AccountSettings = () => {
         <GridItem colSpan={{ base: 1 }}></GridItem>
 
         <GridItem colSpan={{ md: 7}}>
-          <Box bg="bg.subtle" rounded={"md"} paddingY={"3vh"}>
+          <Box bg="bg.subtle" rounded={"md"} p={4}>
+          <Heading size="lg" mb={4}>SETTINGS</Heading>
             <Flex direction="column" alignItems="center">
             <AccountHeader />
             <Text fontSize="lg" fontWeight="bold" marginTop="5">
