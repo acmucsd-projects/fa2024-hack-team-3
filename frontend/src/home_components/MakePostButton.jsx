@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select, Text} from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select, Text, Badge} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
 import { IoIosAddCircleOutline } from "react-icons/io";
 import {
@@ -21,10 +21,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog"
-import {
-  NativeSelectField,
-  NativeSelectRoot,
-} from "../components/ui/native-select"
 import axios from 'axios';
 
 const MakePostButton = ({ setPosts, courses }) => {
@@ -204,59 +200,15 @@ const MakePostButton = ({ setPosts, courses }) => {
                 {/* Display Selected Tags */}
                 <HStack spacing={2} wrap="wrap" mb={4}>
                   {tags.map((tag) => (
-                    <Box
-                      key={tag}
-                      bg="blue.100"
-                      color="blue.800"
-                      borderRadius="full"
-                      px={3}
-                      py={1}
-                      fontSize="sm"
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                      maxWidth="200px"
-                      overflow="hidden"
-                      whiteSpace="nowrap"
-                      textOverflow="ellipsis"
-                      marginTop={3}
-                    >
-                      {/* Tag Text */}
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="center"
-                        overflow="hidden"
-                        textOverflow="ellipsis"
-                      >
-                        {tag}
-                      </Box>
-
-                      {/* Close Button */}
-                      <Box
-                        as="button"
-                        onClick={() => removeTag(tag)} // Call the removeTag function
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        bg="transparent"
-                        border="none"
-                        cursor="pointer"
-                        color="blue.800"
-                        _hover={{ color: "red.500" }}
-                        _focus={{ outline: "none" }}
-                        fontSize="12px" /* Adjust size */
-                        lineHeight="1"
-                        height="16px"
-                        width="16px"
-                        paddingRight={0}
-                        paddingLeft={2}
-                        
-                        borderRadius="full"
-                      >
-                        &times; 
-                      </Box>
-                    </Box>
+                    <Badge
+                    mt={4}
+                    key={tag}
+                    colorScheme="blue"
+                    onClick={() => removeTag(tag)}
+                    _hover={{ bg: "red.200", cursor: "pointer" }}
+                >
+                    {tag} &times;
+                </Badge>
                   ))}
                 </HStack>
 

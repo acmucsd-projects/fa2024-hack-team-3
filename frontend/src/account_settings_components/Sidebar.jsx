@@ -1,53 +1,64 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, VStack, Flex, HStack } from "@chakra-ui/react";
+import { Box, Text, VStack, Flex, HStack, Collapsible} from "@chakra-ui/react";
 import { Avatar } from "../components/ui/avatar";
+import { Checkbox } from "../components/ui/checkbox";
 import { Link, useLocation } from "react-router-dom";
 import { HiMiniListBullet } from "react-icons/hi2";
-import { FaFilter } from "react-icons/fa";
+import { FiFilter } from "react-icons/fi";
 import { RiQuestionAnswerLine } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
+import { LuSettings } from "react-icons/lu";
 import MakePostButton from "../home_components/MakePostButton";
 import axios from "axios";
 
-const Sidebar = () => {
-  const [posts, setPosts] = useState([]); // State for posts
-  const [courses, setCourses] = useState([]); // State for courses
+const Sidebar = ({ courses, selectedCourses, setSelectedCourses }) => {
+  // const [posts, setPosts] = useState([]); // State for posts
+  // const [courses, setCourses] = useState(["All Posts"]); // State for courses
+
+  const handleCheckboxChange = (course) => {
+    setSelectedCourses((prevSelected) =>
+      prevSelected.includes(course)
+        ? prevSelected.filter((c) => c !== course) // Remove course
+        : [...prevSelected, course] // Add course
+    );
+  };
+
   const location = useLocation(); // Get the current route path
 
   // Fetch courses from the backend when the component mounts
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const token = localStorage.getItem("authToken");
-        const response = await axios.get("http://localhost:5000/api/users/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+  // useEffect(() => {
+  //   const fetchCourses = async () => {
+  //     try {
+  //       const token = localStorage.getItem("authToken");
+  //       const response = await axios.get("http://localhost:5000/api/users/me", {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
         
-        // Preload the selected courses using the logged-in user's data
-        const preloadedCourses = response.data.courses.map((course) => course.name);
-        setCourses(preloadedCourses); // Update courses with the response
-      } catch (err) {
-        console.error("Failed to fetch courses:", err);
-        setError("Failed to fetch courses.");
-      }
-    };
+  //       // Preload the selected courses using the logged-in user's data
+  //       const preloadedCourses = response.data.courses.map((course) => course.name);
+  //       setCourses(preloadedCourses); // Update courses with the response
+  //     } catch (err) {
+  //       console.error("Failed to fetch courses:", err);
+  //       setError("Failed to fetch courses.");
+  //     }
+  //   };
 
-    fetchCourses();
-  }, []);
+  //   fetchCourses();
+  // }, []);
 
   // Fetch posts from the backend when the component mounts
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/posts")
-      .then((response) => {
-        setPosts(response.data); // Update posts state
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the posts:", error);
-      });
-  }, []); // Empty dependency array ensures this runs only once
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/api/posts")
+  //     .then((response) => {
+  //       setPosts(response.data); // Update posts state
+  //     })
+  //     .catch((error) => {
+  //       console.error("There was an error fetching the posts:", error);
+  //     });
+  // }, []); // Empty dependency array ensures this runs only once
 
   const getHighlightStyle = (path) => ({
     backgroundColor: location.pathname === path ? "#d9e2e8" : "transparent",
@@ -64,7 +75,7 @@ const Sidebar = () => {
   return (
     <Box
       bg="bg.subtle" // Sidebar background color
-      boxShadow="md"
+      boxShadow="xs"
       borderRadius="md"
       position="sticky"
       top={4}
@@ -83,8 +94,29 @@ const Sidebar = () => {
               <HStack w={"100%"}><HiMiniListBullet size={20}/>Posts</HStack></Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/filter")}>
-              <HStack><FaFilter size={17} color="#093a80"/>Filter</HStack>
+            <Collapsible.Root>
+              <Collapsible.Trigger>
+                <HStack paddingBottom={2} _hover={{cursor: "pointer"}}><FiFilter size={20} color="#093a80"/>Filter</HStack>
+              </Collapsible.Trigger>
+              <Collapsible.Content>
+              <VStack align="flex-start">
+
+                {courses.map((course) => (
+                  <Checkbox
+                    variant="solid"
+                    colorPalette="blue"
+                    key={course}
+                    isChecked={selectedCourses.includes(course)}
+                    onChange={() => handleCheckboxChange(course)}
+                  >
+                    {course}
+                  </Checkbox>
+                ))}
+              </VStack>
+              </Collapsible.Content>
+              </Collapsible.Root>
             </Box>
+
           </VStack>
         </Box>
 
@@ -100,14 +132,21 @@ const Sidebar = () => {
               </Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/your-chats")}>
-              <HStack><RiQuestionAnswerLine size={20} color="#093a80"/>Your Chats</HStack>
+              <Link to="/your-chats">
+                <HStack><RiQuestionAnswerLine size={20} color="#093a80"/>Your Chats</HStack>
+              </Link>
+            </Box>
+            <Box as="div" style={getHighlightStyle("/settings")}>
+              <Link to="/settings">
+                <HStack ml={-0.2}><LuSettings size={20} color="#093a80"/>Settings</HStack>
+              </Link>
             </Box>
           </VStack>
         </Box>
 
         <Box ml={-1} mb={2}>
               <Flex justify={"center"}>
-                <MakePostButton setPosts={setPosts} courses={courses} />
+                <MakePostButton setPosts={() => {}} courses={courses.slice(1)} />
               </Flex>
             </Box>
 

@@ -105,11 +105,22 @@ const deletePost = async (req, res) => {
 
 const updatePost = async (req, res) => {
     const { id } = req.params;
+    const { course, ...otherUpdates } = req.body;
 
     try {
-        const updatedData = { ...req.body, isEdited: true }; // Set isEdited to true
-        const post = await Post.findOneAndUpdate({ _id: id }, updatedData, { new: true });
-        
+        // Include course if it's provided in the request
+        const updatedData = { 
+            ...otherUpdates, 
+            isEdited: true, 
+            ...(course !== undefined && { course }) // Add course if defined
+        };
+
+        const post = await Post.findOneAndUpdate(
+            { _id: id },
+            updatedData,
+            { new: true }
+        );
+
         if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
@@ -118,7 +129,7 @@ const updatePost = async (req, res) => {
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
-}
+};
 
 module.exports = {
     getAllPosts,

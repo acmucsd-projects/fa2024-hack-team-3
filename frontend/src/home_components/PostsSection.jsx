@@ -22,31 +22,11 @@ const PostsSection = ({ posts, setPosts }) => {
   };
 
   const handleEditPost = (updatedPost) => {
-    // setPosts((prevPosts) =>
-    //   prevPosts.map((post) => {
-    //       // Check if the updated post's userId is a string
-    //       if (post._id === updatedPost._id) {
-    //           if (typeof updatedPost.userId === 'string') {
-    //               updatedPost.userId = {
-    //                   _id: updatedPost.userId,
-    //                   username: post.userId?.username || 'Unknown User',
-    //                   profilePicture: post.userId?.profilePicture || '',
-    //               };
-    //           }
-    //           return updatedPost;
-    //       }
-    //       return post;
-    //   })
-    // ); 
     setPosts((prevPosts) =>
-      prevPosts.map((post) => {
-          if (post._id === updatedPost._id) {
-              return { ...post, ...updatedPost }; // Merge updated fields, including isEdited
-          }
-          return post;
-      })
-  );
+      prevPosts.map((post) => (post._id === updatedPost._id ? { ...post, ...updatedPost } : post))
+    );
   };
+
   // Pagination logic
   // Calculate pagination values
   const totalPages = Math.ceil(posts.length / postsPerPage); // Calculate the total pages
@@ -72,7 +52,9 @@ const PostsSection = ({ posts, setPosts }) => {
   return (
     <Box className="posts-section" p={4} bg="bg.subtle" rounded={"md"} >
       <Heading size="lg" mb={4}>POSTS</Heading>
-      <Text mb={4} >{posts.length} total results for (placeholder until courses implemented) </Text>
+      <Text mb={4}>
+        {posts.length} {posts.length === 1 ? 'post' : 'posts'} found.
+      </Text>
 
       {/* Render skeletons while loading */}
       {/* Stack component to arrange posts vertically */}
@@ -89,7 +71,7 @@ const PostsSection = ({ posts, setPosts }) => {
           </Stack>
         ))}
       </Stack>
-      ) : (
+      ) : currentPosts.length > 0 ? (
         
       <Stack spacing={6}>
       {currentPosts.map((post) => (
@@ -101,6 +83,10 @@ const PostsSection = ({ posts, setPosts }) => {
           />
       ))}
   </Stack>
+      ) : (
+        <Text textAlign="center" color="gray.500">
+          No posts to display.
+        </Text>
       )}
       
 
@@ -113,8 +99,8 @@ const PostsSection = ({ posts, setPosts }) => {
         >
           Back
         </Button>
-        <Text alignSelf="center">Page {currentPage} of {totalPages}</Text>
-        <Button onClick={handleNext} disabled={currentPage === totalPages} bg='bg.button' variant="solid" 
+        <Text alignSelf="center">Page {currentPage} of {totalPages || 1}</Text>
+        <Button onClick={handleNext} disabled={currentPage === totalPages || totalPages === 0} bg='bg.button' variant="solid" 
         _hover={{bg: 'blue.600', color: 'white'}}
         background={"bg.buttons"}
         color={"white"}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Text, Badge, HStack, VStack, Spacer, Button, Input, Stack, Field, defineStyle, Textarea } from '@chakra-ui/react';
+import { Box, Text, Badge, HStack, VStack, createListCollection, Spacer, Button, Input, Stack, Field, defineStyle, Textarea } from '@chakra-ui/react';
 import axios from 'axios';
 import { formatDistanceToNow, format, isToday, isYesterday, set } from 'date-fns';
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -8,7 +8,16 @@ import {
     MenuItem,
     MenuRoot,
     MenuTrigger,
+    MenuSeparator,
   } from "../components/ui/menu"
+  import {
+    SelectContent,
+    SelectItem,
+    SelectLabel,
+    SelectRoot,
+    SelectTrigger,
+    SelectValueText,
+  } from "../components/ui/select"
 import {
     DialogRoot,
     DialogTrigger,
@@ -39,10 +48,59 @@ const Post = ({ post, onDelete, onEdit }) => {
     const [editTitle, setEditTitle] = useState(post.title); // State for edited title
     const [editDescription, setEditDescription] = useState(post.description); // State for edited description
     const [editTags, setEditTags] = useState(post.tags || []); // State for edited tags
+    const [editCourse, setEditCourse] = useState(post.course); // State for edited course
     const [tagInput, setTagInput] = useState(''); // State for tag input
     const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // State for expanded description
     // const [isHighlighted, setIsHighlighted] = useState(false);
+    
+    // fetch courses
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        const fetchCourses = async () => {
+          try {
+            const token = localStorage.getItem("authToken");
+            const response = await axios.get("http://localhost:5000/api/users/me", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+            
+            // Preload the selected courses using the logged-in user's data
+            const preloadedCourses = response.data.courses.map((course) => course.name);
+            setCourses(preloadedCourses); // Update courses with the response
+            // setSelectedCourses(preloadedCourses);
+          } catch (err) {
+            console.error("Failed to fetch courses:", err);
+            // setError("Failed to fetch courses.");
+          }
+        };
+    
+        fetchCourses();
+      }, []);
+    
+      const options = createListCollection({
+        items: [{ label: "None", value: "None" }, ...courses.map((course) => ({ label: course, value: course }))], // Add "None" as the first option
+      });
 
+      useEffect(() => {
+        if (post.course) {
+            setEditCourse(post.course);
+        } else {
+            setEditCourse("None");
+        }
+    }, [post.course]);
+
+    const resetEditInputs = () => {
+        setEditTitle(post.title);
+        setEditDescription(post.description);
+        setEditTags(post.tags || []);
+        setEditCourse(post.course || "None");
+        setTagInput('');
+    };
+    
+
+    //   console.log("Options:", options);
+    // console.log(options);
     // useEffect(() => {
     //     if (post.isHighlighted) {
     //         setIsHighlighted(true);
@@ -165,7 +223,7 @@ const Post = ({ post, onDelete, onEdit }) => {
             setVisibleComments(comments); // Show all comments
             setShowAll(true);
             setPseudoLoading(false); // Stop pseudo-loading
-        }, 1000);
+        }, 500);
     };
 
     // Add a new comment
@@ -222,6 +280,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 title: editTitle,
                 description: editDescription,
                 tags: editTags,
+                course: editCourse.value[0] === "None" ? null : editCourse.value[0],
             };
 
             await axios.patch(
@@ -368,6 +427,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                     <MenuItem onClick={() => setIsEditDialogOpen(true)} _hover={{ cursor: "pointer", bg: "bg.subtle"}}>
                         Edit
                     </MenuItem>
+                    <MenuSeparator />
 
                     {/* Edit Dialog */}
                     <DialogRoot 
@@ -376,7 +436,12 @@ const Post = ({ post, onDelete, onEdit }) => {
                         placement={"center"} 
                         open={isEditDialogOpen} 
                         closeOnInteractOutside={false}
-                        onOpenChange={setIsEditDialogOpen}
+                        onOpenChange={(open) => {
+                            setIsEditDialogOpen(open);
+                            if (!open) {
+                                resetEditInputs();
+                            }
+                        }}
                     >
                         <DialogContent
                             overflow="visible"
@@ -421,6 +486,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                     onKeyDown={(e) => e.key === 'Enter' && handleAddTag()}
                                     mb={4}
                                     bg="bg.DEFAULT"
+                                    w={"30%"}
                                 />
 
                                 <HStack spacing={2} wrap="wrap">
@@ -431,16 +497,57 @@ const Post = ({ post, onDelete, onEdit }) => {
                                             onClick={() => handleRemoveTag(tag)}
                                             _hover={{ bg: "red.200", cursor: "pointer" }}
                                         >
-                                            {tag} x
+                                            {tag} &times;
                                         </Badge>
                                     ))}
                                 </HStack>
+            <Box overflow={"visible"} pt={4}>
+            <SelectRoot
+                collection={options}
+                value={editCourse}
+                onValueChange={(value) => {
+                    console.log("Selected course:", value); // Debugging
+                    setEditCourse(value); // Set the course directly
+                }}
+                size="sm"
+                width="30%"
+            >
+                <SelectTrigger
+                    color="black" // Default text color
+                    width="100%"
+                    borderRadius="md" // Optional: Add rounded corners
+                >
+                    <SelectValueText 
+                        placeholder={editCourse}
+                      color="bg.text"
+                    />
+
+                </SelectTrigger>
+                <SelectContent zIndex="popover">
+                    {options.items.map((item) => (
+                        <SelectItem
+                            item={item}
+                            key={item.value}
+                            _hover={{
+                                bg: "bg.subtle"
+                            }}
+                        >
+                            {item.label}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+
+            </SelectRoot>
+            </Box>
                             </DialogBody>
 
 
                             <DialogFooter>
                                     <Button 
-                                        onClick={() => setIsEditDialogOpen(false)} 
+                                        onClick={() => {
+                                            setIsEditDialogOpen(false);
+                                            resetEditInputs();
+                                        }} 
                                         variant="outline"
                                         width={"20vh"}
                                         
@@ -580,6 +687,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                                             </MenuTrigger>
                                             <MenuContent>
                                                 {isCommentOwner && (
+                                                    <>
                                                     <MenuItem
                                                         onClick={() => {
                                                             if (!deleteConfirmId) {
@@ -596,8 +704,9 @@ const Post = ({ post, onDelete, onEdit }) => {
                                                     >
                                                         Edit
                                                     </MenuItem>
+                                                    <MenuSeparator />
+                                                    </>
                                                 )}
-                                                
                                                 <MenuItem
                                                     onClick={() => {
                                                         if (!editingCommentId) { // Prevent delete when edit is active
@@ -630,15 +739,15 @@ const Post = ({ post, onDelete, onEdit }) => {
                                         mb={2}
                                     />
                                     <HStack>
+                                        <Button size="sm" variant="outline" onClick={handleCancelEditComment}>
+                                        Cancel
+                                        </Button>
                                         <Button
                                             size="sm"
-                                            colorScheme="blue"
+                                            bg={"bg.buttons"}
                                             onClick={() => handleEditComment(comment._id, editingCommentText)}
                                         >
                                         Save
-                                        </Button>
-                                        <Button size="sm" variant="outline" onClick={handleCancelEditComment}>
-                                        Cancel
                                         </Button>
                                     </HStack>
                                     </>
@@ -649,19 +758,20 @@ const Post = ({ post, onDelete, onEdit }) => {
                                 {/* Show confirmation buttons if deleteConfirmId matches the comment */}
                                     {deleteConfirmId === comment._id && (
                                         <HStack mt={2}>
-                                            <Button
-                                                size="sm"
-                                                colorPalette="red"
-                                                onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
-                                            >
-                                                Confirm Delete
-                                            </Button>
+                                            
                                             <Button
                                                 size="sm"
                                                 variant="outline"
                                                 onClick={() => setDeleteConfirmId(null)} // Cancel delete
                                             >
                                                 Cancel
+                                            </Button>
+                                            <Button
+                                                size="sm"
+                                                colorPalette="red"
+                                                onClick={() => handleDeleteComment(comment._id)} // Confirm delete action
+                                            >
+                                                Confirm Delete
                                             </Button>
                                         </HStack>
                                     )}

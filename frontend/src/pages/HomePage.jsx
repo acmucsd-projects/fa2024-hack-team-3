@@ -19,6 +19,7 @@ const HomePage = () => {
   // State to store the posts
   const [posts, setPosts] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [selectedCourses, setSelectedCourses] = useState([]);
   
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
@@ -55,10 +56,15 @@ const HomePage = () => {
   }, []);
 
   // const courses = ["CSE 11", "COGS 9", "HIUS 112"];
-  const buddies = [
-    { profilePicture: "/assets/aacount-icon.svg" },
-    { profilePicture: "/assets/aacount-icon.svg" },
-  ];
+  // const buddies = [
+  //   { profilePicture: "/assets/aacount-icon.svg" },
+  //   { profilePicture: "/assets/aacount-icon.svg" },
+  // ];
+
+  const filteredPosts =
+    selectedCourses.length === 0
+      ? posts
+      : posts.filter((post) => selectedCourses.includes(post.course));
 
   return (
     <ChakraProvider value={system}>
@@ -75,14 +81,21 @@ const HomePage = () => {
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
         <GridItem colSpan={{ base: 1 , md: 2}}>
-          <Sidebar />
+          <Sidebar 
+            courses={courses} 
+            selectedCourses={selectedCourses} 
+            setSelectedCourses={setSelectedCourses}
+          />
         </GridItem>
         <GridItem colSpan={{ base: 1 }}></GridItem>
 
         {/* Main Content: Posts Section */}
         <GridItem colSpan={{ md: 7 }}>
           <Box>
-            <PostsSection posts={posts} setPosts={setPosts}/>
+            <PostsSection 
+              posts={filteredPosts} 
+              setPosts={setPosts} 
+            />
           </Box>
         </GridItem>
       </SimpleGrid>
