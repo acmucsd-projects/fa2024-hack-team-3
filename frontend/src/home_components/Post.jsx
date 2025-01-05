@@ -651,7 +651,7 @@ const Post = ({ post, onDelete, onEdit }) => {
             {/* <Text mb={4} color="#00629B">{post.description}</Text> */}
             <HStack spacing={2}>
                 {post.tags && post.tags.map((tag, index) => (
-                    <Badge key={index} colorScheme="blue" bg="bg.subtle">{tag}</Badge>
+                    <Badge key={index} colorScheme="blue" bg="bg.tags2">{tag}</Badge>
                 ))}
             </HStack>
 

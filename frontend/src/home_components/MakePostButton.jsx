@@ -92,7 +92,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       description,
       tags,
       userId,
-      course: courseToSend, // Confirm this is correct
+      course: courseToSend || null, // Confirm this is correct
     });
   
     try {

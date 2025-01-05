@@ -1,106 +1,178 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, VStack, Heading, Stack, HStack, Badge } from '@chakra-ui/react';
+import { Box, Text, VStack, Heading, Stack, HStack, Badge, SimpleGrid, GridItem, Spinner, Center } from '@chakra-ui/react';
 import axios from 'axios';
-import { Avatar} from "../components/ui/avatar"
+import { Avatar } from "../components/ui/avatar";
+import Header from '../home_components/Header';
+import Sidebar from '../account_settings_components/Sidebar';
+import system from '../theme';
+import { ColorModeProvider } from "../components/ui/color-mode"; //dark mode
+import { ChakraProvider } from "@chakra-ui/react";
+import Post from '../home_components/Post';
 
 const ProfilePage = () => {
     const [profileData, setProfileData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [courses, setCourses] = useState([]);
+    const [selectedCourses, setSelectedCourses] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchProfile = async () => {
+        const fetchProfileAndCourses = async () => {
             try {
                 const authToken = localStorage.getItem('authToken');
-                const response = await axios.get('http://localhost:5000/api/users/profile', {
+    
+                // Fetch profile
+                const profileResponse = await axios.get('http://localhost:5000/api/users/profile', {
                     headers: { Authorization: `Bearer ${authToken}` },
                 });
-                setProfileData(response.data);
-                setLoading(false);
+                setProfileData(profileResponse.data);
+                localStorage.setItem('authUserId', profileResponse.data.user._id); // Save the user ID
+    
+                // Fetch courses
+                const coursesResponse = await axios.get('http://localhost:5000/api/users/me', {
+                    headers: { Authorization: `Bearer ${authToken}` },
+                });
+                const preloadedCourses = coursesResponse.data.courses.map((course) => course.name);
+                setCourses(preloadedCourses);
             } catch (error) {
-                console.error('Failed to fetch profile:', error);
+                console.error('Failed to fetch data:', error);
+            } finally {
+                // Stop loading after all requests are complete
+                setIsLoading(false);
             }
         };
-
-        fetchProfile();
+    
+        fetchProfileAndCourses();
     }, []);
 
-    if (loading) {
-        return <Text>Loading...</Text>;
-    }
+    // Handle deleting a post
+    const handleDeletePost = (postId) => {
+        setProfileData((prevData) => ({
+            ...prevData,
+            posts: prevData.posts.filter((post) => post._id !== postId),
+        }));
+    };
 
-    if (!profileData) {
-        return <Text>No profile data found.</Text>;
-    }
-
-    const { user, posts, comments } = profileData;
+    // Handle editing a post
+    const handleEditPost = (updatedPost) => {
+        setProfileData((prevData) => ({
+            ...prevData,
+            posts: prevData.posts.map((post) =>
+                post._id === updatedPost._id ? updatedPost : post
+            ),
+        }));
+    };
 
     return (
-        <Box p={6}>
-            <HStack spacing={4} mb={6}>
-                <Avatar size="xl" src={user.profilePicture} name={user.username} />
-                <VStack align="start">
-                    <Heading size="lg">{user.username}</Heading>
-                    <Text color="gray.500">{user.emailAddress}</Text>
-                </VStack>
-            </HStack>
+        <ChakraProvider value={system}>
+            <ColorModeProvider>
+                <Box p={4} minW="100vh" mx="auto">
+                    {/* Header */}
+                    <Header courses={courses} setPosts={() => {}} />
 
-            {/* Courses */}
-            <Box mb={6}>
-                <Heading size="md" mb={4}>Courses</Heading>
-                {user.courses.length ? (
-                    <Stack spacing={2}>
-                        {user.courses.map((course, index) => (
-                            <Badge key={index} colorScheme="blue">
-                                {course.name}
-                            </Badge>
-                        ))}
-                    </Stack>
-                ) : (
-                    <Text>No courses enrolled.</Text>
-                )}
-            </Box>
+                    {/* Responsive two-column layout */}
+                    <SimpleGrid columns={{ base: 1, md: 12 }} spacing={6} mt={4}>
+                        {/* Sidebar */}
+                        <GridItem colSpan={{ base: 1, md: 2 }}>
+                            <Sidebar
+                                courses={courses}
+                                selectedCourses={selectedCourses}
+                                setSelectedCourses={setSelectedCourses}
+                                setPosts={() => {}}
+                            />
+                        </GridItem>
 
-            {/* Posts */}
-            <Box mb={6}>
-                <Heading size="md" mb={4}>Posts</Heading>
-                {posts.length ? (
-                    <Stack spacing={4}>
-                        {posts.map((post) => (
-                            <Box key={post._id} p={4} borderWidth="1px" borderRadius="md">
-                                <Heading size="sm">{post.title || 'Untitled Post'}</Heading>
-                                <Text color="gray.600" noOfLines={2}>{post.description}</Text>
-                                <HStack spacing={2} mt={2}>
-                                    {post.tags.map((tag, index) => (
-                                        <Badge key={index} colorScheme="blue">{tag}</Badge>
-                                    ))}
-                                </HStack>
-                            </Box>
-                        ))}
-                    </Stack>
-                ) : (
-                    <Text>No posts created.</Text>
-                )}
-            </Box>
+                        <GridItem colSpan={{ base: 1 }}></GridItem>
 
-            {/* Comments */}
-            <Box>
-                <Heading size="md" mb={4}>Comments</Heading>
-                {comments.length ? (
-                    <Stack spacing={4}>
-                        {comments.map((comment) => (
-                            <Box key={comment._id} p={4} borderWidth="1px" borderRadius="md">
-                                <Text>{comment.text}</Text>
-                                <Text fontSize="sm" color="gray.500">
-                                    On post: {comment.postId?.title || 'Unknown Post'}
-                                </Text>
-                            </Box>
-                        ))}
-                    </Stack>
-                ) : (
-                    <Text>No comments made.</Text>
-                )}
-            </Box>
-        </Box>
+                        {/* Main Content */}
+                        <GridItem colSpan={{ md: 7 }}>
+                            {isLoading ? (
+                                <Center minH="60vh">
+                                    <Spinner size="xl" color="blue.500" />
+                                </Center>
+                            ) : (
+                                <Box p={6} bg="bg.subtle" rounded={"md"}>
+                                    {/* Profile Information */}
+                                    <HStack spacing={2} mb={6} align="center">
+                                        <Avatar size="xl" src={profileData.user.profilePicture} name={profileData.user.username} />
+                                        <VStack align="start" spacing={0}>
+                                            <Heading size="lg" mb={-2}>{profileData.user.username}</Heading>
+                                            <Text color="gray.500" mb={2}>{profileData.user.emailAddress}</Text>
+                                        </VStack>
+                                    </HStack>
+
+                                    {/* Courses */}
+                                    <Box mb={6}>
+                                        <Heading size="md" mb={4}>COURSES</Heading>
+                                        {profileData.user.courses.length ? (
+                                            <HStack spacing={2}>
+                                                {profileData.user.courses.map((course, index) => (
+                                                    <Badge key={index} bg="bg.tags" size="md">
+                                                        {course.name}
+                                                    </Badge>
+                                                ))}
+                                            </HStack>
+                                        ) : (
+                                            <Text>No courses enrolled.</Text>
+                                        )}
+                                    </Box>
+
+                                    {/* Posts */}
+                                    <Box mb={6}>
+                                        <Heading size="md" mb={4}>POSTS</Heading>
+                                        {profileData.posts.length ? (
+                                            <Stack spacing={4}>
+                                                {profileData.posts.length ? (
+                                            <Stack spacing={4}>
+                                                {profileData.posts.map((post) => (
+                                                    <Post
+                                                        key={post._id}
+                                                        post={post}
+                                                        onDelete={handleDeletePost}
+                                                        onEdit={handleEditPost}
+                                                    />
+                                                ))}
+                                            </Stack>
+                                        ) : (
+                                            <Text>No posts created.</Text>
+                                        )}
+                                            </Stack>
+                                        ) : (
+                                            <Text>No posts created.</Text>
+                                        )}
+                                    </Box>
+
+                                    {/* Comments */}
+                                    <Box>
+                                        <Heading size="md" mb={4}>COMMENTS</Heading>
+                                        {profileData.comments.length ? (
+                                            <Stack spacing={4}>
+                                                {profileData.comments.map((comment) => (
+                                                    <Box 
+                                                        key={comment._id} 
+                                                        borderRadius="lg" 
+                                                        p={4} 
+                                                        boxShadow={"sm"} 
+                                                        bg={"bg.muted"} 
+                                                        _hover={{ boxShadow: "md" }}
+                                                    >
+                                                        <Text>{comment.text}</Text>
+                                                        <Text fontSize="sm" color="gray.500">
+                                                            On post: {comment.postId?.title || 'Unknown Post'}
+                                                        </Text>
+                                                    </Box>
+                                                ))}
+                                            </Stack>
+                                        ) : (
+                                            <Text>No comments made.</Text>
+                                        )}
+                                    </Box>
+                                </Box>
+                            )}
+                        </GridItem>
+                    </SimpleGrid>
+                </Box>
+            </ColorModeProvider>
+        </ChakraProvider>
     );
 };
 

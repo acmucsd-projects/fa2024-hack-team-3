@@ -85,6 +85,7 @@ const HomePage = () => {
             courses={courses} 
             selectedCourses={selectedCourses} 
             setSelectedCourses={setSelectedCourses}
+            setPosts={setPosts}
           />
         </GridItem>
         <GridItem colSpan={{ base: 1 }}></GridItem>

@@ -39,6 +39,9 @@ const config = defineConfig({
             tags: {
               value: { _light: "#d9e2e8", _dark: "{colors.blue.700}" },
             },
+            tags2: {
+              value: { _light: "#f0f0f0", _dark: "#1a1a1a" },
+            },
             text: {
               value: { _light: "{colors.black}", _dark: "{colors.gray.100}" },
             },
