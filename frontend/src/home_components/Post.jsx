@@ -48,7 +48,7 @@ const Post = ({ post, onDelete, onEdit }) => {
     const [editTitle, setEditTitle] = useState(post.title); // State for edited title
     const [editDescription, setEditDescription] = useState(post.description); // State for edited description
     const [editTags, setEditTags] = useState(post.tags || []); // State for edited tags
-    const [editCourse, setEditCourse] = useState(post.course); // State for edited course
+    const [editCourse, setEditCourse] = useState(post.course || "None"); // State for edited course
     const [tagInput, setTagInput] = useState(''); // State for tag input
     const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false); // State for expanded description
     // const [isHighlighted, setIsHighlighted] = useState(false);
@@ -97,6 +97,11 @@ const Post = ({ post, onDelete, onEdit }) => {
         setEditCourse(post.course || "None");
         setTagInput('');
     };
+
+    useEffect(() => {
+        console.log("Edit course updated:", editCourse);
+    }, [editCourse]);
+    
     
 
     //   console.log("Options:", options);
@@ -276,11 +281,23 @@ const Post = ({ post, onDelete, onEdit }) => {
     
     const handleSaveEdit = async () => {
         try {
+
+            // Determine the appropriate course value
+        const updatedCourse =
+            typeof editCourse === "string" // Check if it's already a string
+                ? editCourse === "None" // Handle "None" as null
+                    ? null
+                    : editCourse
+                : editCourse.value[0] === "None" // Handle the SelectRoot value structure
+                ? null
+                : editCourse.value[0];
+
+
             const updatedPost = {
                 title: editTitle,
                 description: editDescription,
                 tags: editTags,
-                course: editCourse.value[0] === "None" ? null : editCourse.value[0],
+                course: updatedCourse,
             };
 
             await axios.patch(
