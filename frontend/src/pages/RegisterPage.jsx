@@ -157,13 +157,13 @@ const RegisterPage = () => {
             });
 
             // Clear form data
-            setFormData({
-                username: "",
-                email: "",
-                password: "",
-                confirmPassword: "",
-                courses: [],
-            });
+            // setFormData({
+            //     username: "",
+            //     email: "",
+            //     password: "",
+            //     confirmPassword: "",
+            //     courses: [],
+            // });
 
             setTimeout(() => {navigate("/login")}, 2000);
         } catch (err) {
@@ -301,7 +301,7 @@ const RegisterPage = () => {
                         
                         <Box width={{ base: "100%", lg: "80%" }} textAlign="center" mt="1em" >
                             <Button variant="solid" bg={'blue.800'} _hover={{ bg: "blue.700" }} width="100%" onClick={handleSubmit}>
-                                <Text fontWeight={"bold"}>REGISTER</Text>
+                                <Text fontWeight={"bold"} color={"white"}>REGISTER</Text>
                             </Button>
                         </Box>
 

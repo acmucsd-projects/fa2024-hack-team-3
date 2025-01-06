@@ -59,10 +59,10 @@ const LoginPage = () => {
             });
 
             // Clear form data
-            setFormData({
-                username: "",
-                password: "",
-            });
+            // setFormData({
+            //     username: "",
+            //     password: "",
+            // });
 
             setTimeout(() => {navigate("/")}, 2000);
         } catch (err) {
@@ -151,7 +151,7 @@ const LoginPage = () => {
                                     width="100%"
                                     onClick={handleLogin}
                                 >
-                                    <Text fontWeight={"bold"}>
+                                    <Text fontWeight={"bold"} color="white">
                                         LOGIN
                                     </Text>
                                 </Button>
