@@ -131,7 +131,7 @@ const Sidebar = ({ courses, selectedCourses, setSelectedCourses, setPosts }) => 
 
                 {courses.map((course) => (
                   <Checkbox
-                    variant="solid"
+                    variant="subtle"
                     colorPalette="blue"
                     key={course}
                     isChecked={selectedCourses.includes(course)}
@@ -159,12 +159,12 @@ const Sidebar = ({ courses, selectedCourses, setSelectedCourses, setPosts }) => 
               <HStack ml={-0.5}><CgProfile size={22} color={iconColor}/>My Profile</HStack>
               </Link>
             </Box>
-            <Box as="div" style={getHighlightStyle("/your-chats")}>
-              <Box
-                // to="/"
+            <Box as="div" style={getHighlightStyle("/chat")}>
+              <Link
+                to="/chat"
                 _hover={{cursor: "disabled"}}>
                 <HStack><RiQuestionAnswerLine size={20} color={iconColor}/>My Chats</HStack>
-              </Box>
+              </Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/settings")}>
               <Link to="/settings">

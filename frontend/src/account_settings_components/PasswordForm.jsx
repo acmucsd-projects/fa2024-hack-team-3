@@ -75,6 +75,7 @@ const PasswordForm = () => {
           value={currentPassword}
           onChange={(e) => setCurrentPassword(e.target.value)}
           maxW="100%"
+          bg={"bg.muted"}
         />
       </Container>
       <Container>
@@ -84,6 +85,7 @@ const PasswordForm = () => {
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
           maxW="100%"
+          bg={"bg.muted"}
         />
       </Container>
       <Container>
@@ -92,7 +94,10 @@ const PasswordForm = () => {
           type="password" 
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          maxW="100%"/>
+          maxW="100%"
+          bg={"bg.muted"}
+        />
+          
       </Container>
       <Container>
         {error && <Text color="red.500">{error}</Text>}

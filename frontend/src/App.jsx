@@ -33,7 +33,7 @@ function App() {
     
     <ChakraProvider value={system}>
       <ColorModeProvider>
-    <Box minH={"100vh"} bg={"bg.subtle" }>
+    <Box minH={"100vh"} >
 
         <Routes>
           <Route path='/' 

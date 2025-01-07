@@ -50,6 +50,9 @@ const config = defineConfig({
             },
             sign: {
               value: { _light: "{colors.gray.100}", _dark: "#000000" }, // Custom dark background
+            },
+            nav: {
+              value: { _light: "{colors.gray.100}", _dark: "#2a2a2a" },
             }
 
           },

@@ -3,6 +3,7 @@
 // import { Flex, IconButton, Text } from '@chakra-ui/react'
 // import accountIcon from '../assets/account-icon.svg';
 // import messageIcon from '../assets/message-icon.svg';
+import { LuMessagesSquare } from "react-icons/lu";
 import { useEffect, useState } from 'react';
 import { Box, Flex, HStack, Image, Text, Icon, Button } from '@chakra-ui/react';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger, MenuSeparator, MenuItemGroup} from "../components/ui/menu";
@@ -16,6 +17,8 @@ import { Avatar } from '../components/ui/avatar';
 import { jwtDecode } from 'jwt-decode';
 import { Switch } from '../components/ui/switch';
 import { ColorModeButton } from '../components/ui/color-mode';
+import system from '../theme';
+import { ChakraProvider } from "@chakra-ui/react";
 
 
 
@@ -66,6 +69,7 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
     }
 
     return (
+        <ChakraProvider value={system}>
         <Box 
             // px={4} 
             // py={3} 
@@ -105,14 +109,15 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
                 </HStack>
                 
                 {/* Right: Buttons, Notification Icon, Profile */}
-                <HStack alignItems={"center"}>
-                <Link to={"/chat"}>
-            <Button colorScheme="blue" md="12">
-              Chat with Buddies
-                        </Button>
-                    </Link>
+                <HStack alignItems={"center"} spaceX={2}>
+                
                     <MakePostButton setPosts={setPosts} courses={courses}/>
-                    
+                    <Link to={"/chat"}>
+            {/* <Button colorScheme="blue" md="12">
+              Chat with Buddies
+                        </Button> */}
+                        <LuMessagesSquare size={30} color="#093a80"/>
+                    </Link>
                     {/* Notification Icon */}
                     {/* <Box position={"relative"}>
                         <GoBell />
@@ -189,6 +194,7 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
 
             </Flex>
         </Box>
+        </ChakraProvider>
     );
 
 };
