@@ -9,8 +9,12 @@ import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import system from '../theme';
+import { useColorMode, useColorModeValue } from '../components/ui/color-mode';
+import { ChakraProvider } from '@chakra-ui/react';
 const LoginPage = () => {
+    
+    const { colorMode } = useColorMode();
 
     // const login = useGoogleLogin({
     //     onSuccess: tokenResponse => console.log(tokenResponse),
@@ -80,7 +84,7 @@ const LoginPage = () => {
     };
 
     return (
-        
+        <ChakraProvider value={system}>
         <Box>
             <Toaster />
             <Navbar />
@@ -89,7 +93,7 @@ const LoginPage = () => {
                 maxH="90%"
                 align="center"
                 justify="center"
-                bg="gray.100"
+                // bg="gray.100"
                 direction={{ base: "col", lg: "row" }}
             >
                 {/* Form Section */}
@@ -104,10 +108,10 @@ const LoginPage = () => {
                 >
                 <form onKeyDown={handleKeyPress}>
                     <VStack spacing={4} align="flex" px={{base: 4,lg: 10}} ml={{lg: "0"}}>
-                            <Heading size={"3xl"} mb={2} textAlign="left" color={"black"} fontWeight={"bold"}>
+                            <Heading size={"3xl"} mb={2} textAlign="left" color={"bg.DEFAULT"} fontWeight={"bold"}>
                                 Login to StudyLink
                             </Heading>
-                            <Text color={"gray.800"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
+                            <Text color={"bg.DEFAULT"} textAlign={"left"} fontSize={"xl"} fontWeight={"medium"}>
                                 Your Connection to Smarter Collaboration
                             </Text>
 
@@ -116,10 +120,11 @@ const LoginPage = () => {
                                 label={"Username"} 
                                 name={"username"}
                                 value={formData.username}
-                                color={"gray.800"} 
+                                color={"bg.DEFAULT"} 
                                 onChange={handleChange}
                                 required 
                                 width={{base: "100%", lg: "80%"}}
+                                bg={"bg.subtle"}
                                 
                             />
 
@@ -129,7 +134,7 @@ const LoginPage = () => {
                                 name={"password"}
                                 type={"password"}
                                 value={formData.password}
-                                color={"gray.800"} 
+                                color={"bg.DEFAULT"} 
                                 required 
                                 width={{base: "100%", lg: "80%"}}
                                 onChange={handleChange}
@@ -146,8 +151,8 @@ const LoginPage = () => {
                             <Box width={{base: "100%", lg: "80%"}} textAlign="center" mt="1em">
                                 <Button 
                                     variant="solid" 
-                                    bg={'blue.800'} 
-                                    _hover={{bg: "blue.700"}} 
+                                    bg={'bg.buttons'} 
+                                    _hover={{bg: "blue.600"}} 
                                     width="100%"
                                     onClick={handleLogin}
                                 >
@@ -181,7 +186,7 @@ const LoginPage = () => {
                     flex={{base: 0, md: 3 }} // Image section takes more space on large screens
                     alignItems="center"
                     justifyContent="center"
-                    bg="gray.100" // Optional for visual clarity
+                    // bg="gray.100" // Optional for visual clarity
                 >
                     <Image
                         src={logo}
@@ -197,6 +202,7 @@ const LoginPage = () => {
 
             </Flex>
         </Box>
+        </ChakraProvider>
     )
 }
 

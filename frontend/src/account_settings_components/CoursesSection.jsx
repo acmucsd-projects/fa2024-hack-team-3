@@ -4,11 +4,14 @@ import { AiOutlineClose } from "react-icons/ai";
 import axios from "axios";
 import coursesOptions from "../data/courses.json";
 import Select from "react-select";
+import { useColorMode } from "../components/ui/color-mode";
+
 
 const CoursesSection = () => {
 
   // const [courses, setCourses] = useState([]); // Stores the courses from the backend
   // const [newCourse, setNewCourse] = useState(""); // Stores the new course to be added 
+  const { colorMode } = useColorMode();
   const [selectedCourses, setSelectedCourses] = useState([]); // Stores the selected courses
   const [originalCourses, setOriginalCourses] = useState([]); // Stores the original courses
   const [error, setError] = useState(""); // Stores error messages
@@ -92,6 +95,65 @@ const CoursesSection = () => {
     }
   };
 
+  // Dynamic styles for the Select component
+  const selectStyles = {
+    container: (base) => ({ ...base, width: "100%" }),
+    menu: (base) => ({
+      ...base,
+      maxHeight: "200px",
+      overflowY: "auto",
+      backgroundColor: colorMode === "light" ? "#fff" : "#2D3748", // Dropdown background color
+      color: colorMode === "light" ? "#000" : "#fff", // Text color
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected
+        ? colorMode === "light"
+          ? "#3182ce" // Selected background in light mode
+          : "#63B3ED" // Selected background in dark mode
+        : state.isFocused
+        ? colorMode === "light"
+          ? "#ebf8ff" // Focused background in light mode
+          : "#4A5568" // Focused background in dark mode
+        : "transparent", // Default background
+      color: state.isSelected
+        ? "#fff" // Selected text color
+        : colorMode === "light"
+        ? "#000" // Default text in light mode
+        : "#fff", // Default text in dark mode
+      cursor: "pointer", // Cursor style
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: colorMode === "light" ? "#fff" : "bg.subtle", // Light or dark mode background
+      borderColor: state.isFocused
+        ? colorMode === "light"
+          ? "#3182ce" // Light mode focus
+          : "#63B3ED" // Dark mode focus
+        : colorMode === "light"
+        ? "#E2E8F0" // Light mode border
+        : "#4A5568", // Dark mode border
+      color: colorMode === "light" ? "#000" : "#fff", // Text color
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: colorMode === "light" ? "#000" : "#fff", // Text color
+    }),
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: colorMode === "light" ? "#EDF2F7" : "#4A5568", // Multi-value background
+      color: colorMode === "light" ? "#000" : "#fff", // Multi-value text
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      color: colorMode === "light" ? "#000" : "#fff", // Multi-value label text
+    }),
+    multiValueRemove: (provided) => ({
+      ...provided,
+      color: colorMode === "light" ? "#E53E3E" : "#FEB2B2", // Remove icon color
+    }),
+  };
+
   return (
     <VStack spacing={4} align="start" flex="1">
       <Text fontSize="lg" fontWeight="bold">
@@ -110,15 +172,16 @@ const CoursesSection = () => {
           isMulti
           closeMenuOnSelect={false}
           placeholder="Select courses..."
-          styles={{
-            container: (base) => ({ ...base, width: "100%" }),
-            menu: (base) => ({ ...base, maxHeight: "200px", overflowY: "auto" }),
-            control: (provided, state) => ({
-              ...provided,
-              backgroundColor: "bg.DEFAULT",
-              borderColor: state.isFocused ? "blue.600" : "gray.200",
-            })
-          }}
+          // styles={{
+          //   container: (base) => ({ ...base, width: "100%" }),
+          //   menu: (base) => ({ ...base, maxHeight: "200px", overflowY: "auto" }),
+          //   control: (provided, state) => ({
+          //     ...provided,
+          //     backgroundColor: "bg.DEFAULT",
+          //     borderColor: state.isFocused ? "blue.600" : "gray.200",
+          //   })
+          // }}
+          styles={selectStyles}
         />
         <Button
           mt={4}
