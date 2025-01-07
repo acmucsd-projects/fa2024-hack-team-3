@@ -77,7 +77,7 @@ const AccountSettings = () => {
           <Heading size="lg" mb={4}>SETTINGS</Heading>
             <Flex direction="column" alignItems="center">
             <AccountHeader />
-            <Text fontSize="lg" fontWeight="bold" marginTop="5">
+            <Text fontSize="lg" fontWeight="bold" marginTop="5" mb={4}>
                 Account Information
             </Text>
             <Flex direction="row">
