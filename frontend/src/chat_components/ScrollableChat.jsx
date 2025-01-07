@@ -1,26 +1,20 @@
 import React from 'react'
-import { Avatar, Box, Text } from '@chakra-ui/react'
+import { Avatar} from '../components/ui/avatar'
 import ScrollableFeed from 'react-scrollable-feed'
 import { isSameSender, isLastMessage, isSameUser, isSameSenderMargin } from '../../config/ChatLogic'
 import { Tooltip } from '../components/ui/tooltip'
 import { ChatState } from '../../Context/ChatProvider'
 
-const SScrollableChat = ({messages}) => {
+const ScrollableChat = ({messages}) => {
   const {user} = ChatState();
   return (
      <ScrollableFeed>
-      
-
+    
         {messages && 
-          messages.map((message, index) => 
-            // <div style={{display: "flex"}} key={index}>{message.content}</div>
+          messages.map((message, index) =>  // <div style={{display: "flex"}} key={index}>{message.content}</div>
             
 
             <div style={{display: "flex"}} key={message._id}>
-              {/* {console.log(message)}
-              {console.log(user._id)} */}
-                  {/* {console.log(isSameSender(messages, message, index, user._id) )}
-                  {console.log(isLastMessage(messages, index, user._id))}
                   {(isSameSender(messages, message, index, user._id) ||
                     isLastMessage(messages, index, user._id)) && (
                     <Tooltip label={message.sender.username} placement="bottom-start" hasArrow>
@@ -29,14 +23,25 @@ const SScrollableChat = ({messages}) => {
                         mr={1}
                         size="sm"
                         cursor="pointer"
-                        name={message.sender.username}
-                        src={message.sender.profilePicture}
+                        name={message.sender.name}
+                        src={message.sender.pic}
                       />
                     </Tooltip>
-                 
-                  
-                  )} */}
-                  <div>{message.content}</div>
+                  )}
+                 <span
+                style={{
+                  backgroundColor: `${
+                    message.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
+                  }`,
+                  marginLeft: isSameSenderMargin(messages, message, index, user._id),
+                  marginTop: isSameUser(messages, message, index, user._id) ? 3 : 10,
+                  borderRadius: "20px",
+                  padding: "5px 15px",
+                  maxWidth: "75%",
+                }}
+              >
+                {message.content}
+              </span>
             </div>
     
         )} 
@@ -46,4 +51,4 @@ const SScrollableChat = ({messages}) => {
   )
 }
 
-export default SScrollableChat
+export default ScrollableChat

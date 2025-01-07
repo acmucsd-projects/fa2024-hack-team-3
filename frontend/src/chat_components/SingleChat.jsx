@@ -137,7 +137,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                          <ScrollableChat messages={messages} />
                     </div>
                    )}
-
+                </Box>
                         <Field 
                             onKeyDown={sendMessage}
                             id="first-name"
@@ -152,8 +152,6 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                                 onChange={typingHandler}
                             />
                         </Field>
-                </Box>
-
 
                 </>
             ) : (
