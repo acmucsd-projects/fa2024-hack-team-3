@@ -7,8 +7,9 @@ import { ChatState } from '../../Context/ChatProvider'
 
 const ScrollableChat = ({messages}) => {
   const {user} = ChatState();
-  return (
-     <ScrollableFeed>
+  return ( 
+    <div style={{ height: "100%", overflowY: "scroll" }}>
+     <ScrollableFeed forceScroll={true}>
     
         {messages && 
           messages.map((message, index) =>  // <div style={{display: "flex"}} key={index}>{message.content}</div>
@@ -23,8 +24,8 @@ const ScrollableChat = ({messages}) => {
                         mr={1}
                         size="sm"
                         cursor="pointer"
-                        name={message.sender.name}
-                        src={message.sender.pic}
+                        name={message.sender.username}
+                        src={message.sender.profilePicture}
                       />
                     </Tooltip>
                   )}
@@ -48,6 +49,7 @@ const ScrollableChat = ({messages}) => {
 
         
      </ScrollableFeed>
+     </div>
   )
 }
 
