@@ -4,7 +4,7 @@
 // import accountIcon from '../assets/account-icon.svg';
 // import messageIcon from '../assets/message-icon.svg';
 import { useEffect, useState } from 'react';
-import { Box, Flex, HStack, Image, Text, Icon } from '@chakra-ui/react';
+import { Box, Flex, HStack, Image, Text, Icon, Button } from '@chakra-ui/react';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger, MenuSeparator, MenuItemGroup} from "../components/ui/menu";
 import logo from '../assets/logo.svg';
 import { Link } from 'react-router-dom';
@@ -103,10 +103,14 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
                         </Text>
                     </Box>
                 </HStack>
-
+                
                 {/* Right: Buttons, Notification Icon, Profile */}
                 <HStack alignItems={"center"}>
-
+                <Link to={"/chat"}>
+            <Button colorScheme="blue" md="12">
+              Chat with Buddies
+                        </Button>
+                    </Link>
                     <MakePostButton setPosts={setPosts} courses={courses}/>
                     
                     {/* Notification Icon */}

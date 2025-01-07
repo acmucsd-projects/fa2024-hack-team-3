@@ -18,6 +18,8 @@ const accessChat = asyncHandler(async(req, res)=> {
         return res.sendStatus(400);
     }
 
+    
+
     // Checking if the 
     var isChat = await Chat.find({
         isGroupChat: false,
@@ -44,11 +46,13 @@ const accessChat = asyncHandler(async(req, res)=> {
             users: [sender_id, receiver_id],
         };
 
+
         try{
             const createdChat = await Chat.create(chatData);
+            
             const FullChat = await Chat.findOne({_id: createdChat._id})
                 .popluate("users", "-password");
-
+                console.log("hello");
             res.status(200).send(FullChat);
         }catch(error){
             res.status(400);
@@ -79,19 +83,22 @@ const fetchChat = asyncHandler(async(req, res) =>{
 });
 
 const createGroupChat = asyncHandler(async(req, res) => {
+    
     if(! req.body.users || !req.body.name){
         return res.status(400).send({ message: "Please fill all fields"});
     }
-
+    
     var users = JSON.parse(req.body.users);
     // var users = JSON.parse(req.body.users).map((userId) => mongoose.Types.ObjectId(userId));
-
+    console.log({users});
     if(users.length < 2){
+        alert("We need at least 2 people in a groupchat");
         return res.status(400).send({message: "We need at least 2 people in a groupchat"});
     }
 
+    
     users.push(req.user.id);
-
+    
     try{
         var chatData = {
             chatName: req.body.name,
@@ -100,6 +107,7 @@ const createGroupChat = asyncHandler(async(req, res) => {
             groupAdmin: req.user.id
         };
 
+        
         const groupChat = await Chat.create(chatData);
         const FullgroupChat = await Chat.findOne({_id: groupChat._id})
             .populate("users", "-password")
@@ -115,7 +123,7 @@ const createGroupChat = asyncHandler(async(req, res) => {
 
 const renameGroupChat = asyncHandler(async(req, res) => {
     const {chatId, chatName} = req.body;
-
+    console.log(chatId, chatName);
     const updatedChat = await Chat.findByIdAndUpdate(
         chatId,
         { chatName },
@@ -169,4 +177,5 @@ const removeFromGroup = asyncHandler(async(req, res) => {
         res.status(200).json(removedChat);
     }
 });
+
 module.exports = {accessChat, fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup};

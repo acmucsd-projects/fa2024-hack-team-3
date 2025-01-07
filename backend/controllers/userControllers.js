@@ -5,11 +5,35 @@ const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 
 const getAllUsers = async (req, res) => {
-    try {
-        const users = await User.find({}).sort({ createdAt: -1 });
+    // try {
+    //     const users = await User.find({}).sort({ createdAt: -1 });
 
-        return res.status(200).json(users);
+    //     return res.status(200).json(users);
+    // } catch (err) {
+    //     return res.status(400).json({ error: err.message });
+    // }
+    try {
+        const keyword = req.query.search;
+        console.log("Search keyword received:", keyword);
+        
+        if (keyword) {
+            const users = await User.find({
+                $or: [
+                    { username: { $regex: keyword, $options: "i" } },
+                    { emailAddress: { $regex: keyword, $options: "i" } }
+                ],
+                _id: { $ne: req.user.id }
+            });
+            console.log(users);
+            return res.status(200).json(users);
+        } else {
+            const users = await User.find({})
+                .sort({ createdAt: -1 });
+              
+            return res.status(200).json(users);
+        }
     } catch (err) {
+        console.log("Error in getAllUsers:", err);
         return res.status(400).json({ error: err.message });
     }
 }

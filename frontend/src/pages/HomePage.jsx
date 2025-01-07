@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { Box, Button, Input, SimpleGrid, Stack, GridItem} from '@chakra-ui/react'
+import { Box, Button, Input, SimpleGrid, Stack, GridItem, Link} from '@chakra-ui/react'
 import axios from 'axios';
 import "../styles/HomePage.css"
 import Header from '../home_components/Header';
@@ -13,9 +13,19 @@ import { ColorModeProvider } from "../components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
 import system  from '../theme'
 import Sidebar from '../account_settings_components/Sidebar';
-
+import {useNavigate} from "react-router";
 
 const HomePage = () => {
+  // const navigate = useNavigate();
+  // localStorage.setItem("userInfo", JSON.stringify({ name: "Leon Chen" }));
+
+  // useEffect(() => {
+  //   const userInfo = localStorage.getItem("userInfo");
+
+  //   if(userInfo){setUser(JSON.parse(userInfo));
+  //           navigate("/chat");}
+  // }, [navigate]);
+
   // State to store the posts
   const [posts, setPosts] = useState([]);
   
@@ -45,6 +55,7 @@ const HomePage = () => {
       <Header 
         setPosts={setPosts}
         courses={courses}
+        
       />
 
       {/* Responsive two-column layout */}
@@ -59,6 +70,7 @@ const HomePage = () => {
           {/* Pass setPosts to MakePostButton*/}
           {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
         </Stack>
+        
         </GridItem>
         <GridItem colSpan={{ base: 1 }}></GridItem>
 

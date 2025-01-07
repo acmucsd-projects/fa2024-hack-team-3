@@ -8,8 +8,12 @@ import { Provider } from './components/ui/provider'
 import { Box } from '@chakra-ui/react'
 import { ColorModeProvider } from "./components/ui/color-mode" //dark mode
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+import {ChatProvider} from  "../Context/ChatProvider"
+
+
 import system  from './theme'
 function App() {
+
   const isLoggedIn = () => {
     // Check if user is logged in by checking for a token
     const token = localStorage.getItem("authToken");
@@ -23,11 +27,13 @@ function App() {
     return children;
   };
 
+
   return (
+    
     <ChakraProvider value={system}>
       <ColorModeProvider>
     <Box minH={"100vh"} bg={"bg.subtle" }>
-      <Provider>
+
         <Routes>
           <Route path='/' 
             element={
@@ -42,7 +48,7 @@ function App() {
           <Route path='/login' element={<LoginPage />}/>
           <Route path='/settings' element={<AccountSettings />}/>
         </Routes>
-      </Provider>
+
     </Box> 
     </ColorModeProvider>
     </ChakraProvider>

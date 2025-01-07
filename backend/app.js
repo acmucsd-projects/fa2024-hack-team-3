@@ -12,6 +12,7 @@ const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const chatRoutes = require('./routes/chatRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 
 const app = express();
 
@@ -31,6 +32,7 @@ mongoose.connect(process.env.MONGO_URI)
         app.use('/api/posts', postRoutes);
         app.use('/api/posts', commentRoutes);
         app.use('/api/chatpage', chatRoutes);
+        app.use('/api/message', messageRoutes);
     })
     .catch(err => {
         console.log('Failed to connect to MongoDB :(', err.message);

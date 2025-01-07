@@ -5,7 +5,7 @@ const User = require('../models/userModel'); // Adjust the path as needed
 
 const authenticate = (req, res, next) => {
     const authHeader = req.header('Authorization');
-        // console.log('Authorization Header:', authHeader); // Debugging
+    //console.log('Authorization Header:', authHeader); // Debugging
 
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
