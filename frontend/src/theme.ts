@@ -16,16 +16,16 @@ const config = defineConfig({
         colors: {
           bg: {
             DEFAULT: {
-              value: { _light: "{colors.white}", _dark: "#141414" }, // Custom dark background
+              value: { _light: "{colors.white}", _dark: "#000000" }, // Custom dark background
             },
             subtle: {
-              value: { _light: "{#FFFFFF}", _dark: "#1a1a1a" }, // Custom dark subtle background
+              value: { _light: "{colors.gray.100}", _dark: "#2a2a2a" }, // Custom dark subtle background _light:#FFFFFF
             },
             textbg: {
-                value: { _light: "{#FFFFFF}", _dark: "#F5F0E6" }, // Custom dark subtle background
+                value: { _light: "{#FFFFFF}", _dark: "#1a1a1a" }, // Custom dark subtle background
               },
             muted: {
-              value: { _light: "{colors.gray.100}", _dark: "#262626" }, // Custom dark muted background
+              value: { _light: "{#FFFFFF}", _dark: "#262626" }, // Custom dark muted background
             },
             red: {
               value: {_light: "{colors.red.0}", _dark: "#00000"},
@@ -34,9 +34,28 @@ const config = defineConfig({
               value: { _light: "{#182B49}", _dark: "#F5F0E6" },
             },
             buttons: {
-              value: { _light: "#182B49", _dark: "{blue.600}" },
+              value: { _light: "#093a80", _dark: "{#093a80}" },
+            },
+            tags: {
+              value: { _light: "#d9e2e8", _dark: "{colors.blue.700}" },
+            },
+            tags2: {
+              value: { _light: "#f0f0f0", _dark: "#1a1a1a" },
+            },
+            text: {
+              value: { _light: "{colors.black}", _dark: "{colors.gray.100}" },
+            },
+            menu: {
+              value: { _light: "{colors.gray.100}", _dark: "#2a2a2a" },
+            },
+            sign: {
+              value: { _light: "{colors.gray.100}", _dark: "#000000" }, // Custom dark background
             }
+
           },
+          fg: {
+            
+          }
         },
     }
   },

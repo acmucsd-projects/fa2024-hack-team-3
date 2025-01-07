@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Box, Button, Input, SimpleGrid, Stack, GridItem, Link} from '@chakra-ui/react'
 import axios from 'axios';
-import "../styles/HomePage.css"
+// import "../styles/HomePage.css"
 import Header from '../home_components/Header';
 import PostsSection from '../home_components/PostsSection';
 import CoursesSection from '../home_components/CoursesSection';
@@ -28,6 +28,8 @@ const HomePage = () => {
 
   // State to store the posts
   const [posts, setPosts] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [selectedCourses, setSelectedCourses] = useState([]);
   
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
@@ -41,11 +43,38 @@ const HomePage = () => {
     });
   }, []); //empty dependency array to run only once on mount
 
-  const courses = ["CSE 11", "COGS 9", "HIUS 112"];
-  const buddies = [
-    { profilePicture: "/assets/aacount-icon.svg" },
-    { profilePicture: "/assets/aacount-icon.svg" },
-  ];
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+        const response = await axios.get("http://localhost:5000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        
+        // Preload the selected courses using the logged-in user's data
+        const preloadedCourses = response.data.courses.map((course) => course.name);
+        setCourses(preloadedCourses); // Update courses with the response
+      } catch (err) {
+        console.error("Failed to fetch courses:", err);
+        setError("Failed to fetch courses.");
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // const courses = ["CSE 11", "COGS 9", "HIUS 112"];
+  // const buddies = [
+  //   { profilePicture: "/assets/aacount-icon.svg" },
+  //   { profilePicture: "/assets/aacount-icon.svg" },
+  // ];
+
+  const filteredPosts =
+    selectedCourses.length === 0
+      ? posts
+      : posts.filter((post) => selectedCourses.includes(post.course));
 
   return (
     <ChakraProvider value={system}>
@@ -77,7 +106,10 @@ const HomePage = () => {
         {/* Main Content: Posts Section */}
         <GridItem colSpan={{ md: 7 }}>
           <Box>
-            <PostsSection posts={posts} />
+            <PostsSection 
+              posts={filteredPosts} 
+              setPosts={setPosts} 
+            />
           </Box>
         </GridItem>
       </SimpleGrid>

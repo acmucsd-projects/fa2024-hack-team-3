@@ -136,7 +136,13 @@ const AccountHeader = () => {
         accept="image/*"
         onChange={handleFileChange}
       />
-      <Text textStyle={"xs"}>edit</Text>
+      <Text 
+        textStyle={"xs"} 
+        onClick={handleAvatarClick}
+        _hover={{ cursor: "pointer" }}
+      >
+        edit
+      </Text>
       </VStack>
         <VStack align="justify" ml={6}> {/* Adds spacing between Avatar and the inputs */}
             <Text fontSize="lg" fontWeight="bold" mb={-1}>
@@ -153,6 +159,8 @@ const AccountHeader = () => {
               w={"1px"}
               _hover={{bg: "blue.600"}}
               onClick={handleSave}
+              background={"bg.buttons"}
+              color={"white"}
             >
                 <FaRegSave/>
             </Button>

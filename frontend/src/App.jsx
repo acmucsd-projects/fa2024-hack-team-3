@@ -4,6 +4,7 @@ import ChatPage from './pages/ChatPage'
 import AccountSettings from './pages/AccountSettings'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import ProfilePage from './pages/ProfilePage'
 import { Provider } from './components/ui/provider'
 import { Box } from '@chakra-ui/react'
 import { ColorModeProvider } from "./components/ui/color-mode" //dark mode
@@ -47,6 +48,7 @@ function App() {
           <Route path='/register' element={<RegisterPage />}/>
           <Route path='/login' element={<LoginPage />}/>
           <Route path='/settings' element={<AccountSettings />}/>
+          <Route path='/profile' element={<ProfilePage />}/>
         </Routes>
 
     </Box> 

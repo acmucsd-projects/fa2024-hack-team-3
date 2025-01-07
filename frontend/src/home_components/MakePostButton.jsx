@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select} from '@chakra-ui/react';
+import { Box, Button, Input, Textarea, createListCollection, Field, defineStyle, HStack, Select, Text, Badge} from '@chakra-ui/react';
 import { Tag } from "../components/ui/tag"
 import { IoIosAddCircleOutline } from "react-icons/io";
 import {
@@ -30,7 +30,7 @@ const MakePostButton = ({ setPosts, courses }) => {
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [tagInput, setTagInput] = useState("");
-  const [selectedOption, setSelectedOption] = useState(""); // Track selected course
+  const [selectedCourse, setSelectedCourse] = useState('');
   const [isOpen, setIsOpen] = useState(false); // state to control dialog visibility
 
   const userId = localStorage.getItem("authUserId");
@@ -45,8 +45,24 @@ const MakePostButton = ({ setPosts, courses }) => {
   ].map(String);
 
   const options = createListCollection({
-    items: courses.map(course => ({ label: course, value: course })), // Line 18
+    items: [{ label: "None", value: "None" }, ...courses.map((course) => ({ label: course, value: course }))], // Add "None" as the first option
   });
+
+  // Reset form inputs
+  const resetForm = () => {
+    setTitle('');
+    setDescription('');
+    setTags([]);
+    setTagInput('');
+    setSelectedCourse('');
+  };
+
+  // Handle dialog close
+  const handleClose = () => {
+    resetForm();
+    setIsOpen(false);
+  }
+  
   // Handle adding custom tags
   const handleTagInputKeyDown = (e) => {
     if (e.key === 'Enter' && tagInput.trim() !== '') {
@@ -69,31 +85,34 @@ const MakePostButton = ({ setPosts, courses }) => {
   };
   
   const handleCreatePost = async () => {
-    // console.log(tags);
+    const courseToSend = selectedCourse.value[0] === "None" ? null : selectedCourse.value[0];
+
+    console.log({
+      title,
+      description,
+      tags,
+      userId,
+      course: courseToSend || null, // Confirm this is correct
+    });
+  
     try {
       const response = await axios.post('http://localhost:5000/api/posts', {
         title,
         description,
         tags,
         userId,
-        course: selectedOption,
+        course: courseToSend || null,
       });
-
-      // Update the posts in HomePage
+  
       setPosts((prevPosts) => [response.data, ...prevPosts]);
-
-      // Clear the form and hide the creation area
-      setTitle('');
-      setDescription('');
-      setTags([]);
-      setTagInput('');
-      // setShowCreatePost(false);
-      setSelectedOption('');
+  
+      resetForm();
       setIsOpen(false);
     } catch (error) {
       console.error("Error creating post:", error);
     }
   };
+  
 
   //console.log("Predefined Tags:", predefinedTags);
   return (
@@ -108,6 +127,8 @@ const MakePostButton = ({ setPosts, courses }) => {
                 color: 'white', // Ensure text remains white
               }}
               onClick={() => setIsOpen(true)}
+              background={"bg.buttons"}
+              color={"white"}
             >
               <IoIosAddCircleOutline size={20} /> New Post
             </Button>
@@ -140,7 +161,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       mb={4}
-                      bg="bg.textbg" // bg.textbg comes from theme.ts
+                      bg="bg.DEFAULT" // bg.textbg comes from theme.ts
                       width={"40%"}
                     />
                     <Field.Label css={floatingStyles}>Topic Title</Field.Label>
@@ -155,104 +176,75 @@ const MakePostButton = ({ setPosts, courses }) => {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       mb={4}
-                      bg="bg.textbg"
+                      bg="bg.DEFAULT"
                     />
                     <Field.Label css={floatingStyles}>Description</Field.Label>
                   </Box>
                 </Field.Root>
 
                 {/* Tag Input */}
+                <HStack>
                 <Input
-                  placeholder="Add a custom tag and press Enter"
+                  placeholder="Add custom tags (Enter)"
                   value={tagInput}
                   onChange={(e) => setTagInput(e.target.value)}
                   onKeyDown={handleTagInputKeyDown}
-                  mb={4}
-                  bg="bg.textbg"
+                  // mb={4}
+                  bg="bg.DEFAULT"
+                  w={"30%"}
                 />
+                <Text  color="gray.400">(Optional)</Text>
+                </HStack>
+                
 
                 {/* Display Selected Tags */}
                 <HStack spacing={2} wrap="wrap" mb={4}>
                   {tags.map((tag) => (
-                    <Box
-                      key={tag}
-                      bg="blue.100"
-                      color="blue.800"
-                      borderRadius="full"
-                      px={3}
-                      py={1}
-                      fontSize="sm"
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="space-between"
-                      maxWidth="200px"
-                      overflow="hidden"
-                      whiteSpace="nowrap"
-                      textOverflow="ellipsis"
-                    >
-                      {/* Tag Text */}
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="center"
-                        overflow="hidden"
-                        textOverflow="ellipsis"
-                      >
-                        {tag}
-                      </Box>
-
-                      {/* Close Button */}
-                      <Box
-                        as="button"
-                        onClick={() => removeTag(tag)} // Call the removeTag function
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        bg="transparent"
-                        border="none"
-                        cursor="pointer"
-                        color="blue.800"
-                        _hover={{ color: "red.500" }}
-                        _focus={{ outline: "none" }}
-                        fontSize="12px" /* Adjust size */
-                        lineHeight="1"
-                        height="16px"
-                        width="16px"
-                        paddingRight={0}
-                        paddingLeft={2}
-                        
-                        borderRadius="full"
-                      >
-                        &times; 
-                      </Box>
-                    </Box>
+                    <Badge
+                    mt={4}
+                    key={tag}
+                    colorScheme="blue"
+                    onClick={() => removeTag(tag)}
+                    _hover={{ bg: "red.200", cursor: "pointer" }}
+                >
+                    {tag} &times;
+                </Badge>
                   ))}
                 </HStack>
 
+
                 {/* Classes Select */}
-                {/* <Box overflow={"visible"}>
+                <Box overflow={"visible"}>
                 <SelectRoot
-                  collection={options}
-                  value={selectedOption}
-                  onValueChange={(value) => setSelectedOption(value)}
-                  size="sm"
-                  width="30%"
-                  mb={4}
-    
+                    collection={options}
+                    value={selectedCourse}
+                    onValueChange={(value) => {
+                      console.log("Selected course:", value); // Debugging
+                      setSelectedCourse(value); // Set the course directly
+                    }}
+                    size="sm"
+                    width="30%"
+                    // mb={4}
                 >
                   <SelectTrigger
-                    _hover={{
-                      bg: "blue.600", // Change background color on hover
-                      color: "white", // Change text color on hover
-                    }}
+                    color="black" // Default text color
                     width="100%"
                     borderRadius="md" // Optional: Add rounded corners
                   >
-                    <SelectValueText placeholder="Related course"/>
+                    <SelectValueText 
+                      placeholder="Related course"
+                      color="bg.text"
+                    />
                   </SelectTrigger>
                   <SelectContent zIndex="popover">
                     {options.items.map((item) => (
-                      <SelectItem item={item} key={item.value}>
+                      <SelectItem 
+                        item={item} 
+                        key={item.value}
+                        _hover={{
+                          bg: "bg.subtle"
+                        }}
+                      >
                         {item.label}
                       </SelectItem>
                     ))}
@@ -260,7 +252,7 @@ const MakePostButton = ({ setPosts, courses }) => {
                   
 
                 </SelectRoot>
-                </Box> */}
+                </Box>
 
 
         </DialogBody>
@@ -269,12 +261,9 @@ const MakePostButton = ({ setPosts, courses }) => {
               <DialogActionTrigger asChild>
                 <Button 
                   variant="outline" 
-                  bg={"gray.400"}
+                  colorPalette={"gray"}
                   width={"20vh"}
-                  _hover={{
-                    bg: 'gray.500', // Darker shade for better contrast
-                  }}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                 >
                   Cancel
                 </Button>
@@ -287,8 +276,10 @@ const MakePostButton = ({ setPosts, courses }) => {
                   bg: 'blue.600', // Darker shade for better contrast
                   color: 'white', // Ensure text remains white
                 }}
+                bg={"bg.buttons"}
                 onClick={handleCreatePost}
                 width={"20vh"}
+                color={"white"}
               >
                 Save
               </Button>

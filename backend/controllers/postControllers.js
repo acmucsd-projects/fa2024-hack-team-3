@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 const Post = require('../models/postModel');
 const User = require('../models/userModel');
+const Comment = require('../models/commentModel');
 
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await Post.find({}).sort({ createdAt: -1 });
+        const posts = await Post.find({})
+            .sort({ createdAt: -1 })
+            .populate('userId', '_id username profilePicture');
 
         return res.status(200).json(posts);
     } catch (err) {
@@ -25,7 +28,7 @@ const getPost = async (req, res) => {
 }
 
 const createPost = async (req, res) => {
-    const { title, description, tags, userId } = req.body;
+    const { title, description, tags, userId, course} = req.body;
 
     if (!description) {
         console.log("NO DESCRIPTION");
@@ -60,10 +63,17 @@ const createPost = async (req, res) => {
             title,
             description,
             tags: tags.length ? tags : [],
-            userId: new mongoose.Types.ObjectId(userId),
+            userId: user._id,
+            profilePicture: user.profilePicture,
         });
 
-        res.status(201).json(post);
+        if (course && course.trim() !== '') {
+            post.course = course;
+        }
+
+        const populatedPost = await post.populate('userId', '_id username profilePicture');
+
+        res.status(201).json(populatedPost);
     } catch (err) {
         console.error(err);
         res.status(400).json({ message: "Error creating post" });
@@ -78,6 +88,9 @@ const deletePost = async (req, res) => {
         if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
+
+        // Delete all comments associated with the post
+        await Comment.deleteMany({ postId: id });
         
         // Check if the authenticated user owns the post
         if (post.userId.toString() !== req.user.id) {
@@ -92,15 +105,31 @@ const deletePost = async (req, res) => {
 
 const updatePost = async (req, res) => {
     const { id } = req.params;
+    const { course, ...otherUpdates } = req.body;
 
     try {
-        const post = await Post.findOneAndUpdate({ _id: id }, { ...req.body });
-        
+        // Include course if it's provided in the request
+        const updatedData = { 
+            ...otherUpdates, 
+            isEdited: true, 
+            ...(course !== undefined && { course }) // Add course if defined
+        };
+
+        const post = await Post.findOneAndUpdate(
+            { _id: id },
+            updatedData,
+            { new: true }
+        );
+
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+
         return res.status(200).json(post);
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
-}
+};
 
 module.exports = {
     getAllPosts,
