@@ -160,9 +160,11 @@ const Sidebar = ({ courses, selectedCourses, setSelectedCourses, setPosts }) => 
               </Link>
             </Box>
             <Box as="div" style={getHighlightStyle("/your-chats")}>
-              <Link to="/your-chats">
+              <Box
+                // to="/"
+                _hover={{cursor: "disabled"}}>
                 <HStack><RiQuestionAnswerLine size={20} color={iconColor}/>My Chats</HStack>
-              </Link>
+              </Box>
             </Box>
             <Box as="div" style={getHighlightStyle("/settings")}>
               <Link to="/settings">

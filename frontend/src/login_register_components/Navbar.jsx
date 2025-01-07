@@ -9,8 +9,6 @@ import { useColorMode, useColorModeValue } from "../components/ui/color-mode";
 import  {ChakraProvider} from "@chakra-ui/react";
 
 const Navbar = () => {
-    const { colorMode } = useColorMode();
-    const buttonBg = useColorModeValue("bg.buttons", "bg.buttons");
     return (
         <ChakraProvider value={system}>
         <Box 
@@ -18,7 +16,7 @@ const Navbar = () => {
             py={3} 
             // bg={"white"} 
             zIndex={2}
-            borderBottomWidth={"1.5px"}
+            // borderBottomWidth={"1.5px"}
         >
                 
             <Flex

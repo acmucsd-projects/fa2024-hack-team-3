@@ -15,6 +15,10 @@ import system from '../theme';
 const RegisterPage = () => {
 
     const { colorMode } = useColorMode();
+
+    // style for background based on colorMode
+    const bg = colorMode === "light" ? "gray.100" : "";
+
     // State for form fields
     const [formData, setFormData] = useState({
         username: "",
@@ -257,7 +261,7 @@ const RegisterPage = () => {
                 maxH="90%"
                 align="center"
                 justify="center"
-                // bg="gray.100"
+                bg={bg}
                 direction={{ base: "col", lg: "row" }}
             >
                 {/* Form Section */}

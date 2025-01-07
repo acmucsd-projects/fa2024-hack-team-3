@@ -93,7 +93,7 @@ const LoginPage = () => {
                 maxH="90%"
                 align="center"
                 justify="center"
-                // bg="gray.100"
+                bg="bg.sign"
                 direction={{ base: "col", lg: "row" }}
             >
                 {/* Form Section */}
