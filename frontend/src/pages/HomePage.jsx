@@ -80,7 +80,7 @@ const HomePage = () => {
     <ChakraProvider value={system}>
       <ColorModeProvider>
       
-    <Box p={4} minW="100vh" mx="auto">
+    <Box p={4} maxW="100vw" mx="auto">
       <Header 
         setPosts={setPosts}
         courses={courses}
@@ -92,7 +92,6 @@ const HomePage = () => {
       
       {/* Sidebar: Courses, Online Buddies, Make Post Button */}
         <GridItem colSpan={{ base: 1 , md: 2}}>
-        <Stack spacing={4}>
             <Sidebar 
             courses={courses} 
             selectedCourses={selectedCourses} 
@@ -103,7 +102,6 @@ const HomePage = () => {
           <OnlineBuddies buddies={buddies} /> */}
           {/* Pass setPosts to MakePostButton*/}
           {/* <MakePostButton setPosts={setPosts} courses={courses}/> */}
-        </Stack>
         
         </GridItem>
         <GridItem colSpan={{ base: 1 }}></GridItem>

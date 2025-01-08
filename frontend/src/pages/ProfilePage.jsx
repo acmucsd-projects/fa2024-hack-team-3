@@ -65,7 +65,7 @@ const ProfilePage = () => {
     return (
         <ChakraProvider value={system}>
             <ColorModeProvider>
-                <Box p={4} minW="100vh" mx="auto">
+                <Box p={4} maxW="100vw" mx="auto">
                     {/* Header */}
                     <Header courses={courses} setPosts={() => {}} />
 

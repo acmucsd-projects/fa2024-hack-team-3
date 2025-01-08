@@ -50,7 +50,7 @@ const PostsSection = ({ posts, setPosts }) => {
   };
 
   return (
-    <Box className="posts-section" p={4} bg="bg.subtle" rounded={"md"} >
+    <Box className="posts-section" p={4} bg="bg.subtle" rounded={"md"} maxW={"93vw"}>
       <Heading size="lg" mb={4}>POSTS</Heading>
       <Text mb={4}>
         {posts.length} {posts.length === 1 ? 'post' : 'posts'} found.

@@ -221,6 +221,12 @@ const Post = ({ post, onDelete, onEdit }) => {
         }
     };
 
+    // Function to show fewer comments
+    const handleShowFewerComments = () => {
+        setShowAll(false); // Set showAll to false
+        setVisibleComments(comments.slice(0, 3)); // Show only the first 3 comments
+    };
+
     // Show all comments with pseudo-loading
     const handleShowAllComments = () => {
         setPseudoLoading(true); // Show pseudo-loading
@@ -414,6 +420,9 @@ const Post = ({ post, onDelete, onEdit }) => {
             boxShadow={"sm"} 
             bg={"bg.muted"} 
             _hover={{ boxShadow: "md" }}
+            maxW={"87vw"}
+            pr={4}
+            mb={4}
         >
             
 
@@ -798,31 +807,40 @@ const Post = ({ post, onDelete, onEdit }) => {
                 </Stack>
             )}
 
-            {/* Show All Comments */}
-            {!showAll && comments.length > 3 && (
-                <Box
-                    textAlign="center" // Center the text horizontally within the box
-                    mt={3}
+            {/* Show All / Show Fewer Comments */}
+    {comments.length > 3 && (
+        <Box
+            textAlign="center"
+            mt={3}
+        >
+            {pseudoLoading ? (
+                <Text
+                    size="sm"
+                    color="gray.500"
                 >
-                    {pseudoLoading ? (
-                        <Text
-                            size="sm"
-                            color="gray.500"
-                        >
-                            Loading...
-                        </Text>
-                    ) : (
-                        <Text
-                            size="sm"
-                            color="blue.600"
-                            _hover={{ cursor: "pointer", textDecoration: "underline" }}
-                            onClick={handleShowAllComments}
-                        >
-                            Show All Comments
-                        </Text>
-                    )}
-                </Box>
+                    Loading...
+                </Text>
+            ) : showAll ? (
+                <Text
+                    size="sm"
+                    color="blue.600"
+                    _hover={{ cursor: "pointer", textDecoration: "underline" }}
+                    onClick={handleShowFewerComments}
+                >
+                    Show Fewer Comments
+                </Text>
+            ) : (
+                <Text
+                    size="sm"
+                    color="blue.600"
+                    _hover={{ cursor: "pointer", textDecoration: "underline" }}
+                    onClick={handleShowAllComments}
+                >
+                    Show All Comments
+                </Text>
             )}
+        </Box>
+    )}
 
             {/* Add Comment */}
             <HStack mt={4}>

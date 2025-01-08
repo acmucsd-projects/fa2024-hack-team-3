@@ -120,8 +120,8 @@ const MakePostButton = ({ setPosts, courses }) => {
           <DialogTrigger asChild>
             <Button 
               variant="outline"
-              width={"12vw"}
-              minW={"100px"}
+              width={"7vw"}
+              minW={"120px"}
               _hover={{
                 bg: 'blue.600', // Darker shade for better contrast
                 color: 'white', // Ensure text remains white
