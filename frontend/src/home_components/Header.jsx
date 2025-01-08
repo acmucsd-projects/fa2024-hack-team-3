@@ -19,7 +19,8 @@ import { Switch } from '../components/ui/switch';
 import { ColorModeButton } from '../components/ui/color-mode';
 import system from '../theme';
 import { ChakraProvider } from "@chakra-ui/react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
@@ -116,7 +117,17 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
             {/* <Button colorScheme="blue" md="12">
               Chat with Buddies
                         </Button> */}
-                        <LuMessagesSquare size={30} color="#093a80"/>
+                        <FontAwesomeIcon 
+                            icon={faComments} 
+                            style={{
+                                color: "093a80",
+                                transition: 'color 500ms',
+                            }} 
+                            
+                            size="xl"
+                            onMouseOver={(e) => (e.target.style.color = '#2563eb')} 
+                            onMouseOut={(e) => (e.target.style.color = '#093a80')}
+                            />
                     </Link>
                     {/* Notification Icon */}
                     {/* <Box position={"relative"}>
