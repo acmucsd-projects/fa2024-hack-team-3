@@ -129,7 +129,7 @@ const Post = ({ post, onDelete, onEdit }) => {
 
         if (isDescriptionExpanded || post.description.length <= MAX_DESCRIPTION_LENGTH) {
         return (
-            <Text mb={4} color="#00629B">
+            <Text mb={4} color="bg.description">
             {post.description}
             {post.description.length > MAX_DESCRIPTION_LENGTH && (
                 <Text

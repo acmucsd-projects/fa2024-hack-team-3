@@ -53,6 +53,9 @@ const config = defineConfig({
             },
             nav: {
               value: { _light: "{colors.gray.100}", _dark: "#2a2a2a" },
+            },
+            description: {
+              value: { _light: "#00629B", _dark: "#CBD5E0" },
             }
 
           },
