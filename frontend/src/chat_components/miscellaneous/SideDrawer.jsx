@@ -108,11 +108,11 @@ const SideDrawer = () => {
         d="flex"
         justifyContent="space-between"
         alignItems="center"
-        bg="white"
+        // bg="white"
         w="100%"
         p="5px 10px"
         borderWidth="2px"
-        borderColor="gray.200"
+        // borderColor="gray.200"
         borderRadius="md"
         >   
             <Flex justifyContent="space-between" alignItems="center" w="100%">
@@ -182,7 +182,7 @@ const SideDrawer = () => {
 
 
 
-                <Text fontSize="2xl" fontFamily="Work sans"> StudyBuddy Chat</Text>
+                <Text fontSize="2xl"> StudyBuddy Chat</Text>
 
 
 

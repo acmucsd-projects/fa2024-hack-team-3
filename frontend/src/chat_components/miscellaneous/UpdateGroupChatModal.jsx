@@ -162,13 +162,13 @@ const UpdateGroupChatModal = ({fetchAgain, setFetchAgain}) => {
             <DialogCloseTrigger />
             <DialogHeader
             fontSize="35px"
-            fontFamily="Work sans"
+            // fontFamily="Work sans"
             justifyItems="center"
             display="flex"
             >
                 <DialogTitle
                 fontSize="35px"
-                fontFamily="Work sans"
+                // fontFamily="Work sans"
                 >
                     {selectedChat.chatName}
                 </DialogTitle>

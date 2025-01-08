@@ -10,6 +10,9 @@ import courses from '../data/courses.json'
 import logo from '../assets/logo.svg';
 import { useColorMode } from '../components/ui/color-mode';
 import system from '../theme';
+import studybuddylogo_dark from '../assets/studybuddylogo_dark.svg';
+import studybuddylogo_light from '../assets/studybuddylogo_light.svg';
+
 // import { ChakraProvider } from '@chakra-ui/react';
 
 const RegisterPage = () => {
@@ -388,7 +391,7 @@ const RegisterPage = () => {
                     // bg="gray.100" // Optional for visual clarity
                 >
                     <Image
-                        src={logo}
+                        src={colorMode === "dark" ? studybuddylogo_light : studybuddylogo_dark}
                         alt="Study Illustration"
                         // maxW="90%"
                         objectFit={"contain"}

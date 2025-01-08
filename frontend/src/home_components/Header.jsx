@@ -1,13 +1,10 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { Flex, IconButton, Text } from '@chakra-ui/react'
-// import accountIcon from '../assets/account-icon.svg';
-// import messageIcon from '../assets/message-icon.svg';
-import { LuMessagesSquare } from "react-icons/lu";
+
 import { useEffect, useState } from 'react';
 import { Box, Flex, HStack, Image, Text, Icon, Button } from '@chakra-ui/react';
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger, MenuSeparator, MenuItemGroup} from "../components/ui/menu";
 import logo from '../assets/logo.svg';
+import studybuddylogo_dark from '../assets/studybuddylogo_dark.svg';
+import studybuddylogo_light from '../assets/studybuddylogo_light.svg';
 import { Link } from 'react-router-dom';
 import { FaChevronDown, FaMoon, FaSun } from "react-icons/fa";
 import { Link as RouterLink } from 'react-router-dom';
@@ -16,34 +13,16 @@ import MakePostButton from './MakePostButton';
 import { Avatar } from '../components/ui/avatar';
 import { jwtDecode } from 'jwt-decode';
 import { Switch } from '../components/ui/switch';
-import { ColorModeButton } from '../components/ui/color-mode';
+import { useColorMode, ColorModeButton } from '../components/ui/color-mode';
+
 import system from '../theme';
 import { ChakraProvider } from "@chakra-ui/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 
-const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
-    // Define custom styles for active and inactive links
-    // const navLinkStyle = ({ isActive }) => ({
-    //     fontWeight: isActive ? "bold" : "normal",
-    //     textDecoration: isActive ? "none" : "underline",
-    // });
-
-    // return (
-    //     <header className="header">
-    //         <h1>StudyLink - Home</h1>
-    //         <div className='header-icons'>
-    //             {/* Account icon, no need for NavLink if it's not linking to another page*/}
-    //             <img src={ accountIcon } alt='Account Icon' className='icon'/>
-
-    //             {/* Use NavLink for the message icon to link to chat page */}
-    //             <Link to='/chat'>
-    //                 <img src={ messageIcon } alt='Message Icon' className='icon'/>
-    //             </Link>
-    //         </div>
-    //     </header>
-    // );
+const Header = ({ setPosts, courses }) => {
+    const { colorMode } = useColorMode();
     const navigate = useNavigate();
 
     const [userInfo, setUserInfo] = useState({
@@ -94,11 +73,14 @@ const Header = ({ setPosts, courses, toggleColorMode, colorMode }) => {
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Left: Logo Container */}
                     <Box position="relative" display="inline-block">
-                        <Image src={logo} alt={"StudyLink Logo"} h={20} />
+                        <Image 
+                            src={colorMode === "dark" ? studybuddylogo_light : studybuddylogo_dark}
+                            alt={"StudyLink Logo"} 
+                            h={14} />
                         <Text
                             position="absolute"
                             top="50%"
-                            left="140%"
+                            left="130%"
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
                             // color="black" // Ensure the text is visible

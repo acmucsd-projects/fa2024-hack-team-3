@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom';
 import system from '../theme';
 import { useColorMode, useColorModeValue } from '../components/ui/color-mode';
 import { ChakraProvider } from '@chakra-ui/react';
+import studybuddylogo_dark from '../assets/studybuddylogo_dark.svg';
+import studybuddylogo_light from '../assets/studybuddylogo_light.svg';
+
 const LoginPage = () => {
     
     const { colorMode } = useColorMode();
@@ -189,7 +192,7 @@ const LoginPage = () => {
                     // bg="gray.100" // Optional for visual clarity
                 >
                     <Image
-                        src={logo}
+                        src={colorMode === "dark" ? studybuddylogo_light : studybuddylogo_dark}
                         alt="Study Illustration"
                         // maxW="90%"
                         objectFit={"contain"}

@@ -19,5 +19,13 @@
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
     "start": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node backend/bin/www",
+    "client": "npm run dev --prefix frontend"
   }
 }

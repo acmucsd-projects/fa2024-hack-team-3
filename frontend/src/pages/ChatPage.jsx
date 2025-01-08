@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import "../styles/ChatPage.css";
-import "../styles/HomePage.css";
+// import "../styles/ChatPage.css";
+// import "../styles/HomePage.css";
 
 import ChatProvider from '../../Context/ChatProvider';
 import {useNavigate} from "react-router";
@@ -11,6 +11,8 @@ import SideDrawer from "../chat_components/miscellaneous/SideDrawer";
 import MyChats from "../chat_components/MyChats";
 import ChatBox from "../chat_components/ChatBox";
 import { Box } from "@chakra-ui/react";
+import { ChakraProvider } from '@chakra-ui/react';
+import system from '../theme';
 
 
 const ChatPage = () => {
@@ -29,7 +31,7 @@ const ChatPage = () => {
 
   return (
     
-    <>
+    <ChakraProvider value={system}>
     <header />
         {/* <Sidebar /> */}
   
@@ -54,7 +56,7 @@ const ChatPage = () => {
                 {user && <ChatBox w="70%" h="100%" fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}/>}
             </Box>
         </div>
-    </>
+    </ChakraProvider>
     
   )
 }

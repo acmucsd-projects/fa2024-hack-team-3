@@ -4,6 +4,7 @@ import ScrollableFeed from 'react-scrollable-feed'
 import { isSameSender, isLastMessage, isSameUser, isSameSenderMargin } from '../../config/ChatLogic'
 import { Tooltip } from '../components/ui/tooltip'
 import { ChatState } from '../../Context/ChatProvider'
+import system from '../theme'
 
 const ScrollableChat = ({messages}) => {
   const {user} = ChatState();
@@ -34,6 +35,7 @@ const ScrollableChat = ({messages}) => {
                   backgroundColor: `${
                     message.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
                   }`,
+                  color: "black",
                   marginLeft: isSameSenderMargin(messages, message, index, user._id),
                   marginTop: isSameUser(messages, message, index, user._id) ? 3 : 10,
                   borderRadius: "20px",

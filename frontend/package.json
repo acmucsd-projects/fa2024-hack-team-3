@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node backend/app.js",
+    "client": "npm run dev --prefix frontend"
   },
   "dependencies": {
     "@ark-ui/react": "^4.5.0",

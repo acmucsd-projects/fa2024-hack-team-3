@@ -7,8 +7,11 @@ import { FiUserPlus } from "react-icons/fi";
 import system from '../theme'
 import { useColorMode, useColorModeValue } from "../components/ui/color-mode";
 import  {ChakraProvider} from "@chakra-ui/react";
+import studybuddylogo_dark from '../assets/studybuddylogo_dark.svg';
+import studybuddylogo_light from '../assets/studybuddylogo_light.svg';
 
 const Navbar = () => {
+    const { colorMode } = useColorMode();
     return (
         <ChakraProvider value={system}>
         <Box 
@@ -29,11 +32,15 @@ const Navbar = () => {
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Logo Container */}
                     <Box position="relative" display="inline-block">
-                        <Image src={logo} alt={"StudyLink Logo"} h={20} />
+                        <Image 
+                            src={colorMode === "dark" ? studybuddylogo_light : studybuddylogo_dark}
+                            alt={"StudyLink Logo"} 
+                            h={14} 
+                        />
                         <Text
                             position="absolute"
                             top="50%"
-                            left="140%"
+                            left="130%"
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
                             // color="black" // Ensure the text is visible
