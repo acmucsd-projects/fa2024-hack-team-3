@@ -89,8 +89,8 @@ const MyChats = ({fetchAgain}) => {
                   setSelectedChat(chat);
                   ;}}
                 cursor="pointer"
-                bg={selectedChat === chat ? "#38B2AC" : "#E8E8E8"}
-                color={selectedChat === chat ? "white" : "black"}
+                bg={selectedChat === chat ? "bg.buttons" : "bg.subtle"}
+                color={selectedChat === chat ? "white" : "bg.DEFAULT"}
                 px={3}
                 py={2}
                 borderRadius="lg"

@@ -47,7 +47,7 @@ const Header = ({ setPosts, courses }) => {
         localStorage.removeItem("authToken"); // Clear token
         navigate("/login"); // Redirect to login page
     }
-
+      
     return (
         <ChakraProvider value={system}>
         <Box 

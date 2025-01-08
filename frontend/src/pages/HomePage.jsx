@@ -58,7 +58,6 @@ const HomePage = () => {
         setCourses(preloadedCourses); // Update courses with the response
       } catch (err) {
         console.error("Failed to fetch courses:", err);
-        setError("Failed to fetch courses.");
       }
     };
 

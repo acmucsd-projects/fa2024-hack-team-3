@@ -111,13 +111,13 @@ const SideDrawer = () => {
         // bg="white"
         w="100%"
         p="5px 10px"
-        borderWidth="2px"
+        // borderWidth="2px"
         // borderColor="gray.200"
         borderRadius="md"
         >   
             <Flex justifyContent="space-between" alignItems="center" w="100%">
                 
-                <Tooltip label="Search Users for chat" hasArrow placement="bottom-end">
+                <Tooltip content="Search Users for chat" hasArrow placement="bottom-end">
                     <Flex alignItems="center">
 
                         <DrawerRoot placement={"start"}>
@@ -146,6 +146,7 @@ const SideDrawer = () => {
 
                                 <Button
                                     onClick = {handleSearch}
+                                    bg="bg.buttons"
                                 > 
                                     Go
 
@@ -171,18 +172,18 @@ const SideDrawer = () => {
                         </DrawerContent>
                         </DrawerRoot>
 
-                        <Link to={"/"}>
+                        {/* <Link to={"/"}>
                             <Button colorScheme="blue" ml="1">
                                 Back to Home
                             </Button>
-                        </Link>
+                        </Link> */}
                     </Flex>
                 </Tooltip>
                 
 
 
 
-                <Text fontSize="2xl"> StudyBuddy Chat</Text>
+                {/* <Text fontSize="2xl"> StudyBuddy Chat</Text> */}
 
 
 
