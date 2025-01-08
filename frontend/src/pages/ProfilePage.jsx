@@ -86,9 +86,11 @@ const ProfilePage = () => {
                         {/* Main Content */}
                         <GridItem colSpan={{ md: 7 }}>
                             {isLoading ? (
+                                <Box p={6} bg="bg.subtle" rounded={"md"} h={"100vh"}>
                                 <Center minH="60vh">
                                     <Spinner size="xl" color="blue.500" />
                                 </Center>
+                                </Box>
                             ) : (
                                 <Box p={6} bg="bg.subtle" rounded={"md"}>
                                     {/* Profile Information */}

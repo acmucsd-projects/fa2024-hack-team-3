@@ -56,7 +56,7 @@ const AccountSettings = () => {
   return (
     <ChakraProvider value={system}>
     <ColorModeProvider>
-    <Box p={4} minW="100vh" mx="auto">
+    <Box p={4} minW="100vh"  mx="auto">
       <Header 
         setPosts={setPosts}
         courses={courses}
@@ -73,7 +73,7 @@ const AccountSettings = () => {
         <GridItem colSpan={{ base: 1 }}></GridItem>
 
         <GridItem colSpan={{ md: 7}}>
-          <Box bg="bg.subtle" rounded={"md"} p={4}>
+          <Box bg="bg.subtle" rounded={"md"} p={4} maxW="93vw">
           <Heading size="lg" mb={4}>SETTINGS</Heading>
             <Flex direction="column" alignItems="center">
             <AccountHeader />
