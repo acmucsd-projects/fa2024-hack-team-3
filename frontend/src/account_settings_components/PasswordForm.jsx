@@ -46,7 +46,7 @@ const PasswordForm = () => {
     try {
       const token = localStorage.getItem("authToken");
       await axios.patch(
-        "http://localhost:5000/api/users/change-password",
+        "https::/localhost:5000/api/users/change-password",
         { currentPassword, newPassword, confirmPassword },
         {
           headers: {

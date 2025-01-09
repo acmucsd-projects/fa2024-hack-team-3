@@ -23,7 +23,7 @@ const MyChats = ({fetchAgain}) => {
           };
 
   
-          const {data} = await axios.get(`http://localhost:5000/api/chatpage`, config);
+          const {data} = await axios.get(`https::/localhost:5000/api/chatpage`, config);
           setChats(data);
       }catch(error){
           console.log("Error");
