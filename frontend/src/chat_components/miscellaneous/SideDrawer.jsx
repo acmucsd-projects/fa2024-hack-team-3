@@ -110,10 +110,13 @@ const SideDrawer = () => {
         alignItems="center"
         // bg="white"
         w="100%"
-        p="5px 10px"
+        // p="10px 10px"
+        paddingTop={3}
+        px={3}
         // borderWidth="2px"
         // borderColor="gray.200"
         borderRadius="md"
+
         >   
             <Flex justifyContent="space-between" alignItems="center" w="100%">
                 
@@ -125,8 +128,8 @@ const SideDrawer = () => {
                         <DrawerTrigger asChild>
                             <Button variant="ghost" bg="bg.buttons" _hover={{ bg: "blue.600"}}>
                                 {/* <i className="fa-solid fa-magnifying-glass">Search</i> */}
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                <Text display={{base: "none", md:"flex"}} px="2">
+                                <FontAwesomeIcon icon={faMagnifyingGlass} color={"white"}/>
+                                <Text display={{base: "none", md:"flex"}} px="2" color="white">
                                     Search User
                                 </Text>
                             </Button>
@@ -147,6 +150,8 @@ const SideDrawer = () => {
                                 <Button
                                     onClick = {handleSearch}
                                     bg="bg.buttons"
+                                    color="white"
+                                    _hover={{ bg: "blue.600"}}
                                 > 
                                     Go
 

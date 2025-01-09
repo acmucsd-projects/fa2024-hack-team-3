@@ -78,7 +78,7 @@ const ChatPage = () => {
           <h1 style={{color: "black"}}>back to home</h1>
       </Link> */}
          <div style = {{width: "100%"}}>
-            {/* Render the SideDrawer only if user is defined */}
+            {/* Render the SideDrawer only if user is defined */}         
             {user && <SideDrawer />}
             
             <Box display="flex"

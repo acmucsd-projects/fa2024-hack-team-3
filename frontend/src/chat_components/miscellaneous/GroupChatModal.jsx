@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Input, Stack, Box} from "@chakra-ui/react"
+import { Input, Stack, Box, Text} from "@chakra-ui/react"
 import { Button } from "../../components/ui/button"
 import { IoMdAdd } from "react-icons/io";
 import {
@@ -118,7 +118,7 @@ const GroupChatModal = () => {
     <DialogTrigger asChild>
       <Button variant="outline" d="flex" bg="bg.buttons" _hover={{ bg: "blue.600" }}
               // fontSize={{ base: "17px", md: "10px", lg: "17px" }}
-              >New Group Chat <IoMdAdd />
+              ><Text color={"white"}>New Group Chat</Text> <IoMdAdd color='white'/>
       </Button>
       
     </DialogTrigger>
