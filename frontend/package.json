@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node backend/app.js",
+    "server": "node ../backend/bin/www",
     "client": "npm run dev --prefix frontend"
   },
   "dependencies": {
