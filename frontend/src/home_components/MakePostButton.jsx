@@ -92,7 +92,7 @@ const MakePostButton = ({ setPosts, courses }) => {
       description,
       tags,
       userId,
-      course: courseToSend || null, // Confirm this is correct
+      course: courseToSend // Confirm this is correct
     });
   
     try {
@@ -101,7 +101,7 @@ const MakePostButton = ({ setPosts, courses }) => {
         description,
         tags,
         userId,
-        course: courseToSend || null,
+        course: courseToSend,
       });
   
       setPosts((prevPosts) => [response.data, ...prevPosts]);

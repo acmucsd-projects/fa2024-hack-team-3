@@ -65,11 +65,9 @@ const createPost = async (req, res) => {
             tags: tags.length ? tags : [],
             userId: user._id,
             profilePicture: user.profilePicture,
+            course: course && course.trim() !== '' ? course : null, // Ensure course is set
         });
 
-        if (course && course.trim() !== '') {
-            post.course = course;
-        }
 
         const populatedPost = await post.populate('userId', '_id username profilePicture');
 
