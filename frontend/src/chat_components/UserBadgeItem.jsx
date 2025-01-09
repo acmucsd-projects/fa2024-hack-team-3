@@ -12,10 +12,11 @@ const UserBadgeItem = ({user, handleFunction, admin}) => {
       mb={2}
       variant="solid"
       fontSize={12}
-      backgroundColor="purple"
+      backgroundColor="bg.tags"
       color = "white"
       cursor="pointer"
       onClick={handleFunction}
+      _hover={{ bg: "blue.600" }}
     >
       {user.username}
       

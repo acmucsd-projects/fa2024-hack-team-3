@@ -167,7 +167,7 @@ const UpdateGroupChatModal = ({fetchAgain, setFetchAgain}) => {
             display="flex"
             >
                 <DialogTitle
-                fontSize="35px"
+                fontSize={"3xl"}
                 // fontFamily="Work sans"
                 >
                     {selectedChat.chatName}
@@ -175,7 +175,7 @@ const UpdateGroupChatModal = ({fetchAgain, setFetchAgain}) => {
             </DialogHeader>
             <DialogBody />
                 <Box d="flex" flexDirection="column" alignItems="center">
-                    <Box w="100%" d="flex" flexWrap="wrap" pb={3}>
+                    <Box w="100%" d="flex" flexWrap="wrap" pb={3} paddingLeft={6} marginTop={-6}>
                         {selectedChat.users.map((user) => (
                             <UserBadgeItem
                                 key={user._id}
@@ -186,21 +186,26 @@ const UpdateGroupChatModal = ({fetchAgain, setFetchAgain}) => {
                         ))}
 
                     </Box>
-                    <Box display="flex" flexDirection="column" alignItems="center">
-                        <Input placeholder="Chat Name" value={groupChatName} onChange={(e) => setGroupChatName(e.target.value)} />
+                    <Box display="flex" flexDirection="row" alignItems="center" paddingBottom={5} paddingLeft={7}>
+                        <Input placeholder="Chat Name" value={groupChatName} onChange={(e) => setGroupChatName(e.target.value)} 
+                            width={"50%"} paddingRight={5}
+                        />
                         <Button
                         variant="solid"
                         colorScheme="teal"
-                        ml={1}
+                        color="white"
+                        bg="bg.buttons"
+                        ml={6}
                         isLoading={renameLoading}
                         onClick={handleRename}
+                        _hover={{ bg: "blue.600" }}
                     >
                         Update Chat Name
                     </Button>
                     </Box>
                 </Box>
-                 <Box display="flex" flexDirection="column" alignItems="center">
-                    <Input placeholder="Adding User" mb={1} onChange={(e) => handleSearch(e.target.value)} />
+                 <Box  flexDirection="column" alignItems="center"paddingLeft={7}>
+                    <Input placeholder="Add User(s)" mb={1} onChange={(e) => handleSearch(e.target.value)} w={"50%"}/>
                     {loading ? (
                         <Spinner size="lg" />
                     ) : (
