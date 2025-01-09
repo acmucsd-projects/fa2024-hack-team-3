@@ -72,7 +72,11 @@ const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'http://localhost:5000'
+    }
+));
 app.use('/api/users', userRoutes);
 app.use('/api/posts', postRoutes);
 app.use('/api/posts', commentRoutes);
