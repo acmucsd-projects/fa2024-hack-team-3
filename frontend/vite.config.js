@@ -16,7 +16,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      "/api": "https://localhost:5000", // Proxy `/api` calls to your backend
+      "/api": "http://localhost:5000", // Proxy `/api` calls to your backend
     },
   },
 });

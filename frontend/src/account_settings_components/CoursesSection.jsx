@@ -22,7 +22,7 @@ const CoursesSection = () => {
     const fetchCourses = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("https://localhost:5000/api/users/me", {
+        const response = await axios.get("http://localhost:5000/api/users/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -72,7 +72,7 @@ const CoursesSection = () => {
       // Handle additions
       if (coursesToAdd.length > 0) {
         await axios.patch(
-          "https://localhost:5000/api/users/me/courses",
+          "http://localhost:5000/api/users/me/courses",
           { courses: coursesToAdd.map((name) => ({ name })), remove: false },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -81,7 +81,7 @@ const CoursesSection = () => {
       // Handle removals
       if (coursesToRemove.length > 0) {
         await axios.patch(
-          "https://localhost:5000/api/users/me/courses",
+          "http://localhost:5000/api/users/me/courses",
           { courses: coursesToRemove.map((name) => ({ name })), remove: true },
           { headers: { Authorization: `Bearer ${token}` } }
         );

@@ -19,7 +19,7 @@
 // app.use(express.json());
 
 // app.use(cors({
-//     origin: 'https://localhost:5173', // Allow requests only from this origin (your frontend)
+//     origin: 'http://localhost:5173', // Allow requests only from this origin (your frontend)
 // }));
 
 // // set strict query mode for Mongoose
@@ -88,5 +88,5 @@ app.get("*", (req, res) => {
 
 app.listen(PORT, () => {
     connectDB();
-    console.log('Server started at https://localhost:' + PORT);
+    console.log('Server started at http://localhost:' + PORT);
 });

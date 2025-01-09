@@ -49,7 +49,7 @@ const AccountHeader = () => {
     try {
       // Check if the new username is already taken
       const checkResponse = await axios.post(
-        "https://localhost:5000/api/users/check-username",
+        "http://localhost:5000/api/users/check-username",
         { username: newUsername }
       );
 
@@ -59,7 +59,7 @@ const AccountHeader = () => {
       }
 
       // Update username in backend
-      const updateResponse = await axios.patch(`https://localhost:5000/api/users/${userInfo.id}`, 
+      const updateResponse = await axios.patch(`http://localhost:5000/api/users/${userInfo.id}`, 
         { username: newUsername }
       );
 
@@ -91,7 +91,7 @@ const AccountHeader = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post(`https://localhost:5000/api/users/${userInfo.id}/upload`, formData, {
+      const response = await axios.post(`http://localhost:5000/api/users/${userInfo.id}/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
