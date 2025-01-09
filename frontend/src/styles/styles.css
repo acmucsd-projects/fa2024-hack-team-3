@@ -10,7 +10,7 @@
     --quaternary-color: #fedc97; /* fourth color */
     --text-color: #033f63; /* Main text color */
     --background-color: #f4f4f5; /* Background color */
-    --font-family: "Arial", sans-serif; /* Default font */
+    --font-family: "Arial", serif; /* Default font */
   }
   
   /* Apply Global Styles */
@@ -21,11 +21,11 @@
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    /* margin: 0; */
+    /* padding: 0; */
+    /* font-family: var(--font-family); */
+    /* background-color: var(--background-color); */
+    /* color: var(--text-color); */
   }
   
   /* Styles for headings */
@@ -35,23 +35,23 @@
   
   h2,
   h3 {
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
   }
   
   /* Styles for buttons */
   button {
-    width: 200px;
-    background-color: var(--text-color);
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
+    /* width: 200px; */
+    /* background-color: var(--text-color); */
+    /* color: #ffffff; */
+    /* border: none; */
+    /* padding: 10px 20px; */
+    /* cursor: pointer; */
+    /* border-radius: 4px; */
   }
   
-  button:hover {
+  /* button:hover {
     background-color: darken(var(--secondary-color), 10%);
-  }
+  } */
   
   .icon{
     width: 24px;

@@ -4,10 +4,24 @@ import NavButton from "./NavButton";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { FiUserPlus } from "react-icons/fi";
+import system from '../theme'
+import { useColorMode, useColorModeValue } from "../components/ui/color-mode";
+import  {ChakraProvider} from "@chakra-ui/react";
+import studybuddylogo_dark from '../assets/studybuddylogo_dark.svg';
+import studybuddylogo_light from '../assets/studybuddylogo_light.svg';
 
 const Navbar = () => {
+    const { colorMode } = useColorMode();
     return (
-        <Box px={4} py={3} bg={"white"} zIndex={2}>
+        <ChakraProvider value={system}>
+        <Box 
+            px={4} 
+            py={3} 
+            // bg={"white"} 
+            zIndex={2}
+            // borderBottomWidth={"1.5px"}
+        >
+                
             <Flex
                 maxH={"9vh"} 
                 h={16}
@@ -18,14 +32,18 @@ const Navbar = () => {
                 <HStack spacing={2} as={Link} to={"/"}>
                     {/* Logo Container */}
                     <Box position="relative" display="inline-block">
-                        <Image src={logo} alt={"StudyLink Logo"} h={20} />
+                        <Image 
+                            src={colorMode === "dark" ? studybuddylogo_light : studybuddylogo_dark}
+                            alt={"StudyLink Logo"} 
+                            h={14} 
+                        />
                         <Text
                             position="absolute"
                             top="50%"
-                            left="140%"
+                            left="130%"
                             transform="translate(-50%, -50%)"
                             fontSize="lg"
-                            color="black" // Ensure the text is visible
+                            // color="black" // Ensure the text is visible
                             display={{ base: "none", sm: "flex"}}
                         >
                             Study<LinkText color={"black.500"}>
@@ -38,13 +56,14 @@ const Navbar = () => {
                 </HStack>
 
                 <HStack spacing={2} alignItems={"center"}>
-                    <Button as={Link} to={'/register'} variant="solid" bg={'blue.800'} _hover={{bg: "blue.700"}}>
+                    <Button as={Link} to={'/register'} variant="solid" bg={'bg.buttons'} _hover={{bg: "blue.600"}}>
                         <FiUserPlus style={{color: "white"}}/><Text color={'white'} fontWeight={'bold'}>{"Register"}</Text>
                     </Button>
                     <NavButton to={"/login"} label={"Login"} bg={'gray.200'} col={'blue.800'}/>
                 </HStack>
             </Flex>
         </Box>
+        </ChakraProvider>
     )
 };
 

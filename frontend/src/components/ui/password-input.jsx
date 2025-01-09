@@ -63,15 +63,19 @@ export const PasswordInput = React.forwardRef(
 const VisibilityTrigger = React.forwardRef(
   function VisibilityTrigger(props, ref) {
     return (
-      <IconButton
-        tabIndex={-1}
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        position="absolute"
+        top="50%"
+        right="0.1rem"
+        transform="translateY(-50%)"
+        width="2rem"
+        height="2rem"
+        cursor="pointer"
+        aria-label="Toggle password visibility"
         ref={ref}
-        me='-2'
-        aspectRatio='square'
-        size='sm'
-        variant='ghost'
-        height='calc(100% - {spacing.2})'
-        aria-label='Toggle password visibility'
         {...props}
       />
     )

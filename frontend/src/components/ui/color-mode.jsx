@@ -6,19 +6,29 @@ import { ThemeProvider, useTheme } from 'next-themes'
 import * as React from 'react'
 import { LuMoon, LuSun } from 'react-icons/lu'
 
+import {Switch} from './switch';
+import {Icon} from '@chakra-ui/react';
+import {FaSun, FaMoon} from 'react-icons/fa';
+
 export function ColorModeProvider(props) {
   return (
-    <ThemeProvider attribute='class' disableTransitionOnChange {...props} />
+    <ThemeProvider 
+      attribute='class' 
+      // disableTransitionOnChange 
+      // defaultTheme="system"
+      // enableSystem
+      // storageKey="theme"
+      {...props} />
   )
 }
 
 export function useColorMode() {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const toggleColorMode = () => {
-    setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
   }
   return {
-    colorMode: resolvedTheme,
+    colorMode: resolvedTheme || theme,
     setColorMode: setTheme,
     toggleColorMode,
   }
@@ -26,7 +36,7 @@ export function useColorMode() {
 
 export function useColorModeValue(light, dark) {
   const { colorMode } = useColorMode()
-  return colorMode === 'light' ? light : dark
+  return colorMode === 'dark' ? dark : light
 }
 
 export function ColorModeIcon() {
@@ -36,10 +46,10 @@ export function ColorModeIcon() {
 
 export const ColorModeButton = React.forwardRef(
   function ColorModeButton(props, ref) {
-    const { toggleColorMode } = useColorMode()
+    const { colorMode, toggleColorMode } = useColorMode()
     return (
       <ClientOnly fallback={<Skeleton boxSize='8' />}>
-        <IconButton
+        {/* <IconButton
           onClick={toggleColorMode}
           variant='ghost'
           aria-label='Toggle color mode'
@@ -54,7 +64,25 @@ export const ColorModeButton = React.forwardRef(
           }}
         >
           <ColorModeIcon />
-        </IconButton>
+        </IconButton> */}
+        <Switch
+            colorPalette="blue"
+            size="lg"
+            checked={colorMode === 'light'}
+            onChange={toggleColorMode}
+            trackLabel={{
+                off: (
+                  <Icon color="gray.400">
+                    <FaMoon />
+                  </Icon>
+                ),
+                on: (
+                  <Icon color="yellow.400">
+                    <FaSun />
+                  </Icon>
+                ),
+            }}
+        />
       </ClientOnly>
     )
   },

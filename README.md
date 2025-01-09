@@ -1,4 +1,4 @@
-# 💻 MERN stack template
+# 📖 Study Buddy Application
 
 Template for building projects with the MERN (MongoDB, Express, React, Node.js) stack.
 This template was generated using `create-next-app` and `express-generator` for the
@@ -33,7 +33,7 @@ hi!!!!!!!!
 # Pushing to the ACM Repository:
 ```
 git checkout branch-name (switch to branch) / git checkout -b branch-name (if branch non-existent)
-git pull (to get the latest files from main)
+git pull origin main (to get the latest files from main)
 git add . (adds all the files/folders)
 git status (to check your staged files/folders)
 git commit -m "message"
@@ -41,8 +41,25 @@ git push
 ```
 
 # Running Frontend Website
+In one terminal:
 ```
-cd frontend
+cd backend
+npm i
+npm start
+```
+
+In another terminal:
+```
+cd ../frontend
 npm i
 npm run dev
+```
+
+NOTE: Make sure you have the following in an .env file:
+```
+MONGO_URI=mongodb+srv://<db_username>:<db_password>@studybuddy.nor8x.mongodb.net/posts?retryWrites=true&w=majority&appName=Studybuddy
+PORT=<port_number>
+CLOUDINARY_CLOUD_NAME=<cloud_name>
+CLOUDINARY_API_KEY=<api_key>
+CLOUDINARY_API_SECRET=<api_secret>
 ```

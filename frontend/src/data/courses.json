@@ -1,0 +1,5130 @@
+[
+    {
+        "value": "AAPI 198",
+        "label": "AAPI 198 - Directed Group Studies"
+    },
+    {
+        "value": "AAS 10",
+        "label": "AAS 10 - Intro/African-American Studies"
+    },
+    {
+        "value": "AAS 11",
+        "label": "AAS 11 - Intro Black Diasporic Studies"
+    },
+    {
+        "value": "AAS 198",
+        "label": "AAS 198 - Directed Group Study"
+    },
+    {
+        "value": "AIP 97",
+        "label": "AIP 97 - Academic Internship"
+    },
+    {
+        "value": "AIP 197",
+        "label": "AIP 197 - Academic Internship Program"
+    },
+    {
+        "value": "AIP 197DC",
+        "label": "AIP 197DC - Washington, DC Internship"
+    },
+    {
+        "value": "AIP 197P",
+        "label": "AIP 197P - Public Service Internship"
+    },
+    {
+        "value": "ANAR 121",
+        "label": "ANAR 121 - Cyber-Archaeology"
+    },
+    {
+        "value": "ANAR 135",
+        "label": "ANAR 135 - Ancient Mediterranean Civ"
+    },
+    {
+        "value": "ANAR 143",
+        "label": "ANAR 143 - Biblical Arch- Fact or Fiction"
+    },
+    {
+        "value": "ANAR 158",
+        "label": "ANAR 158 - The Inca: Empire of the Andes"
+    },
+    {
+        "value": "ANAR 164",
+        "label": "ANAR 164 - Underwater Archaeology"
+    },
+    {
+        "value": "ANAR 165",
+        "label": "ANAR 165 - Archaeology & Biblical Seas"
+    },
+    {
+        "value": "ANBI 100",
+        "label": "ANBI 100 - Special Topic/Biological Anth"
+    },
+    {
+        "value": "ANBI 130",
+        "label": "ANBI 130 - Biology of Inequality"
+    },
+    {
+        "value": "ANBI 134",
+        "label": "ANBI 134 - Human Evolutionary Genetics"
+    },
+    {
+        "value": "ANBI 140",
+        "label": "ANBI 140 - Evolution of Human Brain"
+    },
+    {
+        "value": "ANBI 143",
+        "label": "ANBI 143 - The Human Skeleton"
+    },
+    {
+        "value": "ANBI 173",
+        "label": "ANBI 173 - How Monkeys See the World"
+    },
+    {
+        "value": "ANSC 101A",
+        "label": "ANSC 101A - KoreanWaveMedia&CulturalChange"
+    },
+    {
+        "value": "ANSC 109",
+        "label": "ANSC 109 - Capitalism and the State"
+    },
+    {
+        "value": "ANSC 125",
+        "label": "ANSC 125 - Gender, Sexuality, & Society"
+    },
+    {
+        "value": "ANSC 135",
+        "label": "ANSC 135 - Indigenous Peoples/Latin Amer."
+    },
+    {
+        "value": "ANSC 139",
+        "label": "ANSC 139 - Native American Health"
+    },
+    {
+        "value": "ANSC 146",
+        "label": "ANSC 146 - Global Health Persp/HIV"
+    },
+    {
+        "value": "ANSC 148",
+        "label": "ANSC 148 - Global Health&Cultrl Diversity"
+    },
+    {
+        "value": "ANSC 150",
+        "label": "ANSC 150 - Culture and Mental Health"
+    },
+    {
+        "value": "ANSC 154",
+        "label": "ANSC 154 - Gender and Religion"
+    },
+    {
+        "value": "ANSC 164",
+        "label": "ANSC 164 - Intro to Medical Anthropology"
+    },
+    {
+        "value": "ANSC 184",
+        "label": "ANSC 184 - Food, Culture, and Society"
+    },
+    {
+        "value": "ANSC 190",
+        "label": "ANSC 190 - Yoga Practices"
+    },
+    {
+        "value": "ANTH 5",
+        "label": "ANTH 5 - The Human Machine"
+    },
+    {
+        "value": "ANTH 10",
+        "label": "ANTH 10 - Climate Justice"
+    },
+    {
+        "value": "ANTH 21",
+        "label": "ANTH 21 - Race and Racisms"
+    },
+    {
+        "value": "ANTH 23",
+        "label": "ANTH 23 - Debating Multiculturalism"
+    },
+    {
+        "value": "ANTH 45",
+        "label": "ANTH 45 - Wisdom and Ecstasy"
+    },
+    {
+        "value": "ANTH 87",
+        "label": "ANTH 87 - Freshman Seminar"
+    },
+    {
+        "value": "ANTH 102",
+        "label": "ANTH 102 - Humans Are Cultural Animals"
+    },
+    {
+        "value": "ANTH 106",
+        "label": "ANTH 106 - Climate and Civilization"
+    },
+    {
+        "value": "ANTH 107",
+        "label": "ANTH 107 - Dsgn:Disasters,Emerg,Weather"
+    },
+    {
+        "value": "ANTH 111",
+        "label": "ANTH 111 - Religion&Ecology/Anthropocene"
+    },
+    {
+        "value": "ANTH 128A",
+        "label": "ANTH 128A - CAS: Community Engaged Resrch"
+    },
+    {
+        "value": "ANTH 196B",
+        "label": "ANTH 196B - Honors Studies in Anthropology"
+    },
+    {
+        "value": "ANTH 197",
+        "label": "ANTH 197 - Field Studies"
+    },
+    {
+        "value": "ASTR 3",
+        "label": "ASTR 3 - Planetary Systems Near and Far"
+    },
+    {
+        "value": "ASTR 20B",
+        "label": "ASTR 20B - Intro to Astrophysics II"
+    },
+    {
+        "value": "ASTR 99",
+        "label": "ASTR 99 - Independent Study"
+    },
+    {
+        "value": "ASTR 102",
+        "label": "ASTR 102 - Electrodynam&Optics/Astrophys"
+    },
+    {
+        "value": "ASTR 105",
+        "label": "ASTR 105 - Fund. of Quantum Mechanics"
+    },
+    {
+        "value": "ASTR 122",
+        "label": "ASTR 122 - Physical Cosmology"
+    },
+    {
+        "value": "ASTR 150",
+        "label": "ASTR 150 - Observational Optical Lab"
+    },
+    {
+        "value": "AWP 3",
+        "label": "AWP 3 - Analytical Writing"
+    },
+    {
+        "value": "AWP 4A",
+        "label": "AWP 4A - Analytical Writing A"
+    },
+    {
+        "value": "BENG 1",
+        "label": "BENG 1 - Introduction to Bioengineering"
+    },
+    {
+        "value": "BENG 99",
+        "label": "BENG 99 - Independent Study/Undergraduat"
+    },
+    {
+        "value": "BENG 112A",
+        "label": "BENG 112A - Soft Tissue Biomechanics"
+    },
+    {
+        "value": "BENG 119B",
+        "label": "BENG 119B - Design Implmntatn Biomechanics"
+    },
+    {
+        "value": "BENG 120",
+        "label": "BENG 120 - Org Chem-Structural & Design"
+    },
+    {
+        "value": "BENG 123",
+        "label": "BENG 123 - Dynamic Simulatn in Bioeng"
+    },
+    {
+        "value": "BENG 126B",
+        "label": "BENG 126B - Design Implmnt Informatcs BENG"
+    },
+    {
+        "value": "BENG 127B",
+        "label": "BENG 127B - Design Implmnt Molec.Syst BENG"
+    },
+    {
+        "value": "BENG 128B",
+        "label": "BENG 128B - Design Implmnt Genetic Circuit"
+    },
+    {
+        "value": "BENG 129B",
+        "label": "BENG 129B - Design Implmnt Cell Systm BENG"
+    },
+    {
+        "value": "BENG 130",
+        "label": "BENG 130 - Biotech Thermodynamics & Kinet"
+    },
+    {
+        "value": "BENG 139B",
+        "label": "BENG 139B - Design Implmntn Molecular BENG"
+    },
+    {
+        "value": "BENG 140A",
+        "label": "BENG 140A - Bioengineering Physiology"
+    },
+    {
+        "value": "BENG 147B",
+        "label": "BENG 147B - Design Implmntatn Neural Engin"
+    },
+    {
+        "value": "BENG 148B",
+        "label": "BENG 148B - Design Implmntatn Cardiac BENG"
+    },
+    {
+        "value": "BENG 149B",
+        "label": "BENG 149B - Design Implmntn Vascular BENG"
+    },
+    {
+        "value": "BENG 152",
+        "label": "BENG 152 - BioSystems Engineering Lab"
+    },
+    {
+        "value": "BENG 161B",
+        "label": "BENG 161B - Biochemical Engineering"
+    },
+    {
+        "value": "BENG 168",
+        "label": "BENG 168 - Biomolecular Engineering"
+    },
+    {
+        "value": "BENG 169B",
+        "label": "BENG 169B - Design Implmntatn Tissue Engin"
+    },
+    {
+        "value": "BENG 179A",
+        "label": "BENG 179A - Design Develop.Bioinstrumntatn"
+    },
+    {
+        "value": "BENG 179B",
+        "label": "BENG 179B - Design Implmnt Bioinstrumntatn"
+    },
+    {
+        "value": "BENG 181",
+        "label": "BENG 181 - Molecular Sequence Analysis"
+    },
+    {
+        "value": "BENG 186B",
+        "label": "BENG 186B - Princpls/Bioinstrumentatn Desn"
+    },
+    {
+        "value": "BENG 187C",
+        "label": "BENG 187C - BENG Design Proj:Implemntation"
+    },
+    {
+        "value": "BENG 189",
+        "label": "BENG 189 - Physiological Systems Eng"
+    },
+    {
+        "value": "BENG 191",
+        "label": "BENG 191 - Senior Sem I: Professnl Issues"
+    },
+    {
+        "value": "BENG 195",
+        "label": "BENG 195 - Teaching"
+    },
+    {
+        "value": "BENG 196",
+        "label": "BENG 196 - Bioeng Industrial Internship"
+    },
+    {
+        "value": "BIBC 100",
+        "label": "BIBC 100 - Structural Biochemistry"
+    },
+    {
+        "value": "BIBC 102",
+        "label": "BIBC 102 - Metabolic Biochemistry"
+    },
+    {
+        "value": "BIBC 103",
+        "label": "BIBC 103 - Biochemical Techniques"
+    },
+    {
+        "value": "BIBC 120",
+        "label": "BIBC 120 - Nutrition"
+    },
+    {
+        "value": "BIBC 194",
+        "label": "BIBC 194 - Adv Topics-Biochemistry"
+    },
+    {
+        "value": "BICD 100",
+        "label": "BICD 100 - Genetics"
+    },
+    {
+        "value": "BICD 110",
+        "label": "BICD 110 - Cell Biology"
+    },
+    {
+        "value": "BICD 120",
+        "label": "BICD 120 - Molecular Basis of Plant Dev"
+    },
+    {
+        "value": "BICD 194",
+        "label": "BICD 194 - Adv Topics-Cellular Dev"
+    },
+    {
+        "value": "BIEB 102",
+        "label": "BIEB 102 - Intro Eclgy/Organisms&Habitats"
+    },
+    {
+        "value": "BIEB 121",
+        "label": "BIEB 121 - Ecology Laboratory"
+    },
+    {
+        "value": "BIEB 134",
+        "label": "BIEB 134 - Intro/Biological Oceanography"
+    },
+    {
+        "value": "BIEB 135",
+        "label": "BIEB 135 - Aquatic Ecology Lab"
+    },
+    {
+        "value": "BIEB 140",
+        "label": "BIEB 140 - Biodiversity"
+    },
+    {
+        "value": "BIEB 152",
+        "label": "BIEB 152 - Evol of Infectious Diseases"
+    },
+    {
+        "value": "BIEB 156",
+        "label": "BIEB 156 - Evolution and Society"
+    },
+    {
+        "value": "BILD 1",
+        "label": "BILD 1 - The Cell"
+    },
+    {
+        "value": "BILD 2",
+        "label": "BILD 2 - Multicellular Life"
+    },
+    {
+        "value": "BILD 3",
+        "label": "BILD 3 - Organismic&Evolutionary Biol"
+    },
+    {
+        "value": "BILD 4",
+        "label": "BILD 4 - Introductory Biology Lab"
+    },
+    {
+        "value": "BILD 5",
+        "label": "BILD 5 - Data Analysis/Design for Bio"
+    },
+    {
+        "value": "BILD 12",
+        "label": "BILD 12 - Neurobiology and Behavior"
+    },
+    {
+        "value": "BILD 22",
+        "label": "BILD 22 - Human Nutrition"
+    },
+    {
+        "value": "BILD 28",
+        "label": "BILD 28 - Immunology/Vaccines"
+    },
+    {
+        "value": "BILD 60",
+        "label": "BILD 60 - DEI in Relation to Human Bio"
+    },
+    {
+        "value": "BILD 62",
+        "label": "BILD 62 - Intro to Python for Biologists"
+    },
+    {
+        "value": "BILD 87",
+        "label": "BILD 87 - First-year Seminar"
+    },
+    {
+        "value": "BILD 99",
+        "label": "BILD 99 - Independent Research"
+    },
+    {
+        "value": "BIMM 100",
+        "label": "BIMM 100 - Molecular Biology"
+    },
+    {
+        "value": "BIMM 101",
+        "label": "BIMM 101 - Recombinant DNA Techniques"
+    },
+    {
+        "value": "BIMM 112",
+        "label": "BIMM 112 - Regulatn/Eucarytc Gene Exp"
+    },
+    {
+        "value": "BIMM 114",
+        "label": "BIMM 114 - Virology"
+    },
+    {
+        "value": "BIMM 121",
+        "label": "BIMM 121 - Microbiology Laboratory"
+    },
+    {
+        "value": "BIMM 134",
+        "label": "BIMM 134 - Biology of Cancer"
+    },
+    {
+        "value": "BIMM 143",
+        "label": "BIMM 143 - Bioinformatics Laboratory"
+    },
+    {
+        "value": "BIMM 143R",
+        "label": "BIMM 143R - Bioinformatics Laboratory"
+    },
+    {
+        "value": "BIMM 172",
+        "label": "BIMM 172 - Genome Science"
+    },
+    {
+        "value": "BIMM 181",
+        "label": "BIMM 181 - Molecular Sequence Analysis"
+    },
+    {
+        "value": "BIMM 194",
+        "label": "BIMM 194 - Adv Topics-Molecular Bio"
+    },
+    {
+        "value": "BIPN 100",
+        "label": "BIPN 100 - Human Physiology I"
+    },
+    {
+        "value": "BIPN 102",
+        "label": "BIPN 102 - Human Physiology II"
+    },
+    {
+        "value": "BIPN 105",
+        "label": "BIPN 105 - Human Physiology Lab"
+    },
+    {
+        "value": "BIPN 140",
+        "label": "BIPN 140 - Cellular Neurobiology"
+    },
+    {
+        "value": "BIPN 145",
+        "label": "BIPN 145 - Neurobiology Laboratory"
+    },
+    {
+        "value": "BIPN 154",
+        "label": "BIPN 154 - Neuro Stress & Mental Disorder"
+    },
+    {
+        "value": "BIPN 160",
+        "label": "BIPN 160 - Neuroanatomy"
+    },
+    {
+        "value": "BIPN 162",
+        "label": "BIPN 162 - Neural Data Science"
+    },
+    {
+        "value": "BIPN 194",
+        "label": "BIPN 194 - Adv Topics-Phys/Neuro"
+    },
+    {
+        "value": "BISP 193",
+        "label": "BISP 193 - Biology Education Research"
+    },
+    {
+        "value": "BISP 194",
+        "label": "BISP 194 - Adv Topics in Modern Biology"
+    },
+    {
+        "value": "BISP 195",
+        "label": "BISP 195 - Instructional Apprentice: Biol"
+    },
+    {
+        "value": "BISP 196",
+        "label": "BISP 196 - Honors: Biological Sciences"
+    },
+    {
+        "value": "BISP 197",
+        "label": "BISP 197 - Biology Internship Program"
+    },
+    {
+        "value": "CAT 2",
+        "label": "CAT 2 - Culture, Art, and Technology 2"
+    },
+    {
+        "value": "CAT 2CE",
+        "label": "CAT 2CE - Writing and Community 1"
+    },
+    {
+        "value": "CAT 87",
+        "label": "CAT 87 - Freshman Seminar"
+    },
+    {
+        "value": "CAT 124",
+        "label": "CAT 124 - Sixth College Practicum"
+    },
+    {
+        "value": "CAT 125",
+        "label": "CAT 125 - Public Rhetoric & Prac Comm"
+    },
+    {
+        "value": "CAT 125R",
+        "label": "CAT 125R - Pub Rhet & Prac Comm Online"
+    },
+    {
+        "value": "CCE 1",
+        "label": "CCE 1 - CriticalApproach/CommPractice"
+    },
+    {
+        "value": "CCE 2",
+        "label": "CCE 2 - Cultivat/CommInformedPractices"
+    },
+    {
+        "value": "CCS 102",
+        "label": "CCS 102 - Research Persp/Climate Change"
+    },
+    {
+        "value": "CCS 123",
+        "label": "CCS 123 - Policy\\Politics Climate Change"
+    },
+    {
+        "value": "CGS 101",
+        "label": "CGS 101 - Gender & Globalization"
+    },
+    {
+        "value": "CGS 108",
+        "label": "CGS 108 - Gender, Race, & Artificial Int"
+    },
+    {
+        "value": "CGS 111",
+        "label": "CGS 111 - Gender and the Body"
+    },
+    {
+        "value": "CGS 116",
+        "label": "CGS 116 - Feminist Social Movements"
+    },
+    {
+        "value": "CGS 124",
+        "label": "CGS 124 - Girls & Sexuality"
+    },
+    {
+        "value": "CGS 125",
+        "label": "CGS 125 - Women of Color Writers"
+    },
+    {
+        "value": "CGS 135",
+        "label": "CGS 135 - Feminist Science&Tech Studies"
+    },
+    {
+        "value": "CGS 136",
+        "label": "CGS 136 - Gender, Tech and Development"
+    },
+    {
+        "value": "CGS 137",
+        "label": "CGS 137 - Latina Issues & Cultural Prod."
+    },
+    {
+        "value": "CGS 165",
+        "label": "CGS 165 - Gender&Sexuality/Af Am Comm."
+    },
+    {
+        "value": "CGS 167A",
+        "label": "CGS 167A - Decolonial Muslim Feminisms"
+    },
+    {
+        "value": "CGS 187",
+        "label": "CGS 187 - Latinx Sexualities"
+    },
+    {
+        "value": "CGS 196A",
+        "label": "CGS 196A - CGS Honors Research"
+    },
+    {
+        "value": "CHEM 1",
+        "label": "CHEM 1 - Scope of Chem and Biochem"
+    },
+    {
+        "value": "CHEM 6A",
+        "label": "CHEM 6A - General Chemistry I"
+    },
+    {
+        "value": "CHEM 6B",
+        "label": "CHEM 6B - General Chemistry II"
+    },
+    {
+        "value": "CHEM 6BH",
+        "label": "CHEM 6BH - Honors General Chemistry II"
+    },
+    {
+        "value": "CHEM 6C",
+        "label": "CHEM 6C - General Chemistry  III"
+    },
+    {
+        "value": "CHEM 7L",
+        "label": "CHEM 7L - General Chemistry Laboratory"
+    },
+    {
+        "value": "CHEM 11",
+        "label": "CHEM 11 - The Periodic Table"
+    },
+    {
+        "value": "CHEM 40A",
+        "label": "CHEM 40A - Organic Chem for Life Sci I"
+    },
+    {
+        "value": "CHEM 40B",
+        "label": "CHEM 40B - Organic Chem for Life Sci II"
+    },
+    {
+        "value": "CHEM 41A",
+        "label": "CHEM 41A - Organic I: Struct & React"
+    },
+    {
+        "value": "CHEM 41B",
+        "label": "CHEM 41B - Organic II: React & Synth"
+    },
+    {
+        "value": "CHEM 43A",
+        "label": "CHEM 43A - Organic Chemistry Laboratory"
+    },
+    {
+        "value": "CHEM 99",
+        "label": "CHEM 99 - Independent Study"
+    },
+    {
+        "value": "CHEM 100A",
+        "label": "CHEM 100A - Analytical Chemistry Lab"
+    },
+    {
+        "value": "CHEM 100B",
+        "label": "CHEM 100B - Instrumental Chemistry Lab"
+    },
+    {
+        "value": "CHEM 105A",
+        "label": "CHEM 105A - Physical Chemistry Laboratory"
+    },
+    {
+        "value": "CHEM 108",
+        "label": "CHEM 108 - Protein Biochemistry Lab"
+    },
+    {
+        "value": "CHEM 109",
+        "label": "CHEM 109 - Recombinant DNA Laboratory"
+    },
+    {
+        "value": "CHEM 114A",
+        "label": "CHEM 114A - Biochemical Structure&Function"
+    },
+    {
+        "value": "CHEM 114B",
+        "label": "CHEM 114B - Biochem Energetics&Metabolism"
+    },
+    {
+        "value": "CHEM 115",
+        "label": "CHEM 115 - Genome Editing"
+    },
+    {
+        "value": "CHEM 120A",
+        "label": "CHEM 120A - Inorganic Chemistry I"
+    },
+    {
+        "value": "CHEM 126A",
+        "label": "CHEM 126A - Phys Biochem: Thermodynamics"
+    },
+    {
+        "value": "CHEM 126B",
+        "label": "CHEM 126B - Phys Biochem: Quantum Mech"
+    },
+    {
+        "value": "CHEM 131",
+        "label": "CHEM 131 - Chem Physics: Stat Thermo I"
+    },
+    {
+        "value": "CHEM 134",
+        "label": "CHEM 134 - Polymeric Materials"
+    },
+    {
+        "value": "CHEM 143B",
+        "label": "CHEM 143B - Organic Chemistry Lab II"
+    },
+    {
+        "value": "CHEM 151",
+        "label": "CHEM 151 - Molecules That Changed World"
+    },
+    {
+        "value": "CHEM 154",
+        "label": "CHEM 154 - Mechanisms/Organic Reactions"
+    },
+    {
+        "value": "CHEM 155",
+        "label": "CHEM 155 - Synthesis of Complex Molecules"
+    },
+    {
+        "value": "CHEM 168",
+        "label": "CHEM 168 - Drug Synthesis and Design"
+    },
+    {
+        "value": "CHEM 169",
+        "label": "CHEM 169 - Applied AI and Machine Learn"
+    },
+    {
+        "value": "CHEM 172",
+        "label": "CHEM 172 - Environmental Chemistry II"
+    },
+    {
+        "value": "CHEM 187",
+        "label": "CHEM 187 - Foundn of Teach&Learn Science"
+    },
+    {
+        "value": "CHEM 194",
+        "label": "CHEM 194 - Special Topics in Chemistry"
+    },
+    {
+        "value": "CHEM 195",
+        "label": "CHEM 195 - Methods of Teaching Chemistry"
+    },
+    {
+        "value": "CHEM 197",
+        "label": "CHEM 197 - Chemistry Internship"
+    },
+    {
+        "value": "CHIN 10BD",
+        "label": "CHIN 10BD - First-Yr Chinese/Dialect II"
+    },
+    {
+        "value": "CHIN 10BM",
+        "label": "CHIN 10BM - First-Yr Chinese/Mandarin II"
+    },
+    {
+        "value": "CHIN 10BN",
+        "label": "CHIN 10BN - First-Year Chinese II"
+    },
+    {
+        "value": "CHIN 20BD",
+        "label": "CHIN 20BD - Second-Yr Chinese/Dialect II"
+    },
+    {
+        "value": "CHIN 20BM",
+        "label": "CHIN 20BM - Second-Yr Chinese/Mandarin II"
+    },
+    {
+        "value": "CHIN 20BN",
+        "label": "CHIN 20BN - Second-Year Chinese II"
+    },
+    {
+        "value": "CHIN 100BM",
+        "label": "CHIN 100BM - Third-Yr Chinese/Mandarin II"
+    },
+    {
+        "value": "CHIN 100BN",
+        "label": "CHIN 100BN - Third-Year Chinese II"
+    },
+    {
+        "value": "CHIN 169A",
+        "label": "CHIN 169A - Medical Chinese I"
+    },
+    {
+        "value": "CHIN 182A",
+        "label": "CHIN 182A - Classical Chinese I"
+    },
+    {
+        "value": "CLAS 87",
+        "label": "CLAS 87 - First-year Seminar"
+    },
+    {
+        "value": "CLAS 196A",
+        "label": "CLAS 196A - Dir Honors Thesis in CLAS A"
+    },
+    {
+        "value": "COGS 1",
+        "label": "COGS 1 - Introduction to Cognitive Sci"
+    },
+    {
+        "value": "COGS 9",
+        "label": "COGS 9 - Introduction to Data Science"
+    },
+    {
+        "value": "COGS 10",
+        "label": "COGS 10 - Cognitv Consequence/Technology"
+    },
+    {
+        "value": "COGS 11",
+        "label": "COGS 11 - Minds & Brains"
+    },
+    {
+        "value": "COGS 13",
+        "label": "COGS 13 - Fld Methods: Cognition in Wild"
+    },
+    {
+        "value": "COGS 14A",
+        "label": "COGS 14A - Intro. to Research Methods"
+    },
+    {
+        "value": "COGS 14B",
+        "label": "COGS 14B - Intro. to Statistical Analysis"
+    },
+    {
+        "value": "COGS 17",
+        "label": "COGS 17 - Neurobiology of Cognition"
+    },
+    {
+        "value": "COGS 18",
+        "label": "COGS 18 - Introduction to Python"
+    },
+    {
+        "value": "COGS 87",
+        "label": "COGS 87 - First-year Seminar"
+    },
+    {
+        "value": "COGS 100",
+        "label": "COGS 100 - Cyborgs Now and in the Future"
+    },
+    {
+        "value": "COGS 101A",
+        "label": "COGS 101A - Sensation and Perception"
+    },
+    {
+        "value": "COGS 101B",
+        "label": "COGS 101B - Learning, Memory and Attention"
+    },
+    {
+        "value": "COGS 107A",
+        "label": "COGS 107A - Neuroanatomy and Physiology"
+    },
+    {
+        "value": "COGS 107B",
+        "label": "COGS 107B - Systems Neuroscience"
+    },
+    {
+        "value": "COGS 108",
+        "label": "COGS 108 - Data Science in Practice"
+    },
+    {
+        "value": "COGS 109",
+        "label": "COGS 109 - Modeling & Data Analysis"
+    },
+    {
+        "value": "COGS 111",
+        "label": "COGS 111 - Beauty and the Brain"
+    },
+    {
+        "value": "COGS 115",
+        "label": "COGS 115 - Neurologcl Devlp & Cogntv Chng"
+    },
+    {
+        "value": "COGS 116",
+        "label": "COGS 116 - Developmental Cog Neuroscience"
+    },
+    {
+        "value": "COGS 118C",
+        "label": "COGS 118C - Neural Signal Processing"
+    },
+    {
+        "value": "COGS 120",
+        "label": "COGS 120 - Interaction Design"
+    },
+    {
+        "value": "COGS 122",
+        "label": "COGS 122 - Startup Studio"
+    },
+    {
+        "value": "COGS 126",
+        "label": "COGS 126 - Thinking with Computers"
+    },
+    {
+        "value": "COGS 127",
+        "label": "COGS 127 - Data-Driven UX/Product Design"
+    },
+    {
+        "value": "COGS 144",
+        "label": "COGS 144 - Social Cognition"
+    },
+    {
+        "value": "COGS 153",
+        "label": "COGS 153 - Language Comprehension"
+    },
+    {
+        "value": "COGS 155",
+        "label": "COGS 155 - Gesture and Cognition"
+    },
+    {
+        "value": "COGS 156",
+        "label": "COGS 156 - Language Development"
+    },
+    {
+        "value": "COGS 160",
+        "label": "COGS 160 - Seminar on Special Topics"
+    },
+    {
+        "value": "COGS 164",
+        "label": "COGS 164 - Neurobiology of Motivation"
+    },
+    {
+        "value": "COGS 177",
+        "label": "COGS 177 - Space and Time in the Brain"
+    },
+    {
+        "value": "COGS 181",
+        "label": "COGS 181 - Neural Networks/Deep Learning"
+    },
+    {
+        "value": "COGS 187B",
+        "label": "COGS 187B - Practicum in Pro Web Design"
+    },
+    {
+        "value": "COGS 188",
+        "label": "COGS 188 - AI Algorithms"
+    },
+    {
+        "value": "COGS 189",
+        "label": "COGS 189 - Brain Computer Interfaces"
+    },
+    {
+        "value": "COGS 190B",
+        "label": "COGS 190B - Honors Studies in Cog. Sci."
+    },
+    {
+        "value": "COGS 193",
+        "label": "COGS 193 - CogSci Career Seminar"
+    },
+    {
+        "value": "COGS 194",
+        "label": "COGS 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "COGS 195",
+        "label": "COGS 195 - Instructional Apprenticeship"
+    },
+    {
+        "value": "COGS 197",
+        "label": "COGS 197 - Cognitive Science Internship"
+    },
+    {
+        "value": "COGS 198",
+        "label": "COGS 198 - Directed Group Study"
+    },
+    {
+        "value": "DSGN 1",
+        "label": "DSGN 1 - Design of Everyday Things"
+    },
+    {
+        "value": "DSGN 100",
+        "label": "DSGN 100 - Prototyping"
+    },
+    {
+        "value": "DSGN 119",
+        "label": "DSGN 119 - Design at Large"
+    },
+    {
+        "value": "DSGN 195",
+        "label": "DSGN 195 - Instructional Apprenticeship"
+    },
+    {
+        "value": "COMM 10",
+        "label": "COMM 10 - Introduction to Communication"
+    },
+    {
+        "value": "COMM 20",
+        "label": "COMM 20 - Media Analysis"
+    },
+    {
+        "value": "COMM 30",
+        "label": "COMM 30 - Digital Media Literacy"
+    },
+    {
+        "value": "COMM 50",
+        "label": "COMM 50 - Presenting & Public Speaking"
+    },
+    {
+        "value": "COMM 80",
+        "label": "COMM 80 - UCSD Speech & Debate"
+    },
+    {
+        "value": "COMM 87",
+        "label": "COMM 87 - Freshman Seminar"
+    },
+    {
+        "value": "COMM 100C",
+        "label": "COMM 100C - Comm, Institutions & Power"
+    },
+    {
+        "value": "COMM 101",
+        "label": "COMM 101 - Intro Audio-Vis Media Practice"
+    },
+    {
+        "value": "COMM 101D",
+        "label": "COMM 101D - MPL:Non-Linear Digital Editing"
+    },
+    {
+        "value": "COMM 101K",
+        "label": "COMM 101K - MPL: Documentary Sketchbook"
+    },
+    {
+        "value": "COMM 101N",
+        "label": "COMM 101N - MPL:Sound Prductn & Manipulatn"
+    },
+    {
+        "value": "COMM 101T",
+        "label": "COMM 101T - Media Prod Lab: Topics in Prod"
+    },
+    {
+        "value": "COMM 102B",
+        "label": "COMM 102B - MMPP: AudioStory&PodcastPract"
+    },
+    {
+        "value": "COMM 102C",
+        "label": "COMM 102C - MMPP: Media & Design Practicum"
+    },
+    {
+        "value": "COMM 103D",
+        "label": "COMM 103D - Documentary History & Theory"
+    },
+    {
+        "value": "COMM 103E",
+        "label": "COMM 103E - History of Electronic Media"
+    },
+    {
+        "value": "COMM 106",
+        "label": "COMM 106 - Intro to Media Industries"
+    },
+    {
+        "value": "COMM 106M",
+        "label": "COMM 106M - Advertising & Society"
+    },
+    {
+        "value": "COMM 106N",
+        "label": "COMM 106N - Journalism/News Industry"
+    },
+    {
+        "value": "COMM 107",
+        "label": "COMM 107 - Visual Culture"
+    },
+    {
+        "value": "COMM 111A",
+        "label": "COMM 111A - Comm & Cul Production: Intro"
+    },
+    {
+        "value": "COMM 111B",
+        "label": "COMM 111B - Global Borders: Communication"
+    },
+    {
+        "value": "COMM 111P",
+        "label": "COMM 111P - CCP:Perform & Cultural Studies"
+    },
+    {
+        "value": "COMM 113T",
+        "label": "COMM 113T - Intm Topics in Communication"
+    },
+    {
+        "value": "COMM 114I",
+        "label": "COMM 114I - CSI: Media Tech&Social Mvments"
+    },
+    {
+        "value": "COMM 114T",
+        "label": "COMM 114T - CSI: Science Communication"
+    },
+    {
+        "value": "COMM 120M",
+        "label": "COMM 120M - AMP: Media Stereotypes"
+    },
+    {
+        "value": "COMM 124A",
+        "label": "COMM 124A - Critical Design/Adv Studio"
+    },
+    {
+        "value": "COMM 134",
+        "label": "COMM 134 - Media Audiences"
+    },
+    {
+        "value": "COMM 137",
+        "label": "COMM 137 - Black Women Filmmakers"
+    },
+    {
+        "value": "COMM 138",
+        "label": "COMM 138 - Black Women,Feminism & Media"
+    },
+    {
+        "value": "COMM 145",
+        "label": "COMM 145 - History, Memory &Popular Cultr"
+    },
+    {
+        "value": "COMM 146",
+        "label": "COMM 146 - Adv Studies-Cultural Prductn"
+    },
+    {
+        "value": "COMM 156",
+        "label": "COMM 156 - Media and Conflict Environment"
+    },
+    {
+        "value": "COMM 159",
+        "label": "COMM 159 - Tourism, Power & Place"
+    },
+    {
+        "value": "COMM 164",
+        "label": "COMM 164 - Invisible Geog Power&Inequal"
+    },
+    {
+        "value": "COMM 177",
+        "label": "COMM 177 - Culture Domination & Resistnce"
+    },
+    {
+        "value": "COMM 190",
+        "label": "COMM 190 - Junior Seminar in Comm"
+    },
+    {
+        "value": "COMM 194",
+        "label": "COMM 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "COMM 196B",
+        "label": "COMM 196B - Honors Seminar II: Research"
+    },
+    {
+        "value": "CSE 8A",
+        "label": "CSE 8A - Intro to Programming 1"
+    },
+    {
+        "value": "CSE 8B",
+        "label": "CSE 8B - Intro to Programming 2"
+    },
+    {
+        "value": "CSE 11",
+        "label": "CSE 11 - Accel. Intro to Programming"
+    },
+    {
+        "value": "CSE 12",
+        "label": "CSE 12 - Basic Data Struct & OO Design"
+    },
+    {
+        "value": "CSE 20",
+        "label": "CSE 20 - Discrete Mathematics"
+    },
+    {
+        "value": "CSE 21",
+        "label": "CSE 21 - Math/Algorithm&Systems Analys"
+    },
+    {
+        "value": "CSE 29",
+        "label": "CSE 29 - Sys Prog and Software Tools"
+    },
+    {
+        "value": "CSE 30",
+        "label": "CSE 30 - Computer Organization"
+    },
+    {
+        "value": "CSE 87",
+        "label": "CSE 87 - First-year Seminar"
+    },
+    {
+        "value": "CSE 89",
+        "label": "CSE 89 - Intro to CSE Seminar"
+    },
+    {
+        "value": "CSE 95",
+        "label": "CSE 95 - Tutor Apprentice"
+    },
+    {
+        "value": "CSE 100",
+        "label": "CSE 100 - Advanced Data Structures"
+    },
+    {
+        "value": "CSE 100R",
+        "label": "CSE 100R - Advanced Data Structures"
+    },
+    {
+        "value": "CSE 101",
+        "label": "CSE 101 - Design & Analysis of Algorithm"
+    },
+    {
+        "value": "CSE 105",
+        "label": "CSE 105 - Theory of Computation"
+    },
+    {
+        "value": "CSE 107",
+        "label": "CSE 107 - Intro to Modern Cryptography"
+    },
+    {
+        "value": "CSE 110",
+        "label": "CSE 110 - Software Engineering"
+    },
+    {
+        "value": "CSE 120",
+        "label": "CSE 120 - Operating Systems Principles"
+    },
+    {
+        "value": "CSE 122",
+        "label": "CSE 122 - Wireless Networks"
+    },
+    {
+        "value": "CSE 127",
+        "label": "CSE 127 - Intro to Computer Security"
+    },
+    {
+        "value": "CSE 130",
+        "label": "CSE 130 - Progrmng Lang:Princpl&Paradigm"
+    },
+    {
+        "value": "CSE 132A",
+        "label": "CSE 132A - Database System Principles"
+    },
+    {
+        "value": "CSE 134B",
+        "label": "CSE 134B - Web Client Languages"
+    },
+    {
+        "value": "CSE 140",
+        "label": "CSE 140 - Component&Desgn Tech/Digtl Sys"
+    },
+    {
+        "value": "CSE 140L",
+        "label": "CSE 140L - Digital Systems Laboratory"
+    },
+    {
+        "value": "CSE 142",
+        "label": "CSE 142 - Comp Arch Software Perspective"
+    },
+    {
+        "value": "CSE 147",
+        "label": "CSE 147 - Intro to Embedded Systems"
+    },
+    {
+        "value": "CSE 148",
+        "label": "CSE 148 - Adv Processor Arch Design Proj"
+    },
+    {
+        "value": "CSE 150A",
+        "label": "CSE 150A - AI: Probabilistic Models"
+    },
+    {
+        "value": "CSE 151A",
+        "label": "CSE 151A - ML: Learning Algorithms"
+    },
+    {
+        "value": "CSE 151B",
+        "label": "CSE 151B - Deep Learning"
+    },
+    {
+        "value": "CSE 152A",
+        "label": "CSE 152A - Intro to Comp Vision I"
+    },
+    {
+        "value": "CSE 156",
+        "label": "CSE 156 - Statistical NLP"
+    },
+    {
+        "value": "CSE 160",
+        "label": "CSE 160 - Intro to Parallel Computing"
+    },
+    {
+        "value": "CSE 167",
+        "label": "CSE 167 - Computer Graphics"
+    },
+    {
+        "value": "CSE 169",
+        "label": "CSE 169 - Computer Animation"
+    },
+    {
+        "value": "CSE 181",
+        "label": "CSE 181 - Molecular Sequence Analysis"
+    },
+    {
+        "value": "CSE 190",
+        "label": "CSE 190 - Top/Computer Sci & Engineering"
+    },
+    {
+        "value": "CSE 191",
+        "label": "CSE 191 - Semnr/Computer Sci & Engineer"
+    },
+    {
+        "value": "CSE 197",
+        "label": "CSE 197 - Field Study/Computer Sci&Engin"
+    },
+    {
+        "value": "CSE 198",
+        "label": "CSE 198 - Direct Group Study"
+    },
+    {
+        "value": "CSS 2",
+        "label": "CSS 2 - Data/Model Programming: CSS"
+    },
+    {
+        "value": "DOC 2",
+        "label": "DOC 2 - Justice"
+    },
+    {
+        "value": "DOC 100D",
+        "label": "DOC 100D - Promises&Contradictions/USCult"
+    },
+    {
+        "value": "DSC 10",
+        "label": "DSC 10 - Principles of Data Science"
+    },
+    {
+        "value": "DSC 20",
+        "label": "DSC 20 - Prgrmng/DataStruc for Data Sci"
+    },
+    {
+        "value": "DSC 30",
+        "label": "DSC 30 - DataStrc/Algrthms for Data Sci"
+    },
+    {
+        "value": "DSC 40A",
+        "label": "DSC 40A - Theor Fndtns of Data Sci I"
+    },
+    {
+        "value": "DSC 40B",
+        "label": "DSC 40B - Theor Fndtns of Data Sci II"
+    },
+    {
+        "value": "DSC 80",
+        "label": "DSC 80 - Practice of Data Science"
+    },
+    {
+        "value": "DSC 95",
+        "label": "DSC 95 - Tutor Appshp in Data Science"
+    },
+    {
+        "value": "DSC 96",
+        "label": "DSC 96 - Workshop in Data Science"
+    },
+    {
+        "value": "DSC 100",
+        "label": "DSC 100 - Intro to Data Management"
+    },
+    {
+        "value": "DSC 106",
+        "label": "DSC 106 - Intro to Data Visualization"
+    },
+    {
+        "value": "DSC 140A",
+        "label": "DSC 140A - Probabilistic Modeling and ML"
+    },
+    {
+        "value": "DSC 140B",
+        "label": "DSC 140B - Representation Learning"
+    },
+    {
+        "value": "DSC 148",
+        "label": "DSC 148 - Introduction to Data Mining"
+    },
+    {
+        "value": "DSC 170",
+        "label": "DSC 170 - Spatial Data Science and Appl"
+    },
+    {
+        "value": "DSC 180B",
+        "label": "DSC 180B - Data Science Project II"
+    },
+    {
+        "value": "DSC 190",
+        "label": "DSC 190 - Topics in Data Science"
+    },
+    {
+        "value": "DSC 197",
+        "label": "DSC 197 - Data Science Internship"
+    },
+    {
+        "value": "ECE 5",
+        "label": "ECE 5 - Intro to ECE"
+    },
+    {
+        "value": "ECE 15",
+        "label": "ECE 15 - Eng Computation: Prgrm in C"
+    },
+    {
+        "value": "ECE 16",
+        "label": "ECE 16 - Rapid Hardware & Software Dsn"
+    },
+    {
+        "value": "ECE 25",
+        "label": "ECE 25 - Introduction to Digital Design"
+    },
+    {
+        "value": "ECE 35",
+        "label": "ECE 35 - Introduction to Analog Design"
+    },
+    {
+        "value": "ECE 45",
+        "label": "ECE 45 - Circuits and Systems"
+    },
+    {
+        "value": "ECE 65",
+        "label": "ECE 65 - Components & Circuits Lab"
+    },
+    {
+        "value": "ECE 101",
+        "label": "ECE 101 - Linear Systems Fundamentals"
+    },
+    {
+        "value": "ECE 102",
+        "label": "ECE 102 - Intro/Active Circuit Design"
+    },
+    {
+        "value": "ECE 103",
+        "label": "ECE 103 - Fundamntls/Devices & Materials"
+    },
+    {
+        "value": "ECE 107",
+        "label": "ECE 107 - Electromagnetism"
+    },
+    {
+        "value": "ECE 109",
+        "label": "ECE 109 - Engineering Probability&Stats"
+    },
+    {
+        "value": "ECE 111",
+        "label": "ECE 111 - Advanced Digital Design Proj"
+    },
+    {
+        "value": "ECE 115",
+        "label": "ECE 115 - Fast Prototyping"
+    },
+    {
+        "value": "ECE 121B",
+        "label": "ECE 121B - Energy Conversion"
+    },
+    {
+        "value": "ECE 125A",
+        "label": "ECE 125A - Intro to Power Electronics I"
+    },
+    {
+        "value": "ECE 128B",
+        "label": "ECE 128B - Renewable Energy & Power Grid"
+    },
+    {
+        "value": "ECE 135B",
+        "label": "ECE 135B - Electronic Devices"
+    },
+    {
+        "value": "ECE 140A",
+        "label": "ECE 140A - The Art of Product Eng I"
+    },
+    {
+        "value": "ECE 141A",
+        "label": "ECE 141A - Software Foundations I"
+    },
+    {
+        "value": "ECE 143",
+        "label": "ECE 143 - Programming for Data Analysis"
+    },
+    {
+        "value": "ECE 148",
+        "label": "ECE 148 - Intro to Autonomous Vehicles"
+    },
+    {
+        "value": "ECE 158B",
+        "label": "ECE 158B - Data Networks II"
+    },
+    {
+        "value": "ECE 161B",
+        "label": "ECE 161B - Digital Signal Processing I"
+    },
+    {
+        "value": "ECE 172A",
+        "label": "ECE 172A - Introductn/Intelligent Systems"
+    },
+    {
+        "value": "ECE 175A",
+        "label": "ECE 175A - Pattrn Recogn and Machine Lrng"
+    },
+    {
+        "value": "ECE 176",
+        "label": "ECE 176 - Intro Deep Learning & Apps"
+    },
+    {
+        "value": "ECE 181",
+        "label": "ECE 181 - Physical Optics&Fourier Optics"
+    },
+    {
+        "value": "ECE 184",
+        "label": "ECE 184 - Optical Info Proces&Holography"
+    },
+    {
+        "value": "ECE 191",
+        "label": "ECE 191 - Engineering Group Design Proj"
+    },
+    {
+        "value": "ECE 193H",
+        "label": "ECE 193H - Honors Project"
+    },
+    {
+        "value": "ECE 197",
+        "label": "ECE 197 - ECE Internship"
+    },
+    {
+        "value": "ECE 198",
+        "label": "ECE 198 - Direct Group Study"
+    },
+    {
+        "value": "ECON 1",
+        "label": "ECON 1 - Principles of Microeconomics"
+    },
+    {
+        "value": "ECON 2",
+        "label": "ECON 2 - Market Imperfections & Policy"
+    },
+    {
+        "value": "ECON 3",
+        "label": "ECON 3 - Principles of Macroeconomics"
+    },
+    {
+        "value": "ECON 4",
+        "label": "ECON 4 - Financial Accounting"
+    },
+    {
+        "value": "ECON 5",
+        "label": "ECON 5 - Data Analytics/Social Sciences"
+    },
+    {
+        "value": "ECON 86",
+        "label": "ECON 86 - 10x10 Career Lessons"
+    },
+    {
+        "value": "ECON 100A",
+        "label": "ECON 100A - Microeconomics A"
+    },
+    {
+        "value": "ECON 100B",
+        "label": "ECON 100B - Microeconomics B"
+    },
+    {
+        "value": "ECON 100C",
+        "label": "ECON 100C - Microeconomics C"
+    },
+    {
+        "value": "ECON 102",
+        "label": "ECON 102 - Globalization"
+    },
+    {
+        "value": "ECON 105",
+        "label": "ECON 105 - Industrl Orgniztn&Firm Stratgy"
+    },
+    {
+        "value": "ECON 109",
+        "label": "ECON 109 - Game Theory"
+    },
+    {
+        "value": "ECON 109T",
+        "label": "ECON 109T - Advanced Topics in Game Theory"
+    },
+    {
+        "value": "ECON 110A",
+        "label": "ECON 110A - Long Run Macroeconomics"
+    },
+    {
+        "value": "ECON 110B",
+        "label": "ECON 110B - Short Run Macroeconomics"
+    },
+    {
+        "value": "ECON 110BH",
+        "label": "ECON 110BH - Honors Macroeconomics B"
+    },
+    {
+        "value": "ECON 116",
+        "label": "ECON 116 - Economic Development"
+    },
+    {
+        "value": "ECON 120A",
+        "label": "ECON 120A - Econometrics A"
+    },
+    {
+        "value": "ECON 120B",
+        "label": "ECON 120B - Econometrics B"
+    },
+    {
+        "value": "ECON 120BH",
+        "label": "ECON 120BH - Honors Econometrics B"
+    },
+    {
+        "value": "ECON 120C",
+        "label": "ECON 120C - Econometrics C"
+    },
+    {
+        "value": "ECON 138",
+        "label": "ECON 138 - Economics of Discrimination"
+    },
+    {
+        "value": "ECON 145",
+        "label": "ECON 145 - Economics of Ocean Resources"
+    },
+    {
+        "value": "ECON 149",
+        "label": "ECON 149 - Introduction/Economic Design"
+    },
+    {
+        "value": "ECON 175",
+        "label": "ECON 175 - InternationalFinancialMarkets"
+    },
+    {
+        "value": "ECON 178",
+        "label": "ECON 178 - MachineLearningEcon&Business"
+    },
+    {
+        "value": "ECON 181",
+        "label": "ECON 181 - Topics in Economics"
+    },
+    {
+        "value": "ECON 185",
+        "label": "ECON 185 - Detecting Discrim in Data"
+    },
+    {
+        "value": "ECON 186",
+        "label": "ECON 186 - Careers in Econ and Business"
+    },
+    {
+        "value": "ECON 190",
+        "label": "ECON 190 - Intro to Research in Economics"
+    },
+    {
+        "value": "ECON 195",
+        "label": "ECON 195 - Intro/Teaching Economics"
+    },
+    {
+        "value": "EDS 23",
+        "label": "EDS 23 - Higher Education Second Year"
+    },
+    {
+        "value": "EDS 39",
+        "label": "EDS 39 - Explore Secondary STEM Ed"
+    },
+    {
+        "value": "EDS 103",
+        "label": "EDS 103 - Intro to Quant Methods/EdRsrch"
+    },
+    {
+        "value": "EDS 111",
+        "label": "EDS 111 - Child Family Community"
+    },
+    {
+        "value": "EDS 112",
+        "label": "EDS 112 - U.S. Urban Education"
+    },
+    {
+        "value": "EDS 114",
+        "label": "EDS 114 - Cogn Develp&Intractv Compt Env"
+    },
+    {
+        "value": "EDS 115",
+        "label": "EDS 115 - Cog Development & Education"
+    },
+    {
+        "value": "EDS 117",
+        "label": "EDS 117 - Language, Culture & Education"
+    },
+    {
+        "value": "EDS 122",
+        "label": "EDS 122 - Foundn of Teach&Learn Science"
+    },
+    {
+        "value": "EDS 124AR",
+        "label": "EDS 124AR - Teach Computation/DigitalWorld"
+    },
+    {
+        "value": "EDS 124BR",
+        "label": "EDS 124BR - Teach Computational Thinking"
+    },
+    {
+        "value": "EDS 125",
+        "label": "EDS 125 - Hist,Polic&Theory/Bilingual Ed"
+    },
+    {
+        "value": "EDS 126",
+        "label": "EDS 126 - Social Organization/Education"
+    },
+    {
+        "value": "EDS 128A",
+        "label": "EDS 128A - Intro/Teaching&Learning (Elem)"
+    },
+    {
+        "value": "EDS 129B",
+        "label": "EDS 129B - Intro/Teach&Learn (Secondary)"
+    },
+    {
+        "value": "EDS 130",
+        "label": "EDS 130 - Intro/Acad Ment/Elem Schl Stdn"
+    },
+    {
+        "value": "EDS 131",
+        "label": "EDS 131 - Early Child Dev & Education"
+    },
+    {
+        "value": "EDS 133",
+        "label": "EDS 133 - Counsel, Mentor, Advise (P-12)"
+    },
+    {
+        "value": "EDS 139",
+        "label": "EDS 139 - Practicum in Teaching/Learning"
+    },
+    {
+        "value": "EDS 140",
+        "label": "EDS 140 - Intro Action Rsrch P-12 Edu"
+    },
+    {
+        "value": "EDS 146",
+        "label": "EDS 146 - Mindfulness and Education"
+    },
+    {
+        "value": "EDS 149",
+        "label": "EDS 149 - Prof. Learning in Practice"
+    },
+    {
+        "value": "EDS 162",
+        "label": "EDS 162 - Building Equitable Learning"
+    },
+    {
+        "value": "EDS 190",
+        "label": "EDS 190 - Research Practicum"
+    },
+    {
+        "value": "EDS 195",
+        "label": "EDS 195 - Apprentice Teaching"
+    },
+    {
+        "value": "ENVR 102",
+        "label": "ENVR 102 - Selected Topics/Environmntl St"
+    },
+    {
+        "value": "ENVR 120",
+        "label": "ENVR 120 - Coastal Ecology"
+    },
+    {
+        "value": "ENVR 141",
+        "label": "ENVR 141 - Wilderness & HumanValue Worksh"
+    },
+    {
+        "value": "ENVR 144",
+        "label": "ENVR 144 - Wilderness Training"
+    },
+    {
+        "value": "ENVR 152",
+        "label": "ENVR 152 - IndigenousApproach/ClimChange"
+    },
+    {
+        "value": "ERC 20",
+        "label": "ERC 20 - Frshmn Honors Sem:Intntl Theme"
+    },
+    {
+        "value": "ESYS 10",
+        "label": "ESYS 10 - Intro to Environmental Systems"
+    },
+    {
+        "value": "ESYS 102",
+        "label": "ESYS 102 - The Solid and Fluid Earth"
+    },
+    {
+        "value": "ESYS 187B",
+        "label": "ESYS 187B - Senior Internship Project II"
+    },
+    {
+        "value": "ETHN 2R",
+        "label": "ETHN 2R - R-Intro:CirculationsofDifferen"
+    },
+    {
+        "value": "ETHN 100B",
+        "label": "ETHN 100B - InterdisciplinaryMethodologies"
+    },
+    {
+        "value": "ETHN 100H",
+        "label": "ETHN 100H - Honors Research Design"
+    },
+    {
+        "value": "ETHN 101TV",
+        "label": "ETHN 101TV - Ethnic Images on TV"
+    },
+    {
+        "value": "ETHN 102",
+        "label": "ETHN 102 - Sci and Techn:Race/Gendr/Class"
+    },
+    {
+        "value": "ETHN 112B",
+        "label": "ETHN 112B - NativeAm& Indigenous Hist USII"
+    },
+    {
+        "value": "ETHN 119",
+        "label": "ETHN 119 - Race in the Americas"
+    },
+    {
+        "value": "ETHN 122",
+        "label": "ETHN 122 - Asian American Cult & Identity"
+    },
+    {
+        "value": "ETHN 125R",
+        "label": "ETHN 125R - R-Asian American History"
+    },
+    {
+        "value": "ETHN 133",
+        "label": "ETHN 133 - Latinx Theatre and Performance"
+    },
+    {
+        "value": "ETHN 134",
+        "label": "ETHN 134 - Immigration&Ethnicity/Amer Soc"
+    },
+    {
+        "value": "ETHN 137",
+        "label": "ETHN 137 - Latina Issues & Cultural Prod."
+    },
+    {
+        "value": "ETHN 138",
+        "label": "ETHN 138 - Black & Latinx Crossings"
+    },
+    {
+        "value": "ETHN 139",
+        "label": "ETHN 139 - Chicano Literature in English"
+    },
+    {
+        "value": "ETHN 143",
+        "label": "ETHN 143 - Chicana/o Film & Media Studies"
+    },
+    {
+        "value": "ETHN 163F",
+        "label": "ETHN 163F - Playing Indian:Native Am Cinem"
+    },
+    {
+        "value": "ETHN 165",
+        "label": "ETHN 165 - Gender&Sexuality/Af Am Comm."
+    },
+    {
+        "value": "ETHN 167A",
+        "label": "ETHN 167A - Decolonial Muslim Feminisms"
+    },
+    {
+        "value": "ETHN 174",
+        "label": "ETHN 174 - Themes/Afro-Americn Literature"
+    },
+    {
+        "value": "ETHN 179",
+        "label": "ETHN 179 - Discover Jazz"
+    },
+    {
+        "value": "ETHN 187",
+        "label": "ETHN 187 - Latinx Sexualities"
+    },
+    {
+        "value": "ETHN 198",
+        "label": "ETHN 198 - Directed Group Studies"
+    },
+    {
+        "value": "FILM 87",
+        "label": "FILM 87 - First-year Seminar"
+    },
+    {
+        "value": "GLBH 20",
+        "label": "GLBH 20 - Introduction to Global Health"
+    },
+    {
+        "value": "GLBH 100",
+        "label": "GLBH 100 - Special Topics/Global Health"
+    },
+    {
+        "value": "GLBH 109",
+        "label": "GLBH 109 - Decolonizing Global Health"
+    },
+    {
+        "value": "GLBH 111",
+        "label": "GLBH 111 - Health Frontiers in Tijuana"
+    },
+    {
+        "value": "GLBH 113",
+        "label": "GLBH 113 - Women's Health/Global Persp"
+    },
+    {
+        "value": "GLBH 139",
+        "label": "GLBH 139 - Native American Health"
+    },
+    {
+        "value": "GLBH 141",
+        "label": "GLBH 141 - Clinical Perspectives in GH"
+    },
+    {
+        "value": "GLBH 146",
+        "label": "GLBH 146 - Global Health Persp/HIV"
+    },
+    {
+        "value": "GLBH 148",
+        "label": "GLBH 148 - Global Health&Cultrl Diversity"
+    },
+    {
+        "value": "GLBH 150",
+        "label": "GLBH 150 - Culture and Mental Health"
+    },
+    {
+        "value": "GLBH 150A",
+        "label": "GLBH 150A - Horizons Honors Thesis Sem I"
+    },
+    {
+        "value": "GLBH 160",
+        "label": "GLBH 160 - Global Health Policy"
+    },
+    {
+        "value": "GLBH 171R",
+        "label": "GLBH 171R - Global Mental Health"
+    },
+    {
+        "value": "GLBH 181",
+        "label": "GLBH 181 - Essentials of Global Health"
+    },
+    {
+        "value": "GSS 22",
+        "label": "GSS 22 - LatinAm Carib History Culture"
+    },
+    {
+        "value": "GSS 27",
+        "label": "GSS 27 - SE Asia History & Culture"
+    },
+    {
+        "value": "HDS 60",
+        "label": "HDS 60 - Intro to Statistical Analysis"
+    },
+    {
+        "value": "HDS 95",
+        "label": "HDS 95 - Career Development Seminar"
+    },
+    {
+        "value": "HDS 110",
+        "label": "HDS 110 - Brain & Behavioral Development"
+    },
+    {
+        "value": "HDS 133",
+        "label": "HDS 133 - Cross-Cultural Perspectives"
+    },
+    {
+        "value": "HDS 150",
+        "label": "HDS 150 - Senior Seminar"
+    },
+    {
+        "value": "HDS 175",
+        "label": "HDS 175 - PowerWealth&Inequality/HumDev"
+    },
+    {
+        "value": "HDS 177",
+        "label": "HDS 177 - EducationalEquity&Development"
+    },
+    {
+        "value": "HDS 181",
+        "label": "HDS 181 - Exper Proj/Human Dev. Resear"
+    },
+    {
+        "value": "HDS 191",
+        "label": "HDS 191 - Field Resrch/Human Development"
+    },
+    {
+        "value": "HIAF 113",
+        "label": "HIAF 113 - SmallWars GloblOrdr/Afrca&Asia"
+    },
+    {
+        "value": "HIAF 114",
+        "label": "HIAF 114 - Black Internationalism"
+    },
+    {
+        "value": "HIEA 140R",
+        "label": "HIEA 140R - China Since 1978"
+    },
+    {
+        "value": "HIEA 150",
+        "label": "HIEA 150 - Modern Korea, 1800-1945"
+    },
+    {
+        "value": "HIEU 103",
+        "label": "HIEU 103 - Decline and Fall/Roman Empire"
+    },
+    {
+        "value": "HIEU 116B",
+        "label": "HIEU 116B - Greece/Balkans/Age/Nationalism"
+    },
+    {
+        "value": "HIEU 123",
+        "label": "HIEU 123 - Classical Greek History"
+    },
+    {
+        "value": "HIEU 147",
+        "label": "HIEU 147 - Europe and the World I"
+    },
+    {
+        "value": "HIEU 149",
+        "label": "HIEU 149 - Medieval Spain"
+    },
+    {
+        "value": "HILA 100",
+        "label": "HILA 100 - Conquest/Empire: The Americas"
+    },
+    {
+        "value": "HILA 102",
+        "label": "HILA 102 - Latin America/Twentieth Centry"
+    },
+    {
+        "value": "HILA 121B",
+        "label": "HILA 121B - History of Brazil 1889-Present"
+    },
+    {
+        "value": "HILA 167",
+        "label": "HILA 167 - Schlr/Latin Am Hist/Colonial"
+    },
+    {
+        "value": "HILD 2B",
+        "label": "HILD 2B - United States History"
+    },
+    {
+        "value": "HILD 7A",
+        "label": "HILD 7A - Race & Ethnicity/United States"
+    },
+    {
+        "value": "HILD 11",
+        "label": "HILD 11 - East Asia & the West,1279-1911"
+    },
+    {
+        "value": "HILD 41",
+        "label": "HILD 41 - The First Global Era 1400-1750"
+    },
+    {
+        "value": "HINE 109",
+        "label": "HINE 109 - History of the Ottoman Empire"
+    },
+    {
+        "value": "HINE 118",
+        "label": "HINE 118 - Middle East/Twentieth Century"
+    },
+    {
+        "value": "HINE 125",
+        "label": "HINE 125 - Jews in Greek and Roman World"
+    },
+    {
+        "value": "HINE 186",
+        "label": "HINE 186 - Topics/Middle Eastern History"
+    },
+    {
+        "value": "HISA 110",
+        "label": "HISA 110 - Modern India and South Asia"
+    },
+    {
+        "value": "HISA 144",
+        "label": "HISA 144 - Topics in South Asian History"
+    },
+    {
+        "value": "HISC 109",
+        "label": "HISC 109 - Invention of Tropical Disease"
+    },
+    {
+        "value": "HISC 115",
+        "label": "HISC 115 - History Modern Medicine"
+    },
+    {
+        "value": "HISC 180",
+        "label": "HISC 180 - Science and Public Policy"
+    },
+    {
+        "value": "HITO 87",
+        "label": "HITO 87 - First-year Seminar"
+    },
+    {
+        "value": "HITO 100",
+        "label": "HITO 100 - The Craft of History"
+    },
+    {
+        "value": "HITO 133",
+        "label": "HITO 133 - War & Society/Second World War"
+    },
+    {
+        "value": "HITO 178",
+        "label": "HITO 178 - Hist of Seafaring/Age of Sail"
+    },
+    {
+        "value": "HITO 193",
+        "label": "HITO 193 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "HITO 195",
+        "label": "HITO 195 - Honors Essay"
+    },
+    {
+        "value": "HIUS 108B",
+        "label": "HIUS 108B - History/Native Americans/US II"
+    },
+    {
+        "value": "HIUS 133",
+        "label": "HIUS 133 - The Golden Age of Piracy"
+    },
+    {
+        "value": "HIUS 146",
+        "label": "HIUS 146 - Race, Riots & Violence in U.S."
+    },
+    {
+        "value": "HIUS 152B",
+        "label": "HIUS 152B - Constitutnl Hist/US after 1865"
+    },
+    {
+        "value": "HIUS 180",
+        "label": "HIUS 180 - Immigration&Ethnicity/Amer Soc"
+    },
+    {
+        "value": "HIUS 198",
+        "label": "HIUS 198 - Directed Group Study"
+    },
+    {
+        "value": "HUM 1",
+        "label": "HUM 1 - Foundatns/West Civ:Israel&Grce"
+    },
+    {
+        "value": "HUM 2",
+        "label": "HUM 2 - Rome,Christianity&Middle Ages"
+    },
+    {
+        "value": "HUM 4",
+        "label": "HUM 4 - EnlightmntRomantic&Revolution"
+    },
+    {
+        "value": "HUM 100",
+        "label": "HUM 100 - Advanced Topics/Humanities"
+    },
+    {
+        "value": "HUM 198",
+        "label": "HUM 198 - Directed Group Study"
+    },
+    {
+        "value": "INTL 100",
+        "label": "INTL 100 - Analysis/Argument/Real-World"
+    },
+    {
+        "value": "INTL 101",
+        "label": "INTL 101 - Cult & Society/Intrn'l Perspec"
+    },
+    {
+        "value": "INTL 102",
+        "label": "INTL 102 - Econ, Politics & Intn'l Change"
+    },
+    {
+        "value": "INTL 190",
+        "label": "INTL 190 - Seminar/International Studies"
+    },
+    {
+        "value": "JAPN 10B",
+        "label": "JAPN 10B - First Year Japanese II"
+    },
+    {
+        "value": "JAPN 10BR",
+        "label": "JAPN 10BR - First Year Japanese II"
+    },
+    {
+        "value": "JAPN 20B",
+        "label": "JAPN 20B - Second Year Japanese II"
+    },
+    {
+        "value": "JAPN 130B",
+        "label": "JAPN 130B - Third Year Japanese II"
+    },
+    {
+        "value": "JAPN 135B",
+        "label": "JAPN 135B - Prof. Skills Japanese II"
+    },
+    {
+        "value": "JAPN 137B",
+        "label": "JAPN 137B - Business Japanese II"
+    },
+    {
+        "value": "JAPN 140B",
+        "label": "JAPN 140B - Fourth Year Japanese II"
+    },
+    {
+        "value": "JAPN 150A",
+        "label": "JAPN 150A - Advanced Japanese I"
+    },
+    {
+        "value": "JAPN 190",
+        "label": "JAPN 190 - Japanese St Research Seminar"
+    },
+    {
+        "value": "JWSP 2",
+        "label": "JWSP 2 - Intermediate Hebrew"
+    },
+    {
+        "value": "LATI 10",
+        "label": "LATI 10 - Lat Amer Studies&US Liberation"
+    },
+    {
+        "value": "LATI 50",
+        "label": "LATI 50 - Introduction to Latin America"
+    },
+    {
+        "value": "LATI 140",
+        "label": "LATI 140 - Decolonial Thght&Pract/Lat Am"
+    },
+    {
+        "value": "LATI 170",
+        "label": "LATI 170 - Social Science Rsrch/Lat Am"
+    },
+    {
+        "value": "LATI 180",
+        "label": "LATI 180 - Special Topic/Lat Amer Studies"
+    },
+    {
+        "value": "LATI 190",
+        "label": "LATI 190 - Senior Seminar"
+    },
+    {
+        "value": "LAWS 101",
+        "label": "LAWS 101 - Contemporary Legal Issues"
+    },
+    {
+        "value": "LIAB 1B",
+        "label": "LIAB 1B - Arabic Conversation"
+    },
+    {
+        "value": "LIAB 1BX",
+        "label": "LIAB 1BX - Analysis of Arabic"
+    },
+    {
+        "value": "LIAB 1E",
+        "label": "LIAB 1E - Intermediate Arabic Conversatn"
+    },
+    {
+        "value": "LIDS 19",
+        "label": "LIDS 19 - Directed Study-Language"
+    },
+    {
+        "value": "LIFR 1B",
+        "label": "LIFR 1B - French Conversation"
+    },
+    {
+        "value": "LIFR 1BX",
+        "label": "LIFR 1BX - Analysis of French"
+    },
+    {
+        "value": "LIFR 1C",
+        "label": "LIFR 1C - French Conversation"
+    },
+    {
+        "value": "LIFR 1CX",
+        "label": "LIFR 1CX - Analysis of French"
+    },
+    {
+        "value": "LIFR 11",
+        "label": "LIFR 11 - Elementary French Reading"
+    },
+    {
+        "value": "LIGM 1B",
+        "label": "LIGM 1B - German Conversation"
+    },
+    {
+        "value": "LIGM 1BX",
+        "label": "LIGM 1BX - Analysis of German"
+    },
+    {
+        "value": "LIGM 11",
+        "label": "LIGM 11 - Elementary German Reading"
+    },
+    {
+        "value": "LIGN 8",
+        "label": "LIGN 8 - Languages & Cultures/America"
+    },
+    {
+        "value": "LIGN 17",
+        "label": "LIGN 17 - Making and Breaking Codes"
+    },
+    {
+        "value": "LIGN 101",
+        "label": "LIGN 101 - Introduction/Study of Language"
+    },
+    {
+        "value": "LIGN 111",
+        "label": "LIGN 111 - Phonology I"
+    },
+    {
+        "value": "LIGN 112",
+        "label": "LIGN 112 - Speech Sounds&Speech Disorders"
+    },
+    {
+        "value": "LIGN 121",
+        "label": "LIGN 121 - Syntax I"
+    },
+    {
+        "value": "LIGN 148",
+        "label": "LIGN 148 - Psycholinguist/Gesture&SignLan"
+    },
+    {
+        "value": "LIGN 150",
+        "label": "LIGN 150 - Historical Linguistics"
+    },
+    {
+        "value": "LIGN 169",
+        "label": "LIGN 169 - Info Theory Linguistics"
+    },
+    {
+        "value": "LIGN 172",
+        "label": "LIGN 172 - Psycholing Laboratory Projects"
+    },
+    {
+        "value": "LIGN 178",
+        "label": "LIGN 178 - Spanish Sociolinguistics"
+    },
+    {
+        "value": "LIGN 187",
+        "label": "LIGN 187 - Seminar on Special Topics"
+    },
+    {
+        "value": "LIGN 188R",
+        "label": "LIGN 188R - Intro to Research Methods"
+    },
+    {
+        "value": "LIGN 195",
+        "label": "LIGN 195 - Apprentice Teaching"
+    },
+    {
+        "value": "LIHL 112W",
+        "label": "LIHL 112W - Filipino for Filipino Speakers"
+    },
+    {
+        "value": "LIHL 114W",
+        "label": "LIHL 114W - Beginning Vietnamese for Vietn"
+    },
+    {
+        "value": "LIHL 117W",
+        "label": "LIHL 117W - Persian for Persian Speakers"
+    },
+    {
+        "value": "LIHL 118",
+        "label": "LIHL 118 - Cantonese for Cantonse Speaker"
+    },
+    {
+        "value": "LIHL 124W",
+        "label": "LIHL 124W - Int Vietnamese/Vietnamese Spkr"
+    },
+    {
+        "value": "LIHL 132W",
+        "label": "LIHL 132W - Adv Filipino/Filipino Spkrs"
+    },
+    {
+        "value": "LIHL 134W",
+        "label": "LIHL 134W - Adv Vietnamese/Vietnamese Spkr"
+    },
+    {
+        "value": "LIHL 138",
+        "label": "LIHL 138 - Adv Cantonese for Cant Speaker"
+    },
+    {
+        "value": "LIIT 1B",
+        "label": "LIIT 1B - Italian Conversation"
+    },
+    {
+        "value": "LIIT 1BX",
+        "label": "LIIT 1BX - Analysis of Italian"
+    },
+    {
+        "value": "LIPO 1B",
+        "label": "LIPO 1B - Portuguese Conversation"
+    },
+    {
+        "value": "LIPO 1BX",
+        "label": "LIPO 1BX - Analysis of Portuguese"
+    },
+    {
+        "value": "LIPO 17",
+        "label": "LIPO 17 - Int Brazil Portug: Ethnicity"
+    },
+    {
+        "value": "LISL 1B",
+        "label": "LISL 1B - American Sign Lang Conversatn"
+    },
+    {
+        "value": "LISL 1BX",
+        "label": "LISL 1BX - Analysis of American Sign Lang"
+    },
+    {
+        "value": "LISL 1C",
+        "label": "LISL 1C - American Sign Lang Conversatn"
+    },
+    {
+        "value": "LISL 1CX",
+        "label": "LISL 1CX - Analysis of American Sign Lang"
+    },
+    {
+        "value": "LISL 1E",
+        "label": "LISL 1E - Intrm/Amer Sign Lang Converstn"
+    },
+    {
+        "value": "LISP 1B",
+        "label": "LISP 1B - Spanish Conversation"
+    },
+    {
+        "value": "LISP 1BX",
+        "label": "LISP 1BX - Analysis of Spanish"
+    },
+    {
+        "value": "LISP 1C",
+        "label": "LISP 1C - Spanish Conversation"
+    },
+    {
+        "value": "LISP 1CX",
+        "label": "LISP 1CX - Analysis of Spanish"
+    },
+    {
+        "value": "LISP 16",
+        "label": "LISP 16 - Intermediate Spanish/Soc Sci"
+    },
+    {
+        "value": "LISP 18",
+        "label": "LISP 18 - Intermed Spanish/Health Sci"
+    },
+    {
+        "value": "LTAM 105",
+        "label": "LTAM 105 - Gndr & Sexlty/Latino-Chicano C"
+    },
+    {
+        "value": "LTAM 110",
+        "label": "LTAM 110 - Latin American Lit/Translation"
+    },
+    {
+        "value": "LTAM 120",
+        "label": "LTAM 120 - Ecocriticism in Latin America"
+    },
+    {
+        "value": "LTCS 11",
+        "label": "LTCS 11 - Legends/Fantasy/Sci-Fi"
+    },
+    {
+        "value": "LTCS 87",
+        "label": "LTCS 87 - First-year Seminar"
+    },
+    {
+        "value": "LTCS 108",
+        "label": "LTCS 108 - Gender, Race, & Artificial Int"
+    },
+    {
+        "value": "LTCS 111",
+        "label": "LTCS 111 - Topics/Pop Culture/Historical"
+    },
+    {
+        "value": "LTCS 131",
+        "label": "LTCS 131 - Topics/Queer Cultures"
+    },
+    {
+        "value": "LTEA 100A",
+        "label": "LTEA 100A - Classical Chin Poetry/Transltn"
+    },
+    {
+        "value": "LTEA 132",
+        "label": "LTEA 132 - Later Japanese Lit/Translatn"
+    },
+    {
+        "value": "LTEA 138",
+        "label": "LTEA 138 - Japanese Films"
+    },
+    {
+        "value": "LTEN 23",
+        "label": "LTEN 23 - Lit/British Isles:1832-Present"
+    },
+    {
+        "value": "LTEN 26",
+        "label": "LTEN 26 - Intro/Lit/US: 1865 - Present"
+    },
+    {
+        "value": "LTEN 27",
+        "label": "LTEN 27 - Intro/Afro-American Literature"
+    },
+    {
+        "value": "LTEN 112",
+        "label": "LTEN 112 - Shakespeare I: Elizabethan Prd"
+    },
+    {
+        "value": "LTEN 140",
+        "label": "LTEN 140 - British Novel: 1790-1830"
+    },
+    {
+        "value": "LTEN 142",
+        "label": "LTEN 142 - British Novel: 1830-1890"
+    },
+    {
+        "value": "LTEN 180",
+        "label": "LTEN 180 - Chicano Literature in English"
+    },
+    {
+        "value": "LTEN 181",
+        "label": "LTEN 181 - Asian American Literature"
+    },
+    {
+        "value": "LTEN 185",
+        "label": "LTEN 185 - Themes/Afro-Americn Literature"
+    },
+    {
+        "value": "LTEN 189",
+        "label": "LTEN 189 - 20th Century Postcolonial Lits"
+    },
+    {
+        "value": "LTEN 196",
+        "label": "LTEN 196 - Honors Thesis"
+    },
+    {
+        "value": "LTEU 105",
+        "label": "LTEU 105 - Medieval Studies"
+    },
+    {
+        "value": "LTEU 141",
+        "label": "LTEU 141 - French Literature/Translation"
+    },
+    {
+        "value": "LTEU 150C",
+        "label": "LTEU 150C - Russian&Soviet Lit/1917-Presnt"
+    },
+    {
+        "value": "LTFR 2B",
+        "label": "LTFR 2B - Intermediate French II"
+    },
+    {
+        "value": "LTFR 2C",
+        "label": "LTFR 2C - Intermediate French III"
+    },
+    {
+        "value": "LTFR 104",
+        "label": "LTFR 104 - Adv French Reading and Writing"
+    },
+    {
+        "value": "LTFR 115",
+        "label": "LTFR 115 - Themes/Intellect&Literary Hist"
+    },
+    {
+        "value": "LTGK 2",
+        "label": "LTGK 2 - Intermediate Greek I"
+    },
+    {
+        "value": "LTGK 104",
+        "label": "LTGK 104 - Greek Prose"
+    },
+    {
+        "value": "LTGM 2B",
+        "label": "LTGM 2B - Intermediate German II"
+    },
+    {
+        "value": "LTIT 2B",
+        "label": "LTIT 2B - Intermediate Italian II"
+    },
+    {
+        "value": "LTIT 115",
+        "label": "LTIT 115 - Medieval Studies"
+    },
+    {
+        "value": "LTKO 1B",
+        "label": "LTKO 1B - Beginning Korean:First Yr. II"
+    },
+    {
+        "value": "LTKO 2B",
+        "label": "LTKO 2B - Intermediate Korean:2nd Yr II"
+    },
+    {
+        "value": "LTKO 130W",
+        "label": "LTKO 130W - Third-Year Korean II"
+    },
+    {
+        "value": "LTLA 2",
+        "label": "LTLA 2 - Intermediate Latin I"
+    },
+    {
+        "value": "LTLA 105",
+        "label": "LTLA 105 - Topics in Latin Literature"
+    },
+    {
+        "value": "LTRU 1B",
+        "label": "LTRU 1B - First-Year Russian"
+    },
+    {
+        "value": "LTRU 2B",
+        "label": "LTRU 2B - Second Year Russian"
+    },
+    {
+        "value": "LTRU 104C",
+        "label": "LTRU 104C - Advanced Practicum in Russian"
+    },
+    {
+        "value": "LTRU 110C",
+        "label": "LTRU 110C - Russian&Soviet Lit/1917-Presnt"
+    },
+    {
+        "value": "LTSP 2A",
+        "label": "LTSP 2A - Intermediate Spanish I"
+    },
+    {
+        "value": "LTSP 2B",
+        "label": "LTSP 2B - Intermediate Spanish II"
+    },
+    {
+        "value": "LTSP 2C",
+        "label": "LTSP 2C - Intermediate Spanish III"
+    },
+    {
+        "value": "LTSP 2F",
+        "label": "LTSP 2F - Spanish Heritage Learners II"
+    },
+    {
+        "value": "LTSP 3F",
+        "label": "LTSP 3F - Spanish Heritage Learners III"
+    },
+    {
+        "value": "LTSP 100F",
+        "label": "LTSP 100F - Adv Span Heritage Lang & Cult"
+    },
+    {
+        "value": "LTSP 116",
+        "label": "LTSP 116 - Representatns/Span Colonialism"
+    },
+    {
+        "value": "LTSP 135B",
+        "label": "LTSP 135B - Modern Mexican Literature"
+    },
+    {
+        "value": "LTSP 145",
+        "label": "LTSP 145 - Hispanic Memory/HumRghts/Cultr"
+    },
+    {
+        "value": "LTSP 155",
+        "label": "LTSP 155 - Asia in Latin America"
+    },
+    {
+        "value": "LTSP 166",
+        "label": "LTSP 166 - Creative Writing"
+    },
+    {
+        "value": "LTSP 172",
+        "label": "LTSP 172 - Indigenista Themes/Latin-Amer"
+    },
+    {
+        "value": "LTWL 11",
+        "label": "LTWL 11 - Health and Literature"
+    },
+    {
+        "value": "LTWL 19B",
+        "label": "LTWL 19B - Intro/Ancient Greeks & Romans"
+    },
+    {
+        "value": "LTWL 102",
+        "label": "LTWL 102 - Life/Death Ancient Mesopotamia"
+    },
+    {
+        "value": "LTWL 120",
+        "label": "LTWL 120 - Popular Literature and Culture"
+    },
+    {
+        "value": "LTWL 124",
+        "label": "LTWL 124 - Science Fiction"
+    },
+    {
+        "value": "LTWL 165",
+        "label": "LTWL 165 - Literature & the Environment"
+    },
+    {
+        "value": "LTWL 180",
+        "label": "LTWL 180 - Film Studies&Lit:Film History"
+    },
+    {
+        "value": "LTWL 184",
+        "label": "LTWL 184 - Film Studies&Lit:Analysis/Txt"
+    },
+    {
+        "value": "LTWL 196",
+        "label": "LTWL 196 - Honors Thesis"
+    },
+    {
+        "value": "LTWR 8A",
+        "label": "LTWR 8A - Writing Fiction"
+    },
+    {
+        "value": "LTWR 8B",
+        "label": "LTWR 8B - Writing Poetry"
+    },
+    {
+        "value": "LTWR 101C",
+        "label": "LTWR 101C - Writing Fiction/Spanish Craft"
+    },
+    {
+        "value": "LTWR 109C",
+        "label": "LTWR 109C - Children's Literature Craft"
+    },
+    {
+        "value": "LTWR 110C",
+        "label": "LTWR 110C - Screen Writing Craft"
+    },
+    {
+        "value": "LTWR 113C",
+        "label": "LTWR 113C - Intercultural Writing Craft"
+    },
+    {
+        "value": "LTWR 114W",
+        "label": "LTWR 114W - Graphic Texts Workshop"
+    },
+    {
+        "value": "LTWR 115C",
+        "label": "LTWR 115C - Experimental Writing Craft"
+    },
+    {
+        "value": "LTWR 120C",
+        "label": "LTWR 120C - Personal Narrative Craft"
+    },
+    {
+        "value": "LTWR 121C",
+        "label": "LTWR 121C - Media Writing Craft"
+    },
+    {
+        "value": "LTWR 126W",
+        "label": "LTWR 126W - Creative Nonfiction Workshop"
+    },
+    {
+        "value": "LTWR 144",
+        "label": "LTWR 144 - The Teaching of Writing"
+    },
+    {
+        "value": "LTWR 196",
+        "label": "LTWR 196 - Honors Thesis"
+    },
+    {
+        "value": "MAE 8",
+        "label": "MAE 8 - MATLAB Program for Engr Analys"
+    },
+    {
+        "value": "MAE 20",
+        "label": "MAE 20 - Elements of Materials Science"
+    },
+    {
+        "value": "MAE 30A",
+        "label": "MAE 30A - Statics & Intro to Dynamics"
+    },
+    {
+        "value": "MAE 30B",
+        "label": "MAE 30B - Dynamics and Vibrations"
+    },
+    {
+        "value": "MAE 40",
+        "label": "MAE 40 - Linear Circuits"
+    },
+    {
+        "value": "MAE 101A",
+        "label": "MAE 101A - Introductory Fluid Mechanics"
+    },
+    {
+        "value": "MAE 101B",
+        "label": "MAE 101B - Advanced Fluid Mechanics"
+    },
+    {
+        "value": "MAE 114",
+        "label": "MAE 114 - Space Propulsion"
+    },
+    {
+        "value": "MAE 118",
+        "label": "MAE 118 - Intro to Energy & Environment"
+    },
+    {
+        "value": "MAE 120",
+        "label": "MAE 120 - Introduction to Nuclear Energy"
+    },
+    {
+        "value": "MAE 125",
+        "label": "MAE 125 - Building Energy Efficiency"
+    },
+    {
+        "value": "MAE 130",
+        "label": "MAE 130 - Advanced Vibrations"
+    },
+    {
+        "value": "MAE 131B",
+        "label": "MAE 131B - Solid Mechanics II"
+    },
+    {
+        "value": "MAE 142",
+        "label": "MAE 142 - Dynmcs&Control/Aerospace Vehic"
+    },
+    {
+        "value": "MAE 143A",
+        "label": "MAE 143A - Signals and Systems"
+    },
+    {
+        "value": "MAE 143B",
+        "label": "MAE 143B - Linear Control"
+    },
+    {
+        "value": "MAE 148",
+        "label": "MAE 148 - Intro to Autonomous Vehicles"
+    },
+    {
+        "value": "MAE 155A",
+        "label": "MAE 155A - Aerospace Engineering Design I"
+    },
+    {
+        "value": "MAE 156A",
+        "label": "MAE 156A - Fund. Prin./Mechanical Desgn I"
+    },
+    {
+        "value": "MAE 156B",
+        "label": "MAE 156B - Fund. Prin/Mechanical Desgn II"
+    },
+    {
+        "value": "MAE 160",
+        "label": "MAE 160 - Mechanical Behavior/Materials"
+    },
+    {
+        "value": "MAE 171A",
+        "label": "MAE 171A - Mechanical Engineering Lab I"
+    },
+    {
+        "value": "MAE 175A",
+        "label": "MAE 175A - Aerospace Engineering Lab"
+    },
+    {
+        "value": "MAE 180",
+        "label": "MAE 180 - Orbital Mechanics"
+    },
+    {
+        "value": "MAE 197",
+        "label": "MAE 197 - Engineering Internship"
+    },
+    {
+        "value": "MATH 2",
+        "label": "MATH 2 - Intro to College Mathematics"
+    },
+    {
+        "value": "MATH 3B",
+        "label": "MATH 3B - Foundations of Precalculus"
+    },
+    {
+        "value": "MATH 3C",
+        "label": "MATH 3C - Precalculus"
+    },
+    {
+        "value": "MATH 4C",
+        "label": "MATH 4C - Precalculus for Sci & Engn"
+    },
+    {
+        "value": "MATH 10A",
+        "label": "MATH 10A - Calculus I"
+    },
+    {
+        "value": "MATH 10B",
+        "label": "MATH 10B - Calculus II"
+    },
+    {
+        "value": "MATH 10C",
+        "label": "MATH 10C - Calculus III"
+    },
+    {
+        "value": "MATH 11",
+        "label": "MATH 11 - Calculus-Based Prob & Stats"
+    },
+    {
+        "value": "MATH 18",
+        "label": "MATH 18 - Linear Algebra"
+    },
+    {
+        "value": "MATH 20A",
+        "label": "MATH 20A - Calculus/Science & Engineering"
+    },
+    {
+        "value": "MATH 20B",
+        "label": "MATH 20B - Calculus/Science & Engineering"
+    },
+    {
+        "value": "MATH 20C",
+        "label": "MATH 20C - Calculus&Analyt Geom/Sci&Engnr"
+    },
+    {
+        "value": "MATH 20D",
+        "label": "MATH 20D - Intro/Differential Equations"
+    },
+    {
+        "value": "MATH 20E",
+        "label": "MATH 20E - Vector Calculus"
+    },
+    {
+        "value": "MATH 31BH",
+        "label": "MATH 31BH - Honors Multivariable Calculus"
+    },
+    {
+        "value": "MATH 87",
+        "label": "MATH 87 - First-year Seminar"
+    },
+    {
+        "value": "MATH 95",
+        "label": "MATH 95 - Introduction to Teaching Math"
+    },
+    {
+        "value": "MATH 100A",
+        "label": "MATH 100A - Abstract Algebra I"
+    },
+    {
+        "value": "MATH 100B",
+        "label": "MATH 100B - Abstract Algebra II"
+    },
+    {
+        "value": "MATH 102",
+        "label": "MATH 102 - Applied Linear Algebra"
+    },
+    {
+        "value": "MATH 103A",
+        "label": "MATH 103A - Modern Algebra I"
+    },
+    {
+        "value": "MATH 103B",
+        "label": "MATH 103B - Modern Algebra II"
+    },
+    {
+        "value": "MATH 104B",
+        "label": "MATH 104B - Number Theory II"
+    },
+    {
+        "value": "MATH 109",
+        "label": "MATH 109 - Mathematical Reasoning"
+    },
+    {
+        "value": "MATH 111B",
+        "label": "MATH 111B - Mathematical Modeling II"
+    },
+    {
+        "value": "MATH 112A",
+        "label": "MATH 112A - Intro/Mathematical Biology I"
+    },
+    {
+        "value": "MATH 120A",
+        "label": "MATH 120A - Elements of Complex Analysis"
+    },
+    {
+        "value": "MATH 121A",
+        "label": "MATH 121A - Found of Teachg/Learng Math I"
+    },
+    {
+        "value": "MATH 140A",
+        "label": "MATH 140A - Foundations of Real Analysis I"
+    },
+    {
+        "value": "MATH 140B",
+        "label": "MATH 140B - Foundations/Real Analysis II"
+    },
+    {
+        "value": "MATH 142A",
+        "label": "MATH 142A - Introduction to Analysis I"
+    },
+    {
+        "value": "MATH 142B",
+        "label": "MATH 142B - Introduction to Analysis II"
+    },
+    {
+        "value": "MATH 150A",
+        "label": "MATH 150A - Differential Geometry"
+    },
+    {
+        "value": "MATH 154",
+        "label": "MATH 154 - Discrete Math & Graph Theory"
+    },
+    {
+        "value": "MATH 170A",
+        "label": "MATH 170A - Intro Numerical Analys/Linear"
+    },
+    {
+        "value": "MATH 170B",
+        "label": "MATH 170B - Intro/Numerical Analy/Approxim"
+    },
+    {
+        "value": "MATH 171A",
+        "label": "MATH 171A - Intro Num Optimiz/Linear Prog"
+    },
+    {
+        "value": "MATH 173B",
+        "label": "MATH 173B - Optimization/Data Science II"
+    },
+    {
+        "value": "MATH 175",
+        "label": "MATH 175 - Numerical Methods for PDE"
+    },
+    {
+        "value": "MATH 180A",
+        "label": "MATH 180A - Introduction to Probability"
+    },
+    {
+        "value": "MATH 180B",
+        "label": "MATH 180B - Intro/Stochastic Processes I"
+    },
+    {
+        "value": "MATH 181A",
+        "label": "MATH 181A - Intro/Math Statistics I"
+    },
+    {
+        "value": "MATH 181E",
+        "label": "MATH 181E - Mathemat Statistic-Time Series"
+    },
+    {
+        "value": "MATH 183",
+        "label": "MATH 183 - Statistical Methods"
+    },
+    {
+        "value": "MATH 184",
+        "label": "MATH 184 - Enumerative Combinatorics"
+    },
+    {
+        "value": "MATH 185",
+        "label": "MATH 185 - Intro to Computational Stats"
+    },
+    {
+        "value": "MATH 186",
+        "label": "MATH 186 - Probablty Stats/Bioinformatics"
+    },
+    {
+        "value": "MATH 187A",
+        "label": "MATH 187A - Introduction to Cryptography"
+    },
+    {
+        "value": "MATH 189",
+        "label": "MATH 189 - Data Analysis and Inference"
+    },
+    {
+        "value": "MATH 190A",
+        "label": "MATH 190A - Foundations of Topology I"
+    },
+    {
+        "value": "MATH 196",
+        "label": "MATH 196 - Student Colloquium"
+    },
+    {
+        "value": "MATH 197",
+        "label": "MATH 197 - Industry Practicum"
+    },
+    {
+        "value": "MCWP 40",
+        "label": "MCWP 40 - Critical Writing"
+    },
+    {
+        "value": "MCWP 50",
+        "label": "MCWP 50 - Critical Writing"
+    },
+    {
+        "value": "MCWP 125",
+        "label": "MCWP 125 - Argument and Analysis"
+    },
+    {
+        "value": "MCWP 125R",
+        "label": "MCWP 125R - Argument and Analysis"
+    },
+    {
+        "value": "MMW 12",
+        "label": "MMW 12 - Transforming Traditions"
+    },
+    {
+        "value": "MMW 14",
+        "label": "MMW 14 - Divergent Paths to Modernity"
+    },
+    {
+        "value": "MMW 122",
+        "label": "MMW 122 - Exploring the Modern World"
+    },
+    {
+        "value": "MUS 1B",
+        "label": "MUS 1B - Fundamentals of Music B"
+    },
+    {
+        "value": "MUS 2B",
+        "label": "MUS 2B - Basic Musicianship"
+    },
+    {
+        "value": "MUS 2BK",
+        "label": "MUS 2BK - Basic Keyboard"
+    },
+    {
+        "value": "MUS 4",
+        "label": "MUS 4 - Introduction to Western Music"
+    },
+    {
+        "value": "MUS 6",
+        "label": "MUS 6 - Electronic Music"
+    },
+    {
+        "value": "MUS 9",
+        "label": "MUS 9 - Symphony"
+    },
+    {
+        "value": "MUS 12",
+        "label": "MUS 12 - Opera"
+    },
+    {
+        "value": "MUS 13",
+        "label": "MUS 13 - Worlds of Music"
+    },
+    {
+        "value": "MUS 15",
+        "label": "MUS 15 - Popular Music"
+    },
+    {
+        "value": "MUS 17",
+        "label": "MUS 17 - Hip-Hop"
+    },
+    {
+        "value": "MUS 20R",
+        "label": "MUS 20R - Exploring the Musical Mind"
+    },
+    {
+        "value": "MUS 32",
+        "label": "MUS 32 - Instrumental Instruction"
+    },
+    {
+        "value": "MUS 32V",
+        "label": "MUS 32V - Vocal Instruction"
+    },
+    {
+        "value": "MUS 32VM",
+        "label": "MUS 32VM - Vocal Master Class"
+    },
+    {
+        "value": "MUS 43",
+        "label": "MUS 43 - Department Seminar"
+    },
+    {
+        "value": "MUS 95C",
+        "label": "MUS 95C - Concert Choir"
+    },
+    {
+        "value": "MUS 95D",
+        "label": "MUS 95D - Symphonic Chorus"
+    },
+    {
+        "value": "MUS 95E",
+        "label": "MUS 95E - Chamber Orchestra"
+    },
+    {
+        "value": "MUS 95F",
+        "label": "MUS 95F - Percussion Ensemble"
+    },
+    {
+        "value": "MUS 95G",
+        "label": "MUS 95G - Gospel Choir"
+    },
+    {
+        "value": "MUS 95JC",
+        "label": "MUS 95JC - Jazz Chamber Ensembles"
+    },
+    {
+        "value": "MUS 95L",
+        "label": "MUS 95L - Wind Ensemble"
+    },
+    {
+        "value": "MUS 95P",
+        "label": "MUS 95P - Persian Music Ensemble"
+    },
+    {
+        "value": "MUS 95W",
+        "label": "MUS 95W - World Music Ensembles"
+    },
+    {
+        "value": "MUS 101B",
+        "label": "MUS 101B - Music Theory and Practice II"
+    },
+    {
+        "value": "MUS 103B",
+        "label": "MUS 103B - Seminar in Composition II"
+    },
+    {
+        "value": "MUS 103E",
+        "label": "MUS 103E - Honors Seminar in Composition"
+    },
+    {
+        "value": "MUS 107",
+        "label": "MUS 107 - Critical Studies Seminar"
+    },
+    {
+        "value": "MUS 111",
+        "label": "MUS 111 - Topics/World Music Traditions"
+    },
+    {
+        "value": "MUS 113",
+        "label": "MUS 113 - Topic/Classic&Romantc & Modern"
+    },
+    {
+        "value": "MUS 114",
+        "label": "MUS 114 - Music and Ideas Since 1900"
+    },
+    {
+        "value": "MUS 120B",
+        "label": "MUS 120B - Hist Mus in Westrn Culture II"
+    },
+    {
+        "value": "MUS 127",
+        "label": "MUS 127 - Discover Jazz"
+    },
+    {
+        "value": "MUS 130",
+        "label": "MUS 130 - Chamber Music Performance"
+    },
+    {
+        "value": "MUS 132",
+        "label": "MUS 132 - Pro-Seminar/Instrmntl Instruct"
+    },
+    {
+        "value": "MUS 132R",
+        "label": "MUS 132R - Recital Preparation"
+    },
+    {
+        "value": "MUS 132V",
+        "label": "MUS 132V - Pro-Seminar in Vocal Instruct"
+    },
+    {
+        "value": "MUS 134",
+        "label": "MUS 134 - Symphonic Orchestra"
+    },
+    {
+        "value": "MUS 137B",
+        "label": "MUS 137B - Jazz Theory and Improvisation"
+    },
+    {
+        "value": "MUS 143",
+        "label": "MUS 143 - Department Seminar"
+    },
+    {
+        "value": "MUS 160A",
+        "label": "MUS 160A - Senior Proj/Computing Arts I"
+    },
+    {
+        "value": "MUS 171",
+        "label": "MUS 171 - Computer Music I"
+    },
+    {
+        "value": "MUS 173B",
+        "label": "MUS 173B - Advanced Electronic Music Prod"
+    },
+    {
+        "value": "MUS 174B",
+        "label": "MUS 174B - Audio&MIDI StudioTechniques II"
+    },
+    {
+        "value": "MUS 176",
+        "label": "MUS 176 - Music Technology Seminar"
+    },
+    {
+        "value": "CENG 15",
+        "label": "CENG 15 - Engin. Comp Using MATLAB"
+    },
+    {
+        "value": "CENG 101A",
+        "label": "CENG 101A - Introductory Fluid Mechanics"
+    },
+    {
+        "value": "CENG 101B",
+        "label": "CENG 101B - Heat Transfer"
+    },
+    {
+        "value": "CENG 102",
+        "label": "CENG 102 - Chemical Engin Thermodynamics"
+    },
+    {
+        "value": "CENG 114",
+        "label": "CENG 114 - Prob and Stat Methods for Eng"
+    },
+    {
+        "value": "CENG 124A",
+        "label": "CENG 124A - Chem Plant & Process Design I"
+    },
+    {
+        "value": "CENG 134",
+        "label": "CENG 134 - Polymeric Materials"
+    },
+    {
+        "value": "CENG 176A",
+        "label": "CENG 176A - Chem Engineerng Process Lab I"
+    },
+    {
+        "value": "NANO 11",
+        "label": "NANO 11 - Intro to NanoEngineering"
+    },
+    {
+        "value": "NANO 15",
+        "label": "NANO 15 - Engin. Comp Using MATLAB"
+    },
+    {
+        "value": "NANO 104",
+        "label": "NANO 104 - Foundatn NanoEng/Physical Prin"
+    },
+    {
+        "value": "NANO 107",
+        "label": "NANO 107 - Elect Dev&Circuits for NanoEng"
+    },
+    {
+        "value": "NANO 114",
+        "label": "NANO 114 - Prob and Stat Methods for Eng"
+    },
+    {
+        "value": "NANO 117",
+        "label": "NANO 117 - Multi-scale Transport"
+    },
+    {
+        "value": "NANO 120A",
+        "label": "NANO 120A - NanoEng Systems Design I"
+    },
+    {
+        "value": "NANO 134",
+        "label": "NANO 134 - Polymeric Materials"
+    },
+    {
+        "value": "NANO 141A",
+        "label": "NANO 141A - Eng Mech I: Analysis of Equil"
+    },
+    {
+        "value": "NANO 168",
+        "label": "NANO 168 - Electr/Dielectr/Magnetic Propr"
+    },
+    {
+        "value": "PHIL 2",
+        "label": "PHIL 2 - Puzzles and Paradoxes"
+    },
+    {
+        "value": "PHIL 10",
+        "label": "PHIL 10 - Introduction to Logic"
+    },
+    {
+        "value": "PHIL 12",
+        "label": "PHIL 12 - Scientific Reasoning"
+    },
+    {
+        "value": "PHIL 16",
+        "label": "PHIL 16 - Science Fiction and Philosophy"
+    },
+    {
+        "value": "PHIL 24",
+        "label": "PHIL 24 - Science and Pseudoscience"
+    },
+    {
+        "value": "PHIL 27",
+        "label": "PHIL 27 - Ethics And Society"
+    },
+    {
+        "value": "PHIL 28",
+        "label": "PHIL 28 - Ethics And Society II"
+    },
+    {
+        "value": "PHIL 32",
+        "label": "PHIL 32 - Philosphy & Rise of Modern Sci"
+    },
+    {
+        "value": "PHIL 35",
+        "label": "PHIL 35 - Philosophy in the Americas"
+    },
+    {
+        "value": "PHIL 51",
+        "label": "PHIL 51 - Climate Ethics"
+    },
+    {
+        "value": "PHIL 65",
+        "label": "PHIL 65 - Language and Power"
+    },
+    {
+        "value": "PHIL 90",
+        "label": "PHIL 90 - Basic Problems in Philosophy"
+    },
+    {
+        "value": "PHIL 100",
+        "label": "PHIL 100 - Plato"
+    },
+    {
+        "value": "PHIL 107",
+        "label": "PHIL 107 - Hegel"
+    },
+    {
+        "value": "PHIL 111",
+        "label": "PHIL 111 - History of Phil: Early Modern"
+    },
+    {
+        "value": "PHIL 122",
+        "label": "PHIL 122 - Advanced Topics in Logic"
+    },
+    {
+        "value": "PHIL 132",
+        "label": "PHIL 132 - Epistemology"
+    },
+    {
+        "value": "PHIL 136",
+        "label": "PHIL 136 - Philosophy of Mind"
+    },
+    {
+        "value": "PHIL 138",
+        "label": "PHIL 138 - Responsibility"
+    },
+    {
+        "value": "PHIL 149",
+        "label": "PHIL 149 - Philosophy of Psychology"
+    },
+    {
+        "value": "PHIL 163",
+        "label": "PHIL 163 - Bio-Medical Ethics"
+    },
+    {
+        "value": "PHIL 167",
+        "label": "PHIL 167 - Contemporary Political Phil"
+    },
+    {
+        "value": "PHIL 176",
+        "label": "PHIL 176 - Philosophy of Culture"
+    },
+    {
+        "value": "PHIL 177",
+        "label": "PHIL 177 - Philosophy and Literature"
+    },
+    {
+        "value": "PHIL 185",
+        "label": "PHIL 185 - Philosophy of Religion"
+    },
+    {
+        "value": "PHIL 191A",
+        "label": "PHIL 191A - Philosophy Honors"
+    },
+    {
+        "value": "PHIL 191B",
+        "label": "PHIL 191B - The Honors Essay"
+    },
+    {
+        "value": "PHYS 1A",
+        "label": "PHYS 1A - Mechanics"
+    },
+    {
+        "value": "PHYS 1AL",
+        "label": "PHYS 1AL - Mechanics Laboratory"
+    },
+    {
+        "value": "PHYS 1B",
+        "label": "PHYS 1B - Electricity and Magnetism"
+    },
+    {
+        "value": "PHYS 1BL",
+        "label": "PHYS 1BL - Electricity & Magnetism Lab"
+    },
+    {
+        "value": "PHYS 1C",
+        "label": "PHYS 1C - Waves, Optics & Modern Physics"
+    },
+    {
+        "value": "PHYS 1CL",
+        "label": "PHYS 1CL - Waves,Optics&Modrn Phys Lab"
+    },
+    {
+        "value": "PHYS 2A",
+        "label": "PHYS 2A - Physics-Mechanics"
+    },
+    {
+        "value": "PHYS 2B",
+        "label": "PHYS 2B - Phys-Electricity and Magnetism"
+    },
+    {
+        "value": "PHYS 2C",
+        "label": "PHYS 2C - Physics-Flu,Wav,Thrmdyn,Optics"
+    },
+    {
+        "value": "PHYS 2CL",
+        "label": "PHYS 2CL - Phys Lab-Elec&Magnetism"
+    },
+    {
+        "value": "PHYS 2D",
+        "label": "PHYS 2D - Phys-Relativity&Quantm Physics"
+    },
+    {
+        "value": "PHYS 4A",
+        "label": "PHYS 4A - Physics/Physics Majrs-Mechancs"
+    },
+    {
+        "value": "PHYS 4D",
+        "label": "PHYS 4D - Phys Majrs-EM Wav,Spec Rel,Opt"
+    },
+    {
+        "value": "PHYS 12",
+        "label": "PHYS 12 - Energy and the Environment"
+    },
+    {
+        "value": "PHYS 39",
+        "label": "PHYS 39 - Phys Intro Spec. Topics"
+    },
+    {
+        "value": "PHYS 41",
+        "label": "PHYS 41 - Scientific Computing w/ Python"
+    },
+    {
+        "value": "PHYS 87",
+        "label": "PHYS 87 - First-year Seminar"
+    },
+    {
+        "value": "PHYS 100B",
+        "label": "PHYS 100B - Electromagnetism II"
+    },
+    {
+        "value": "PHYS 105A",
+        "label": "PHYS 105A - Mathematical&Computatnl Phy I"
+    },
+    {
+        "value": "PHYS 110B",
+        "label": "PHYS 110B - Mechanics II"
+    },
+    {
+        "value": "PHYS 124",
+        "label": "PHYS 124 - Laboratory Projects"
+    },
+    {
+        "value": "PHYS 130A",
+        "label": "PHYS 130A - Quantum Physics I"
+    },
+    {
+        "value": "PHYS 130C",
+        "label": "PHYS 130C - Quantum Physics III"
+    },
+    {
+        "value": "PHYS 136",
+        "label": "PHYS 136 - Nuclear Physics"
+    },
+    {
+        "value": "PHYS 139",
+        "label": "PHYS 139 - Special Topics"
+    },
+    {
+        "value": "PHYS 140B",
+        "label": "PHYS 140B - Statistical & Thermal Phys II"
+    },
+    {
+        "value": "PHYS 142",
+        "label": "PHYS 142 - Comp Phys II:PDE & Matrix Modl"
+    },
+    {
+        "value": "PHYS 152A",
+        "label": "PHYS 152A - Condensed Matter Physics"
+    },
+    {
+        "value": "PHYS 160",
+        "label": "PHYS 160 - Stars and Compact Objects"
+    },
+    {
+        "value": "PHYS 176",
+        "label": "PHYS 176 - Quantitative Microbiology"
+    },
+    {
+        "value": "PHYS 178",
+        "label": "PHYS 178 - Biophysics/Neurons & Networks"
+    },
+    {
+        "value": "POLI 5D",
+        "label": "POLI 5D - Data Analytics/Social Sciences"
+    },
+    {
+        "value": "POLI 10D",
+        "label": "POLI 10D - Intro/Poli Sci:Amer Politics"
+    },
+    {
+        "value": "POLI 11D",
+        "label": "POLI 11D - Intro/Poli Sci:Compar Politics"
+    },
+    {
+        "value": "POLI 87",
+        "label": "POLI 87 - First-year Seminar"
+    },
+    {
+        "value": "POLI 100W",
+        "label": "POLI 100W - Politics,Policy,& Educ Inequal"
+    },
+    {
+        "value": "POLI 104B",
+        "label": "POLI 104B - Civil Liberties-Fundmntl Rghts"
+    },
+    {
+        "value": "POLI 104C",
+        "label": "POLI 104C - Civil Liberties-Rts Accu&Minor"
+    },
+    {
+        "value": "POLI 104J",
+        "label": "POLI 104J - Introduction/Legal Reasoning"
+    },
+    {
+        "value": "POLI 104U",
+        "label": "POLI 104U - Introduction to Business Law"
+    },
+    {
+        "value": "POLI 108",
+        "label": "POLI 108 - Politics of Multiculturalism"
+    },
+    {
+        "value": "POLI 110B",
+        "label": "POLI 110B - Sovereigns,Subj & Modern State"
+    },
+    {
+        "value": "POLI 113BR",
+        "label": "POLI 113BR - Chin/Japn Political Thought I"
+    },
+    {
+        "value": "POLI 114BR",
+        "label": "POLI 114BR - Marxist Political Thought"
+    },
+    {
+        "value": "POLI 117R",
+        "label": "POLI 117R - Bending/Curve: Climate Change"
+    },
+    {
+        "value": "POLI 118",
+        "label": "POLI 118 - Game Theory/Political Science"
+    },
+    {
+        "value": "POLI 120G",
+        "label": "POLI 120G - British Politics"
+    },
+    {
+        "value": "POLI 124A",
+        "label": "POLI 124A - Pol Conseq/Electoral Systems"
+    },
+    {
+        "value": "POLI 127",
+        "label": "POLI 127 - Politics of Development"
+    },
+    {
+        "value": "POLI 135",
+        "label": "POLI 135 - Comparative LGBT Politics"
+    },
+    {
+        "value": "POLI 137",
+        "label": "POLI 137 - Sports Analytics Apprch/SocSci"
+    },
+    {
+        "value": "POLI 138",
+        "label": "POLI 138 - Populist Parties and Democracy"
+    },
+    {
+        "value": "POLI 142J",
+        "label": "POLI 142J - National Security Strategy"
+    },
+    {
+        "value": "POLI 142L",
+        "label": "POLI 142L - Insurgency and Terrorism"
+    },
+    {
+        "value": "POLI 147B",
+        "label": "POLI 147B - Russian-American Relations"
+    },
+    {
+        "value": "POLI 153",
+        "label": "POLI 153 - The EU in World Politics"
+    },
+    {
+        "value": "POLI 160AA",
+        "label": "POLI 160AA - Introduction/Policy Analysis"
+    },
+    {
+        "value": "POLI 191B",
+        "label": "POLI 191B - Senr Hon Sem:Frontier/POLI II"
+    },
+    {
+        "value": "POLI 194",
+        "label": "POLI 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "POLI 195",
+        "label": "POLI 195 - Apprentice Teaching"
+    },
+    {
+        "value": "POLI 197SD",
+        "label": "POLI 197SD - Local Internship Pol Sci"
+    },
+    {
+        "value": "POLI 198RA",
+        "label": "POLI 198RA - Research Apprenticeship"
+    },
+    {
+        "value": "PSYC 1",
+        "label": "PSYC 1 - Psychology"
+    },
+    {
+        "value": "PSYC 2",
+        "label": "PSYC 2 - Gen Psych:Biological Foundatns"
+    },
+    {
+        "value": "PSYC 4",
+        "label": "PSYC 4 - General Psychology: Behavioral"
+    },
+    {
+        "value": "PSYC 60",
+        "label": "PSYC 60 - Introduction to Statistics"
+    },
+    {
+        "value": "PSYC 70",
+        "label": "PSYC 70 - Research Methods in Psychology"
+    },
+    {
+        "value": "PSYC 71",
+        "label": "PSYC 71 - Lab/Psych Research Methods"
+    },
+    {
+        "value": "PSYC 99",
+        "label": "PSYC 99 - Independent Study"
+    },
+    {
+        "value": "PSYC 101",
+        "label": "PSYC 101 - Developmental Psychology"
+    },
+    {
+        "value": "PSYC 102",
+        "label": "PSYC 102 - Sensory Neuroscience"
+    },
+    {
+        "value": "PSYC 105",
+        "label": "PSYC 105 - Cognitive Psychology"
+    },
+    {
+        "value": "PSYC 106",
+        "label": "PSYC 106 - Behavioral Neuroscience"
+    },
+    {
+        "value": "PSYC 108",
+        "label": "PSYC 108 - Cognitive Neuroscience"
+    },
+    {
+        "value": "PSYC 110",
+        "label": "PSYC 110 - Junior Honors Research Seminar"
+    },
+    {
+        "value": "PSYC 111A",
+        "label": "PSYC 111A - Research Methods I"
+    },
+    {
+        "value": "PSYC 116B",
+        "label": "PSYC 116B - Lab/Clinical Psych Research II"
+    },
+    {
+        "value": "PSYC 124",
+        "label": "PSYC 124 - Clinical Assessment/Treatment"
+    },
+    {
+        "value": "PSYC 125",
+        "label": "PSYC 125 - Clinical Neuropsychology"
+    },
+    {
+        "value": "PSYC 137",
+        "label": "PSYC 137 - Social Cognition"
+    },
+    {
+        "value": "PSYC 144",
+        "label": "PSYC 144 - Memory and Amnesia"
+    },
+    {
+        "value": "PSYC 148",
+        "label": "PSYC 148 - Psychology/Judgement&Decision"
+    },
+    {
+        "value": "PSYC 151",
+        "label": "PSYC 151 - Tests and Measurement"
+    },
+    {
+        "value": "PSYC 153",
+        "label": "PSYC 153 - Psychology of Emotion"
+    },
+    {
+        "value": "PSYC 154",
+        "label": "PSYC 154 - Behavior Modification"
+    },
+    {
+        "value": "PSYC 162",
+        "label": "PSYC 162 - Psychology and the Law"
+    },
+    {
+        "value": "PSYC 168",
+        "label": "PSYC 168 - Psychological Disorders/Child"
+    },
+    {
+        "value": "PSYC 172",
+        "label": "PSYC 172 - Psychology of Human Sexuality"
+    },
+    {
+        "value": "PSYC 175",
+        "label": "PSYC 175 - Mindfulness and Wellbeing"
+    },
+    {
+        "value": "PSYC 179",
+        "label": "PSYC 179 - Drugs,Addiction&Mental Disordr"
+    },
+    {
+        "value": "PSYC 181",
+        "label": "PSYC 181 - Drugs And Behavior"
+    },
+    {
+        "value": "PSYC 184",
+        "label": "PSYC 184 - Choice and Self-Control"
+    },
+    {
+        "value": "PSYC 185",
+        "label": "PSYC 185 - Psychology Climate Crisis"
+    },
+    {
+        "value": "PSYC 187",
+        "label": "PSYC 187 - Development/Social Cognition"
+    },
+    {
+        "value": "PSYC 193",
+        "label": "PSYC 193 - Topics in Psychology"
+    },
+    {
+        "value": "PSYC 193L",
+        "label": "PSYC 193L - Psychology Laboratory Topics"
+    },
+    {
+        "value": "PSYC 194B",
+        "label": "PSYC 194B - Honors Thesis II"
+    },
+    {
+        "value": "PSYC 196C",
+        "label": "PSYC 196C - Research Thesis Seminar III"
+    },
+    {
+        "value": "RELI 101",
+        "label": "RELI 101 - Tools&Methods/Studyof Religion"
+    },
+    {
+        "value": "REV 20",
+        "label": "REV 20 - Revelle Honors Seminar"
+    },
+    {
+        "value": "REV 87",
+        "label": "REV 87 - First-year Seminar"
+    },
+    {
+        "value": "MGT 3",
+        "label": "MGT 3 - Quant Methods in Business"
+    },
+    {
+        "value": "MGT 4",
+        "label": "MGT 4 - Financial Accounting"
+    },
+    {
+        "value": "MGT 5",
+        "label": "MGT 5 - Managerial Accounting"
+    },
+    {
+        "value": "MGT 12",
+        "label": "MGT 12 - Personal Financial Management"
+    },
+    {
+        "value": "MGT 16",
+        "label": "MGT 16 - Personal Ethics at Work"
+    },
+    {
+        "value": "MGT 18",
+        "label": "MGT 18 - Managing Diverse Teams"
+    },
+    {
+        "value": "MGT 45",
+        "label": "MGT 45 - Principles of Accounting"
+    },
+    {
+        "value": "MGT 52",
+        "label": "MGT 52 - Test & Measurement at Work"
+    },
+    {
+        "value": "MGT 71R",
+        "label": "MGT 71R - Business & Operations Mgt"
+    },
+    {
+        "value": "MGT 100",
+        "label": "MGT 100 - Customer Analytics"
+    },
+    {
+        "value": "MGT 103",
+        "label": "MGT 103 - Product Marketing & Management"
+    },
+    {
+        "value": "MGT 105",
+        "label": "MGT 105 - Product Promotion & Brand Mgt"
+    },
+    {
+        "value": "MGT 106",
+        "label": "MGT 106 - Sales and Sales Management"
+    },
+    {
+        "value": "MGT 107",
+        "label": "MGT 107 - Consumer Behavior"
+    },
+    {
+        "value": "MGT 109",
+        "label": "MGT 109 - Topics in Marketing"
+    },
+    {
+        "value": "MGT 112",
+        "label": "MGT 112 - Global Business Strategy"
+    },
+    {
+        "value": "MGT 119",
+        "label": "MGT 119 - Topics in Business"
+    },
+    {
+        "value": "MGT 121A",
+        "label": "MGT 121A - Innovation to Market A"
+    },
+    {
+        "value": "MGT 123",
+        "label": "MGT 123 - Business/Hlthcare&LifeSciences"
+    },
+    {
+        "value": "MGT 127R",
+        "label": "MGT 127R - Innovation and Tech Strategy"
+    },
+    {
+        "value": "MGT 131A",
+        "label": "MGT 131A - Intermediate Accounting A"
+    },
+    {
+        "value": "MGT 131B",
+        "label": "MGT 131B - Intermediate Accounting B"
+    },
+    {
+        "value": "MGT 135",
+        "label": "MGT 135 - Federal Taxation-Companies"
+    },
+    {
+        "value": "MGT 136",
+        "label": "MGT 136 - Advanced Accounting"
+    },
+    {
+        "value": "MGT 137",
+        "label": "MGT 137 - Financial Statement Analysis"
+    },
+    {
+        "value": "MGT 151R",
+        "label": "MGT 151R - Business Analytics"
+    },
+    {
+        "value": "MGT 153",
+        "label": "MGT 153 - Info Tech - Business Analytics"
+    },
+    {
+        "value": "MGT 160",
+        "label": "MGT 160 - Experiments in Firms"
+    },
+    {
+        "value": "MGT 162",
+        "label": "MGT 162 - Negotiations"
+    },
+    {
+        "value": "MGT 162R",
+        "label": "MGT 162R - Negotiations"
+    },
+    {
+        "value": "MGT 164",
+        "label": "MGT 164 - Business and Org Leadership"
+    },
+    {
+        "value": "MGT 166",
+        "label": "MGT 166 - Corp Social Responsibility"
+    },
+    {
+        "value": "MGT 167",
+        "label": "MGT 167 - Social Entrepreneurship"
+    },
+    {
+        "value": "MGT 172",
+        "label": "MGT 172 - Business Project Management"
+    },
+    {
+        "value": "MGT 173",
+        "label": "MGT 173 - Project Mgt- Health Services"
+    },
+    {
+        "value": "MGT 175",
+        "label": "MGT 175 - Supply Chain Management"
+    },
+    {
+        "value": "MGT 176",
+        "label": "MGT 176 - Strategic Cost Management"
+    },
+    {
+        "value": "MGT 180R",
+        "label": "MGT 180R - Business Finance"
+    },
+    {
+        "value": "MGT 181",
+        "label": "MGT 181 - Enterprise Finance"
+    },
+    {
+        "value": "MGT 187",
+        "label": "MGT 187 - New Venture Finance"
+    },
+    {
+        "value": "MGT 189",
+        "label": "MGT 189 - Topics in Finance"
+    },
+    {
+        "value": "SE 9",
+        "label": "SE 9 - Algorithms&Programming for SE"
+    },
+    {
+        "value": "SE 101A",
+        "label": "SE 101A - Mechanics I: Statics"
+    },
+    {
+        "value": "SE 101B",
+        "label": "SE 101B - Mechanics II: Dynamics"
+    },
+    {
+        "value": "SE 102",
+        "label": "SE 102 - Intro. to Computing for Eng."
+    },
+    {
+        "value": "SE 103",
+        "label": "SE 103 - Conceptual Structural Design"
+    },
+    {
+        "value": "SE 110A",
+        "label": "SE 110A - Solid Mechanics I"
+    },
+    {
+        "value": "SE 110B",
+        "label": "SE 110B - Solid Mechanics II"
+    },
+    {
+        "value": "SE 115",
+        "label": "SE 115 - Fluid Mechanics/Structural Eng"
+    },
+    {
+        "value": "SE 130A",
+        "label": "SE 130A - Structural Analysis I"
+    },
+    {
+        "value": "SE 140A",
+        "label": "SE 140A - Design of Civil Structures I"
+    },
+    {
+        "value": "SE 143A",
+        "label": "SE 143A - Aerospace Structural Design I"
+    },
+    {
+        "value": "SE 151A",
+        "label": "SE 151A - Design of Reinforced Concrete"
+    },
+    {
+        "value": "SE 160A",
+        "label": "SE 160A - Aerospace Structural Mechs I"
+    },
+    {
+        "value": "SE 167",
+        "label": "SE 167 - Signal Proc.&Spectral Analysis"
+    },
+    {
+        "value": "SE 171",
+        "label": "SE 171 - Aerospace Structures Repair"
+    },
+    {
+        "value": "SE 182",
+        "label": "SE 182 - Foundation Engineering"
+    },
+    {
+        "value": "SIO 1",
+        "label": "SIO 1 - The Planets"
+    },
+    {
+        "value": "SIO 3",
+        "label": "SIO 3 - Life in the Oceans"
+    },
+    {
+        "value": "SIO 25",
+        "label": "SIO 25 - Climate Change and Society"
+    },
+    {
+        "value": "SIO 45",
+        "label": "SIO 45 - Volcanoes"
+    },
+    {
+        "value": "SIO 65",
+        "label": "SIO 65 - Geosciences Seminar"
+    },
+    {
+        "value": "SIO 87",
+        "label": "SIO 87 - First-year Seminar"
+    },
+    {
+        "value": "SIO 90",
+        "label": "SIO 90 - Undergraduate Seminar"
+    },
+    {
+        "value": "SIO 102",
+        "label": "SIO 102 - Introduction to Geochemistry"
+    },
+    {
+        "value": "SIO 107",
+        "label": "SIO 107 - Water Pollution"
+    },
+    {
+        "value": "SIO 109R",
+        "label": "SIO 109R - Bending/Curve: Climate Change"
+    },
+    {
+        "value": "SIO 116",
+        "label": "SIO 116 - Climate Change & Global Health"
+    },
+    {
+        "value": "SIO 119",
+        "label": "SIO 119 - Physics and Chem of the Oceans"
+    },
+    {
+        "value": "SIO 120",
+        "label": "SIO 120 - Mineralogy"
+    },
+    {
+        "value": "SIO 123",
+        "label": "SIO 123 - Microbial Env Systems Biology"
+    },
+    {
+        "value": "SIO 126",
+        "label": "SIO 126 - Marine Microbiology"
+    },
+    {
+        "value": "SIO 133",
+        "label": "SIO 133 - Marine Mammal Biology"
+    },
+    {
+        "value": "SIO 134",
+        "label": "SIO 134 - Intro/Biological Oceanography"
+    },
+    {
+        "value": "SIO 144",
+        "label": "SIO 144 - Intro to Isotope Geochemistry"
+    },
+    {
+        "value": "SIO 161",
+        "label": "SIO 161 - Seismology"
+    },
+    {
+        "value": "SIO 162",
+        "label": "SIO 162 - Structural Geology"
+    },
+    {
+        "value": "SIO 164",
+        "label": "SIO 164 - Underwater Archaeology"
+    },
+    {
+        "value": "SIO 172",
+        "label": "SIO 172 - Physics of the Atmosphere"
+    },
+    {
+        "value": "SIO 178",
+        "label": "SIO 178 - Geophysical Fluid Dynamics"
+    },
+    {
+        "value": "SIO 182",
+        "label": "SIO 182 - Envr & Exploration Geophysics"
+    },
+    {
+        "value": "SIO 187",
+        "label": "SIO 187 - Stat Methods in Marine Biology"
+    },
+    {
+        "value": "SIO 190L",
+        "label": "SIO 190L - Spc Topic/Earth/Ocean/Atmo-Lab"
+    },
+    {
+        "value": "SIO 194",
+        "label": "SIO 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "SIO 196",
+        "label": "SIO 196 - Honors Thesis Research"
+    },
+    {
+        "value": "SOCE 194",
+        "label": "SOCE 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "SOCI 1",
+        "label": "SOCI 1 - Introduction to Sociology"
+    },
+    {
+        "value": "SOCI 2",
+        "label": "SOCI 2 - The Study of Society"
+    },
+    {
+        "value": "SOCI 20",
+        "label": "SOCI 20 - Social Change/Modern World"
+    },
+    {
+        "value": "SOCI 60",
+        "label": "SOCI 60 - Practice of Social Research"
+    },
+    {
+        "value": "SOCI 70",
+        "label": "SOCI 70 - Gen Soc for Pre-Med Students"
+    },
+    {
+        "value": "SOCI 100",
+        "label": "SOCI 100 - Classical Sociological Theory"
+    },
+    {
+        "value": "SOCI 103M",
+        "label": "SOCI 103M - Computer Appl/Data Management"
+    },
+    {
+        "value": "SOCI 104",
+        "label": "SOCI 104 - Fld Res:Meth/Participnt Observ"
+    },
+    {
+        "value": "SOCI 106",
+        "label": "SOCI 106 - Comparative&Historical Methods"
+    },
+    {
+        "value": "SOCI 109",
+        "label": "SOCI 109 - Analysis of Sociological Data"
+    },
+    {
+        "value": "SOCI 117",
+        "label": "SOCI 117 - Language, Culture & Education"
+    },
+    {
+        "value": "SOCI 118",
+        "label": "SOCI 118 - Sociology of Gender"
+    },
+    {
+        "value": "SOCI 119",
+        "label": "SOCI 119 - Sexuality & Sexual Identities"
+    },
+    {
+        "value": "SOCI 120T",
+        "label": "SOCI 120T - Spec Top/Cult,Lang&Soc Interac"
+    },
+    {
+        "value": "SOCI 124",
+        "label": "SOCI 124 - The Good Society"
+    },
+    {
+        "value": "SOCI 125",
+        "label": "SOCI 125 - Sociology of Immigration"
+    },
+    {
+        "value": "SOCI 126",
+        "label": "SOCI 126 - Social Organization/Education"
+    },
+    {
+        "value": "SOCI 127",
+        "label": "SOCI 127 - Immigration, Race, & Ethnicity"
+    },
+    {
+        "value": "SOCI 130E",
+        "label": "SOCI 130E - Sociology of Higher Education"
+    },
+    {
+        "value": "SOCI 133E",
+        "label": "SOCI 133E - Sociology of Race & Ethnicity"
+    },
+    {
+        "value": "SOCI 135",
+        "label": "SOCI 135 - Medical Sociology"
+    },
+    {
+        "value": "SOCI 136E",
+        "label": "SOCI 136E - Soc/Mental Illness:Hist Apprch"
+    },
+    {
+        "value": "SOCI 136F",
+        "label": "SOCI 136F - Soc/Mental Illness/Contemp Soc"
+    },
+    {
+        "value": "SOCI 140",
+        "label": "SOCI 140 - Sociology Of Law"
+    },
+    {
+        "value": "SOCI 142",
+        "label": "SOCI 142 - Social Deviance"
+    },
+    {
+        "value": "SOCI 144P",
+        "label": "SOCI 144P - Sociology of Policing"
+    },
+    {
+        "value": "SOCI 148",
+        "label": "SOCI 148 - Political Sociology"
+    },
+    {
+        "value": "SOCI 148E",
+        "label": "SOCI 148E - Inequality and Jobs"
+    },
+    {
+        "value": "SOCI 149",
+        "label": "SOCI 149 - Sociology of the Environment"
+    },
+    {
+        "value": "SOCI 150",
+        "label": "SOCI 150 - Madness and the Movies"
+    },
+    {
+        "value": "SOCI 154",
+        "label": "SOCI 154 - Religious Institutions/America"
+    },
+    {
+        "value": "SOCI 159",
+        "label": "SOCI 159 - Spec Top/Soc/Organztns&Institn"
+    },
+    {
+        "value": "SOCI 160",
+        "label": "SOCI 160 - Sociology of Culture"
+    },
+    {
+        "value": "SOCI 161",
+        "label": "SOCI 161 - Sociology of the Life Course"
+    },
+    {
+        "value": "SOCI 162",
+        "label": "SOCI 162 - Popular Culture"
+    },
+    {
+        "value": "SOCI 169",
+        "label": "SOCI 169 - Debating Citizenship Rights"
+    },
+    {
+        "value": "SOCI 170",
+        "label": "SOCI 170 - Shifting Ideologies of Gender"
+    },
+    {
+        "value": "SOCI 171",
+        "label": "SOCI 171 - Technology and Society"
+    },
+    {
+        "value": "SOCI 173",
+        "label": "SOCI 173 - Soc/Health, Illness, Medicine"
+    },
+    {
+        "value": "SOCI 175",
+        "label": "SOCI 175 - Nationality and Citizenship"
+    },
+    {
+        "value": "SOCI 180",
+        "label": "SOCI 180 - Social Movemnts&Social Protest"
+    },
+    {
+        "value": "SOCI 183",
+        "label": "SOCI 183 - Geography/American Opportunity"
+    },
+    {
+        "value": "SOCI 188",
+        "label": "SOCI 188 - Field Research in Migrant Comm"
+    },
+    {
+        "value": "SOCI 188E",
+        "label": "SOCI 188E - Community&Social Change/Africa"
+    },
+    {
+        "value": "SOCI 196B",
+        "label": "SOCI 196B - Hon Sem:Supervisd Thesis Rsrch"
+    },
+    {
+        "value": "SOCI 198RA",
+        "label": "SOCI 198RA - Research Apprenticeship"
+    },
+    {
+        "value": "ENG 10",
+        "label": "ENG 10 - Fundamentals/Engineering Appln"
+    },
+    {
+        "value": "ENG 100D",
+        "label": "ENG 100D - Sustainable Development Design"
+    },
+    {
+        "value": "ENG 100L",
+        "label": "ENG 100L - Design for Development Lab"
+    },
+    {
+        "value": "PH 40",
+        "label": "PH 40 - Introduction to Public Health"
+    },
+    {
+        "value": "PH 45",
+        "label": "PH 45 - Intro: Public Health Research"
+    },
+    {
+        "value": "PH 91",
+        "label": "PH 91 - Topics in Public Health"
+    },
+    {
+        "value": "PH 95",
+        "label": "PH 95 - Medical School Prep 101"
+    },
+    {
+        "value": "PH 98",
+        "label": "PH 98 - Directed Group Study"
+    },
+    {
+        "value": "PH 101",
+        "label": "PH 101 - Epidemiology"
+    },
+    {
+        "value": "PH 102",
+        "label": "PH 102 - Biostatistics in Public Health"
+    },
+    {
+        "value": "PH 110",
+        "label": "PH 110 - HealthBehavior/Chronic Disease"
+    },
+    {
+        "value": "PH 120",
+        "label": "PH 120 - Health Policies/Lifestyles"
+    },
+    {
+        "value": "PH 130",
+        "label": "PH 130 - Environment/OccupationalHealth"
+    },
+    {
+        "value": "PH 161",
+        "label": "PH 161 - ClinicalNutrition/PublicHealth"
+    },
+    {
+        "value": "PH 172",
+        "label": "PH 172 - Immunizations & Public Health"
+    },
+    {
+        "value": "PH 193",
+        "label": "PH 193 - Public Health Capstone I"
+    },
+    {
+        "value": "PH 194",
+        "label": "PH 194 - Public Health Capstone II"
+    },
+    {
+        "value": "PH 196AH",
+        "label": "PH 196AH - Honors Practicum I"
+    },
+    {
+        "value": "SYN 1",
+        "label": "SYN 1 - Communicating/Changing Planet"
+    },
+    {
+        "value": "SYN 1R",
+        "label": "SYN 1R - Communicating/Changing Planet"
+    },
+    {
+        "value": "SYN 2",
+        "label": "SYN 2 - Inquiring/Changing Planet"
+    },
+    {
+        "value": "SYN 2R",
+        "label": "SYN 2R - Inquiring/Changing Planet"
+    },
+    {
+        "value": "SYN 100",
+        "label": "SYN 100 - Engaging/Changing Planet"
+    },
+    {
+        "value": "SYN 150",
+        "label": "SYN 150 - Defining Scope/Changing Planet"
+    },
+    {
+        "value": "SYN 150R",
+        "label": "SYN 150R - Defining Scope/Changing Planet"
+    },
+    {
+        "value": "TDAC 1",
+        "label": "TDAC 1 - Introduction to Acting"
+    },
+    {
+        "value": "TDAC 101",
+        "label": "TDAC 101 - Acting I"
+    },
+    {
+        "value": "TDAC 102",
+        "label": "TDAC 102 - Acting II"
+    },
+    {
+        "value": "TDAC 108",
+        "label": "TDAC 108 - Advanced Topics"
+    },
+    {
+        "value": "TDAC 111",
+        "label": "TDAC 111 - Freeing The Voice"
+    },
+    {
+        "value": "TDAC 115",
+        "label": "TDAC 115 - Movement for Actors"
+    },
+    {
+        "value": "TDAC 122",
+        "label": "TDAC 122 - Ensemble: Undergrad Production"
+    },
+    {
+        "value": "TDDE 1",
+        "label": "TDDE 1 - Intro/Design for the Theatre"
+    },
+    {
+        "value": "TDDE 111",
+        "label": "TDDE 111 - Theatre Process - Costumes"
+    },
+    {
+        "value": "TDDE 130",
+        "label": "TDDE 130 - Assistant Designer"
+    },
+    {
+        "value": "TDDE 132",
+        "label": "TDDE 132 - UG Mainstage Production:Design"
+    },
+    {
+        "value": "TDDM 1",
+        "label": "TDDM 1 - Introduction to Dance Making"
+    },
+    {
+        "value": "TDDM 101",
+        "label": "TDDM 101 - Dance Making 2"
+    },
+    {
+        "value": "TDDR 101",
+        "label": "TDDR 101 - Stage Management"
+    },
+    {
+        "value": "TDDR 102",
+        "label": "TDDR 102 - Advanced Stage Management"
+    },
+    {
+        "value": "TDDR 190",
+        "label": "TDDR 190 - Major Project in Directing"
+    },
+    {
+        "value": "TDGE 1",
+        "label": "TDGE 1 - Introduction to Theatre"
+    },
+    {
+        "value": "TDGE 11",
+        "label": "TDGE 11 - Great Performances on Film"
+    },
+    {
+        "value": "TDGE 25",
+        "label": "TDGE 25 - Public Speaking"
+    },
+    {
+        "value": "TDGE 87",
+        "label": "TDGE 87 - First-year Seminar"
+    },
+    {
+        "value": "TDGE 124",
+        "label": "TDGE 124 - Cult Films: Weirdly Dramatic"
+    },
+    {
+        "value": "TDGE 127",
+        "label": "TDGE 127 - The Films of Spike Lee"
+    },
+    {
+        "value": "TDGE 131",
+        "label": "TDGE 131 - Playing Indian:Native Am Cinem"
+    },
+    {
+        "value": "TDGE 196A",
+        "label": "TDGE 196A - Honors in Theatre and Dance"
+    },
+    {
+        "value": "TDHD 20",
+        "label": "TDHD 20 - Looking at Dance"
+    },
+    {
+        "value": "TDHD 176",
+        "label": "TDHD 176 - Dance History: Special Topics"
+    },
+    {
+        "value": "TDHT 10",
+        "label": "TDHT 10 - Introduction to Play Analysis"
+    },
+    {
+        "value": "TDHT 22",
+        "label": "TDHT 22 - Theatre 1500-1900"
+    },
+    {
+        "value": "TDHT 101",
+        "label": "TDHT 101 - Topics: Lit & Theatre History"
+    },
+    {
+        "value": "TDHT 102",
+        "label": "TDHT 102 - Masters in Theatre"
+    },
+    {
+        "value": "TDHT 111",
+        "label": "TDHT 111 - Latinx Theatre and Performance"
+    },
+    {
+        "value": "TDMV 1",
+        "label": "TDMV 1 - Beginning Ballet"
+    },
+    {
+        "value": "TDMV 2",
+        "label": "TDMV 2 - Beginning Contemporary Dance"
+    },
+    {
+        "value": "TDMV 3",
+        "label": "TDMV 3 - Beginning Jazz"
+    },
+    {
+        "value": "TDMV 11",
+        "label": "TDMV 11 - Theatrical Tap"
+    },
+    {
+        "value": "TDMV 20",
+        "label": "TDMV 20 - Movement Lab"
+    },
+    {
+        "value": "TDMV 110",
+        "label": "TDMV 110 - Intermediate Ballet"
+    },
+    {
+        "value": "TDMV 120",
+        "label": "TDMV 120 - Intermediate Contemp Dance"
+    },
+    {
+        "value": "TDMV 123",
+        "label": "TDMV 123 - Contact Improvisation"
+    },
+    {
+        "value": "TDMV 130",
+        "label": "TDMV 130 - Intermediate Jazz"
+    },
+    {
+        "value": "TDMV 138",
+        "label": "TDMV 138 - Beginning Hip Hop"
+    },
+    {
+        "value": "TDMV 140",
+        "label": "TDMV 140 - Dances Of The World"
+    },
+    {
+        "value": "TDMV 142",
+        "label": "TDMV 142 - Latin Dance of the World"
+    },
+    {
+        "value": "TDMV 143",
+        "label": "TDMV 143 - West African Dance"
+    },
+    {
+        "value": "TDMV 144",
+        "label": "TDMV 144 - Asian Dance"
+    },
+    {
+        "value": "TDMV 146",
+        "label": "TDMV 146 - Intermediate Latin Dance"
+    },
+    {
+        "value": "TDMV 148",
+        "label": "TDMV 148 - Intermediate Hip Hop"
+    },
+    {
+        "value": "TDPF 161",
+        "label": "TDPF 161 - Studies/Perform-Winter Product"
+    },
+    {
+        "value": "TDPF 163",
+        "label": "TDPF 163 - Dance Repertory"
+    },
+    {
+        "value": "TDPR 6",
+        "label": "TDPR 6 - Theatre Practicum"
+    },
+    {
+        "value": "TDPR 102",
+        "label": "TDPR 102 - Advanced Theatre Practicum"
+    },
+    {
+        "value": "TDPR 104",
+        "label": "TDPR 104 - Adv Practicum/Stage Management"
+    },
+    {
+        "value": "TDPW 101",
+        "label": "TDPW 101 - Intermediate Playwriting"
+    },
+    {
+        "value": "TDPW 104",
+        "label": "TDPW 104 - Screenwriting"
+    },
+    {
+        "value": "TDTR 10",
+        "label": "TDTR 10 - Introduction to Dance"
+    },
+    {
+        "value": "TDTR 15",
+        "label": "TDTR 15 - Dance Movement and Analysis"
+    },
+    {
+        "value": "TDTR 104",
+        "label": "TDTR 104 - Dance Theory & Pedagogy"
+    },
+    {
+        "value": "TMC 15",
+        "label": "TMC 15 - Public Service in America"
+    },
+    {
+        "value": "TMC 20",
+        "label": "TMC 20 - Thurgood Marshall Col Hnrs Sem"
+    },
+    {
+        "value": "EXPR 100",
+        "label": "EXPR 100 - UC/DC Program Elective"
+    },
+    {
+        "value": "EXPR 105",
+        "label": "EXPR 105 - Global Exchange Program"
+    },
+    {
+        "value": "USP 2",
+        "label": "USP 2 - Urban World System"
+    },
+    {
+        "value": "USP 3",
+        "label": "USP 3 - City and Social Theory"
+    },
+    {
+        "value": "USP 4",
+        "label": "USP 4 - Intro/Geographic Info Systems"
+    },
+    {
+        "value": "USP 5",
+        "label": "USP 5 - Intro to Real Estate/Develmnt"
+    },
+    {
+        "value": "USP 6",
+        "label": "USP 6 - Intro to Global Architecture"
+    },
+    {
+        "value": "USP 15",
+        "label": "USP 15 - Urban Econ/Plan&Development"
+    },
+    {
+        "value": "USP 25",
+        "label": "USP 25 - Real Estate/Principle&Analysis"
+    },
+    {
+        "value": "USP 100",
+        "label": "USP 100 - Introduction to Urban Planning"
+    },
+    {
+        "value": "USP 101",
+        "label": "USP 101 - Introduction/Policy Analysis"
+    },
+    {
+        "value": "USP 108",
+        "label": "USP 108 - Planning Theories"
+    },
+    {
+        "value": "USP 124",
+        "label": "USP 124 - Land Use Planning"
+    },
+    {
+        "value": "USP 128A",
+        "label": "USP 128A - CAS: Community Engaged Resrch"
+    },
+    {
+        "value": "USP 138",
+        "label": "USP 138 - Urban Economic Development"
+    },
+    {
+        "value": "USP 141A",
+        "label": "USP 141A - Life Course Scholars Research"
+    },
+    {
+        "value": "USP 143",
+        "label": "USP 143 - The US Health Care System"
+    },
+    {
+        "value": "USP 150",
+        "label": "USP 150 - Real Estate/Law & Regulation"
+    },
+    {
+        "value": "USP 151",
+        "label": "USP 151 - Real Estate Plan & Development"
+    },
+    {
+        "value": "USP 152A",
+        "label": "USP 152A - Real Estate/Dev Finance&Invest"
+    },
+    {
+        "value": "USP 153",
+        "label": "USP 153 - Real Estate&DevMarket Analysis"
+    },
+    {
+        "value": "USP 158A",
+        "label": "USP 158A - Adv. Special Topics in RED"
+    },
+    {
+        "value": "USP 159A",
+        "label": "USP 159A - University Challenge I"
+    },
+    {
+        "value": "USP 165A",
+        "label": "USP 165A - Adv.SpecTopics/Housing"
+    },
+    {
+        "value": "USP 165B",
+        "label": "USP 165B - Adv.SpecTopics/Sustainability"
+    },
+    {
+        "value": "USP 170",
+        "label": "USP 170 - Planning for Sustainable Comm"
+    },
+    {
+        "value": "USP 171",
+        "label": "USP 171 - Sustainable Development"
+    },
+    {
+        "value": "USP 173",
+        "label": "USP 173 - History/Urban Planning&Design"
+    },
+    {
+        "value": "USP 175",
+        "label": "USP 175 - Site Analysis"
+    },
+    {
+        "value": "USP 177A",
+        "label": "USP 177A - Urban Design Practicum"
+    },
+    {
+        "value": "USP 179",
+        "label": "USP 179 - Urban Design,Theory & Practice"
+    },
+    {
+        "value": "USP 180",
+        "label": "USP 180 - Transportation Planning"
+    },
+    {
+        "value": "USP 183",
+        "label": "USP 183 - Geography/American Opportunity"
+    },
+    {
+        "value": "USP 185B",
+        "label": "USP 185B - Real Estate Fin/Dev Studio II"
+    },
+    {
+        "value": "USP 187",
+        "label": "USP 187 - Senior Seq. Research Project"
+    },
+    {
+        "value": "USP 188",
+        "label": "USP 188 - Field Research in Migrant Comm"
+    },
+    {
+        "value": "USP 189",
+        "label": "USP 189 - Special Topics/Urban Planning"
+    },
+    {
+        "value": "USP 191A",
+        "label": "USP 191A - Int. GIS for Urban & Comm Plan"
+    },
+    {
+        "value": "USP 193",
+        "label": "USP 193 - San Diego Community Research"
+    },
+    {
+        "value": "USP 194",
+        "label": "USP 194 - Research Seminar/Washington DC"
+    },
+    {
+        "value": "VIS 2",
+        "label": "VIS 2 - Intr/Art-Making:Motn&Time Base"
+    },
+    {
+        "value": "VIS 6",
+        "label": "VIS 6 - Race, Gender, and Robots"
+    },
+    {
+        "value": "VIS 11",
+        "label": "VIS 11 - Introduction to Visual Culture"
+    },
+    {
+        "value": "VIS 21B",
+        "label": "VIS 21B - Introduction/Asian Art"
+    },
+    {
+        "value": "VIS 22",
+        "label": "VIS 22 - Formations of Modern Art"
+    },
+    {
+        "value": "VIS 41",
+        "label": "VIS 41 - Design Communication"
+    },
+    {
+        "value": "VIS 60",
+        "label": "VIS 60 - Intro/Digital Photography"
+    },
+    {
+        "value": "VIS 83",
+        "label": "VIS 83 - Photographic History"
+    },
+    {
+        "value": "VIS 100",
+        "label": "VIS 100 - Introduction to Public Culture"
+    },
+    {
+        "value": "VIS 101A",
+        "label": "VIS 101A - Designing Urban Ecologies"
+    },
+    {
+        "value": "VIS 103",
+        "label": "VIS 103 - Architectural Practices"
+    },
+    {
+        "value": "VIS 103B",
+        "label": "VIS 103B - Architecture&Urbanism of Korea"
+    },
+    {
+        "value": "VIS 105A",
+        "label": "VIS 105A - Drawing: Representing/Subject"
+    },
+    {
+        "value": "VIS 105B",
+        "label": "VIS 105B - Drawing: Practices and Genre"
+    },
+    {
+        "value": "VIS 105C",
+        "label": "VIS 105C - Drawing: Portfolio Projects"
+    },
+    {
+        "value": "VIS 106A",
+        "label": "VIS 106A - Painting:  Image Making"
+    },
+    {
+        "value": "VIS 106B",
+        "label": "VIS 106B - Painting: Practices and Genre"
+    },
+    {
+        "value": "VIS 107A",
+        "label": "VIS 107A - Sculpture: Making the Object"
+    },
+    {
+        "value": "VIS 107C",
+        "label": "VIS 107C - Sculpture: Portfolio Projects"
+    },
+    {
+        "value": "VIS 108",
+        "label": "VIS 108 - Advanced Projects in Art"
+    },
+    {
+        "value": "VIS 110D",
+        "label": "VIS 110D - Visual Narrative"
+    },
+    {
+        "value": "VIS 110F",
+        "label": "VIS 110F - Instlatn:Cross-Discipln Projct"
+    },
+    {
+        "value": "VIS 110M",
+        "label": "VIS 110M - Studio Honors I"
+    },
+    {
+        "value": "VIS 112",
+        "label": "VIS 112 - Theories and Methods"
+    },
+    {
+        "value": "VIS 114B",
+        "label": "VIS 114B - The Fragment:Uses and Theories"
+    },
+    {
+        "value": "VIS 124G",
+        "label": "VIS 124G - Art and Modernity"
+    },
+    {
+        "value": "VIS 125G",
+        "label": "VIS 125G - Hist. of Socially Engaged Art"
+    },
+    {
+        "value": "VIS 126HN",
+        "label": "VIS 126HN - Pac Coast American Indian Art"
+    },
+    {
+        "value": "VIS 128C",
+        "label": "VIS 128C - Topics in Modern Art History"
+    },
+    {
+        "value": "VIS 128D",
+        "label": "VIS 128D - Topics/Art History of Americas"
+    },
+    {
+        "value": "VIS 129E",
+        "label": "VIS 129E - Seminar/Art History/Asia"
+    },
+    {
+        "value": "VIS 131",
+        "label": "VIS 131 - Special Projects in Media"
+    },
+    {
+        "value": "VIS 133",
+        "label": "VIS 133 - Lecture Topics in Spec Design"
+    },
+    {
+        "value": "VIS 133A",
+        "label": "VIS 133A - Studio Topics in Spec Design"
+    },
+    {
+        "value": "VIS 135",
+        "label": "VIS 135 - Design Research Methods"
+    },
+    {
+        "value": "VIS 141A",
+        "label": "VIS 141A - Computer Programming/Arts I"
+    },
+    {
+        "value": "VIS 142",
+        "label": "VIS 142 - Practices in Computing Arts"
+    },
+    {
+        "value": "VIS 145A",
+        "label": "VIS 145A - Time&Process Digital Media I"
+    },
+    {
+        "value": "VIS 146B",
+        "label": "VIS 146B - Comp Controlled Fab Art 2"
+    },
+    {
+        "value": "VIS 147A",
+        "label": "VIS 147A - Electronic Technologies/Art I"
+    },
+    {
+        "value": "VIS 147B",
+        "label": "VIS 147B - Electronic Technologies/Art II"
+    },
+    {
+        "value": "VIS 149",
+        "label": "VIS 149 - Contemporary Computer Topics"
+    },
+    {
+        "value": "VIS 150",
+        "label": "VIS 150 - Landmarks of World Cinema"
+    },
+    {
+        "value": "VIS 157D",
+        "label": "VIS 157D - USCivilRights:Art&Media"
+    },
+    {
+        "value": "VIS 160A",
+        "label": "VIS 160A - Senior Proj/Computing Arts I"
+    },
+    {
+        "value": "VIS 161",
+        "label": "VIS 161 - Systems and Networks at Scale"
+    },
+    {
+        "value": "VIS 164",
+        "label": "VIS 164 - Photographic Strategies"
+    },
+    {
+        "value": "VIS 165B",
+        "label": "VIS 165B - The Photographer's Studio"
+    },
+    {
+        "value": "VIS 169A",
+        "label": "VIS 169A - PhotographyExhibition&Books"
+    },
+    {
+        "value": "VIS 171",
+        "label": "VIS 171 - Digital Cinema Theory/Practice"
+    },
+    {
+        "value": "VIS 174",
+        "label": "VIS 174 - Media Sketchbook"
+    },
+    {
+        "value": "VIS 179",
+        "label": "VIS 179 - Intermediate Projects in Media"
+    },
+    {
+        "value": "VIS 180A",
+        "label": "VIS 180A - Documentary Evidence/Media Pra"
+    },
+    {
+        "value": "VIS 180B",
+        "label": "VIS 180B - Fic & Allegory/Curr Media Prac"
+    },
+    {
+        "value": "VIS 182A",
+        "label": "VIS 182A - Adv Digital Photo Editing"
+    },
+    {
+        "value": "VIS 185",
+        "label": "VIS 185 - Senior Media Projects"
+    },
+    {
+        "value": "WCWP 10A",
+        "label": "WCWP 10A - The Writing Course A"
+    },
+    {
+        "value": "WCWP 10B",
+        "label": "WCWP 10B - The Writing Course B"
+    },
+    {
+        "value": "WCWP 100",
+        "label": "WCWP 100 - Academic Writing"
+    }
+]
