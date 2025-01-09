@@ -79,7 +79,7 @@ const RegisterPage = () => {
                 if (
                     !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\/])[A-Za-z\d@$!%*?&\/]{8,}$/.test(value)
                   ) {
-                    return "Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a number, and a special character.";
+                    return "Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a number, and a special character @$!%*?&/";
                   }
 
                 return "";
