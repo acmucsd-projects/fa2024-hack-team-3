@@ -48,7 +48,7 @@ const LoginPage = () => {
 
         try {
             // Send login request to backend
-            const response = await axios.post("http://localhost:5000/api/users/login", {
+            const response = await axios.post("https://fa2024-hack-team-3-bwgb.onrender.com/api/users/login", {
                 username,
                 password,
             });
