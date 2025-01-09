@@ -116,8 +116,8 @@ const GroupChatModal = () => {
   return (
     <DialogRoot >
     <DialogTrigger asChild>
-      <Button variant="outline" d="flex"
-              fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+      <Button variant="outline" d="flex" bg="bg.buttons" _hover={{ bg: "blue.600" }}
+              // fontSize={{ base: "17px", md: "10px", lg: "17px" }}
               >New Group Chat <IoMdAdd />
       </Button>
       

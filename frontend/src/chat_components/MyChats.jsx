@@ -43,6 +43,7 @@ const MyChats = ({fetchAgain}) => {
       alignItems="center"
       p={3}
       // bg="white"
+      bg="bg.subtle"
       w={{ base: "100%", md: "31%" }}
       borderRadius="lg"
       borderWidth="1px"
@@ -50,15 +51,17 @@ const MyChats = ({fetchAgain}) => {
       <Box
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
+        // fontSize={{ base: "28px", md: "30px" }}
         // fontFamily="Work sans"
-        display="flex"
+        display={{lg: 'flex'}}
+        // direction={"column"}
         w="100%"
         justifyContent="space-between"
         alignItems="center"
       >
 
-        My Chats
+        <Text textStyle={"3xl"}>MY CHATS</Text>
+        <Box padding={2}></Box>
         <GroupChatModal/>
           {/* <Button
               d="flex"
@@ -89,7 +92,7 @@ const MyChats = ({fetchAgain}) => {
                   setSelectedChat(chat);
                   ;}}
                 cursor="pointer"
-                bg={selectedChat === chat ? "bg.buttons" : "bg.subtle"}
+                bg={selectedChat === chat ? "bg.buttons" : "bg.chat"}
                 color={selectedChat === chat ? "white" : "bg.DEFAULT"}
                 px={3}
                 py={2}

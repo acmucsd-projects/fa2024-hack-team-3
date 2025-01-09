@@ -56,6 +56,12 @@ const config = defineConfig({
             },
             description: {
               value: { _light: "#00629B", _dark: "#CBD5E0" },
+            },
+            DEFAULT_INVERSE: {
+              value: { _light: "#FFFFFF", _dark: "#000000" },
+            },
+            chat: {
+              value: { _light: "#e9e9e9", _dark: "#1a1a1a" },
             }
 
           },

@@ -7,6 +7,8 @@ import {Field} from "../components/ui/field";
 import axios from "axios";
 import "./style.css";
 import ScrollableChat from "./ScrollableChat";
+import system from '../theme'
+import { ChakraProvider } from "@chakra-ui/react"
 
 const SingleChat = ({fetchAgain, setFetchAgain}) => {
     const {selectedChat, setSelectedChat, user} = ChatState();
@@ -80,7 +82,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
 
 
     return (
-        <>
+        <ChakraProvider value={system}>
             {selectedChat ? (
                 
                 <>
@@ -103,7 +105,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                     </Box>
                 ) : (
                     <Box>
-                        Chat with {getSender(user._id, selectedChat.users)} 
+                        {getSender(user._id, selectedChat.users)} 
                         <span style={{ marginLeft: '5px', fontSize: '15px', color: 'white', backgroundColor: '#173F5F', borderRadius: '5px', padding: '2px'}}>
                             {getSenderProfile(user._id, selectedChat.users)}
                         </span>
@@ -118,7 +120,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                     flexDir="column"
                     justifyContent="flex-end"
                     p={3}
-                    bg="bg.subtle"
+                    bg="bg.chat"
                     w="100%"
                     h="100%"
                     borderRadius="lg"
@@ -145,7 +147,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                             mt={3}>
                             <Input
                                 variant="filled"
-                                bg="bg.subtle"
+                                bg="bg.DEFAULT"
                                 alignItems={"bottom"}
                                 placeholder="Enter a message.."
                                 value={newMessage}
@@ -161,7 +163,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                 </Text>
                 </Box>
             )}
-        </>
+        </ChakraProvider>
     )
     }
 

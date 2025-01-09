@@ -123,10 +123,10 @@ const SideDrawer = () => {
                         <DrawerRoot placement={"start"}>
                         <DrawerBackdrop />
                         <DrawerTrigger asChild>
-                            <Button variant="ghost">
+                            <Button variant="ghost" bg="bg.buttons" _hover={{ bg: "blue.600"}}>
                                 {/* <i className="fa-solid fa-magnifying-glass">Search</i> */}
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                <Text display={{base: "none", md:"flex"}} px="4">
+                                <Text display={{base: "none", md:"flex"}} px="2">
                                     Search User
                                 </Text>
                             </Button>
