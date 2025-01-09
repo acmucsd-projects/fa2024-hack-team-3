@@ -96,7 +96,7 @@ const MakePostButton = ({ setPosts, courses }) => {
     });
   
     try {
-      const response = await axios.post('http://localhost:5000/api/posts', {
+      const response = await axios.post('https://fa2024-hack-team-3-bwgb.onrender.com/api/posts', {
         title,
         description,
         tags,

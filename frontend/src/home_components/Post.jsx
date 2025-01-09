@@ -59,7 +59,7 @@ const Post = ({ post, onDelete, onEdit }) => {
         const fetchCourses = async () => {
           try {
             const token = localStorage.getItem("authToken");
-            const response = await axios.get("http://localhost:5000/api/users/me", {
+            const response = await axios.get("https://fa2024-hack-team-3-bwgb.onrender.com/api/users/me", {
               headers: {
                 Authorization: `Bearer ${token}`,
               },
@@ -207,7 +207,7 @@ const Post = ({ post, onDelete, onEdit }) => {
     const fetchComments = async () => {
         try {
             setLoadingComments(true);
-            const response = await axios.get(`http://localhost:5000/api/posts/${post._id}/comments`);
+            const response = await axios.get(`https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/${post._id}/comments`);
             const commentsWithState = response.data.map((comment) => ({
                 ...comment,
                 isExpanded: false, // Initially collapsed
@@ -257,7 +257,7 @@ const Post = ({ post, onDelete, onEdit }) => {
 
         try {
             const response = await axios.post(
-                `http://localhost:5000/api/posts/${post._id}/comments`,
+                `https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/${post._id}/comments`,
                 payload,
                 { 
                     headers: { Authorization: `Bearer ${authToken}` }, 
@@ -274,7 +274,7 @@ const Post = ({ post, onDelete, onEdit }) => {
     
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
+            await axios.delete(`https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/${post._id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`, // Include token
                 },
@@ -307,7 +307,7 @@ const Post = ({ post, onDelete, onEdit }) => {
             };
 
             await axios.patch(
-                `http://localhost:5000/api/posts/${post._id}`,
+                `https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/${post._id}`,
                 updatedPost,
                 {
                     headers: {
@@ -316,7 +316,7 @@ const Post = ({ post, onDelete, onEdit }) => {
                 }
             );
 
-            const response = await axios.get(`http://localhost:5000/api/posts/${post._id}`);
+            const response = await axios.get(`https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/${post._id}`);
             // Update the UI with the updated post
             console.log('Updated post:', response.data);
             onEdit(response.data);
@@ -374,7 +374,7 @@ const Post = ({ post, onDelete, onEdit }) => {
       
         try {
           const response = await axios.patch(
-            `http://localhost:5000/api/posts/comments/${id}`,
+            `https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/comments/${id}`,
             { text: updatedText },
             { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
           );
@@ -395,7 +395,7 @@ const Post = ({ post, onDelete, onEdit }) => {
 
       const handleDeleteComment = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/posts/comments/${id}`, {
+            await axios.delete(`https://fa2024-hack-team-3-bwgb.onrender.com/api/posts/comments/${id}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('authToken')}` },
             });
             setComments((prev) => prev.filter((c) => c._id !== id));

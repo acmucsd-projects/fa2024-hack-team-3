@@ -16,7 +16,7 @@ export default defineConfig({
   },
   // server: {
   //   proxy: {
-  //     "/api": "http://localhost:5000", 
+  //     "/api": "https://fa2024-hack-team-3-bwgb.onrender.com", 
   //   },
   // },
 });

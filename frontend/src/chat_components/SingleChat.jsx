@@ -28,7 +28,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
             }
 
             
-            const {data} = await axios.get(`http://localhost:5000/api/message/${selectedChat._id}`, config);
+            const {data} = await axios.get(`https://fa2024-hack-team-3-bwgb.onrender.com/api/message/${selectedChat._id}`, config);
             // console.log(data);
             setMessages(data);
 
@@ -58,7 +58,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                 };
 
                 setnewMessage("");
-                const {data} = await axios.post("http://localhost:5000/api/message", {
+                const {data} = await axios.post("https://fa2024-hack-team-3-bwgb.onrender.com/api/message", {
                     content: newMessage,
                     chatId: selectedChat._id,
                 }, config);

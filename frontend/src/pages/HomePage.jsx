@@ -33,7 +33,7 @@ const HomePage = () => {
   
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:5000/api/posts')
+    axios.get('https://fa2024-hack-team-3-bwgb.onrender.com/api/posts')
     .then(response => {
       // console.log(response.data)
       setPosts(response.data); // set posts in state
@@ -47,7 +47,7 @@ const HomePage = () => {
     const fetchCourses = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("http://localhost:5000/api/users/me", {
+        const response = await axios.get("https://fa2024-hack-team-3-bwgb.onrender.com/api/users/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

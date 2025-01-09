@@ -21,14 +21,14 @@ const ProfilePage = () => {
                 const authToken = localStorage.getItem('authToken');
     
                 // Fetch profile
-                const profileResponse = await axios.get('http://localhost:5000/api/users/profile', {
+                const profileResponse = await axios.get('https://fa2024-hack-team-3-bwgb.onrender.com/api/users/profile', {
                     headers: { Authorization: `Bearer ${authToken}` },
                 });
                 setProfileData(profileResponse.data);
                 localStorage.setItem('authUserId', profileResponse.data.user._id); // Save the user ID
     
                 // Fetch courses
-                const coursesResponse = await axios.get('http://localhost:5000/api/users/me', {
+                const coursesResponse = await axios.get('https://fa2024-hack-team-3-bwgb.onrender.com/api/users/me', {
                     headers: { Authorization: `Bearer ${authToken}` },
                 });
                 const preloadedCourses = coursesResponse.data.courses.map((course) => course.name);
