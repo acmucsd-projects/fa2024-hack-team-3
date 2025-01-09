@@ -9,7 +9,7 @@ import User from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
-import cloudinary from 'cloudinary';
+import {v2 as cloudinary} from "cloudinary"
 import Post from '../models/postModel.js';
 import Comment from '../models/commentModel.js';
 
