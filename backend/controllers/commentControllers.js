@@ -1,6 +1,7 @@
-const Comment = require('../models/commentModel');
-const Post = require('../models/postModel'); // Optional, for verifying post existence
-
+// const Comment = require('../models/commentModel');
+// const Post = require('../models/postModel'); // Optional, for verifying post existence
+import Comment from '../models/commentModel.js';
+import Post from '../models/postModel.js';
 
 // Fetch all comments for a post
 const getCommentsByPostId = async (req, res) => {
@@ -123,4 +124,5 @@ const deleteComment = async (req, res) => {
 };
 
 
-module.exports = { getCommentsByPostId, addCommentToPost, editComment, deleteComment};
+// module.exports = { getCommentsByPostId, addCommentToPost, editComment, deleteComment};
+export { getCommentsByPostId, addCommentToPost, editComment, deleteComment };

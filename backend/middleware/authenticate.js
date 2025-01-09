@@ -1,6 +1,7 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/userModel'); // Adjust the path as needed
-
+// const jwt = require('jsonwebtoken');
+// const User = require('../models/userModel'); // Adjust the path as needed
+import jwt from 'jsonwebtoken';
+import User from '../models/userModel.js'; // Adjust the path as needed
 
 
 const authenticate = (req, res, next) => {
@@ -30,4 +31,5 @@ const authenticate = (req, res, next) => {
     }
 };
 
-module.exports = authenticate;
+// module.exports = authenticate;
+export default authenticate;

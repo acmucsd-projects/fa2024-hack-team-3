@@ -1,10 +1,18 @@
-const User = require('../models/userModel');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-const Post = require('../models/postModel');
-const Comment = require('../models/commentModel');
+// const User = require('../models/userModel');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
+// const multer = require('multer');
+// const cloudinary = require('cloudinary').v2;
+// const Post = require('../models/postModel');
+// const Comment = require('../models/commentModel');
+import User from '../models/userModel.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import multer from 'multer';
+import cloudinary from 'cloudinary';
+import Post from '../models/postModel.js';
+import Comment from '../models/commentModel.js';
+
 
 const getAllUsers = async (req, res) => {
     // try {
@@ -375,19 +383,21 @@ const getUserCourses = async (req, res) => {
   };
   
 
-module.exports = {
-    getAllUsers,
-    getUser,
-    createUser,
-    loginUser,
-    checkUsername,
-    checkEmail,
-    deleteUser,
-    updateUser,
-    uploadProfilePicture,
-    changePassword,
-    getLoggedInUser,
-    updateCourses,
-    getUserProfile,
-    getUserCourses,
-}
+// module.exports = {
+//     getAllUsers,
+//     getUser,
+//     createUser,
+//     loginUser,
+//     checkUsername,
+//     checkEmail,
+//     deleteUser,
+//     updateUser,
+//     uploadProfilePicture,
+//     changePassword,
+//     getLoggedInUser,
+//     updateCourses,
+//     getUserProfile,
+//     getUserCourses,
+// }
+
+export { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser, uploadProfilePicture, changePassword, getLoggedInUser, updateCourses, getUserProfile, getUserCourses };

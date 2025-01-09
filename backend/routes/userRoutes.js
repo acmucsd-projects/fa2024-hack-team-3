@@ -1,8 +1,14 @@
-const express = require('express');
-const multer = require('multer');
+// const express = require('express');
+// const multer = require('multer');
+// const upload = multer({ storage: multer.memoryStorage() });
+// const { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser, uploadProfilePicture, changePassword, getLoggedInUser, updateCourses, getUserProfile, getUserCourses} = require('../controllers/userControllers');
+// const authenticate = require('../middleware/authenticate');
+
+import express from 'express';
+import multer from 'multer';
 const upload = multer({ storage: multer.memoryStorage() });
-const { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser, uploadProfilePicture, changePassword, getLoggedInUser, updateCourses, getUserProfile, getUserCourses} = require('../controllers/userControllers');
-const authenticate = require('../middleware/authenticate');
+import { getAllUsers, getUser, createUser, loginUser, checkUsername, checkEmail, deleteUser, updateUser, uploadProfilePicture, changePassword, getLoggedInUser, updateCourses, getUserProfile, getUserCourses } from '../controllers/userControllers.js';
+import authenticate from '../middleware/authenticate.js';
 
 
 const router = express.Router();
@@ -33,4 +39,5 @@ router.patch('/:id', updateUser);
 router.get('/:id/courses', getUserCourses);
 router.post("/:id/upload", upload.single("file"), uploadProfilePicture);
 router.get('/:id', getUser);
-module.exports = router;
+// module.exports = router;
+export default router;

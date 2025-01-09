@@ -1,7 +1,11 @@
-const mongoose = require('mongoose');
-const Post = require('../models/postModel');
-const User = require('../models/userModel');
-const Comment = require('../models/commentModel');
+// const mongoose = require('mongoose');
+// const Post = require('../models/postModel');
+// const User = require('../models/userModel');
+// const Comment = require('../models/commentModel');
+import mongoose from 'mongoose';
+import Post from '../models/postModel.js';
+import User from '../models/userModel.js';
+import Comment from '../models/commentModel.js';
 
 const getAllPosts = async (req, res) => {
     try {
@@ -129,10 +133,12 @@ const updatePost = async (req, res) => {
     }
 };
 
-module.exports = {
-    getAllPosts,
-    getPost,
-    createPost,
-    deletePost,
-    updatePost
-}
+// module.exports = {
+//     getAllPosts,
+//     getPost,
+//     createPost,
+//     deletePost,
+//     updatePost
+// }
+
+export {getAllPosts, getPost, createPost, deletePost, updatePost};

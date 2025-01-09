@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema(
     {
@@ -33,4 +34,7 @@ const commentSchema = new mongoose.Schema(
 // commentSchema.index({ postId: 1, createdAt: -1 });
 commentSchema.index({ text: 'text' });
 
-module.exports = mongoose.model('Comment', commentSchema);
+// module.exports = mongoose.model('Comment', commentSchema);
+const Comment = mongoose.model('Comment', commentSchema);
+
+export default Comment;

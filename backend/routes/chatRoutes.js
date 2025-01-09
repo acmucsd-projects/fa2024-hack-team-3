@@ -1,7 +1,12 @@
-const express = require('express');
-const authenticate = require('../middleware/authenticate');
-const { accessChat,fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup} = require('../controllers/chatController')
-const Chat = require('../models/chatModel');
+// const express = require('express');
+// const authenticate = require('../middleware/authenticate');
+// const { accessChat,fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup} = require('../controllers/chatController')
+// const Chat = require('../models/chatModel');
+
+import express from "express";
+import authenticate from "../middleware/authenticate.js";
+import { accessChat, fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup } from "../controllers/chatController.js";
+import Chat from "../models/chatModel.js";
 
 const router = express.Router();
 
@@ -20,4 +25,4 @@ router.delete('/clear', async (req, res) => {
     }
   });
 
-module.exports = router;
+export default router;

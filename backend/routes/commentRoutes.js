@@ -1,9 +1,12 @@
 // commentRoutes.js
-const express = require('express');
+// const express = require('express');
+// const router = express.Router();
+// const { getCommentsByPostId, addCommentToPost, editComment, deleteComment} = require('../controllers/commentControllers');
+// const authenticate = require('../middleware/authenticate'); // Import the authenticate middleware
+import express from 'express';
 const router = express.Router();
-const { getCommentsByPostId, addCommentToPost, editComment, deleteComment} = require('../controllers/commentControllers');
-const authenticate = require('../middleware/authenticate'); // Import the authenticate middleware
-
+import { getCommentsByPostId, addCommentToPost, editComment, deleteComment } from '../controllers/commentControllers.js';
+import authenticate from '../middleware/authenticate.js'; // Import the authenticate middleware
 // Fetch all comments for a post
 router.get('/:postId/comments', getCommentsByPostId);
 
@@ -16,5 +19,5 @@ router.patch('/comments/:id', authenticate, editComment);
 // Delete a comment
 router.delete('/comments/:id', authenticate, deleteComment);
 
-module.exports = router;
-
+// module.exports = router;
+export default router;

@@ -1,8 +1,12 @@
-const asyncHandler = require("express-async-handler");
-const Chat = require("../models/chatModel");
-// const { create } = require("../models/commentModel");
-const User = require("../models/userModel");
-const Message = require("../models/messageModel");
+// const asyncHandler = require("express-async-handler");
+// const Chat = require("../models/chatModel");
+// // const { create } = require("../models/commentModel");
+// const User = require("../models/userModel");
+// const Message = require("../models/messageModel");
+import asyncHandler from "express-async-handler";
+import Chat from "../models/chatModel.js";
+import User from "../models/userModel.js";
+import Message from "../models/messageModel.js";
 
 const accessChat = asyncHandler(async(req, res)=> {
     const {receiver_id} = req.body;
@@ -178,4 +182,5 @@ const removeFromGroup = asyncHandler(async(req, res) => {
     }
 });
 
-module.exports = {accessChat, fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup};
+// module.exports = {accessChat, fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup};
+export {accessChat, fetchChat, createGroupChat, renameGroupChat, addToGroup, removeFromGroup};
