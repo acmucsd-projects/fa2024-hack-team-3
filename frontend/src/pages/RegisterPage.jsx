@@ -49,7 +49,7 @@ const RegisterPage = () => {
                 }
 
                 try {
-                    const response = await axios.post("https::/localhost:5000/api/users/check-username", { username: value });
+                    const response = await axios.post("https://localhost:5000/api/users/check-username", { username: value });
 
                     if (response.data.exists) {
                         return "Username is already taken";
@@ -65,7 +65,7 @@ const RegisterPage = () => {
                 }
 
                 try {
-                    const response = await axios.post("https::/localhost:5000/api/users/check-email", { emailAddress: value });
+                    const response = await axios.post("https://localhost:5000/api/users/check-email", { emailAddress: value });
 
                     if (response.data.exists) {
                         return "Email is already taken";
@@ -153,7 +153,7 @@ const RegisterPage = () => {
 
         try {
             // Make API call to register user
-            const response = await axios.post("https::/localhost:5000/api/users", {
+            const response = await axios.post("https://localhost:5000/api/users", {
                 username,
                 emailAddress: email,
                 password,

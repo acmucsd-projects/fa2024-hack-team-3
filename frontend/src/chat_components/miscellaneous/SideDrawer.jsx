@@ -62,7 +62,7 @@ const SideDrawer = () => {
             console.log("Request URL:", `api/users?search=${search}`); // Logs the full request URL
             console.log("Request Headers:", config); // Logs the headers, including Authorization
 
-            const { data } = await axios.get(`https::/localhost:5000/api/users?search=${search}`, config);
+            const { data } = await axios.get(`https://localhost:5000/api/users?search=${search}`, config);
             console.log("Search Results Data:", data);
             setSearchResult(data);
         }catch(error){
@@ -88,7 +88,7 @@ const SideDrawer = () => {
             };
 
             
-            const { data } = await axios.post(`https::/localhost:5000/api/chatpage`, {receiver_id}, config);
+            const { data } = await axios.post(`https://localhost:5000/api/chatpage`, {receiver_id}, config);
             
             if(!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
             console.log(chats);

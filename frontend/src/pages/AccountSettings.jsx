@@ -19,7 +19,7 @@ const AccountSettings = () => {
 
   // Fetch posts from the backend when the component mounts
   useEffect(() => {
-    axios.get('https::/localhost:5000/api/posts')
+    axios.get('https://localhost:5000/api/posts')
     .then(response => {
       // console.log(response.data)
       setPosts(response.data); // set posts in state
@@ -33,7 +33,7 @@ const AccountSettings = () => {
     const fetchCourses = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await axios.get("https::/localhost:5000/api/users/me", {
+        const response = await axios.get("https://localhost:5000/api/users/me", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
