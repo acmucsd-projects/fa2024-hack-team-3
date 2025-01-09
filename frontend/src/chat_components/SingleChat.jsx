@@ -158,7 +158,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                 </>
             ) : (
                 <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-                <Text fontSize="3xl" pb={3} >
+                <Text fontSize="3xl" pb={3} fontWeight="bold">
                     No Chat Selected 
                 </Text>
                 </Box>
