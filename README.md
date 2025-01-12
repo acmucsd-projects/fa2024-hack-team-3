@@ -32,14 +32,14 @@ git push
 ```
 
 # Running Frontend Website (If JSON file method isn't working)
-In one terminal:
+In one terminal, to run the backend:
 ```
 cd backend
 npm i
 npm start
 ```
 
-In another terminal, to run the backend:
+In another terminal, to run the frontend:
 ```
 cd ../frontend
 npm i
