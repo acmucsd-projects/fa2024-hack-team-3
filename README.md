@@ -3,6 +3,8 @@
 StudyLink is a platform designed to streamline the process for students to find and connect with study partners with ease. 
 By fostering a collaborative and friendly learning environment (without the awkwardness), StudyLink makes it easier than ever for students to collaborate, discuss about school life, and excel academically together.
 
+Our website can be found (when online) on: https://fa2024-hack-team-3-bwgb.onrender.com/
+
 ## Prerequisites
 
 - Install Node and npm [here](https://nodejs.org/en/download/)
