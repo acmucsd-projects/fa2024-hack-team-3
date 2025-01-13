@@ -9,16 +9,45 @@ import "./style.css";
 import ScrollableChat from "./ScrollableChat";
 import system from '../theme'
 import { ChakraProvider } from "@chakra-ui/react"
+import io from "socket.io-client";
+import animationData from "./animation/typing.json";
+import Lottie from "react-lottie";
+
+const ENDPOINT = "http://localhost:5000";
+var socket, selectedChatCompare;
 
 const SingleChat = ({fetchAgain, setFetchAgain}) => {
-    const {selectedChat, setSelectedChat, user} = ChatState();
+    const {selectedChat, setSelectedChat, user, notification, setNotification} = ChatState();
     const [newMessage, setnewMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(false);
-    
+    const [socketConnected, setSocketConnected] = useState(false);
+    const [typing, setTyping] = useState(false);
+    const [isTyping, setIsTyping] = useState(false);
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      };
+    useEffect(() => {
+        socket = io(ENDPOINT);
+        console.log(user);
+        socket.emit("setup", localStorage.getItem("authUserId"));
+        socket.on("typing", () => setIsTyping(true));
+        socket.on("stop typing", () => setIsTyping(false));
+        socket.on("connected", () => {
+            setSocketConnected(true);
+            console.log("Successfully connected to the server");
+        });
+    }, []);
+
     const fetchMessages = async() => {
         if(!selectedChat) return;
-
+      
         try {
             setLoading(true);
             const config = {
@@ -31,11 +60,13 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
             const {data} = await axios.get(`https://fa2024-hack-team-3-bwgb.onrender.com/api/message/${selectedChat._id}`, config);
             // console.log(data);
             setMessages(data);
-
+            
         }catch(error) {
             alert("Error fetching messages");
         }finally {
             setLoading(false);
+            console.log(selectedChat._id);
+            socket.emit("join chat", selectedChat._id);
         }
 
 
@@ -43,11 +74,27 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
 
     useEffect(() => {
         fetchMessages();
+        selectedChatCompare = selectedChat;
     }, [selectedChat]);
 
+
+    console.log(notification.chat);
+    useEffect(() => {
+        socket.on("message received", (newMessageReceived) => {
+            if(!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id) {
+                if(!notification.includes(newMessageReceived.chat._id)) {
+                    setNotification([...notification, newMessageReceived]);
+                    setFetchAgain(!fetchAgain);
+                }
+            }else{
+                setMessages([...messages, newMessageReceived]);
+            }
+        });
+    }, [socketConnected]);
+
     const sendMessage = async(event) => {
-      
         if(event.key === "Enter" && newMessage) {
+            socket.emit("stop typing", selectedChat._id);
             try {
                 setLoading(true);
                 const config = {
@@ -63,19 +110,42 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                     chatId: selectedChat._id,
                 }, config);
 
-                console.log(data);
-               
+                // console.log(data);
+                socket.emit("New Message", data);
                 setMessages([...messages, data]);
             }catch(error) {
                 alert("Error sending message");
             }finally {
                 setLoading(false);
+               
             }
         }
     };
 
+
+   
+
     const typingHandler = (e) => {
         setnewMessage(e.target.value);
+        if(!socketConnected) return;
+
+        
+        if (!typing) {
+            setTyping(true);
+            console.log(typing);
+            socket.emit("typing", selectedChat._id);
+        }
+
+        let lastTypingTime = new Date().getTime();
+
+        setTimeout(() => {
+            const timeNow = new Date().getTime();
+            if(timeNow - lastTypingTime >= 3000 && typing) {
+                socket.emit("stop typing", selectedChat._id);
+                setTyping(false);
+            }
+        }, 3000);
+
       
         
     };
@@ -116,8 +186,8 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                 </Text>
               
                 <Box
-                    display="flex"
-                    flexDir="column"
+                    display="flex "
+                    flexDirection="column"
                     justifyContent="flex-end"
                     p={3}
                     bg="bg.chat"
@@ -145,6 +215,14 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                             id="first-name"
                             isRequired
                             mt={3}>
+                            {isTyping ? 
+                            <div>
+                                <Lottie
+                                options={defaultOptions}
+                               
+                                width={70}
+                                style={{ marginBottom: 15, marginLeft: 0 }}/>
+                            </div> : <></>}
                             <Input
                                 variant="filled"
                                 bg="bg.DEFAULT"

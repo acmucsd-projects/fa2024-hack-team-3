@@ -26,7 +26,9 @@ import axios from 'axios';
 import ChatLoading from '../ChatLoading';
 import UserListItem from '../UserListItem';
 import {ChatState} from "../../../Context/ChatProvider"
-
+import { getSender } from '../../../config/ChatLogic';
+import NotificationBadge from 'react-notification-badge';
+import { Effect } from 'react-notification-badge';
 
 
 
@@ -37,7 +39,7 @@ const SideDrawer = () => {
     const [searchResult, setSearchResult] = useState([]);
     const [loading, setLoading] = useState(false);
     const [loadingChat, setLoadingChat] = useState(false);
-    const { user, setSelectedChat, chats, setChats } = ChatState(); 
+    const { user, setSelectedChat, chats, setChats, notification, setNotification } = ChatState(); 
 
 
 
@@ -195,12 +197,31 @@ const SideDrawer = () => {
                 <MenuRoot>
                     <MenuTrigger asChild>
                         <Button variant="outline" size="sm" p={1}>
+                            <NotificationBadge count={notification.length} effect={Effect.SCALE}/>
                             <FaBell />
                         </Button>
-                        {/* <MenuContent> */}
-                            {/* <MenuItem value="..." /> */}
-                        {/* </MenuContent> */}
                     </MenuTrigger>
+                        <MenuContent>
+                            {!notification.length && "No New Messages"}
+                            {notification.map((notif) => (
+                                <MenuItem
+                                key={notif._id}
+                                onClick={() => {
+                                    setSelectedChat(notif.chat);
+                                    setNotification(notification.filter((n) => n !== notif));
+                                }}
+                               
+                                >
+                                    {console.log(notif)}
+                                    {notif.chat?.isGroupChat
+                                        ? `New Message in ${notif.chat.chatName}`
+                                        : notif.chat?.users
+                                            ? `New Message from ${getSender(user, notif.chat.users)}`
+                                            : "New Message"}
+                                </MenuItem>
+                            ))}
+                        </MenuContent>
+
                 </MenuRoot>
             </Flex>
 

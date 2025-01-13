@@ -63,6 +63,8 @@ import postRoutes from "./routes/postRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import path from "path";
 import cors from "cors";
+import { Server } from "socket.io";
+
 
 dotenv.config();
 
@@ -94,7 +96,49 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     connectDB();
     console.log('Server started at http://localhost:' + PORT);
+});
+
+const io = new Server(server,{
+    pingTimeout: 60000,
+    cors: {
+        origin: ['http://localhost:5000',
+        "https://fa2024-hack-team-3-bwgb.onrender.com"]
+    },
+});
+
+io.on("connection", (socket) => {
+    console.log("Connected to socket.io");
+
+    socket.on("setup", (userData) => {
+        console.log(userData);
+        socket.join(userData);
+        socket.emit("connected");
+    });
+
+    socket.on("join chat", (room) => {
+        socket.join(room);
+        console.log("User joined chat: " + room);
+    });
+
+    socket.on("typing", (room) => socket.in(room).emit("typing"));
+    socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
+    socket.on("New Message", (newMessageReceived) => {
+        var chat = newMessageReceived.chat;
+        if (!chat.users) return console.log("chat.users not defined");
+
+        chat.users.forEach((user) => {
+            if (user._id === newMessageReceived.sender._id) return;
+
+            socket.in(user._id).emit("message received", newMessageReceived);
+        });
+    });
+
+
+    socket.off("setup", () => { 
+        console.log("User disconnected");
+        socket.leave(userData);
+    });
 });

@@ -72,11 +72,7 @@ const ChatPage = () => {
     <Box p={4} maxW="100vw" mx="auto">
     <Header setPosts={setPosts} courses={courses}/>
     <header />
-        {/* <Sidebar /> */}
-  
-      {/* <Link to={"/"}>
-          <h1 style={{color: "black"}}>back to home</h1>
-      </Link> */}
+    
          <div style = {{width: "100%"}}>
             {/* Render the SideDrawer only if user is defined */}         
             {user && <SideDrawer />}
