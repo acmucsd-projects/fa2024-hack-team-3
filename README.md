@@ -1,8 +1,9 @@
-# 📖 Study Buddy Application
+# **📖 StudyLink Application**
 
-Template for building projects with the MERN (MongoDB, Express, React, Node.js) stack.
-This template was generated using `create-next-app` and `express-generator` for the
-client and server, respectively.
+StudyLink is a platform designed to streamline the process for students to find and connect with study partners with ease. 
+By fostering a collaborative and friendly learning environment (without the awkwardness), StudyLink makes it easier than ever for students to collaborate, discuss about school life, and excel academically together.
+
+Our website can be found (when online) on: https://fa2024-hack-team-3-bwgb.onrender.com/
 
 ## Prerequisites
 
@@ -15,18 +16,10 @@ client and server, respectively.
 DB_URL=mongodb://mongodburl.example.com:portnumber
 ```
 
-## Running
+## Running Locally
 
-1. `cd` into `client` and run the command `yarn install` to install all dependencies
-2. To start the client, run `yarn dev` in the same directory
-3. In another command window, `cd` into `server` and run `yarn install` and `npm start`
-   to install all dependencies and start the server.
-4. To kill a port, use 'npx kill-port <PORT_NUMBER>'
-5. For Linux/Mac use 'sudo lsof' to see what ports are active.
-6. For Windows, use 'netstat -a -b'
-7. If you want to change the port for server, head to the server/bins/www. 
-   Look for the line ```var port = normalizePort(process.env.PORT || '3001');```
-    Change it to any port you like!
+1. npm build
+2. npm start
 8. Happy hacking!
 hi!!!!!!!!
 
@@ -40,15 +33,15 @@ git commit -m "message"
 git push
 ```
 
-# Running Frontend Website
-In one terminal:
+# Running Frontend Website (If JSON file method isn't working)
+In one terminal, to run the backend:
 ```
 cd backend
 npm i
 npm start
 ```
 
-In another terminal:
+In another terminal, to run the frontend:
 ```
 cd ../frontend
 npm i
