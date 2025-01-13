@@ -77,7 +77,6 @@ const SideDrawer = () => {
     };
 
     const accessChat = async(receiver_id) => {
-        // console.log(userId);
 
         try{
             setLoading(true);

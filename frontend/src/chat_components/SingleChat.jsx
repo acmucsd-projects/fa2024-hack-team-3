@@ -78,7 +78,6 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
     }, [selectedChat]);
 
 
-    console.log(notification.chat);
     useEffect(() => {
         socket.on("message received", (newMessageReceived) => {
             if(!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id) {
@@ -110,7 +109,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                     chatId: selectedChat._id,
                 }, config);
 
-                // console.log(data);
+               
                 socket.emit("New Message", data);
                 setMessages([...messages, data]);
             }catch(error) {
