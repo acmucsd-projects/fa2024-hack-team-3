@@ -18,7 +18,7 @@ DB_URL=mongodb://mongodburl.example.com:portnumber
 
 ## Running Locally
 
-1. npm build
+1. npm run build
 2. npm start
 8. Happy hacking!
 hi!!!!!!!!
