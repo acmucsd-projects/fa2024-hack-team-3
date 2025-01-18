@@ -22,7 +22,6 @@ DB_URL=mongodb://mongodburl.example.com:portnumber
 2. npm start
 8. Happy hacking!
 hi!!!!!!!!
-
 ```
 
 # Pushing to the ACM Repository:
