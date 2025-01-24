@@ -16,15 +16,6 @@ import Sidebar from '../account_settings_components/Sidebar';
 import {useNavigate} from "react-router";
 
 const HomePage = () => {
-  // const navigate = useNavigate();
-  // localStorage.setItem("userInfo", JSON.stringify({ name: "Leon Chen" }));
-
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
-
-  //   if(userInfo){setUser(JSON.parse(userInfo));
-  //           navigate("/chat");}
-  // }, [navigate]);
 
   // State to store the posts
   const [posts, setPosts] = useState([]);

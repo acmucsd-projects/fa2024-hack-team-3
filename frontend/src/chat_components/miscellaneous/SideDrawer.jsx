@@ -55,8 +55,8 @@ const SideDrawer = () => {
       
             const config = {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-
+                    // Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                    Authorization: `Bearer ${user.token}`,
                 },
             }
 
@@ -84,7 +84,8 @@ const SideDrawer = () => {
             const config = {
                 headers: {
                     "Content-type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                    // Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                    Authorization: `Bearer ${user.token}`,
                 },
             };
 

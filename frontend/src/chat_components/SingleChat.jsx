@@ -37,6 +37,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
         socket = io(ENDPOINT);
         console.log(user);
         socket.emit("setup", localStorage.getItem("authUserId"));
+        // socket.emit("setup", user.id);
         socket.on("typing", () => setIsTyping(true));
         socket.on("stop typing", () => setIsTyping(false));
         socket.on("connected", () => {

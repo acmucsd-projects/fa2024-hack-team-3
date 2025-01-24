@@ -3,44 +3,6 @@ import React, { useState, createContext, useContext, useEffect } from "react";
 import "../src/styles/ChatProvider.css"
 import {useNavigate} from "react-router";
 
-// function ChatWindow() {
-//   const [messages, setMessages] = useState([
-//     {
-//       text: "Hey! Are you working on the project for the biology class?",
-//       sender: "other",
-//     },
-//     { text: "Yes, I am. Do you need any help?", sender: "self" },
-//     { text: "That would be great! Can we meet tomorrow?", sender: "other" },
-//   ]);
-
-//   const [input, setInput] = useState("");
-
-//   const handleSendMessage = () => {
-//     if (input.trim()) {
-//       setMessages([...messages, { text: input, sender: "self" }]);
-//       setInput("");
-//     }
-//   };
-
-//   return (
-//     <div className="chat-window">
-//       <div className="messages">
-//         {messages.map((message, index) => (
-//           <Message key={index} text={message.text} sender={message.sender} />
-//         ))}
-//       </div>
-//       <div className="input-area">
-//         <input
-//           type="text"
-//           value={input}
-//           onChange={(e) => setInput(e.target.value)}
-//           placeholder="Type your message..."
-//         />
-//         <button onClick={handleSendMessage}>Send</button>
-//       </div>
-//     </div>
-//   );
-// }
 
 
 
@@ -55,15 +17,9 @@ export const ChatProvider= ({children}) => {
   
   // console.log(children);
   const navigate = useNavigate();
-  // localStorage.setItem("userInfo", JSON.stringify({ name: "Leon Chen" }));
 
   useEffect(() => {
-  //     const userInfo = localStorage.getItem("userInfo");
-  //     setUser(userInfo);
 
-  //     if(!userInfo){
-  //       navigate("/");
-  //     }
     const token = localStorage.getItem("authToken");
     const userId = localStorage.getItem("authUserId");
     if (token && userId) {

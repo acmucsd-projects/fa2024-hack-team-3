@@ -49,7 +49,8 @@ const GroupChatModal = () => {
 
       const config = {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          // Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          Authorization: `Bearer ${user.token}`,
         },
       };
 
@@ -85,7 +86,8 @@ const GroupChatModal = () => {
     try{
       const config = {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`
+          // Authorization: `Bearer ${localStorage.getItem("authToken")}`
+          Authorization: `Bearer ${user.token}`
         }
       }
       const {data} = await axios.post(`https://fa2024-hack-team-3-bwgb.onrender.com/api/chatpage/group`, {

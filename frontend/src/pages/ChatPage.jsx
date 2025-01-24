@@ -18,14 +18,7 @@ import { set } from 'date-fns';
 
 
 const ChatPage = () => {
-  // const navigate = useNavigate();
-  // localStorage.setItem("userInfo", JSON.stringify({ name: "Leon Chen" }));
-
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
-
-  //   if(userInfo){navigate("/chat");}
-  // }, [navigate]);
+ 
 
   const user = ChatState();
   const [fetchAgain, setFetchAgain] = useState(false);
@@ -48,10 +41,10 @@ const ChatPage = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const token = localStorage.getItem("authToken");
+        // const token = localStorage.getItem("authToken");
         const response = await axios.get("https://fa2024-hack-team-3-bwgb.onrender.com/api/users/me", {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${user.token}`,
           },
         });
         
@@ -72,7 +65,7 @@ const ChatPage = () => {
     <Box p={4} maxW="100vw" mx="auto">
     <Header setPosts={setPosts} courses={courses}/>
     <header />
-    
+
          <div style = {{width: "100%"}}>
             {/* Render the SideDrawer only if user is defined */}         
             {user && <SideDrawer />}
