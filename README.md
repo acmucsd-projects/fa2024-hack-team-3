@@ -60,5 +60,6 @@ CLOUDINARY_API_SECRET=<api_secret>
 
 # Newest Running Website (If JSON file method isn't working)
 npm run build
+
 npm start
 
