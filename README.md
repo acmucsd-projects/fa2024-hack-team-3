@@ -57,3 +57,8 @@ CLOUDINARY_CLOUD_NAME=<cloud_name>
 CLOUDINARY_API_KEY=<api_key>
 CLOUDINARY_API_SECRET=<api_secret>
 ```
+
+# Newest Running Website (If JSON file method isn't working)
+npm run build
+npm start
+
